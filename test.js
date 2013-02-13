@@ -1,3 +1,6 @@
+// Goal of this file is to output open shops as a JSON
+// with corresponding Geolocations.
+
 /*
 var xpath = require('xpath')
     , dom = require('xmldom').DOMParser
@@ -74,10 +77,18 @@ for (var index in entries) {
 
 function convert(day, time) {
 	// convert time Mo, 8:30 = (24 + 8 + 30)
-	//console.log(day + ", " + time)
+	// console.log(day + ", " + time)
+	var matches = time.match(/\d+/g);
+	var hours = parseInt(matches[0]);
+
+	if (matches.length > 1 && matches[1] != undefined)
+		var mins = parseInt(matches[1]);
+	else 
+		var mins = 0;
 
 	var arr = {"Su" : 0, "Mo" : 1, "Tu" : 2, "We" : 3, "Th" : 4, 
 			"Fr" : 5, "Sa" : 6};
 
-	return (arr[day] +
+	//return (arr[day] * 24) + hours + mins;
+	return (60*hours) + mins;
 }
