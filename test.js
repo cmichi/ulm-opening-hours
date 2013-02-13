@@ -12,14 +12,24 @@ var nodes = xpath.select("//node", doc)
 var results = [];
 
 for (var i in nodes) {
+	//var i = 4;
 	//console.log(nodes[i].toString())
 
 	var new_doc = new dom().parseFromString( nodes[i].toString() );
+
+	var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
+	if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
+		continue;
+
+	var xml_name = xpath.select("//tag[@k='name']/@v", new_doc);
+	if (xml_name == undefined || xml_name.length === 0) 
+		xml_name = xpath.select("//node/@uid", new_doc);
+
 	var obj = {
 		lat : xpath.select("//node/@lat", new_doc)[0].value
 		, lon : xpath.select("//node/@lon", new_doc)[0].value
-		, name : xpath.select("//tag[@k='name']/@v", new_doc)[0].value
-		, opening_hours: xpath.select("//tag[@k='opening_hours']/@v", new_doc)[0].value
+		, name : xml_name[0].value
+		, opening_hours: xml_opening_hours[0].value
 	};
 
 	// var foo = "Mo, Th 8:30-13:30, 14:45-18:00; Tu, Fr 8:30-13:30, 14:45-17:00; We 8:30-12:30"
@@ -27,7 +37,7 @@ for (var i in nodes) {
 
 	results.push(obj);
 	//console.log(JSON.stringify(obj));
-	if (i == 1) break;
+	//if (i == 4) break;
 }
 
 console.log(JSON.stringify(results));
