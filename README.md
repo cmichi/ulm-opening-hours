@@ -11,6 +11,13 @@ questions like "_Which shops/bakeries/restaurants/etc. are still open?_" or
 The data which is used will for now be exported from the OSM project.
 
 
+# Getting started
+
+	$ node server.js
+
+Then open http://localhost:3000/
+
+
 # Libraries
 
  * jQuery, jQuery Mobile
