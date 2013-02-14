@@ -1,4 +1,6 @@
 var map;
+var overlayMaps;
+var ctrls;
 var entity_groups = [];
 var tile_groups = [];
 var ctrls;
@@ -47,37 +49,60 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 		L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
 
-		var overlayMaps = {};
+		overlayMaps = {};
 		for (var i in tile_groups) {
 			overlayMaps[i] = tile_groups[i];
 			tile_groups[i].addTo(map);
 		}
 
-		var ctrls = L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
-
-
 		var info = L.control();
-info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-	this.update();
-	    return this._div;
-	    };
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'leaflet-control '
+				+ 'leaflet-control-layers leaflet-control-layers-expanded');
+			this.update();
+			return this._div;
+		};
 
-	    info.update = function (props) {
-		this._div.innerHTML = '<h4>Foobar</h4>' +
-		(props ?
-			'<b>' + props.name + '</b><br />' + props.density +
-			' people / mi<sup>2</sup>'
-				: 'Lorem Ipsum <input type="checkbox" name="foo" onclick="javascript:tile_groups[0].clearLayers()" /> ');
-				};
+		info.update = function (props) {
+			this._div.innerHTML = '<h4>Ulm Opening Hours<br /><span id="time"></span></h4>';
+		};
 
-				info.addTo(map);
-	});
+		info.addTo(map);
+
+		var all_ctrls = L.control();
+		all_ctrls.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'leaflet-control '
+				+ 'leaflet-control-layers leaflet-control-layers-expanded');
+			this.update();
+			return this._div;
+		};
+
+		all_ctrls.update = function (props) {
+			this._div.innerHTML = "<div class='all_ctrls'><a href='javascript:all(true);'>Alle aktivieren</a>" +
+				"&nbsp;|&nbsp;" + 
+				"<a href='javascript:all(false);'>Alle deaktivieren</a></div>";
+		};
+
+		ctrls = L.control.layers(null, overlayMaps, {collapsed: false})
+		ctrls.addTo(map);
+		all_ctrls.addTo(map);
+
+		/*
+		ctrls._container.innerHTML = '<h4>Ulm Opening Hours<br /><span id="time"></span></h4>'
+		+ ctrls._container.innerHTML;
+
+		ctrls._container.innerHTML += "<hr /><div class='all_ctrls'><a href=''>Alle aktivieren</a>" +
+		"&nbsp;|&nbsp;" + 
+		"<a href='javascript:all(false);'>Alle deaktivieren</a></div>";
+		*/
+
+
+
+});
 
 	socket.on('time', function (time) {    
 		document.getElementById('time').innerHTML = 
-			"<h1>Dargestellte Uhrzeit: " + time.hours + ":" + time.mins
-			+ "</h1>";
+			"<strong>" + time.hours + ":" + time.mins + "</strong>";
 	});
 
 
@@ -91,3 +116,13 @@ info.onAdd = function (map) {
 	*/
 
 }, false);
+
+
+function all(v) {
+	for (var i in ctrls._form) {
+		if (ctrls._form[i] !== null && ctrls._form[i].type === "checkbox") {
+			ctrls._form[i].checked = v;
+		}
+	}
+	ctrls._onInputClick();
+}

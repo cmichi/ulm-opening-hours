@@ -27,20 +27,29 @@ h1 {
 	font-size:1.8em;
 	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.35);
 
-font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 	color: #222;
 }
 
 
-.info {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-}
-.info h4 {
-    margin: 0 0 5px;
+.leaflet-control-layers {
+/*    font: 14px/16px Arial, Helvetica, sans-serif;
     color: #777;
+*/
+width: 200px;
+}
+
+.leaflet-control h4 {
+	margin:8px 0px 8px 5px;
+	font-size:1.6em;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.15);
+	text-align: right;
+	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+	color: #222;
+
+}
+
+
+.all_ctrls {
+	text-align:center;
 }

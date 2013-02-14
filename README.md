@@ -18,6 +18,10 @@ The data which is used will for now be exported from the OSM project.
  * Box with checkboxes for interactive category filtering
  * Markers in green, locations which close in < 15 min yellow
 
+# Possible Bugs
+
+ * Category checkboxes must be adapted, categories vanish in the evening!
+
 
 # Further Away ToDos
 
