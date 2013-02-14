@@ -20,8 +20,9 @@ The data which is used will for now be exported from the OSM project.
  * Dynamically add/delete facilities due to changing time
  * Box with checkboxes for interactive category filtering
  * Markers in green, locations which close in < 15 min yellow
+ * Correct labeling, e.g. *Supermarket (19)*
 
- * (list open facilities near me?)
+ * (List open facilities near me?)
 
 # Possible Bugs
 
