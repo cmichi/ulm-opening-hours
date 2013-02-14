@@ -1,11 +1,11 @@
 {
-  "author": "Michael Mueller <mich@elmueller.net>"
-  , "name": "ulm-opening-hours",
-  , "description": "Website which shows open facilities at your current time within the city Ulm."
-  , "private": true
-  , "version": "0.0.1"
-  , "dependencies": {
-    "express": "3.0.x"
-    , "socket.io": "0.9.x"
+  "author": "Michael Mueller <mich@elmueller.net>",
+  "name": "ulm-opening-hours",
+  "description": "Website which shows open facilities at your current time within the city Ulm.",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.0.x",
+    "socket.io": "0.9.x"
   }
 }

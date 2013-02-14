@@ -18,6 +18,7 @@ The data which is used will for now be exported from the OSM project.
  * Box with checkboxes for interactive category filtering
  * Markers in green, locations which close in < 15 min yellow
 
+
 # Possible Bugs
 
  * Category checkboxes must be adapted, categories vanish in the evening!
@@ -30,6 +31,10 @@ The data which is used will for now be exported from the OSM project.
 
 # Getting started
 
+	$ git clone https://github.com/cmichi/ulm-opening-hours.git
+
+	# install the necessary dependencies (express, socket.io) from the package.json
+	$ npm install	
 	$ node server.js
 
 Then open [http://localhost:3000/](http://localhost:3000).
@@ -37,5 +42,7 @@ Then open [http://localhost:3000/](http://localhost:3000).
 
 # Libraries
 
- * jQuery, jQuery Mobile
+ * leaflet
+ * express
+ * socket.io
 
