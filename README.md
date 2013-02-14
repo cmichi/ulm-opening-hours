@@ -11,6 +11,13 @@ questions like "_Which shops/bakeries/restaurants/etc. are still open?_" or
 The data which is used will for now be exported from the OSM project.
 
 
+# ToDo 
+
+ * Box with checkboxes for interactive category filtering
+ * Markers in green, locations which close in < 15 min yellow
+ * More data!
+
+
 # Getting started
 
 	$ node server.js
