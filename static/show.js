@@ -39,9 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			tile_groups[i] = L.layerGroup(entity_groups[i]);
 		}
 
-
-		//var tile_groups = L.tileLayer(cloudmadeUrl, {styleId: 22677, attribution: cloudmadeAttribution}),
-
 		map = L.map('map', {
 			center: new L.LatLng(48.400500, 9.9794349)
 			, zoom: 14
@@ -62,12 +59,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.update();
 			return this._div;
 		};
-
 		info.update = function (props) {
-			this._div.innerHTML = '<h4>Ulm Opening Hours<br /><span id="time"></span></h4>';
+			this._div.innerHTML = '<h4>Was hat offen?<br />\
+			Ulm | <span id="time"></span></h4>';
 		};
-
 		info.addTo(map);
+
+		ctrls = L.control.layers(null, overlayMaps, {collapsed: false})
+		ctrls.addTo(map);
 
 		var all_ctrls = L.control();
 		all_ctrls.onAdd = function (map) {
@@ -76,45 +75,18 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.update();
 			return this._div;
 		};
-
 		all_ctrls.update = function (props) {
 			this._div.innerHTML = "<div class='all_ctrls'><a href='javascript:all(true);'>Alle aktivieren</a>" +
 				"&nbsp;|&nbsp;" + 
 				"<a href='javascript:all(false);'>Alle deaktivieren</a></div>";
 		};
-
-		ctrls = L.control.layers(null, overlayMaps, {collapsed: false})
-		ctrls.addTo(map);
 		all_ctrls.addTo(map);
-
-		/*
-		ctrls._container.innerHTML = '<h4>Ulm Opening Hours<br /><span id="time"></span></h4>'
-		+ ctrls._container.innerHTML;
-
-		ctrls._container.innerHTML += "<hr /><div class='all_ctrls'><a href=''>Alle aktivieren</a>" +
-		"&nbsp;|&nbsp;" + 
-		"<a href='javascript:all(false);'>Alle deaktivieren</a></div>";
-		*/
-
-
-
-});
+	});
 
 	socket.on('time', function (time) {    
 		document.getElementById('time').innerHTML = 
 			"<strong>" + time.hours + ":" + time.mins + "</strong>";
 	});
-
-
-
-
-/*
-	map = L.map('map').setView([48.400500,9.979434], 14);
-	L.tileLayer('http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png'
-	, {attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade'}).addTo(map);
-	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'}).addTo(map);
-	*/
-
 }, false);
 
 
