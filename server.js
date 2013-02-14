@@ -17,7 +17,8 @@ data = JSON.parse(data);
 
 // parse for currently open locations
 var currDay = 1;
-var currTime = (17*60 + 5);
+var now = new Date();
+var currTime = (now.getHours()*60 + now.getMinutes());
 var open_entities = [];
 
 for (var i in data) {
@@ -50,8 +51,16 @@ io.sockets.on('connection', function (socket) {
 	*/
 
 	io.sockets.emit('marker', open_entities);
+	sendTime(); //initially call
 });
 
+
+sendTime = function() {
+	var now = new Date();
+	time = { hours: now.getHours(), mins: now.getMinutes() };
+	io.sockets.emit('time', time);
+}
+setInterval(sendTime, 1000 * 60);
 
 
 server.listen(3000, function() {

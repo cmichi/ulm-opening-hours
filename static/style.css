@@ -2,6 +2,30 @@ body {
 	padding: 0;
 	margin: 0;
 }
+
 html, body, #map {
 	height: 100%;
+}
+
+#ctrl {
+	 height: 250px;
+    right: 10px;
+    position: absolute;
+    top: 10px;
+    width: 250px;
+    z-index: 999;
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.25);
+	padding: 5px;
+
+ border-radius: 7px 7px 7px 7px;
+
+
+}
+
+h1 {
+	font-size:1.8em;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.35);
+
+font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+	color: #222;
 }

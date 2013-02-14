@@ -5,24 +5,30 @@ it but took the upcoming [Open Data Day](http://ulmapi.de/#opendataday)
 as an opportunity to work on it.
 
 The goal of this project is to create a website which can be used to answer
-questions like "_Which shops/bakeries/restaurants/etc. are still open?_" or
-"_Where can I get beer at this time?_".
+questions like "Which shops/bakeries/restaurants/etc. are still open?" or
+"Where can I get beer at this time?".
 
 The data which is used will for now be exported from the OSM project.
 
 
 # ToDo 
 
+ * Show time!
+ * Dynamically add/delete facilities due to changing time
  * Box with checkboxes for interactive category filtering
  * Markers in green, locations which close in < 15 min yellow
- * More data!
+
+
+# Further Away ToDos
+
+ * List open facilities near me
 
 
 # Getting started
 
 	$ node server.js
 
-Then open http://localhost:3000/
+Then open [http://localhost:3000/](http://localhost:3000).
 
 
 # Libraries
