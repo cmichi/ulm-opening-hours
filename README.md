@@ -1,6 +1,8 @@
-# ulm-opening-hours
+# Ulm Opening Hours
 
-This is an idea, I had a while ago. I didn't get around to implement 
+*Project Status:* Heavily working on a prototype.
+
+This is an idea which I had a while ago. I didn't get around to implement 
 it but took the upcoming [Open Data Day](http://ulmapi.de/#opendataday)
 as an opportunity to work on it.
 
@@ -18,15 +20,11 @@ The data which is used will for now be exported from the OSM project.
  * Box with checkboxes for interactive category filtering
  * Markers in green, locations which close in < 15 min yellow
 
+ * (list open facilities near me?)
 
 # Possible Bugs
 
  * Category checkboxes must be adapted, categories vanish in the evening!
-
-
-# Further Away ToDos
-
- * List open facilities near me
 
 
 # Getting started
@@ -35,6 +33,7 @@ The data which is used will for now be exported from the OSM project.
 
 	# install the necessary dependencies (express, socket.io) from the package.json
 	$ npm install	
+
 	$ node server.js
 
 Then open [http://localhost:3000/](http://localhost:3000).
