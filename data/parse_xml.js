@@ -25,11 +25,15 @@ for (var i in nodes) {
 
 	var xml_amenity = xpath.select("//tag[@k='amenity']/@v", new_doc);
 	if (xml_amenity == undefined || xml_amenity.length === 0) 
-		xml_amenity = xpath.select("//node/@uid", new_doc);
+		xml_amenity = undefined;
 
 	var xml_shop = xpath.select("//tag[@k='shop']/@v", new_doc);
 	if (xml_shop == undefined || xml_shop.length === 0) 
-		xml_shop = xpath.select("//node/@uid", new_doc);
+		xml_shop = undefined;
+
+	var xml_category = xml_name;
+	if (xml_shop !== undefined) xml_category = xml_shop[0].value;
+	if (xml_amenity !== undefined) xml_category = xml_amenity[0].value;
 
 	var obj = {
 		lat : xpath.select("//node/@lat", new_doc)[0].value
@@ -37,8 +41,7 @@ for (var i in nodes) {
 		, name : xml_name[0].value
 		, opening_hours: xml_opening_hours[0].value
 		, original_opening_hours: xml_opening_hours[0].value
-		, amenity: xml_amenity[0].value
-		, shop: xml_shop[0].value
+		, category: "" + xml_category
 	};
 
 	// var foo = "Mo, Th 8:30-13:30, 14:45-18:00; Tu, Fr 8:30-13:30, 14:45-17:00; We 8:30-12:30"

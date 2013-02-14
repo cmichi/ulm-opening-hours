@@ -8,6 +8,7 @@ html, body, #map {
 }
 
 #ctrl {
+display:none;
 	 height: 250px;
     right: 10px;
     position: absolute;
@@ -28,4 +29,18 @@ h1 {
 
 font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 	color: #222;
+}
+
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
 }

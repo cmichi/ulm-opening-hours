@@ -43,14 +43,14 @@ console.log(JSON.stringify(open_entities));
 
 io.sockets.on('connection', function (socket) {
 	/*
-	io.sockets.emit('marker', {
+	io.sockets.emit('initialisation', {
 		lon: 9.9456200
 		, lat: 48.4143605
 		, desc: "lorem ipsum"
 	});
 	*/
 
-	io.sockets.emit('marker', open_entities);
+	io.sockets.emit('initialisation', open_entities);
 	sendTime(); //initially call
 });
 

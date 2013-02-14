@@ -6,15 +6,31 @@
 	<script src="/show.js"></script>
 	<link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css" />
-	<script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
 
 	<script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-	<div id="map"></div>
+	<div id="map">
+
+
 	<div id="ctrl">
 		<div id="time"></div>
+
+
+
+
+
+<div class="leaflet-control-container">
+	<div class="leaflet-top leaflet-right">
+		<div class="info leaflet-control">
+			<h4>US Population Density</h4>
+			Hover over a state
+		</div>
+	</div>
+</div>
+</div>
 	</div>
 </body>
 </html>
