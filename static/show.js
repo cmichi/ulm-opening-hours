@@ -3,8 +3,9 @@ var overlayMaps;
 var ctrls;
 var entity_groups = [];
 var tile_groups = [];
-var ctrls;
+var ctrls, info, all_ctrls;
 var init = false;
+var prefs;
 
 var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
@@ -16,11 +17,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	socket.on('initialisation', function (open_entities) {    
 		if (init) {
-			for (var i in tile_groups) tile_groups[i].clearLayers()
+			//es wurde alles schonmal initialisiert
+			for (var i in tile_groups) tile_groups[i].clearLayers();
 			map.removeControl(ctrls);
+			map.removeControl(all_ctrls);
+			map.removeControl(info);
 			entity_groups = [];
 			tile_groups = [];
+
+			// save preferences 
+			prefs = [];
+			for (var i in ctrls._form) {
+				if (ctrls._form[i] != undefined &&
+				ctrls._form[i].parentNode != undefined)
+					prefs[ctrls._form[i].parentNode.children[1].innerHTML] = 
+						ctrls._form[i].checked;
+			}
+		} else {
 		}
+
 
 		for (var i in open_entities) {
 			entity = open_entities[i];
@@ -62,7 +77,7 @@ if (!init) {
 			tile_groups[i].addTo(map);
 		}
 
-		var info = L.control();
+		info = L.control();
 		info.onAdd = function (map) {
 			this._div = L.DomUtil.create('div', 'leaflet-control '
 				+ 'leaflet-control-layers leaflet-control-layers-expanded');
@@ -73,13 +88,13 @@ if (!init) {
 			this._div.innerHTML = '<h4>Was hat offen?<br />\
 			Ulm | <span id="time"></span></h4>';
 		};
-		if (!init) info.addTo(map);
+		info.addTo(map);
 
 
 		ctrls = L.control.layers(null, overlayMaps, {collapsed: false})
 		ctrls.addTo(map);
 
-		var all_ctrls = L.control();
+		all_ctrls = L.control();
 		all_ctrls.onAdd = function (map) {
 			this._div = L.DomUtil.create('div', 'leaflet-control '
 				+ 'leaflet-control-layers leaflet-control-layers-expanded');
@@ -91,8 +106,35 @@ if (!init) {
 				"&nbsp;|&nbsp;" + 
 				"<a href='javascript:all(false);'>Alle deaktivieren</a></div>";
 		};
-		if (!init) all_ctrls.addTo(map);
+		all_ctrls.addTo(map);
 
+
+		if (init) {
+			// restore preferences
+			for (var i in ctrls._form) {
+				if (ctrls._form[i] != undefined &&
+				  ctrls._form[i].parentNode != undefined) {
+					console.log(i + ": " + ctrls._form[i].checked)
+					console.log(ctrls._form[i].parentNode.children[1].innerHTML)
+					console.log(prefs[ctrls._form[i].parentNode.children[1].innerHTML])
+
+					ctrls._form[i].checked = 
+						prefs[ctrls._form[i].parentNode.children[1].innerHTML]
+				}
+			}
+			ctrls._onInputClick();
+			console.log("-------")
+
+			/*
+			for (var i in ctrls._form) {
+				for (var i in prefs) {
+					if (ctrls._form[i].checked ===
+					    prefs[ctrls._form[i].parentNode.children[1].innerHTML])
+					ctrls._form[i].checked = prefs[ctrls._form[i].parentNode.children[1].innerHTML];
+				}
+			}
+			*/
+		}
 		init = true;
 	});
 
