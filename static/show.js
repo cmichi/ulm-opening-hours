@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					[entity.lat, entity.lon]).bindPopup(
 					entity.name
 					+ "<br />" + entity.original_opening_hours
+					+ "<br />" + JSON.stringify(entity.opening_hours)
 					+ "<br />" + entity.category
 					)
 			);
@@ -103,10 +104,14 @@ if (!init) {
 		info.update = function (props) {
 			this._div.innerHTML = '<h4>Was hat offen?<br />\
 			Ulm | <span id="time"></span></h4>';
+			if (tile_groups.length == 0) {
+				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
+				nichts ge&ouml;ffnnet!</h4>';
+				//ctrls._container.style.display="none"
+			}
 		};
 		info.addTo(map);
 		updateTime(currTime);
-
 
 		ctrls = L.control.layers(null, overlayMaps, {collapsed: false})
 		ctrls.addTo(map);
@@ -141,6 +146,10 @@ if (!init) {
 			}
 			ctrls._onInputClick();
 			//console.log("-------")
+
+			if (tile_groups.length == 0) {
+				ctrls._container.style.display="none"
+			}
 		}
 		init = true;
 	});

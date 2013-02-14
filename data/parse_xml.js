@@ -11,6 +11,14 @@ var doc = new dom().parseFromString(xml)
 var nodes = xpath.select("//node", doc)
 var results = [];
 
+/*
+console.log(
+	JSON.stringify(
+		parseOpeningHours("Mo 08:00-12:00,16:00-19:00; Tu-We 08:00-12:00,16:00-18:00; Th 08:00-12:00,16:00-19:00; Fr 08:00-12:00")
+	)
+)
+*/
+
 for (var i in nodes) {
 	//console.log(nodes[i].toString())
 	var new_doc = new dom().parseFromString( nodes[i].toString() );
@@ -100,7 +108,7 @@ function parseOpeningHours(foo) {
 // convertTime(1, 8:30) to (60*8 + 30)
 function convertTime(day, time) {
 	var matches = time.match(/\d+/g);
-	var hours = parseInt(matches[0]);
+	var hours = matches[0] * 1;
 
 	if (matches.length > 1 && matches[1] != undefined)
 		var mins = parseInt(matches[1]);
@@ -109,3 +117,4 @@ function convertTime(day, time) {
 
 	return (60*hours) + mins;
 }
+

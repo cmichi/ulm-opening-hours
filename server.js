@@ -31,6 +31,9 @@ function generateOpenEntities(time, day) {
 		time = 9* 60;
 	} else 
 		test = true
+
+	day = 5;
+	time = 1 * 60;
 	console.log(day);
 
 	open_entities = [];
@@ -50,7 +53,7 @@ function generateOpenEntities(time, day) {
 				open_entities.push(data[i]);
 		}
 	}
-	//console.log(JSON.stringify(open_entities));
+	console.log(JSON.stringify(open_entities));
 }
 
 var now = new Date();
