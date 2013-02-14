@@ -84,8 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 
 	socket.on('time', function (time) {    
+		var mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
 		document.getElementById('time').innerHTML = 
-			"<strong>" + time.hours + ":" + time.mins + "</strong>";
+			"<strong>" + time.hours + ":" + mins  + "</strong>";
 	});
 }, false);
 
