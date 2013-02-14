@@ -11,7 +11,11 @@ var socket = io.connect('http://localhost');
 socket.on('marker', function (open_entities) {    
 	for (var i in open_entities) {
 		entity = open_entities[i];
-		L.marker([entity.lat, entity.lon]).addTo(map).bindPopup(entity.name);
+		L.marker([entity.lat, entity.lon]).addTo(map).bindPopup(entity.name
+		+ "<br />" + entity.original_opening_hours
+		+ "<br />" + entity.shop
+		+ "<br />" + entity.amenity
+		);
 	}
   });
 }, false);

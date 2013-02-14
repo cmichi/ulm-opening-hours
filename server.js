@@ -17,7 +17,7 @@ data = JSON.parse(data);
 
 // parse for currently open locations
 var currDay = 1;
-var currTime = (16*60);
+var currTime = (17*60 + 5);
 var open_entities = [];
 
 for (var i in data) {
