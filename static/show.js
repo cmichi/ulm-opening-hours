@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				tile_groups[entity.category] = [];
 			}
 
+
+
 			entity_groups[entity.category].push( 
 				L.marker(
 					//[entity.lat, entity.lon]).addTo(map).bindPopup(
@@ -36,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 
-
 		//var tile_groups = L.tileLayer(cloudmadeUrl, {styleId: 22677, attribution: cloudmadeAttribution}),
 
 		map = L.map('map', {
@@ -49,9 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		var overlayMaps = {};
 		for (var i in tile_groups) {
 			overlayMaps[i] = tile_groups[i];
+			tile_groups[i].addTo(map);
 		}
 
-		var ctrls = L.control.layers(null, overlayMaps).addTo(map);
+		var ctrls = L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
+
 
 		var info = L.control();
 info.onAdd = function (map) {
