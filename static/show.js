@@ -6,6 +6,7 @@ var tile_groups = [];
 var ctrls, info, all_ctrls;
 var init = false;
 var prefs;
+var currTime;
 
 var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
@@ -45,8 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				tile_groups[entity.category] = [];
 			}
 
-
-
 			entity_groups[entity.category].push( 
 				L.marker(
 					//[entity.lat, entity.lon]).addTo(map).bindPopup(
@@ -71,11 +70,26 @@ if (!init) {
 		L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
 }
 
+		var translate = {
+			"supermarket": "Supermarkt"
+			, "bank": "Bank"
+			, "cafe": "Cafe"
+			, "bar": "Bar"
+			, "restaurant": "Restaurant"
+			, "doctors": "&Auml;rzte"
+			, "restaurant": "Restaurant"
+			, "pharmacy": "Apotheke"
+			, "fast_food": "Schnellimbiss"
+		}
 		overlayMaps = {};
 		for (var i in tile_groups) {
-			overlayMaps[i] = tile_groups[i];
+			if (translate[i] != undefined)
+				overlayMaps[ translate[i] + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
+			else 
+				overlayMaps[ i + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
 			tile_groups[i].addTo(map);
 		}
+
 
 		info = L.control();
 		info.onAdd = function (map) {
@@ -89,6 +103,7 @@ if (!init) {
 			Ulm | <span id="time"></span></h4>';
 		};
 		info.addTo(map);
+		updateTime(currTime);
 
 
 		ctrls = L.control.layers(null, overlayMaps, {collapsed: false})
@@ -114,35 +129,23 @@ if (!init) {
 			for (var i in ctrls._form) {
 				if (ctrls._form[i] != undefined &&
 				  ctrls._form[i].parentNode != undefined) {
-					console.log(i + ": " + ctrls._form[i].checked)
-					console.log(ctrls._form[i].parentNode.children[1].innerHTML)
-					console.log(prefs[ctrls._form[i].parentNode.children[1].innerHTML])
+					//console.log(i + ": " + ctrls._form[i].checked)
+					//console.log(ctrls._form[i].parentNode.children[1].innerHTML)
+					//console.log(prefs[ctrls._form[i].parentNode.children[1].innerHTML])
 
 					ctrls._form[i].checked = 
 						prefs[ctrls._form[i].parentNode.children[1].innerHTML]
 				}
 			}
 			ctrls._onInputClick();
-			console.log("-------")
-
-			/*
-			for (var i in ctrls._form) {
-				for (var i in prefs) {
-					if (ctrls._form[i].checked ===
-					    prefs[ctrls._form[i].parentNode.children[1].innerHTML])
-					ctrls._form[i].checked = prefs[ctrls._form[i].parentNode.children[1].innerHTML];
-				}
-			}
-			*/
+			//console.log("-------")
 		}
 		init = true;
 	});
 
 	socket.on('time', function (time) {    
-		var mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
-		document.getElementById('time').innerHTML = 
-			"<strong>" + time.hours + ":" + mins  + "</strong>";
-
+		currTime = time;
+		updateTime(currTime);
 	});
 
 	socket.on('open_entities', function (time) {    
@@ -161,4 +164,15 @@ function all(v) {
 		}
 	}
 	ctrls._onInputClick();
+}
+
+function updateTime(time) {
+	if (time == undefined) return; 
+
+	var days = { 0: "So", 1: "Mo", 2: "Di", 3: "Mi", 4: "Do", 
+			5: "Fr", 6: "Sa"};
+
+	var mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
+	document.getElementById('time').innerHTML = 
+		"<strong>" + days[time.day] + ", " + time.hours + ":" + mins  + "</strong>";
 }

@@ -64,7 +64,8 @@ io.sockets.on('connection', function (socket) {
 
 sendTime = function() {
 	var now = new Date();
-	time = { hours: now.getHours(), mins: now.getMinutes() };
+	time = { hours: now.getHours(), mins: now.getMinutes(), 
+		 day: now.getDay() };
 	currTime = (now.getHours()*60 + now.getMinutes());
 	generateOpenEntities(currTime, now.getDay());
 
