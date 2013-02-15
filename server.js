@@ -54,8 +54,9 @@ function generateOpenEntities(time, day) {
 			var entry = data[i].opening_hours[day][j];
 			// console.log(JSON.stringify(entry));
 
-			if (entry.from <= time && entry.to >= time)
+			if (entry.from <= time && entry.to >= time) {
 				open_entities.push(data[i]);
+			}
 		}
 	}
 	console.log(JSON.stringify(open_entities));
