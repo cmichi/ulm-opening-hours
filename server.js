@@ -6,6 +6,8 @@ var app = express();
 var server = require('http').createServer(app);
 io = io.listen(server);
 
+var opening_hours = require('./opening_hours.js');
+
 
 app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
@@ -37,9 +39,11 @@ function generateOpenEntities(time, day) {
 
 	//day = 5;
 	//time = 1 * 60;
-	console.log(day);
+	//console.log(day);
 	day = 1;
 	time = 9*60;
+
+	var date = new Date();
 
 	open_entities = [];
 	for (var i in data) {
@@ -51,12 +55,22 @@ function generateOpenEntities(time, day) {
 
 		for (var j in data[i].opening_hours[day]) {
 			// {from : ..., to: ...}
-			var entry = data[i].opening_hours[day][j];
+			//var entry = data[i].opening_hours[day][j];
 			// console.log(JSON.stringify(entry));
 
+			console.log(data[i].original_opening_hours);
+			var oh = new opening_hours(data[i].original_opening_hours);
+			var is_open = oh.getState(date);
+
+			if (is_open) {
+				open_entities.push(data[i]);
+			}
+
+			/*
 			if (entry.from <= time && entry.to >= time) {
 				open_entities.push(data[i]);
 			}
+			*/
 		}
 	}
 	console.log(JSON.stringify(open_entities));

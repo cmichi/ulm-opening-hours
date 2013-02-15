@@ -43,7 +43,9 @@ Then open [http://localhost:3000/](http://localhost:3000).
 
 # Libraries
 
- * leaflet
+ * [leaflet](https://github.com/Leaflet/Leaflet)
  * express
  * socket.io
+ * [opening_hours.js](https://github.com/AMDmi3/opening_hours.js/)
+
 
