@@ -52,10 +52,27 @@ document.addEventListener('DOMContentLoaded', function() {
 				tile_groups[entity.category] = [];
 			}
 
+			var markericon = L.Icon.Default;
+			//markericon.iconUrl = "marker-icon-green.png";
+			var myURL = "marker-icon-green.png";
+			if (entity.closing_soon) 
+				myURL = "marker-icon.png"
+				//myURL = "marker-icon-yellow.png"
+
+			var myIcon = L.icon({
+				iconUrl : myURL,
+				iconSize: new L.Point(25, 41),
+				iconAnchor: new L.Point(12, 41),
+				popupAnchor: new L.Point(1, -34),
+
+				shadowSize: new L.Point(41, 41),
+				shadowAnchor: [12, 41],
+				shadowUrl : "marker-shadow.png"
+		        });
+
 			entity_groups[entity.category].push( 
 				L.marker(
-					//[entity.lat, entity.lon]).addTo(map).bindPopup(
-					[entity.lat, entity.lon]).bindPopup(
+					[entity.lat, entity.lon], {icon: myIcon}).bindPopup(
 					entity.name
 					+ "<br />" + entity.original_opening_hours
 					+ "<br />" + JSON.stringify(entity.opening_hours)
@@ -111,7 +128,7 @@ if (!init) {
 		};
 		info.update = function (props) {
 			this._div.innerHTML = '<h4>Was hat ge&ouml;ffnet?<br />\
-			Ulm | <span id="time"></span></h4>';
+			Ulm | <span id="time"></span> (<a href="">Edit</a>)</h4>';
 			if (open_entities.length == 0) {
 				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
 				nichts ge&ouml;ffnnet!</h4>';

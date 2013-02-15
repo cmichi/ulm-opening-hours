@@ -62,6 +62,10 @@ function generateOpenEntities(time, day) {
 			var oh = new opening_hours(data[i].original_opening_hours);
 			var is_open = oh.getState(date);
 
+			var diff = 15;
+			var soon = new Date(date.getTime() + diff*60000);
+			data[i].closing_soon = !oh.getState(soon);
+
 			if (is_open) {
 				open_entities.push(data[i]);
 			}
