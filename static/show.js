@@ -52,8 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				tile_groups[entity.category] = [];
 			}
 
-			var markericon = L.Icon.Default;
-			//markericon.iconUrl = "marker-icon-green.png";
 			var myURL = "marker-icon-green.png";
 			if (entity.closing_soon) 
 				myURL = "marker-icon.png"
@@ -85,14 +83,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			tile_groups[i] = L.layerGroup(entity_groups[i]);
 		}
 
-if (!init) {
-		map = L.map('map', {
-			center: new L.LatLng(48.400500, 9.9794349)
-			, zoom: 14
-			, layers: tile_groups
-		});
-		L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
-}
+		if (!init) {
+				map = L.map('map', {
+					center: new L.LatLng(48.400500, 9.9794349)
+					, zoom: 14
+					, layers: tile_groups
+				});
+				L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
+		}
 
 		var translate = {
 			"supermarket": "Supermarkt"
@@ -110,7 +108,7 @@ if (!init) {
 			if (translate[i] != undefined) {
 				//overlayMaps[ translate[i] ] = tile_groups[i];
 				overlayMaps[ translate[i] + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
-				console.log(i + " (" + entity_groups[i].length  + ")" + entity_groups[i] )
+				//console.log(i + " (" + entity_groups[i].length  + ")" + entity_groups[i] )
 			} else {
 				//overlayMaps[ i ] = tile_groups[i];
 				overlayMaps[ i + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
@@ -163,10 +161,6 @@ if (!init) {
 			for (var i in ctrls._form) {
 				if (ctrls._form[i] != undefined &&
 				  ctrls._form[i].parentNode != undefined) {
-					//console.log(i + ": " + ctrls._form[i].checked)
-					//console.log(ctrls._form[i].parentNode.children[1].innerHTML)
-					//console.log(prefs[ctrls._form[i].parentNode.children[1].innerHTML])
-
 					var name = ctrls._form[i].parentNode.children[1].innerHTML;
 					if (name != undefined && typeof name == "string") {
 						name = name.trim().match(/[A-z0-9=\s"]+/);
@@ -179,10 +173,8 @@ if (!init) {
 				}
 			}
 			ctrls._onInputClick();
-			//console.log("-------")
 
 			if (open_entities.length === 0) {
-				console.log(open_entities.length)
 				ctrls._container.style.display="none"
 			}
 		}
