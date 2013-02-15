@@ -151,8 +151,11 @@ if (!init) {
 					var name = ctrls._form[i].parentNode.children[1].innerHTML;
 					if (name != undefined && typeof name == "string") {
 						name = name.trim().match(/[A-z0-9=\s"]+/);
+						if (prefs[name] == undefined)
+							ctrls._form[i].checked = true;
+						else
+							ctrls._form[i].checked = prefs[name];
 
-						ctrls._form[i].checked = prefs[name]
 					}
 				}
 			}
