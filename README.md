@@ -16,17 +16,15 @@ The data which is used will for now be exported from the OSM project.
 
 # ToDo 
 
- * Show time!
- * Dynamically add/delete facilities due to changing time
- * Box with checkboxes for interactive category filtering
+ * Create custom box for interactive category filtering
  * Markers in green, locations which close in < 15 min yellow
- * Correct labeling, e.g. *Supermarket (19)*
+ * Make time editable
+ * Remove need for external data.json, instead parse *.xml on startup
 
+ * (What if we restart server? What happens to existing clients? Include a
+   timeout within clientside JS which greys the website out if no reaction
+   for 5 min)
  * (List open facilities near me?)
-
-# Possible Bugs
-
- * Category checkboxes must be adapted, categories vanish in the evening!
 
 
 # Getting started
