@@ -14,7 +14,8 @@ var results = [];
 /*
 console.log(
 	JSON.stringify(
-		parseOpeningHours("Mo 08:00-12:00,16:00-19:00; Tu-We 08:00-12:00,16:00-18:00; Th 08:00-12:00,16:00-19:00; Fr 08:00-12:00")
+		//parseOpeningHours("Mo 08:00-12:00,16:00-19:00; Tu-We 08:00-12:00,16:00-18:00; Th 08:00-12:00,16:00-19:00; Fr 08:00-12:00")
+		parseOpeningHours("Su-Th 06:00-01:00; Fr-Sa 06:00-02:00")
 	)
 )
 */
@@ -86,6 +87,18 @@ function parseOpeningHours(foo) {
 					output[day] = [];
 
 				open_hour[label] = convertTime(day, times[i]);
+
+				/* special case: e.g.g 06:00 - 01:00, open
+				   til next day */
+				if (label === "to" && 
+				    open_hour.to < open_hour.from) {
+					// create two entries, the current
+					// one goes til midnight, the new
+					// one from midnight til closing time
+					var midnight = convertTime(day, "24:00");
+					output[day].push({from: midnight, to: open_hour.to});
+					open_hour.to = midnight;
+				}
 
 				if (label === "from") {
 					label = "to";
