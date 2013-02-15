@@ -38,6 +38,8 @@ function generateOpenEntities(time, day) {
 	//day = 5;
 	//time = 1 * 60;
 	console.log(day);
+	day = 1;
+	time = 9*60;
 
 	open_entities = [];
 	for (var i in data) {

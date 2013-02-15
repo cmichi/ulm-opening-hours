@@ -1449,6 +1449,7 @@
     <tag k="operator" v="Dr. Martin Schmidt"/>
     <tag k="phone" v="0731/88225"/>
     <tag k="website" v="http://www.tierarzt-schmidt-nu.de/index.htm"/>
+    <tag k="amenity" v="veterinary"/>
   </node>
   <node id="1218148329" lat="48.3881048" lon="10.0409616" version="1" timestamp="2011-03-25T21:35:08Z" changeset="7670047" uid="168758" user="NUP"/>
   <node id="1218149008" lat="48.3877184" lon="10.0411788" version="1" timestamp="2011-03-25T21:35:22Z" changeset="7670047" uid="168758" user="NUP"/>

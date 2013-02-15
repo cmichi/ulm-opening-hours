@@ -40,8 +40,24 @@ for (var i in nodes) {
 	if (xml_shop == undefined || xml_shop.length === 0) 
 		xml_shop = undefined;
 
+	var xml_tourism = xpath.select("//tag[@k='tourism']/@v", new_doc);
+	if (xml_tourism == undefined || xml_tourism.length === 0) 
+		xml_tourism = undefined;
+
+	var xml_office = xpath.select("//tag[@k='office']/@v", new_doc);
+	if (xml_office == undefined || xml_office.length === 0) 
+		xml_office = undefined;
+
+	var xml_craft = xpath.select("//tag[@k='craft']/@v", new_doc);
+	if (xml_craft == undefined || xml_craft.length === 0) 
+		xml_craft = undefined;
+
+
 	var xml_category = xml_name;
 	if (xml_shop !== undefined) xml_category = xml_shop[0].value;
+	if (xml_tourism !== undefined) xml_category = xml_tourism[0].value;
+	if (xml_office !== undefined) xml_category = xml_office[0].value;
+	if (xml_craft !== undefined) xml_category = xml_craft[0].value;
 	if (xml_amenity !== undefined) xml_category = xml_amenity[0].value;
 
 	var obj = {

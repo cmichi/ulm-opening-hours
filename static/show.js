@@ -90,13 +90,15 @@ if (!init) {
 		}
 		overlayMaps = {};
 		for (var i in tile_groups) {
-			if (translate[i] != undefined)
+			if (translate[i] != undefined) {
 				//overlayMaps[ translate[i] ] = tile_groups[i];
 				overlayMaps[ translate[i] + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
-			else 
+				console.log(i + " (" + entity_groups[i].length  + ")" + entity_groups[i] )
+			} else {
 				//overlayMaps[ i ] = tile_groups[i];
 				overlayMaps[ i + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
-			tile_groups[i].addTo(map);
+				tile_groups[i].addTo(map);
+			}
 		}
 
 
