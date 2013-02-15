@@ -207,7 +207,7 @@
     <tag k="addr:housenumber" v="14"/>
     <tag k="addr:street" v="Trollingerweg"/>
     <tag k="name" v="REWE"/>
-    <tag k="opening_hours" v="Mo - Sa 8:00 - 22:00"/>
+    <tag k="opening_hours" v="Mo-Sa 8:00-22:00"/>
     <tag k="shop" v="supermarket"/>
     <tag k="source" v="local_knowledge"/>
   </node>
@@ -2536,7 +2536,7 @@
   <node id="1532782378" lat="48.4223823" lon="9.9559102" version="3" timestamp="2012-03-20T11:53:07Z" changeset="11040379" uid="13072" user="Kai Brühne">
     <tag k="amenity" v="restaurant"/>
     <tag k="name" v="Cafeteria A"/>
-    <tag k="opening_hours" v="Mo - Th 7:30 - 18:00; Fr 7:30 - 17:00"/>
+    <tag k="opening_hours" v="Mo-Th 7:30-18:00; Fr 7:30-17:00"/>
     <tag k="operator" v="Studentenwerk Ulm"/>
     <tag k="smoking" v="no"/>
     <tag k="website" v="http://www.studentenwerk-ulm.de/hochschulgastronomie/mensen-und-cafeterien.html#c124945"/>
@@ -2635,7 +2635,7 @@
     <tag k="contact:phone" v="0731554255"/>
     <tag k="contact:website" v="http://www.metzgerei-hoermann.de"/>
     <tag k="name" v="Metzgerei Hörman"/>
-    <tag k="opening_hours" v="Mo - Fr 7:00 - 18:00 Sa 7:30 - 13:00"/>
+    <tag k="opening_hours" v="Mo-Fr 7:00-18:00; Sa 7:30-13:00"/>
     <tag k="shop" v="butcher"/>
     <tag k="wheelchair" v="yes"/>
   </node>
@@ -2645,7 +2645,7 @@
     <tag k="addr:street" v="Trollingerweg"/>
     <tag k="craft" v="tailor"/>
     <tag k="name" v="Änderungsschneiderei"/>
-    <tag k="opening_hours" v="Mo - Fr 8:30 - 12:30 14:30 - 18:00 Sa 8:30 - 12:30"/>
+    <tag k="opening_hours" v="Mo-Fr 8:30-12:30,14:30-18:00; Sa 8:30-12:30"/>
   </node>
   <node id="1659368149" lat="48.4276098" lon="10.0122572" version="1" timestamp="2012-03-04T18:34:33Z" changeset="10872177" uid="72345" user="Mondlicht"/>
   <node id="1659368154" lat="48.4277878" lon="10.0116213" version="1" timestamp="2012-03-04T18:34:33Z" changeset="10872177" uid="72345" user="Mondlicht"/>
@@ -2693,7 +2693,7 @@
     <tag k="email" v="kings@kings-neu-ulm.de"/>
     <tag k="fax" v="+49 731 / 70535852"/>
     <tag k="name" v="Café Kings"/>
-    <tag k="opening_hours" v="Mo-Th 16:00-24:00; Fr 16:00-02:00; Sa1 4:00-02:00; Su 14:00-24:00"/>
+    <tag k="opening_hours" v="Mo-Th 16:00-24:00; Fr 16:00-02:00; Sa 4:00-02:00; Su 14:00-24:00"/>
     <tag k="operator" v="Kings GmbH"/>
     <tag k="phone" v="+49 731 / 70535851"/>
     <tag k="website" v="http://kings-neu-ulm.de/"/>
@@ -2711,7 +2711,7 @@
     <tag k="cuisine" v="pizza"/>
     <tag k="fax" v="+49 731 / 176 21 37"/>
     <tag k="name" v="Restaurant-Pizzeria Armerina"/>
-    <tag k="opening_hours" v="Mo-Do 11:00-23:00; Sa-Su 11:00-22:00"/>
+    <tag k="opening_hours" v="Mo-Th 11:00-23:00; Sa-Su 11:00-22:00"/>
     <tag k="phone" v="+49 731 / 176 21 37"/>
     <tag k="website" v="http://www.ulmer-ruderclub.de/urcd/restaurant-armerina.html"/>
     <tag k="wheelchair" v="limited"/>
@@ -2797,7 +2797,8 @@
     <tag k="created_by" v="iLOE 1.9"/>
     <tag k="description" v="Sehr uriges Restaurant mit österreichischer Küche"/>
     <tag k="name" v="Zum Franzl"/>
-    <tag k="opening_hours" v="Di - Sa ab 18.00 Uhr Mittagstisch: Mi - Sa 11.00 bis 14.00 Uhr nach vorheriger Reservierung"/>
+    <tag k="opening_hours" v="Tu-Sa 18:00-24:00"/>
+    <tag k="note" v="Di - Sa ab 18.00 Uhr, Mittagstisch: Mi - Sa 11.00 bis 14.00 Uhr nach vorheriger Reservierung"/>
     <tag k="phone" v="+49 (0)731 384897"/>
     <tag k="website" v="http://www.zum-franzl.de/"/>
     <tag k="wheelchair" v="no"/>
@@ -4445,7 +4446,7 @@
     <tag k="aeroway" v="yes"/>
     <tag k="description" v="Geöffnet im Zeitraum vom Oktober-April."/>
     <tag k="leisure" v="ice_rink"/>
-    <tag k="name" v="Donau-Ice-Dome Wonnemar"/>
+    <tag k="name" v="Donau-Ice-Dom Wonnemar"/>
     <tag k="opening_hours" v="Mo 09:30-15:30; Tu-Fr 09:30-22:00; Sa 09:30-22:00; Su 09:30-21:00"/>
     <tag k="phone" v="0731/9458330"/>
     <tag k="sport" v="skating"/>
@@ -6955,7 +6956,7 @@
     <tag k="dispensing" v="yes"/>
     <tag k="fax" v="07 31 / 4 91 13 52"/>
     <tag k="name" v="Apotheke am Wiley"/>
-    <tag k="opening_hours" v="Mo-Fr 09:00-19:00; Sa 09:00-14:00; Su open &quot;Notdienst&quot;"/>
+    <tag k="opening_hours" v="Mo-Fr 09:00-19:00; Sa 09:00-14:00"/>
     <tag k="phone" v="07 31 / 4 91 13 12"/>
     <tag k="website" v="http://www.apotheke-am-wiley.de/"/>
   </way>
@@ -7209,7 +7210,7 @@
     <nd ref="2041892100"/>
     <tag k="amenity" v="recycling"/>
     <tag k="name" v="Recyclinghof Einsingen"/>
-    <tag k="opening_hours" v="Mo,Tu,Th 16:00-18:00; We 16:00-19:00 Uhr; Fr 13:00-18:00; Sa 8:00-18:00"/>
+    <tag k="opening_hours" v="Mo,Tu,Th 16:00-18:00; We 16:00-19:00; Fr 13:00-18:00; Sa 8:00-18:00"/>
     <tag k="operator" v="EBU Ulm"/>
     <tag k="recycling_type" v="centre"/>
   </way>
