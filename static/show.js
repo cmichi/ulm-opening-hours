@@ -31,9 +31,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			for (var i in ctrls._form) {
 				if (ctrls._form[i] != undefined &&
 				ctrls._form[i].parentNode != undefined)
-					prefs[ctrls._form[i].parentNode.children[1].innerHTML] = 
-						ctrls._form[i].checked;
+					var name = ctrls._form[i].parentNode.children[1].innerHTML;
+					//console.log(typeof name);
+					if (name != undefined && typeof name == "string") {
+						//console.log(name);
+						name = name.trim().match(/[A-z0-9=\s"]+/);
+						prefs[name] = ctrls._form[i].checked;
+					}
 			}
+			//console.log(prefs)
 		} else {
 		}
 
@@ -85,11 +91,11 @@ if (!init) {
 		overlayMaps = {};
 		for (var i in tile_groups) {
 			if (translate[i] != undefined)
-				overlayMaps[ translate[i] ] = tile_groups[i];
-				//overlayMaps[ translate[i] + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
+				//overlayMaps[ translate[i] ] = tile_groups[i];
+				overlayMaps[ translate[i] + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
 			else 
-				overlayMaps[ i ] = tile_groups[i];
-				//overlayMaps[ i + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
+				//overlayMaps[ i ] = tile_groups[i];
+				overlayMaps[ i + " (" + entity_groups[i].length  + ")" ] = tile_groups[i];
 			tile_groups[i].addTo(map);
 		}
 
@@ -102,9 +108,9 @@ if (!init) {
 			return this._div;
 		};
 		info.update = function (props) {
-			this._div.innerHTML = '<h4>Was hat offen?<br />\
+			this._div.innerHTML = '<h4>Was hat ge&ouml;ffnet?<br />\
 			Ulm | <span id="time"></span></h4>';
-			if (tile_groups.length == 0) {
+			if (open_entities.length == 0) {
 				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
 				nichts ge&ouml;ffnnet!</h4>';
 				//ctrls._container.style.display="none"
@@ -131,6 +137,8 @@ if (!init) {
 		all_ctrls.addTo(map);
 
 
+
+
 		if (init) {
 			// restore preferences
 			for (var i in ctrls._form) {
@@ -140,14 +148,19 @@ if (!init) {
 					//console.log(ctrls._form[i].parentNode.children[1].innerHTML)
 					//console.log(prefs[ctrls._form[i].parentNode.children[1].innerHTML])
 
-					ctrls._form[i].checked = 
-						prefs[ctrls._form[i].parentNode.children[1].innerHTML]
+					var name = ctrls._form[i].parentNode.children[1].innerHTML;
+					if (name != undefined && typeof name == "string") {
+						name = name.trim().match(/[A-z0-9=\s"]+/);
+
+						ctrls._form[i].checked = prefs[name]
+					}
 				}
 			}
 			ctrls._onInputClick();
 			//console.log("-------")
 
-			if (tile_groups.length == 0) {
+			if (open_entities.length === 0) {
+				console.log(open_entities.length)
 				ctrls._container.style.display="none"
 			}
 		}
@@ -184,6 +197,7 @@ function updateTime(time) {
 			5: "Fr", 6: "Sa"};
 
 	var mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
+	var hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
 	document.getElementById('time').innerHTML = 
-		"<strong>" + days[time.day] + ", " + time.hours + ":" + mins  + "</strong>";
+		"<strong>" + days[time.day] + ", " + hours + ":" + mins  + "</strong>";
 }

@@ -25,6 +25,9 @@ function generateOpenEntities(time, day) {
 	day = 4;
 	time = 23*60;
 
+	day = 1;
+	time = 16*60;
+
 	if (test == true) {
 		day = 1;
 		test = false;
@@ -32,8 +35,8 @@ function generateOpenEntities(time, day) {
 	} else 
 		test = true
 
-	day = 5;
-	time = 1 * 60;
+	//day = 5;
+	//time = 1 * 60;
 	console.log(day);
 
 	open_entities = [];
