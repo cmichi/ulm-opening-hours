@@ -159,8 +159,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 			for (var i in groups_cnt)
+				var style = '';
+				if (prefs_dropped[i] != undefined && prefs_dropped[i]) 
+					style = "style='display:block'"
+
 				cnt += "<div><a href='#' onclick='toggle_drop(this);'>" + i + "</a><br />" +
-				"<div class='dropbox' id='drop'>" + groups_cnt[i].join('')
+				"<div class='dropbox' "+style+" id='drop'>" + groups_cnt[i].join('')
 				+ "</div></div>"
 
 			this._div.innerHTML = cnt;
@@ -243,6 +247,12 @@ function toggle(el) {
 }
 
 function toggle_drop(here) {
-	$( here ).parent().find(".dropbox").toggle("blind");
+		console.log(here.innerHTML)
+	if ($( here ).parent().find(".dropbox").css('display') === "none")
+		prefs_dropped[here.innerHTML] = true;
+	else
+		prefs_dropped[here.innerHTML] = false;
+
+	$( here ).parent().find(".dropbox").toggle("blind")
 }
 
