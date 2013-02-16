@@ -2,9 +2,9 @@ var map;
 var overlayMaps;
 var entity_groups = [];
 var tile_groups = [];
-var ctrls, info, all_ctrls, myctrls;
+var info, all_ctrls, myctrls;
 var init = false;
-var prefs;
+var prefs = {};
 var currTime;
 
 var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
@@ -19,15 +19,20 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (init) {
 			//es wurde alles schonmal initialisiert
 			for (var i in tile_groups) tile_groups[i].clearLayers();
-			map.removeControl(ctrls);
-			map.removeControl(myctrls);
 			map.removeControl(all_ctrls);
 			map.removeControl(info);
 			entity_groups = [];
 			tile_groups = [];
 
 			// save preferences 
-			prefs = [];
+			//console.log('init')
+			$(".myctrls input[type=checkbox]").each(function(){
+				//console.log(this.name + ": " + this.checked)
+				prefs[this.name] = this.checked;
+			});
+			map.removeControl(myctrls);
+
+			/*
 			for (var i in ctrls._form) {
 				if (ctrls._form[i] != undefined &&
 				ctrls._form[i].parentNode != undefined)
@@ -39,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						prefs[name] = ctrls._form[i].checked;
 					}
 			}
+			*/
 			//console.log(prefs)
 		} else {
 		}
@@ -146,22 +152,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		info.addTo(map);
 		updateTime(currTime);
 
-		ctrls = L.control.layers(null, overlayMaps, {collapsed: false})
-		ctrls.addTo(map);
-
 		myctrls = L.control();
 		myctrls.onAdd = function (map) {
 			this._div = L.DomUtil.create('div', 'myctrls leaflet-control \
 					leaflet-control-layers leaflet-control-layers-expanded'); 
-			this.update();
-			return this._div;
-		};
-
-		myctrls.update = function (props) {
 			var cnt = "";
 
-			cnt = '<h4>US Population Density</h4> \
-				<div class="ui-widget"> <label for="tags">Tags: </label> <input id="tags" /> </div> '
+			cnt = ''
 
 			var groups_cnt = {};
 			groups_cnt[others] = [];
@@ -177,7 +174,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				var newcnt = ""
 				newcnt = "<label>"
 				newcnt += "<input class='leaflet-control-layers-selector' "
-						+ " type='checkbox' name='" + label + "' "
+						+ " type='checkbox' name='" + i + "' "
+						+ " checked='checked' "
 						+ " onclick='javascript:toggle(\""
 						+ i + "\",this)' "
 						+ " />"
@@ -202,17 +200,16 @@ document.addEventListener('DOMContentLoaded', function() {
 				cnt += i + "<br />" + groups_cnt[i].join('')
 
 			this._div.innerHTML = cnt;
+			this.update();
+
+			return this._div;
+		};
+
+		myctrls.update = function (props) {
+			//console.log('update')
 		};
 
 		myctrls.addTo(map);
-
-		 var availableTags = [
-		 "ActionScript",
-		 "AppleScript"]
-
-		  $( "#tags" ).autocomplete({
-		  source: availableTags
-		  });
 
 		all_ctrls = L.control();
 		all_ctrls.onAdd = function (map) {
@@ -229,10 +226,28 @@ document.addEventListener('DOMContentLoaded', function() {
 		all_ctrls.addTo(map);
 
 
+		// restore preferences
+		console.log(JSON.stringify(prefs))
+		$(".myctrls input[type=checkbox]").each(function(){
+			console.log(this.name + ": " + this.checked)
+			if (prefs != undefined && prefs[this.name] != undefined) {
+				this.checked = prefs[this.name];
+			} else {
+				prefs[ this.name ] = true;
+				this.checked = true;
+			}
+				
 
+			if (prefs[this.name] === false) {
+				map.removeLayer(tile_groups[this.name]);
+			} else {
+				map.addLayer(tile_groups[this.name]);
+			}
+		});
 
 		if (init) {
-			// restore preferences
+
+			/*
 			for (var i in ctrls._form) {
 				if (ctrls._form[i] != undefined &&
 				  ctrls._form[i].parentNode != undefined) {
@@ -253,6 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				ctrls._container.style.display="none"
 			}
 			ctrls._container.style.display="none"
+			*/
 		}
 		init = true;
 	});
@@ -295,7 +311,7 @@ function updateTime(time) {
 
 var layers = {}
 function toggle(label, el) {
-	console.log(label)
+	//console.log(label)
 	if (el.checked === true)
 		map.removeLayer(tile_groups[label]);
 	else 
