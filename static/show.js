@@ -1,9 +1,8 @@
 var map;
 var overlayMaps;
-var ctrls;
 var entity_groups = [];
 var tile_groups = [];
-var ctrls, info, all_ctrls;
+var ctrls, info, all_ctrls, myctrls;
 var init = false;
 var prefs;
 var currTime;
@@ -21,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			//es wurde alles schonmal initialisiert
 			for (var i in tile_groups) tile_groups[i].clearLayers();
 			map.removeControl(ctrls);
+			map.removeControl(myctrls);
 			map.removeControl(all_ctrls);
 			map.removeControl(info);
 			entity_groups = [];
@@ -103,6 +103,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			, "pharmacy": "Apotheke"
 			, "fast_food": "Schnellimbiss"
 		}
+		var food = "Essen"
+		var med = "Medizin"
+		var others = "Sonstige"
+		var groups = {
+			"supermarket": food
+			, "restaurant": food
+			, "pharmacy": med
+			, "doctors": med
+		}
+
 		overlayMaps = {};
 		for (var i in tile_groups) {
 			if (translate[i] != undefined) {
@@ -138,6 +148,71 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		ctrls = L.control.layers(null, overlayMaps, {collapsed: false})
 		ctrls.addTo(map);
+
+		myctrls = L.control();
+		myctrls.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'myctrls leaflet-control \
+					leaflet-control-layers leaflet-control-layers-expanded'); 
+			this.update();
+			return this._div;
+		};
+
+		myctrls.update = function (props) {
+			var cnt = "";
+
+			cnt = '<h4>US Population Density</h4> \
+				<div class="ui-widget"> <label for="tags">Tags: </label> <input id="tags" /> </div> '
+
+			var groups_cnt = {};
+			groups_cnt[others] = [];
+
+			for (var i in tile_groups) {
+				var label = "";
+				if (translate[i] != undefined) 
+					label = translate[i];
+				else
+					label = i;
+
+				//console.log(i + " (" + entity_groups[i].length  + ")" + entity_groups[i] )
+				var newcnt = ""
+				newcnt = "<label>"
+				newcnt += "<input class='leaflet-control-layers-selector' "
+						+ " type='checkbox' name='" + label + "' "
+						+ " onclick='javascript:toggle(\""
+						+ i + "\",this)' "
+						+ " />"
+				newcnt += "<span>" + label + " (" + entity_groups[i].length  + ")</span>" 
+				newcnt += "</label>"
+				//console.log(i + groups[i])
+				if (groups[i] != undefined && groups_cnt[ groups[i] ] == undefined) {
+					groups_cnt[ groups[i] ] = []
+					groups_cnt[ groups[i] ].push(newcnt);
+				} else {
+					//groups_cnt[ others ] = []
+					//console.log(others)
+					groups_cnt[ others ].push(newcnt);
+				}
+
+
+				//console.log( translate[i] )
+			}
+
+
+			for (var i in groups_cnt)
+				cnt += i + "<br />" + groups_cnt[i].join('')
+
+			this._div.innerHTML = cnt;
+		};
+
+		myctrls.addTo(map);
+
+		 var availableTags = [
+		 "ActionScript",
+		 "AppleScript"]
+
+		  $( "#tags" ).autocomplete({
+		  source: availableTags
+		  });
 
 		all_ctrls = L.control();
 		all_ctrls.onAdd = function (map) {
@@ -177,6 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (open_entities.length === 0) {
 				ctrls._container.style.display="none"
 			}
+			ctrls._container.style.display="none"
 		}
 		init = true;
 	});
@@ -214,4 +290,14 @@ function updateTime(time) {
 	var hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
 	document.getElementById('time').innerHTML = 
 		"<strong>" + days[time.day] + ", " + hours + ":" + mins  + "</strong>";
+}
+
+
+var layers = {}
+function toggle(label, el) {
+	console.log(label)
+	if (el.checked === true)
+		map.removeLayer(tile_groups[label]);
+	else 
+		map.addLayer(tile_groups[label]);
 }

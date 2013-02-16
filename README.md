@@ -20,6 +20,7 @@ The data which is used will for now be exported from the OSM project.
  * Markers in green, locations which close in < 15 min yellow
  * Make time editable
  * Remove need for external data.json, instead parse *.xml on startup
+ * Datepicker
 
  * (What if we restart server? What happens to existing clients? Include a
    timeout within clientside JS which greys the website out if no reaction
