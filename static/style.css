@@ -22,6 +22,15 @@ html, body, #map {
 
 .all_ctrls {
 	text-align:center;
+	width: 100%;
+}
+.left {
+	float: none;
+}
+
+
+.right {
+	float: none;
 }
 
 .dropbox {

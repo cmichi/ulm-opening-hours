@@ -31,10 +31,12 @@ var groups = {
 	, "doctors": med
 }
 
+var socket;
+
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	var socket = io.connect('http://localhost');
+	socket = io.connect('http://localhost');
 
 	socket.on('initialisation', function (open_entities) {    
 		if (init) {
@@ -110,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 		info.update = function (props) {
 			this._div.innerHTML = '<h4>Was hat ge&ouml;ffnet?<br />\
-			Ulm | <span id="time"></span> (<a href="">Edit</a>)</h4>';
+			Ulm | <span id="time"></span> (<a href="javascript:edit()">Edit</a>)</h4>';
 			if (open_entities.length == 0) {
 				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
 				nichts ge&ouml;ffnnet!</h4>';
@@ -182,9 +184,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			return this._div;
 		};
 		all_ctrls.update = function (props) {
-			this._div.innerHTML = "<div class='all_ctrls'><a href='javascript:toggle_all(true);'>Alle aktivieren</a>" +
+			this._div.innerHTML = "<div class='all_ctrls'><a " +
+			"class='left' href='javascript:toggle_all(true);'>Alle aktivieren</a>" +
 				"&nbsp;|&nbsp;" + 
-				"<a href='javascript:toggle_all(false);'>Alle deaktivieren</a></div>";
+				"<a class='right' href='javascript:toggle_all(false);'>Alle deaktivieren</a></div>";
 		};
 		all_ctrls.addTo(map);
 
@@ -206,6 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
+		if (!init) setInterval(getTime, 1000);
 		init = true;
 	});
 
@@ -214,6 +218,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		updateTime(currTime);
 	});
 }, false);
+
+var now = new Date();
+function getTime(socket) {
+	//socket.emit('getTime', now)
+}
 
 
 function toggle_all(v) {

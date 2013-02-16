@@ -13,7 +13,6 @@ app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
 
 
-
 var data = fs.readFileSync("./data/xapi_meta.json");
 data = JSON.parse(data);
 
