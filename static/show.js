@@ -122,8 +122,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			return this._div;
 		};
 		info.update = function (props) {
-			this._div.innerHTML = '<h4>Was hat ge&ouml;ffnet?<br />\
-			Ulm | <span id="time"></span> (<a href="javascript:edit()">Edit</a>)</h4>';
+			this._div.innerHTML = "<h4 style='line-height:1.2em;'>ulm<br />" 
+			+ 'Was hat ge&ouml;ffnet?</h4><h4>\
+			<span id="time"></span>';
 			if (open_entities.length == 0) {
 				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
 				nichts ge&ouml;ffnnet!</h4>';
@@ -181,15 +182,28 @@ document.addEventListener('DOMContentLoaded', function() {
 				if (prefs_dropped[i] != undefined && prefs_dropped[i]) 
 					style = "style='display:block'"
 
-				cnt += "<div><a href='#' onclick='toggle_drop(this);'>" + i 
-				+ " (" + count + ")</a><br />" 
+				cnt += "<div><div class='dropheader'>"
+				+ "<div class='plus'>+</div>"
+				+ "<a href='#' onclick='toggle_drop(this);'>" + i 
+				+ "</a>"
+				+ "<a href='#' onclick='toggle_drop(this);'>" 
+				+ " (" + count + ")</a>"
+				+ "<img src='arrow-left.png' alt='' onclick='toggle_drop(this);'"
+				+ " class='arrow' /></div>"
+				//+ "<br />" 
 				+ "<div class='dropbox' "+style+" id='drop'>" + groups_cnt[i].join('')
 				+ "</div></div>"
 			}
 			cnt += "<div class='all_ctrls'><a " +
-			"class='left' href='javascript:toggle_all(true);'>Alle aktivieren</a>" +
+				//"class='left' href='javascript:toggle_all(true);'>Alle</a>" +
+				//"&nbsp;|&nbsp;" + 
+				//"<a class='right' href='javascript:toggle_all(false);'>Keine</a></div>";
+
+				"class='left' href='javascript:toggle_all(true);'>Alle aktivieren</a>" +
 				"&nbsp;|&nbsp;" + 
-				"<a class='right' href='javascript:toggle_all(false);'>Alle deaktivieren</a></div>";
+				"<a class='right' href='javascript:toggle_all(false);'>Alle deaktivieren</a>"
+				+ "<br /><a href=''>&Uuml;ber dieses Projekt</a>"
+				+ "</div>";
 
 			this._div.innerHTML = cnt;
 
@@ -275,13 +289,23 @@ function updateTime() {
 		, secs: now.getSeconds()
 	}
 
+	var datepicker = "<img src='edit.png' alt='' style='width:22px;\
+	margin-left:5px;margin-bottom:-4px' />"
+	var timepicker = datepicker
+	datepicker = ""
+
 	time.mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
 	time.hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
 	time.secs = (time.secs < 10) ? ("0" + time.secs.toString()) : time.secs;
 	document.getElementById('time').innerHTML = 
-		//"<strong>" + days[time.day] + ", " + time.hours + ":" + time.mins  + "</strong>";
-		"<strong>" + days[time.day] + ", " + time.hours + ":" + time.mins
-		+":" + time.secs  + "</strong>";
+		"<div style='text-align:right'>"
+		+ "<strong >" + days[time.day] + ", " 
+		+ now.getDate() + "." +
+		+ now.getMonth() + "." +
+		now.getFullYear() + datepicker + "<br />"
+		+ time.hours + ":" + time.mins + timepicker  + "</strong></div>";
+		//+ '<br />(<a href="javascript:edit()">Edit</a>)</h4>';
+		//"<strong>" + days[time.day] + ", " + time.hours + ":" + time.mins +":" + time.secs  + "</strong>";
 }
 
 
@@ -294,11 +318,16 @@ function toggle(el) {
 }
 
 function toggle_drop(here) {
-	if ($( here ).parent().find(".dropbox").css('display') === "none")
+	if ($( here ).parent().parent().find(".dropbox").css('display') === "none") {
 		prefs_dropped[here.innerHTML] = true;
-	else
+		$( here ).parent().parent().find("img").attr("src", "arrow-down.png");
+		$( here ).parent().parent().find(".plus").text("-");
+	} else {
 		prefs_dropped[here.innerHTML] = false;
+		$( here ).parent().parent().find("img").attr("src", "arrow-left.png");
+		$( here ).parent().parent().find(".plus").text("+");
+	}
 
-	$( here ).parent().find(".dropbox").toggle("blind")
+	$( here ).parent().parent().find(".dropbox").toggle("blind")
 }
 

@@ -41,3 +41,25 @@ html, body, #map {
 	min-height:50px;
 	padding: 5px;
 }
+
+.myctrls a {
+	font-size: 1.1em;
+}
+
+.arrow {
+	float: right;
+	width: 16px;
+	cursor: pointer;
+	display:none;
+}
+
+.myctrls .plus {
+	margin-right:5px;
+	color: #0078A8;
+	float:right;
+	font-size: 1.0em;
+}
+
+.myctrls .dropheader {
+	margin-bottom:0px;
+}
