@@ -52,6 +52,10 @@ for (var i in nodes) {
 	if (xml_craft == undefined || xml_craft.length === 0) 
 		xml_craft = undefined;
 
+	var xml_leisure = xpath.select("//tag[@k='leisure']/@v", new_doc);
+	if (xml_leisure == undefined || xml_leisure.length === 0) 
+		xml_leisure = undefined;
+
 
 	var xml_category = xml_name;
 	if (xml_shop !== undefined) xml_category = xml_shop[0].value;

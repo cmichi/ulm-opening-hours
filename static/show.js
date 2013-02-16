@@ -10,6 +10,12 @@ var currTime;
 var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
 
+var now = new Date();
+now = new Date();
+now = new Date(1360771200 - 8*60*60*1000);
+now.setYear(2013)
+var updateFrequency = 1000 * 60;
+
 var translate = {
 	"supermarket": "Supermarkt"
 	, "bank": "Bank"
@@ -35,8 +41,12 @@ var socket;
 
 
 document.addEventListener('DOMContentLoaded', function() {
-
 	socket = io.connect('http://localhost');
+
+	socket.on('connection', function() {
+		getTime();
+		//setInterval(getTime, updateFrequency);
+	})
 
 	socket.on('initialisation', function (open_entities) {    
 		if (init) {
@@ -79,13 +89,15 @@ document.addEventListener('DOMContentLoaded', function() {
 				shadowUrl : "marker-shadow.png"
 			});
 
+			console.log(entity)
+
 			entity_groups[entity.category].push( 
 				L.marker(
 					[entity.lat, entity.lon], {icon: myIcon}).bindPopup(
 					entity.name
-					+ "<br />" + entity.original_opening_hours
-					+ "<br />" + JSON.stringify(entity.opening_hours)
-					+ "<br />" + entity.category
+					//+ "<br />" + entity.original_opening_hours
+					//+ "<br />" + JSON.stringify(entity.opening_hours)
+					//+ "<br />" + entity.category
 					)
 			);
 		}
@@ -209,8 +221,13 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
-		if (!init) setInterval(getTime, 1000);
+		//if (!init) setInterval(getTime, updateFrequency);
+		if (!init) setInterval(updateTime, updateFrequency); // * 60
 		init = true;
+	});
+
+	socket.on('foo', function (data) {    
+		console.log(JSON.stringify(data))
 	});
 
 	socket.on('time', function (time) {    
@@ -219,9 +236,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 }, false);
 
-var now = new Date();
-function getTime(socket) {
-	//socket.emit('getTime', now)
+function getTime() {
+	console.log(now.getTime())
+	socket.emit('getEntries', {ms: now.getTime()})
 }
 
 
@@ -234,16 +251,26 @@ function toggle_all(v) {
 	}
 }
 
-function updateTime(time) {
-	if (time == undefined) return; 
+function updateTime() {
+	now = new Date(now.getTime() + updateFrequency);
 
 	var days = { 0: "So", 1: "Mo", 2: "Di", 3: "Mi", 4: "Do", 
 			5: "Fr", 6: "Sa"};
 
-	var mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
-	var hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
+	var time = {
+		mins: now.getMinutes()
+		, hours: now.getHours()
+		, day: now.getDay()
+		, secs: now.getSeconds()
+	}
+
+	time.mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
+	time.hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
+	time.secs = (time.secs < 10) ? ("0" + time.secs.toString()) : time.secs;
 	document.getElementById('time').innerHTML = 
-		"<strong>" + days[time.day] + ", " + hours + ":" + mins  + "</strong>";
+		//"<strong>" + days[time.day] + ", " + time.hours + ":" + time.mins  + "</strong>";
+		"<strong>" + days[time.day] + ", " + time.hours + ":" + time.mins
+		+":" + time.secs  + "</strong>";
 }
 
 

@@ -558,6 +558,7 @@
     <tag k="addr:street" v="Vorwerkstraße"/>
     <tag k="leisure" v="sports_centre"/>
     <tag k="name" v="McFit"/>
+    <tag k="amenity" v="sport"/>
     <tag k="opening_hours" v="24/7"/>
     <tag k="operator" v="McFit GmbH"/>
     <tag k="phone" v="0731/9756704"/>
@@ -1916,7 +1917,7 @@
     <tag k="amenity" v="driving_school"/>
     <tag k="email" v="info@fahrschule-gruber.de"/>
     <tag k="name" v="Fahrschule Gruber"/>
-    <tag k="opening_hours" v="Tu 18:00; Th 18:00"/>
+    <tag k="opening_hours" v="Tu 18:00-23:00; Th 18:00-23:00"/>
     <tag k="operator" v="Jürgen Gruber"/>
     <tag k="phone" v="0171 / 60 29 02 2"/>
     <tag k="website" v="http://www.fahrschule-gruber.de/"/>
@@ -1930,7 +1931,7 @@
     <tag k="amenity" v="driving_school"/>
     <tag k="email" v="info@fahrschule-gruber.de"/>
     <tag k="name" v="Fahrschule Gruber"/>
-    <tag k="opening_hours" v="Mo 18:30; We 18:30"/>
+    <tag k="opening_hours" v="Mo 18:30-23:00; We 18:30-23:00"/>
     <tag k="operator" v="Jürgen Gruber"/>
     <tag k="phone" v="0171 / 60 29 02 2"/>
     <tag k="website" v="http://www.fahrschule-gruber.de/"/>
@@ -2656,7 +2657,7 @@
   <node id="1662315204" lat="48.3989851" lon="9.9885312" version="1" timestamp="2012-03-06T12:35:11Z" changeset="10889546" uid="287306" user="Matthias Frank">
     <tag k="amenity" v="pub"/>
     <tag k="name" v="Altbierlokal"/>
-    <tag k="opening_hours" v="Fr 19-1, Sa 19-1"/>
+    <tag k="opening_hours" v="Fr 19:00-01:00; Sa 19:00-01:00"/>
     <tag k="smoking" v="yes"/>
   </node>
   <node id="1683153164" lat="48.4122984" lon="9.9751009" version="1" timestamp="2012-03-20T11:53:06Z" changeset="11040379" uid="13072" user="Kai Brühne"/>
@@ -2878,7 +2879,7 @@
     <tag k="amenity" v="brothel"/>
     <tag k="brothel:saunaclub" v="yes"/>
     <tag k="name" v="FKK Safari"/>
-    <tag k="opening_hours" v="Su-Th 11:00-02:00, Fr-Sa 11:00-04:00"/>
+    <tag k="opening_hours" v="Su-Th 11:00-02:00; Fr-Sa 11:00-04:00"/>
     <tag k="phone" v="+49 731 76669"/>
     <tag k="website" v="http://www.fkk-safari.de"/>
   </node>

@@ -17,77 +17,63 @@ var data = fs.readFileSync("./data/xapi_meta.json");
 data = JSON.parse(data);
 
 // parse for currently open locations
-var open_entities = [];
+//var open_entities = [];
 
 var test = false;
 
-function generateOpenEntities(time, day) {
-	//time = 10*60;
-	day = 4;
-	time = 23*60;
-
-	day = 1;
-	time = 16*60;
+function generateOpenEntities(date) {
+	//date = ...
 
 	if (test == true) {
-		day = 1;
 		test = false;
-		time = 9* 60;
+		//date = ...
 	} else 
 		test = true
 
-	//day = 5;
-	//time = 1 * 60;
-	//console.log(day);
-	day = 1;
-	time = 9*60;
-
-	var date = new Date();
-
-	open_entities = [];
+	var open_entities = [];
 	for (var i in data) {
-		if (data[i].opening_hours == undefined)
-			continue;
+		//console.log(data[i].original_opening_hours);
+		var oh = new opening_hours(data[i].original_opening_hours);
+		var is_open = oh.getState(date);
 
-		if (data[i].opening_hours[day] == undefined)
-			continue;
+		var diff = 15;
+		var soon = new Date(date.getTime() + diff*60000);
+		data[i].closing_soon = !oh.getState(soon);
 
-		for (var j in data[i].opening_hours[day]) {
-			// {from : ..., to: ...}
-			//var entry = data[i].opening_hours[day][j];
-			// console.log(JSON.stringify(entry));
-
-			console.log(data[i].original_opening_hours);
-			var oh = new opening_hours(data[i].original_opening_hours);
-			var is_open = oh.getState(date);
-
-			var diff = 15;
-			var soon = new Date(date.getTime() + diff*60000);
-			data[i].closing_soon = !oh.getState(soon);
-
-			if (is_open) {
-				open_entities.push(data[i]);
-			}
-
-			/*
-			if (entry.from <= time && entry.to >= time) {
-				open_entities.push(data[i]);
-			}
-			*/
+		if (is_open) {
+			open_entities.push(data[i]);
 		}
 	}
-	console.log(JSON.stringify(open_entities));
+	//console.log(JSON.stringify(open_entities));
+	return open_entities;
 }
 
-var now = new Date();
-generateOpenEntities((now.getHours()*60 + now.getMinutes()), now.getDay());
+//var now = new Date();
+//generateOpenEntities((now.getHours()*60 + now.getMinutes()), now.getDay());
 
 io.sockets.on('connection', function (socket) {
-	io.sockets.emit('initialisation', open_entities);
-	sendTime(); // initial call
+	//io.sockets.emit('initialisation', generateOpenEntities(new Date()));
+	//sendTime(); // initial call
+
+	socket.emit('connection');
+
+	socket.on('getEntries', function (data){
+		console.log(data)
+		var now = new Date(data.ms);
+		var h=now.getHours();
+		var m=now.getMinutes();
+		var s=now.getSeconds();
+
+		console.log(h)
+		console.log(m)
+		console.log(s)
+		console.log(now)
+
+		socket.emit('initialisation', generateOpenEntities(now))
+	});
 });
 
-
+/*
 sendTime = function() {
 	var now = new Date();
 	time = { hours: now.getHours(), mins: now.getMinutes(), 
@@ -95,15 +81,17 @@ sendTime = function() {
 	currTime = (now.getHours()*60 + now.getMinutes());
 	generateOpenEntities(currTime, now.getDay());
 
-	io.sockets.emit('time', time);
+	//io.sockets.emit('time', time);
 	io.sockets.emit('initialisation', open_entities);
+	//io.sockets.emit('initialisation', open_entities);
 	//io.sockets.emit('open_entities', open_entities);
 }
+*/
 //setInterval(sendTime, 10 * 1000);
-setInterval(sendTime, 1000);
+//setInterval(sendTime, 1000);
 //setInterval(sendTime, 1000 * 60);
 
 
 server.listen(3000, function() {
-console.log('Listening on port 3000');
+	console.log('Listening on port 3000');
 });
