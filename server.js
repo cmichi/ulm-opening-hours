@@ -100,7 +100,7 @@ sendTime = function() {
 	io.sockets.emit('initialisation', open_entities);
 	//io.sockets.emit('open_entities', open_entities);
 }
-setInterval(sendTime, 3 * 1000);
+setInterval(sendTime, 10 * 1000);
 //setInterval(sendTime, 1000);
 //setInterval(sendTime, 1000 * 60);
 

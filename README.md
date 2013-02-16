@@ -21,6 +21,7 @@ The data which is used will for now be exported from the OSM project.
  * Make time editable
  * Remove need for external data.json, instead parse *.xml on startup
  * Datepicker
+ * Test alternating between Mo, 900 and Do 2300
 
  * (What if we restart server? What happens to existing clients? Include a
    timeout within clientside JS which greys the website out if no reaction

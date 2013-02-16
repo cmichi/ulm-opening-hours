@@ -23,3 +23,7 @@ html, body, #map {
 .all_ctrls {
 	text-align:center;
 }
+
+.dropbox {
+	display:none;
+}
