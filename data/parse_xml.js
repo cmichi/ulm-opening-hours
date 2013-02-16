@@ -57,12 +57,13 @@ for (var i in nodes) {
 		xml_leisure = undefined;
 
 
-	var xml_category = xml_name;
+	var xml_category = "other"; //xml_name[0].value;
 	if (xml_shop !== undefined) xml_category = xml_shop[0].value;
 	if (xml_tourism !== undefined) xml_category = xml_tourism[0].value;
 	if (xml_office !== undefined) xml_category = xml_office[0].value;
 	if (xml_craft !== undefined) xml_category = xml_craft[0].value;
 	if (xml_amenity !== undefined) xml_category = xml_amenity[0].value;
+
 
 	var obj = {
 		lat : xpath.select("//node/@lat", new_doc)[0].value
