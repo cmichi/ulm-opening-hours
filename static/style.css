@@ -23,6 +23,7 @@ html, body, #map {
 .all_ctrls {
 	text-align:center;
 	width: 100%;
+	margin-top: 10px;
 }
 .left {
 	float: none;
@@ -35,4 +36,8 @@ html, body, #map {
 
 .dropbox {
 	display:none;
+	overflow-y:scroll;
+	max-height:300px;
+	min-height:50px;
+	padding: 5px;
 }

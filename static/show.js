@@ -12,9 +12,9 @@ var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Ima
 
 var now = new Date();
 now = new Date();
-now = new Date(1360771200 - 8*60*60*1000);
-now.setYear(2013)
-var updateFrequency = 1000 * 60;
+//now = new Date(1360771200 - 8*60*60*1000);
+//now.setYear(2013)
+var updateFrequency = 1000 * 20;
 
 var translate = {
 	"supermarket": "Supermarkt"
@@ -45,14 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	socket.on('connection', function() {
 		getTime();
-		//setInterval(getTime, updateFrequency);
+		setInterval(getTime, updateFrequency);
 	})
 
 	socket.on('initialisation', function (open_entities) {    
 		if (init) {
 			// everything has been initialized once before
 			for (var i in tile_groups) tile_groups[i].clearLayers();
-			map.removeControl(all_ctrls);
+			//map.removeControl(all_ctrls);
 			map.removeControl(info);
 			entity_groups = [];
 			tile_groups = [];
@@ -89,15 +89,14 @@ document.addEventListener('DOMContentLoaded', function() {
 				shadowUrl : "marker-shadow.png"
 			});
 
-			console.log(entity)
+			//console.log(entity)
 
 			entity_groups[entity.category].push( 
 				L.marker(
 					[entity.lat, entity.lon], {icon: myIcon}).bindPopup(
 					entity.name
-					//+ "<br />" + entity.original_opening_hours
-					//+ "<br />" + JSON.stringify(entity.opening_hours)
-					//+ "<br />" + entity.category
+					+ "<br />" + entity.original_opening_hours.split(';').join('<br />')
+					+ "<br />" + entity.category
 					)
 			);
 		}
@@ -151,6 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				else
 					label = i;
 
+				//console.log(i)
+
 				var newcnt = ""
 				newcnt = "<label>"
 				newcnt += "<input class='leaflet-control-layers-selector' "
@@ -172,14 +173,23 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 
 
-			for (var i in groups_cnt)
+			for (var i in groups_cnt) {
+				var count = groups_cnt[i].length;
+				//var cnt = 1;
+
 				var style = '';
 				if (prefs_dropped[i] != undefined && prefs_dropped[i]) 
 					style = "style='display:block'"
 
-				cnt += "<div><a href='#' onclick='toggle_drop(this);'>" + i + "</a><br />" +
-				"<div class='dropbox' "+style+" id='drop'>" + groups_cnt[i].join('')
+				cnt += "<div><a href='#' onclick='toggle_drop(this);'>" + i 
+				+ " (" + count + ")</a><br />" 
+				+ "<div class='dropbox' "+style+" id='drop'>" + groups_cnt[i].join('')
 				+ "</div></div>"
+			}
+			cnt += "<div class='all_ctrls'><a " +
+			"class='left' href='javascript:toggle_all(true);'>Alle aktivieren</a>" +
+				"&nbsp;|&nbsp;" + 
+				"<a class='right' href='javascript:toggle_all(false);'>Alle deaktivieren</a></div>";
 
 			this._div.innerHTML = cnt;
 
@@ -188,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		myctrls.addTo(map);
 
+/*
 		all_ctrls = L.control();
 		all_ctrls.onAdd = function (map) {
 			this._div = L.DomUtil.create('div', 'leaflet-control '
@@ -202,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				"<a class='right' href='javascript:toggle_all(false);'>Alle deaktivieren</a></div>";
 		};
 		all_ctrls.addTo(map);
+		*/
 
 
 		// restore preferences
@@ -221,8 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
-		//if (!init) setInterval(getTime, updateFrequency);
-		if (!init) setInterval(updateTime, updateFrequency); // * 60
+		if (!init) setInterval(updateTime, updateFrequency);
 		init = true;
 	});
 
@@ -283,7 +294,6 @@ function toggle(el) {
 }
 
 function toggle_drop(here) {
-		console.log(here.innerHTML)
 	if ($( here ).parent().find(".dropbox").css('display') === "none")
 		prefs_dropped[here.innerHTML] = true;
 	else

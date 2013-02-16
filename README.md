@@ -41,6 +41,11 @@ The data which is used will for now be exported from the OSM project.
 Then open [http://localhost:3000/](http://localhost:3000).
 
 
+# Known bugs
+
+ * once new content is fetched (~each minute), each popup is closed
+
+
 # Libraries
 
  * [leaflet](https://github.com/Leaflet/Leaflet)
