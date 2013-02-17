@@ -39,8 +39,41 @@ var groups = {
 
 var socket;
 
+		var dialog_opt = {
+			resizable: false,
+			//height: 140,
+			width: 400,
+			modal: true,
+			/*
+			buttons: {
+				Close: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+			*/
+		}
+
+function foob() {
+	$("#datepicker").datetimepicker('setDate', now)
+	$("#dialog-confirm").dialog(dialog_opt);
+}
+
+function submit() {
+	now = $("#datepicker").datetimepicker('getDate')
+	getTime()
+	$("#dialog-confirm").dialog("close");
+}
+
+function foo() {
+	$(function() {
+		$( "#datepicker" ).datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
+
+		//$( "#dialog-confirm" ).dialog(dialog_opt);
+	});
+}
 
 document.addEventListener('DOMContentLoaded', function() {
+	foo();
 	socket = io.connect('http://localhost');
 
 	socket.on('connection', function() {
@@ -203,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				"class='left' href='javascript:toggle_all(true);'>Alle aktivieren</a>" +
 				"&nbsp;|&nbsp;" + 
 				"<a class='right' href='javascript:toggle_all(false);'>Alle deaktivieren</a>"
-				+ "<br /><a href=''>&Uuml;ber dieses Projekt</a>"
+				+ "<br /><a href='javascript:foob();'>&Uuml;ber dieses Projekt</a>"
 				+ "</div>";
 
 			this._div.innerHTML = cnt;
@@ -270,10 +303,13 @@ function getTime() {
 
 function toggle_all(v) {
 	for (i in tile_groups) {
-		if (v && !map.hasLayer(tile_groups[i]))
+		if (v && !map.hasLayer(tile_groups[i])) {
 			map.addLayer(tile_groups[i]);
-		else if (!v)
+		} else if (!v) {
 			map.removeLayer(tile_groups[i]);
+		}
+		$("input[name=" + i + "]").attr('checked', v)
+		prefs[i] = v;
 	}
 }
 
@@ -290,10 +326,11 @@ function updateTime() {
 		, secs: now.getSeconds()
 	}
 
-	var datepicker = "<a href=''><img src='/img/edit.png' alt='' style='width:22px;\
+	var datepicker = "<a href='javascript:foob();'><img src='/img/edit.png' alt='' style='width:22px;\
 	margin-left:5px;margin-bottom:-4px' \
 	onmouseout='this.src=\"/img/edit.png\"' \
 	onmouseover='this.src=\"/img/edit-hover.png\"' /></a>"
+	//+ "<input type='text' id='edit' name='edit' style='width:100px' />"
 	var timepicker = datepicker
 	datepicker = ""
 
@@ -309,6 +346,7 @@ function updateTime() {
 		+ time.hours + ":" + time.mins + timepicker  + "</strong></div>";
 		//+ '<br />(<a href="javascript:edit()">Edit</a>)</h4>';
 		//"<strong>" + days[time.day] + ", " + time.hours + ":" + time.mins +":" + time.secs  + "</strong>";
+	//$( "#date" ).datetimepicker();
 }
 
 

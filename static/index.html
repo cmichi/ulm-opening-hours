@@ -23,6 +23,8 @@
 	<link rel="stylesheet" href="/css/jquery-ui.css" />
 	<script src="/js/jquery-1.8.3.js"></script>
 	<script src="/js/jquery-ui.js"></script>
+	<script src="/js/jquery-ui-sliderAccess.js"></script>
+	<script src="/js/jquery-ui-timepicker-addon.js"></script>
 </head>
 <body>
 	<div id="map"></div>
@@ -34,30 +36,30 @@
 		-->
 	</div>
 
-	<div id="dialog-confirm" title="Empty the recycle bin?">
-		<p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-			JThese items will be permanently deleted and
+	<div id="dialog-confirm" title="Ulm Opening Times" style='display:none' >
+		<p>Zeitpunkt: <input tabindex='-1' type="text" id="datepicker" />
+			<img src='/img/check.png' style='cursor:pointer;border:none;' 
+				onclick='javascript:submit()' alt='' />
+		</p>
+
+		<hr />
+
+		<h4 style='margin-bottom:8px'>&Uuml;ber dieses Projekt</h4>
+
+		<div style='float:left;margin-right:10px;'>
+			<a href="http://ulmAPI.de"><img src="/img/logos-large/ulmapi.png"
+				width='65' alt="ulmapi" /></a>
+				<!--
+			<a href="http://ulmAPI.de"><img src="/img/logos-large/datalove.png" 
+				width='65' alt="ulmapi" /></a>
+				-->
+		</div>
+		<p>These items will be permanently deleted and
 		cannot be recovered. Are you sure?</p>
+
 	</div>
 
 	<script>
-	/*
-	$(function() {
-		$( "#dialog-confirm" ).dialog({
-			resizable: false,
-			height: 140,
-			modal: true,
-			buttons: {
-				"Delete all items": function() {
-					$( this ).dialog( "close" );
-				},
-				Cancel: function() {
-					$( this ).dialog( "close" );
-				}
-			}
-		});
-	});
-	*/
 	</script>
 
 </body>
