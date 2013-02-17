@@ -63,3 +63,14 @@ html, body, #map {
 .myctrls .dropheader {
 	margin-bottom:0px;
 }
+
+.logos {
+	position:absolute;
+	bottom:10px;
+	left:10px;
+	z-index:99;
+}
+
+.logos img {
+	border:1px solid #838282;
+}

@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			var myIcon = L.icon({
 				iconUrl : iconUri,
-				iconSize: new L.Point(25, 41),
+				iconSize: new L.Point(26, 41),
 				iconAnchor: new L.Point(12, 41),
 				popupAnchor: new L.Point(1, -34),
 
