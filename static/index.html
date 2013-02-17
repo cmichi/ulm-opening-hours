@@ -3,36 +3,62 @@
 <head>
 	<meta charset="utf-8">
 	<title>Ulm Opening Hours</title>
-	<script src="/show.js"></script>
-	<link rel="stylesheet" href="/style.css">
+	<script src="/js/show.js"></script>
+	<link rel="stylesheet" href="/css/style.css">
 
 	<!--
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
-	<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+	<link rel="stylesheet" href="/css/leaflet.css" />
+	<script src="/js/leaflet.js"></script>
 	-->
 
-<link rel="stylesheet"
-href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
-<!--[if lte IE 8]>
-    <link rel="stylesheet"
-    href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
-    <![endif]-->
+	<link rel="stylesheet" href="/css/leaflet.css" />
+	<!--[if lte IE 8]>
+	    <link rel="stylesheet" href="/css/leaflet.ie.css" />
+	<![endif]-->
 
-    <script
-    src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+	<script src="/js/leaflet.js"></script>
 
 	<script src="/socket.io/socket.io.js"></script>
 
-	 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
-	 <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-	 <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/css/jquery-ui.css" />
+	<script src="/js/jquery-1.8.3.js"></script>
+	<script src="/js/jquery-ui.js"></script>
 </head>
 <body>
 	<div id="map"></div>
 	
 	<div class="logos">
-		<a href="http://ulmAPI.de"><img src="ulmapi.png" alt="ulmapi" /></a>
-		<a href="http://ulmAPI.de"><img src="datalove.png" alt="ulmapi" /></a>
+		<a href="http://ulmAPI.de"><img src="/img/ulmapi.png" alt="ulmapi" /></a>
+		<!--
+		<a href="http://ulmAPI.de"><img src="datalove.png" alt="ulmapi" /></a> 
+		-->
 	</div>
+
+	<div id="dialog-confirm" title="Empty the recycle bin?">
+		<p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+			JThese items will be permanently deleted and
+		cannot be recovered. Are you sure?</p>
+	</div>
+
+	<script>
+	/*
+	$(function() {
+		$( "#dialog-confirm" ).dialog({
+			resizable: false,
+			height: 140,
+			modal: true,
+			buttons: {
+				"Delete all items": function() {
+					$( this ).dialog( "close" );
+				},
+				Cancel: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+	});
+	*/
+	</script>
+
 </body>
 </html>

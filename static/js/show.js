@@ -74,9 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 
 			if (entity.closing_soon) 
-				var iconUri = "marker-icon-yellow.png"
+				var iconUri = "/img/marker-icon-yellow.png"
 			else
-				var iconUri = "marker-icon-green.png"
+				var iconUri = "/img/marker-icon-green.png"
 
 			var myIcon = L.icon({
 				iconUrl : iconUri,
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				shadowSize: new L.Point(41, 41),
 				shadowAnchor: [12, 41],
-				shadowUrl : "marker-shadow.png"
+				shadowUrl : "/img/marker-shadow.png"
 			});
 
 			//console.log(entity)
@@ -107,7 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		if (!init) {
 			map = L.map('map', {
-				center: new L.LatLng(48.400500, 9.9794349)
+				center: new L.LatLng(48.398949765641404, 9.981164932250977)
+				//center: new L.LatLng(48.400500, 9.9794349)
 				, zoom: 14
 				, layers: tile_groups
 			});
@@ -188,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				+ "</a>"
 				+ "<a href='#' onclick='toggle_drop(this);'>" 
 				+ " (" + count + ")</a>"
-				+ "<img src='arrow-left.png' alt='' onclick='toggle_drop(this);'"
+				+ "<img src='/img/arrow-left.png' alt='' onclick='toggle_drop(this);'"
 				+ " class='arrow' /></div>"
 				//+ "<br />" 
 				+ "<div class='dropbox' "+style+" id='drop'>" + groups_cnt[i].join('')
@@ -289,10 +290,10 @@ function updateTime() {
 		, secs: now.getSeconds()
 	}
 
-	var datepicker = "<a href=''><img src='edit.png' alt='' style='width:22px;\
+	var datepicker = "<a href=''><img src='/img/edit.png' alt='' style='width:22px;\
 	margin-left:5px;margin-bottom:-4px' \
-	onmouseout='this.src=\"edit.png\"' \
-	onmouseover='this.src=\"edit-hover.png\"' /></a>"
+	onmouseout='this.src=\"/img/edit.png\"' \
+	onmouseover='this.src=\"/img/edit-hover.png\"' /></a>"
 	var timepicker = datepicker
 	datepicker = ""
 
@@ -322,11 +323,11 @@ function toggle(el) {
 function toggle_drop(here) {
 	if ($( here ).parent().parent().find(".dropbox").css('display') === "none") {
 		prefs_dropped[here.innerHTML] = true;
-		$( here ).parent().parent().find("img").attr("src", "arrow-down.png");
+		$( here ).parent().parent().find("img").attr("src", "/img/arrow-down.png");
 		$( here ).parent().parent().find(".plus").text("-");
 	} else {
 		prefs_dropped[here.innerHTML] = false;
-		$( here ).parent().parent().find("img").attr("src", "arrow-left.png");
+		$( here ).parent().parent().find("img").attr("src", "/img/arrow-left.png");
 		$( here ).parent().parent().find(".plus").text("+");
 	}
 
