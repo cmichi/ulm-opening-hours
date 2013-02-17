@@ -72,5 +72,9 @@ html, body, #map {
 }
 
 .logos img {
-	border:1px solid #838282;
+	border:1px solid #000;
+}
+
+.logos img:hover {
+	border:1px solid #0084b0;
 }

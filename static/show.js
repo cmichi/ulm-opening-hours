@@ -289,8 +289,10 @@ function updateTime() {
 		, secs: now.getSeconds()
 	}
 
-	var datepicker = "<img src='edit.png' alt='' style='width:22px;\
-	margin-left:5px;margin-bottom:-4px' />"
+	var datepicker = "<a href=''><img src='edit.png' alt='' style='width:22px;\
+	margin-left:5px;margin-bottom:-4px' \
+	onmouseout='this.src=\"edit.png\"' \
+	onmouseover='this.src=\"edit-hover.png\"' /></a>"
 	var timepicker = datepicker
 	datepicker = ""
 
