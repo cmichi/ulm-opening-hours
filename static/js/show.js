@@ -26,14 +26,18 @@ var translate = {
 	, "pharmacy": "Apotheke"
 	, "fast_food": "Schnellimbiss"
 }
-var food = "Essen"
-var med = "Medizin"
+var food = "Ernährung"
+var med = "Gesundheit"
+var buy = "Einkaufen"
 var others = "Sonstige"
 var groups = {
-	"supermarket": food
-	, "restaurant": food
+	 "restaurant": 	food
+	, "supermarket": buy
 	, "pharmacy": med
 	, "doctors": med
+	, "bakery": food
+	, "fast_food": food
+	, "computer": buy
 }
 
 var socket;
@@ -196,8 +200,11 @@ document.addEventListener('DOMContentLoaded', function() {
 				newcnt += "<span>" + label + " (" + entity_groups[i].length  + ")</span>" 
 				newcnt += "</label>"
 
-				if (groups[i] != undefined && groups_cnt[ groups[i] ] == undefined) {
-					groups_cnt[ groups[i] ] = []
+				if (groups[i] != undefined) {
+					if (groups_cnt[ groups[i] ] == undefined) 
+						groups_cnt[groups[i]] = []
+
+					//groups_cnt[ groups[i] ] = []
 					groups_cnt[ groups[i] ].push(newcnt);
 				} else {
 					groups_cnt[ others ].push(newcnt);
@@ -206,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			}
 
+			var others_cnt;
 
 			for (var i in groups_cnt) {
 				var count = groups_cnt[i].length;
@@ -215,7 +223,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				if (prefs_dropped[i] != undefined && prefs_dropped[i]) 
 					style = "style='display:block'"
 
-				cnt += "<div><div class='dropheader'>"
+
+				var cnt2 = "<div><div class='dropheader'>"
 				+ "<div class='plus'>+</div>"
 				+ "<a href='#' onclick='toggle_drop(this);'>" + i 
 				+ "</a>"
@@ -226,7 +235,12 @@ document.addEventListener('DOMContentLoaded', function() {
 				//+ "<br />" 
 				+ "<div class='dropbox' "+style+" id='drop'>" + groups_cnt[i].join('')
 				+ "</div></div>"
+
+				if (i !== others) cnt += cnt2;
+				else others_cnt = cnt2;
 			}
+
+			cnt += others_cnt; // last item
 			cnt += "<div class='all_ctrls'><a " +
 				//"class='left' href='javascript:toggle_all(true);'>Alle</a>" +
 				//"&nbsp;|&nbsp;" + 
