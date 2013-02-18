@@ -67,7 +67,7 @@ function foo() {
 	$(function() {
 		$( "#datepicker" ).datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
 		$("#datepicker").datetimepicker('setDate', now)
-		$( "#dialog-confirm" ).dialog(dialog_opt);
+		//$( "#dialog-confirm" ).dialog(dialog_opt);
 	});
 }
 
