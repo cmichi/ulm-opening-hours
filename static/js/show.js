@@ -11,7 +11,6 @@ var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd170
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
 
 var now = new Date();
-now = new Date();
 //now = new Date(1360771200 - 8*60*60*1000);
 //now.setYear(2013)
 var updateFrequency = 1000 * 20;
@@ -42,7 +41,7 @@ var socket;
 		var dialog_opt = {
 			resizable: false,
 			//height: 140,
-			width: 400,
+			width: 600,
 			modal: true,
 			/*
 			buttons: {
@@ -67,8 +66,8 @@ function submit() {
 function foo() {
 	$(function() {
 		$( "#datepicker" ).datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
-
-		//$( "#dialog-confirm" ).dialog(dialog_opt);
+		$("#datepicker").datetimepicker('setDate', now)
+		$( "#dialog-confirm" ).dialog(dialog_opt);
 	});
 }
 
@@ -165,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		};
 		info.addTo(map);
-		updateTime(currTime);
+		updateTime(0);
 
 		myctrls = L.control();
 		myctrls.onAdd = function (map) {
@@ -233,9 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
 				//"&nbsp;|&nbsp;" + 
 				//"<a class='right' href='javascript:toggle_all(false);'>Keine</a></div>";
 
-				"class='left' href='javascript:toggle_all(true);'>Alle aktivieren</a>" +
+				"class='left' href='javascript:toggle_all(true);'>Alle sichtbar</a>" +
 				"&nbsp;|&nbsp;" + 
-				"<a class='right' href='javascript:toggle_all(false);'>Alle deaktivieren</a>"
+				"<a class='right' href='javascript:toggle_all(false);'>Keine sichtbar</a>"
 				+ "<br /><a href='javascript:foob();'>&Uuml;ber dieses Projekt</a>"
 				+ "</div>";
 
@@ -289,14 +288,17 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(JSON.stringify(data))
 	});
 
+/*
 	socket.on('time', function (time) {    
 		currTime = time;
 		updateTime(currTime);
 	});
+	*/
 }, false);
 
 function getTime() {
-	console.log(now.getTime())
+	//updateTime();
+	//console.log(now.getTime())
 	socket.emit('getEntries', {ms: now.getTime()})
 }
 
@@ -313,8 +315,15 @@ function toggle_all(v) {
 	}
 }
 
-function updateTime() {
-	now = new Date(now.getTime() + updateFrequency);
+function incTime() {
+}
+
+function updateTime(diff) {
+	if (diff == undefined || diff == null)
+		diff = updateFrequency;
+
+	//console.log('update')
+	now = new Date(now.getTime() + diff);
 
 	var days = { 0: "So", 1: "Mo", 2: "Di", 3: "Mi", 4: "Do", 
 			5: "Fr", 6: "Sa"};

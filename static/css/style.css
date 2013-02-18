@@ -47,7 +47,7 @@ html, body, #map {
 }
 
 .myctrls a {
-	font-size: 1.1em;
+	font-size: 1.2em;
 }
 
 .arrow {
@@ -61,7 +61,7 @@ html, body, #map {
 	margin-right:5px;
 	color: #0078A8;
 	float:right;
-	font-size: 1.0em;
+	font-size: 1.2em;
 }
 
 .myctrls .dropheader {
@@ -84,11 +84,14 @@ html, body, #map {
 }
 
 #dialog-confirm {
-	font-size: 0.8em;
+	font-size: 1.0em;
 	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 	color: #222;
 }
 
+#dialog-confirm a {
+	color: #0078A8;
+}
 
 #ui-datepicker-div {
 	display: none
