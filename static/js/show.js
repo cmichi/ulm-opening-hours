@@ -1,7 +1,7 @@
 var map;
 var entity_groups = [];
 var tile_groups = [];
-var info, all_ctrls, myctrls;
+var info, myctrls, legend;
 var init = false;
 var prefs = {};
 var prefs_dropped = {};
@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (init) {
 			// everything has been initialized once before
 			for (var i in tile_groups) tile_groups[i].clearLayers();
-			//map.removeControl(all_ctrls);
 			map.removeControl(info);
 			entity_groups = [];
 			tile_groups = [];
@@ -260,24 +259,23 @@ document.addEventListener('DOMContentLoaded', function() {
 			return this._div;
 		};
 
-		myctrls.addTo(map);
 
-/*
-		all_ctrls = L.control();
-		all_ctrls.onAdd = function (map) {
-			this._div = L.DomUtil.create('div', 'leaflet-control '
-				+ 'leaflet-control-layers leaflet-control-layers-expanded');
-			this.update();
-			return this._div;
-		};
-		all_ctrls.update = function (props) {
-			this._div.innerHTML = "<div class='all_ctrls'><a " +
-			"class='left' href='javascript:toggle_all(true);'>Alle aktivieren</a>" +
-				"&nbsp;|&nbsp;" + 
-				"<a class='right' href='javascript:toggle_all(false);'>Alle deaktivieren</a></div>";
-		};
-		all_ctrls.addTo(map);
-		*/
+		if (!init) {
+			legend = L.control();
+			legend.onAdd = function (map) {
+				this._div = L.DomUtil.create('div', 'leaflet-control '
+					+ 'leaflet-control-layers leaflet-control-layers-expanded');
+				this._div.innerHTML += "<img src='/img/marker-icon-green.png' height='30' style='float:left;margin-top:4px' />"
+				this._div.innerHTML += "<div style='padding-top:10px;float:left;padding-left:5px '> Ge&ouml;ffnet</div>"
+
+				this._div.innerHTML += "<div style='padding-top:0px;float:right;padding-left:5px;'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
+				this._div.innerHTML += "<img src='/img/marker-icon-yellow.png' height='30' style='float:right;margin-top:4px;' />"
+				L.DomEvent.disableClickPropagation(this._div);
+				return this._div;
+			};
+			legend.addTo(map);
+		}
+		myctrls.addTo(map);
 
 
 		// restore preferences
