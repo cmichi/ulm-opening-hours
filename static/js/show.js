@@ -20,11 +20,26 @@ var translate = {
 	, "bank": "Bank"
 	, "cafe": "Cafe"
 	, "bar": "Bar"
+	, "car_repair": "Autowerkstatt"
+	, "optician": "Optiker"
+	, "hairdresser": "Friseur"
+	, "shop": "Einkaufsladen"
+	, "bakery": "B&auml;cker"
+	, "travel_agency": "Reiseb&uuml;ro"
 	, "restaurant": "Restaurant"
+	, "fuel": "Tankstelle"
 	, "doctors": "&Auml;rzte"
 	, "restaurant": "Restaurant"
 	, "pharmacy": "Apotheke"
+	, "butcher": "Metzgerei"
+	, "library": "Bibliothek"
+	, "atm": "Bankautomat"
+	, "police": "Polizei"
 	, "fast_food": "Schnellimbiss"
+	, "tailor": "Schneiderei"
+	, "computer": "Computer"
+	, "hotel": "Hotel"
+	, "dancing_school": "Tanzschule"
 }
 var food = "Ernährung"
 var med = "Gesundheit"
@@ -33,6 +48,10 @@ var others = "Sonstige"
 var groups = {
 	 "restaurant": 	food
 	, "supermarket": buy
+	, "bar": food
+	, "butcher": food
+	, "cafe": food
+	, "shop": buy
 	, "pharmacy": med
 	, "doctors": med
 	, "bakery": food
@@ -126,13 +145,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			});
 
 			//console.log(entity)
+			var trans = entity.category;
+			if (translate[entity.category] != undefined) 
+				trans = translate[entity.category];
 
 			entity_groups[entity.category].push( 
 				L.marker(
 					[entity.lat, entity.lon], {icon: myIcon}).bindPopup(
-					entity.name
+					"<strong>" + entity.name + "</strong>"
+					+ "<br />Kategorie: " + trans + "<br />"
 					+ "<br />" + entity.original_opening_hours.split(';').join('<br />')
-					+ "<br />" + entity.category
 					)
 			);
 		}
@@ -143,8 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		if (!init) {
 			map = L.map('map', {
-				center: new L.LatLng(48.398949765641404, 9.981164932250977)
-				//center: new L.LatLng(48.400500, 9.9794349)
+				//center: new L.LatLng(48.398949765641404, 9.981164932250977)
+				center: new L.LatLng(48.40783887047417, 9.987516403198242)
 				, zoom: 14
 				, layers: tile_groups
 			});
