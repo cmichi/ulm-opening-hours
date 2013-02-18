@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			// everything has been initialized once before
 			for (var i in tile_groups) tile_groups[i].clearLayers();
 			map.removeControl(info);
+			map.removeControl(legend);
 			entity_groups = [];
 			tile_groups = [];
 
@@ -260,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 
 
-		if (!init) {
+		//if (!init) {
 			legend = L.control();
 			legend.onAdd = function (map) {
 				this._div = L.DomUtil.create('div', 'leaflet-control '
@@ -274,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				return this._div;
 			};
 			legend.addTo(map);
-		}
+		//}
 		myctrls.addTo(map);
 
 
