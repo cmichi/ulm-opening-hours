@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
 				nichts ge&ouml;ffnnet!</h4>';
 			}
+			L.DomEvent.disableClickPropagation(this._div);
 		};
 		info.addTo(map);
 		updateTime(0);
@@ -174,6 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		myctrls.onAdd = function (map) {
 			this._div = L.DomUtil.create('div', 'myctrls leaflet-control \
 					leaflet-control-layers leaflet-control-layers-expanded'); 
+			L.DomEvent.disableClickPropagation(this._div);
+
 			var cnt = "";
 
 			cnt = ''
