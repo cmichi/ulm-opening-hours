@@ -96,7 +96,8 @@ function foo() {
 
 document.addEventListener('DOMContentLoaded', function() {
 	foo();
-	socket = io.connect('http://localhost');
+	socket = io.connect('http://10.0.42.111');
+	//socket = io.connect('http://localhost');
 
 	socket.on('connection', function() {
 		getTime();

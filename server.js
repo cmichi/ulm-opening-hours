@@ -1,38 +1,21 @@
 var fs = require('fs');
 var express = require('express');
 var io = require('socket.io');
+var opening_hours = require('./opening_hours.js');
+var xmlParser = require('./data/parse_xml.js')
+var data = xmlParser.getData()
 
 var app = express();
-var server = require('http').createServer(app);
-io = io.listen(server);
-
-var opening_hours = require('./opening_hours.js');
-
-
 app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
 
+var server = require('http').createServer(app);
+io = io.listen(server);
 
-var data = fs.readFileSync("./data/xapi_meta.json");
-data = JSON.parse(data);
-
-// parse for currently open locations
-//var open_entities = [];
-
-var test = false;
 
 function generateOpenEntities(date) {
-	//date = ...
-
-	if (test == true) {
-		test = false;
-		//date = ...
-	} else 
-		test = true
-
 	var open_entities = [];
 	for (var i in data) {
-		//console.log(data[i].original_opening_hours);
 		var oh = new opening_hours(data[i].original_opening_hours);
 		var is_open = oh.getState(date);
 
@@ -44,17 +27,12 @@ function generateOpenEntities(date) {
 			open_entities.push(data[i]);
 		}
 	}
-	//console.log(JSON.stringify(open_entities));
+
 	return open_entities;
 }
 
-//var now = new Date();
-//generateOpenEntities((now.getHours()*60 + now.getMinutes()), now.getDay());
 
 io.sockets.on('connection', function (socket) {
-	//io.sockets.emit('initialisation', generateOpenEntities(new Date()));
-	//sendTime(); // initial call
-
 	socket.emit('connection');
 
 	socket.on('getEntries', function (data){

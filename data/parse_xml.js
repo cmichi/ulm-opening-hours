@@ -5,91 +5,87 @@ var xpath = require('xpath')
     , dom = require('xmldom').DOMParser
     , fs = require('fs');
 
-var xml = fs.readFileSync('./xapi_meta.xml', 'utf-8');
+var xml = fs.readFileSync('./data/xapi_meta.xml', 'utf-8');
 
 var doc = new dom().parseFromString(xml)    
 var nodes = xpath.select("//node", doc)
 var results = [];
 
-/*
-console.log(
-	JSON.stringify(
-		//parseOpeningHours("Mo 08:00-12:00,16:00-19:00; Tu-We 08:00-12:00,16:00-18:00; Th 08:00-12:00,16:00-19:00; Fr 08:00-12:00")
-		parseOpeningHours("Su-Th 06:00-01:00; Fr-Sa 06:00-02:00")
-	)
-)
-*/
 
-for (var i in nodes) {
-	//console.log(nodes[i].toString())
-	var new_doc = new dom().parseFromString( nodes[i].toString() );
+exports.getData = function() {
+	for (var i in nodes) {
+		//console.log(nodes[i].toString())
+		var new_doc = new dom().parseFromString( nodes[i].toString() );
 
-	var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
-	if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
-		continue;
+		var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
+		if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
+			continue;
 
-	var xml_name = xpath.select("//tag[@k='name']/@v", new_doc);
-	if (xml_name == undefined || xml_name.length === 0) 
-		xml_name = xpath.select("//node/@uid", new_doc);
+		var xml_name = xpath.select("//tag[@k='name']/@v", new_doc);
+		if (xml_name == undefined || xml_name.length === 0) 
+			xml_name = xpath.select("//node/@uid", new_doc);
 
-	var xml_amenity = xpath.select("//tag[@k='amenity']/@v", new_doc);
-	if (xml_amenity == undefined || xml_amenity.length === 0) 
-		xml_amenity = undefined;
+		var xml_amenity = xpath.select("//tag[@k='amenity']/@v", new_doc);
+		if (xml_amenity == undefined || xml_amenity.length === 0) 
+			xml_amenity = undefined;
 
-	var xml_shop = xpath.select("//tag[@k='shop']/@v", new_doc);
-	if (xml_shop == undefined || xml_shop.length === 0) 
-		xml_shop = undefined;
+		var xml_shop = xpath.select("//tag[@k='shop']/@v", new_doc);
+		if (xml_shop == undefined || xml_shop.length === 0) 
+			xml_shop = undefined;
 
-	var xml_tourism = xpath.select("//tag[@k='tourism']/@v", new_doc);
-	if (xml_tourism == undefined || xml_tourism.length === 0) 
-		xml_tourism = undefined;
+		var xml_tourism = xpath.select("//tag[@k='tourism']/@v", new_doc);
+		if (xml_tourism == undefined || xml_tourism.length === 0) 
+			xml_tourism = undefined;
 
-	var xml_office = xpath.select("//tag[@k='office']/@v", new_doc);
-	if (xml_office == undefined || xml_office.length === 0) 
-		xml_office = undefined;
+		var xml_office = xpath.select("//tag[@k='office']/@v", new_doc);
+		if (xml_office == undefined || xml_office.length === 0) 
+			xml_office = undefined;
 
-	var xml_craft = xpath.select("//tag[@k='craft']/@v", new_doc);
-	if (xml_craft == undefined || xml_craft.length === 0) 
-		xml_craft = undefined;
+		var xml_craft = xpath.select("//tag[@k='craft']/@v", new_doc);
+		if (xml_craft == undefined || xml_craft.length === 0) 
+			xml_craft = undefined;
 
-	var xml_leisure = xpath.select("//tag[@k='leisure']/@v", new_doc);
-	if (xml_leisure == undefined || xml_leisure.length === 0) 
-		xml_leisure = undefined;
+		var xml_leisure = xpath.select("//tag[@k='leisure']/@v", new_doc);
+		if (xml_leisure == undefined || xml_leisure.length === 0) 
+			xml_leisure = undefined;
 
 
-	var xml_category = "other"; //xml_name[0].value;
-	if (xml_shop !== undefined) xml_category = xml_shop[0].value;
-	if (xml_tourism !== undefined) xml_category = xml_tourism[0].value;
-	if (xml_office !== undefined) xml_category = xml_office[0].value;
-	if (xml_craft !== undefined) xml_category = xml_craft[0].value;
-	if (xml_amenity !== undefined) xml_category = xml_amenity[0].value;
+		var xml_category = "other"; //xml_name[0].value;
+		if (xml_shop !== undefined) xml_category = xml_shop[0].value;
+		if (xml_tourism !== undefined) xml_category = xml_tourism[0].value;
+		if (xml_office !== undefined) xml_category = xml_office[0].value;
+		if (xml_craft !== undefined) xml_category = xml_craft[0].value;
+		if (xml_amenity !== undefined) xml_category = xml_amenity[0].value;
 
 
-	var obj = {
-		lat : xpath.select("//node/@lat", new_doc)[0].value
-		, lon : xpath.select("//node/@lon", new_doc)[0].value
-		, name : xml_name[0].value
-		, opening_hours: xml_opening_hours[0].value
-		, original_opening_hours: xml_opening_hours[0].value
-		, category: "" + xml_category
-	};
+		var obj = {
+			lat : xpath.select("//node/@lat", new_doc)[0].value
+			, lon : xpath.select("//node/@lon", new_doc)[0].value
+			, name : xml_name[0].value
+			, opening_hours: xml_opening_hours[0].value
+			, original_opening_hours: xml_opening_hours[0].value
+			, category: "" + xml_category
+		};
 
-	// var foo = "Mo, Th 8:30-13:30, 14:45-18:00; Tu, Fr 8:30-13:30, 14:45-17:00; We 8:30-12:30"
-	obj.opening_hours = parseOpeningHours(obj.opening_hours);
+		// var foo = "Mo, Th 8:30-13:30, 14:45-18:00; Tu, Fr 8:30-13:30, 14:45-17:00; We 8:30-12:30"
+		obj.opening_hours = parseOpeningHours(obj.opening_hours);
 
-	results.push(obj);
-	//console.log(JSON.stringify(obj));
+		results.push(obj);
+		//console.log(JSON.stringify(obj));
+	}
+	return results;
 }
 
-console.log(JSON.stringify(results));
 
+// parseOpeningHours("Mo 08:00-12:00,16:00-19:00; Tu-We 08:00-12:00,16:00-18:00; Th 08:00-12:00,16:00-19:00; Fr 08:00-12:00")
+// parseOpeningHours("Su-Th 06:00-01:00; Fr-Sa 06:00-02:00")
 function parseOpeningHours(foo) {
 	var entries = foo.split(/;/);
 	var output = {};
 	for (var index in entries) {
 		var entry = entries[index].trim();
+
 		// extract until first digit
-		//console.log(entry);
 		var days = entry.match(/[A-z]+[,\s]?/g); // char followed by , or \s
 		var times = entry.match(/\d+[:]+\d+/g); // every timestamp in string
 
@@ -131,8 +127,6 @@ function parseOpeningHours(foo) {
 			}
 		}
 	}
-	//console.log( JSON.stringify( output ) );
-	//console.log("")
 
 	return output;
 }
