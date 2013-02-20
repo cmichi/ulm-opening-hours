@@ -1,32 +1,29 @@
 # Ulm Opening Hours
 
-**Project Status:** Heavily working on a prototype, but you should get
-a working version when cloning this repository.
-
-This is an idea which I had a while ago. I didn't get around to implement 
-it but took the upcoming [Open Data Day](http://ulmapi.de/#opendataday)
-as an opportunity to work on it.
+**Project Status:** Everyhting is working as expected.
+The code is still messy and has to be refactored, also the UI has
+to be optimized for mobile clients. This will be done as a next step.
 
 The goal of this project is to create a website which can be used to answer
 questions like *Which shops/bakeries/restaurants/etc. are still open?* or
 *Where can I get beer at this time?*.
 
-The data which is used will for now be exported from the OSM project.
+Often times when searching for websites of stores or other facilities,
+people just look for the opening hours. This application offers a handy
+interface which displays opening times for many locations in your city.
+
+Though I have been thinking about this idea for quite some time, it had to
+take the upcoming [Open Data Day](http://ulmapi.de/#opendataday) as a
+trigger for me to start working on it.
 
 
 # ToDo 
 
- * Create custom box for interactive category filtering
- * Markers in green, locations which close in < 15 min yellow
- * Make time editable
  * Remove need for external data.json, instead parse *.xml on startup
- * Datepicker
- * Test alternating between Mo, 900 and Do 2300
+ * Datepicker on page, not in modal dialog
+ * Autompletion text field for fulltext search
 
- * (What if we restart server? What happens to existing clients? Include a
-   timeout within clientside JS which greys the website out if no reaction
-   for 5 min)
- * (List open facilities near me?)
+ * Add data for: hostels, bakeries, local post stations
 
 
 # Getting started
@@ -43,19 +40,28 @@ Then open [http://localhost:3000/](http://localhost:3000).
 
 # Known bugs
 
- * once new content is fetched (~each minute), each popup is closed
+ * Once new content is fetched (~each minute), each popup is closed. This
+ is due to each marker being recreated on a new fetch. Also the scrollbars
+ within the category selection are set to the beginning.
 
 
-# Libraries
+# Libraries & Icons
 
  * [leaflet](https://github.com/Leaflet/Leaflet)
  * express
  * socket.io
  * [opening_hours.js](https://github.com/AMDmi3/opening_hours.js/)
+ * jQuery and jQuery UI
+
+ * [Check Icon](http://thenounproject.com/noun/check-mark/#icon-No2784) by
+   P.J. Onori, from The Noun Project
+ * [Edit Icon](http://thenounproject.com/noun/edit/#icon-No5587) by
+   Naomi Atkinson, from The Noun Project
+
 
 # License
 
-The database file `xapi_meta.xml` is fetched from the Open Street Map
+The database file `xapi_meta.xml` is exported from the Open Street Map
 databse. It is made available under the Open Database License:
 http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual
 contents of the database are licensed under the Database Contents License:
