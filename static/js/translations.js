@@ -28,6 +28,10 @@ var food = "Ernährung"
 var med = "Gesundheit"
 var buy = "Einkaufen"
 var others = "Sonstige"
+
+// these groups are used in the category box, where
+// users are able to check or uncheck the displaying
+// of certain categories
 var groups = {
 	 "restaurant": 	food
 	, "supermarket": buy

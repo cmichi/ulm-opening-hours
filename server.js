@@ -2,6 +2,7 @@ var fs = require('fs');
 var express = require('express');
 var io = require('socket.io');
 var opening_hours = require('./lib/opening_hours.js');
+
 var xmlParser = require('./data/parse_xml.js')
 var data = xmlParser.getData()
 
@@ -19,8 +20,8 @@ function generateOpenEntities(date) {
 		var oh = new opening_hours(data[i].original_opening_hours);
 		var is_open = oh.getState(date);
 
-		var diff = 15;
-		var soon = new Date(date.getTime() + diff*60000);
+		// still open in 15 minutes?
+		var soon = new Date(date.getTime() + 15*60000);
 		data[i].closing_soon = !oh.getState(soon);
 
 		if (is_open) {

@@ -14,7 +14,6 @@ var now = new Date();
 // how often does the client pull new opening times?
 var updateFrequency = 1000 * 20; 
 
-
 var socket;
 
 var dialog_opt = {
@@ -31,28 +30,14 @@ var dialog_opt = {
 }
 
 
-function dialog() {
-	$("#datepicker").datetimepicker('setDate', now)
-	$("#dialog-confirm").dialog(dialog_opt);
-}
-
-
-function submit() {
-	now = $("#datepicker").datetimepicker('getDate')
-	getTime()
-	$("#dialog-confirm").dialog("close");
-}
-
-
 document.addEventListener('DOMContentLoaded', function() {
 	$("#datepicker").datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
 	$("#datepicker").datetimepicker('setDate', now)
 
 	socket = io.connect('http://localhost');
-
 	socket.on('connection', function() {
-		getTime();
-		setInterval(getTime, updateFrequency);
+		pullNewEntries();
+		setInterval(pullNewEntries, updateFrequency);
 	})
 
 	socket.on('initialisation', function (open_entities) {    
@@ -151,8 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			var cnt = "";
 
-			cnt = ''
-
 			var groups_cnt = {};
 			groups_cnt[others] = [];
 
@@ -189,12 +172,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			for (var i in groups_cnt) {
 				var count = groups_cnt[i].length;
-				//var cnt = 1;
 
 				var style = '';
 				if (prefs_dropped[i] != undefined && prefs_dropped[i]) 
 					style = "style='display:block'"
-
 
 				var cnt2 = "<div><div class='dropheader'>"
 				+ "<div class='plus'>+</div>"
@@ -212,10 +193,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 
 			cnt += others_cnt; // last item
-			cnt += "<div class='all_ctrls'><a " +
-				"href='javascript:toggle_all(true);'>Alle sichtbar</a>" +
-				"&nbsp;|&nbsp;" + 
-				"<a href='javascript:toggle_all(false);'>Keine sichtbar</a>"
+			cnt += "<div class='all_ctrls'><a "
+				+ "href='javascript:toggle_all(true);'>Alle sichtbar</a>"
+				+ "&nbsp;|&nbsp;"
+				+ "<a href='javascript:toggle_all(false);'>Keine sichtbar</a>"
 				+ "<br /><a href='javascript:dialog();'>&Uuml;ber dieses Projekt</a>"
 				+ "</div>";
 
@@ -258,16 +239,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
-		if (!init) setInterval(updateTime, updateFrequency);
-		init = true;
-	});
-
-	socket.on('foo', function (data) {    
-		console.log(JSON.stringify(data))
+		if (!init) {
+			setInterval(updateTime, updateFrequency);
+			init = true;
+		}
 	});
 }, false);
 
-function getTime() {
+
+function pullNewEntries() {
 	socket.emit('getEntries', {ms: now.getTime()})
 }
 
@@ -340,5 +320,17 @@ function toggle_drop(here) {
 	}
 
 	$( here ).parent().parent().find(".dropbox").toggle("blind")
+}
+
+function dialog() {
+	$("#datepicker").datetimepicker('setDate', now)
+	$("#dialog-confirm").dialog(dialog_opt);
+}
+
+
+function submit() {
+	now = $("#datepicker").datetimepicker('getDate')
+	getTime()
+	$("#dialog-confirm").dialog("close");
 }
 
