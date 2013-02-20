@@ -2,8 +2,9 @@
 <html lang="de">
 <head>
 	<meta charset="utf-8">
-	<title>Ulm Opening Hours</title>
+	<title>&Ouml;ffnungszeiten in Ulm</title>
 
+	<script src="/js/translations.js"></script>
 	<script src="/js/show.js"></script>
 	<link rel="stylesheet" href="/css/style.css">
 
@@ -25,14 +26,21 @@
 <body>
 	<div id="map"></div>
 	
+
 	<div class="logos">
-		<a href="javascript:dialog()"><img src="/img/ulmapi.png" alt="ulmapi" /></a>
+		<a href="javascript:dialog()"><img src="/img/ulmapi.png" alt="ulmapi"
+			"Informationen zu diesem Projekt" /></a>
 	</div>
 
-	<div id="dialog-confirm" title="Ulm Opening Times" style='display:none' >
-		<p>Zeitpunkt: <input tabindex='-1' type="text" id="datepicker" />
-			<img src='/img/check.png' style='cursor:pointer;border:none;width:23px;' 
-				onclick='javascript:submit()' alt='' />
+
+	<div id="dialog-confirm" title="&Ouml;ffnungszeiten in Ulm">
+		<p>
+			Dargestellter Zeitpunkt: <input tabindex="-1" type="text" id="datepicker" />
+			<img src="/img/check.png" 
+				style="cursor:pointer;border:none;width:22px;" 
+				onclick="javascript:submit()" 
+				alt="&Auml;ndern"
+				title="Zeitpunkt anpassen" />
 		</p>
 
 		<hr />
@@ -40,36 +48,54 @@
 		<h4 style='margin-bottom:8px'>&Uuml;ber dieses Projekt</h4>
 
 		<div style='float:right;margin-left:10px;'>
-			<a tabindex="-1" href="http://ulmAPI.de"><img src="/img/logos-large/ulmapi.png"
-				width='100' alt="ulmapi" /></a>
-			<a tabindex="-1" href="http://ulmAPI.de"><img src="/img/logos-large/datalove.png" 
-				width='100' alt="ulmapi" /></a>
+			<a href="http://ulmAPI.de/" tabindex="-1"
+			   title="Hochschulgruppe f&uuml;r offene Daten an der Uni Ulm">
+				<img src="/img/logos-large/ulmapi.png" 
+					width='100' 
+					alt="ulmAPI.de"
+					title="Hochschulgruppe f&uuml;r offene Daten an der Uni Ulm" />
+			</a>
+			<a href="http://ulmAPI.de/" tabindex="-1" 
+			   title="datalove Hochschulgruppe an der Uni Ulm">
+				<img src="/img/logos-large/datalove.png" 
+					width='100' 
+					alt="datalove"
+					title="datalove Hochschulgruppe an der Uni Ulm" />
+			</a>
 		</div>
 
-		<p>Ich habe den International Open Data Day zum Anlass
-		genommen, diese Idee endlich zu verwirklichen. 
+		<p>
+			Ich habe den International Open Data Day zum Anlass
+			genommen, diese Idee endlich zu verwirklichen. 
 
-		Der
-		Quelltext dieser Anwendung ist unter einer freien Lizenz
-		f&uuml;r jedermann nutzbar 
-		<a href="https://github.com/cmichi/ulm-opening-hours">hier</a> 
-		ver&ouml;ffentlicht.
-		Die &Ouml;ffnungszeiten exportiere ich regelm&auml;&szlig;ig
-		aus dem Open Street Map Projekt. Der entsprechende Datensatz 
-		steht unter der 
-		<a href="https://github.com/cmichi/ulm-opening-hours#license">ODbL Lizenz</a>.</p>
+			Der Quelltext dieser Anwendung ist unter einer freien 
+			Lizenz f&uuml;r jedermann nutzbar 
+			<a href="https://github.com/cmichi/ulm-opening-hours">hier</a> 
+			ver&ouml;ffentlicht.
 
-		<p>Wenn entsprechende &Ouml;ffnungszeiten fehlen, bitte
-		entweder direkt in den Open Street Map Daten nachtragen
-		(<a href="http://www.openstreetmap.de/123.html">Anleitung</a>)
-		oder mir eine kurze Notiz zukommen lassen (<a 
-		href="http://micha.elmueller.net/contact">hier</a>).</p>
+			Die &Ouml;ffnungszeiten exportiere ich regelm&auml;&szlig;ig
+			aus dem Open Street Map Projekt. Der entsprechende Datensatz 
+			steht unter der 
+			<a href="https://github.com/cmichi/ulm-opening-hours#license">
+			ODbL Lizenz</a>.
+		</p>
 
-		<p>Weitere Projekte und Infos rund um unsere
-		Hochschulgruppe finden sich hier: <a href="http://ulmAPI.de/">http://ulmAPI.de</a>.</p>
+		<p>
+			Wenn entsprechende &Ouml;ffnungszeiten fehlen, bitte entweder 
+			direkt in den Open Street Map Daten nachtragen
+			(<a href="http://www.openstreetmap.de/123.html">Anleitung</a>)
+			oder mir eine kurze Notiz zukommen lassen (<a 
+			href="http://micha.elmueller.net/contact">hier</a>).
+		</p>
 
-		<p style="float:right; text-align:right;font-size:0.8em">Michael M&uuml;ller<br />
-			<a href='http://micha.elmueller.net' style='font-size:1.0em'>http://micha.elmueller.net</a>
+		<p>
+			Weitere Projekte und Infos rund um unsere Hochschulgruppe "datalove"
+			finden sich hier: <a href="http://ulmAPI.de/">http://ulmAPI.de</a>.
+		</p>
+
+		<p class="bottom">
+			Michael M&uuml;ller<br />
+			<a href="http://micha.elmueller.net">http://micha.elmueller.net</a>
 		</p>
 	</div>
 

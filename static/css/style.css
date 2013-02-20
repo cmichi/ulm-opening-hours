@@ -29,14 +29,6 @@ html, body, #map {
 	width: 100%;
 	margin-top: 10px;
 }
-.left {
-	float: none;
-}
-
-
-.right {
-	float: none;
-}
 
 .dropbox {
 	display:none;
@@ -84,19 +76,53 @@ html, body, #map {
 }
 
 #dialog-confirm {
-	font-size: 1.0em;
+	font-size: 0.8em;
 	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 	color: #222;
+	display: none;
 }
 
 #dialog-confirm a {
 	color: #0078A8;
 }
 
+#dialog-confirm .bottom {
+	float:right; 
+	text-align:right;
+	/* font-size:0.8em */
+}
+
+#dialog-confirm .bottom a {
+	/* font-size: 0.8em; */
+}
+
+.legend img {
+	margin-top: 4px;
+}
+
+.legend .icon1 {
+	float:left;
+}
+
+.legend .icon2 {
+	float:right;
+}
+
+.legend .label1 {
+	padding-top:10px;
+	float:left;
+	padding-left:5px;
+}
+
+.legend .label2 {
+	padding-top:0px;
+	float:right;
+	padding-left:5px;
+}
+
 #ui-datepicker-div {
 	display: none
 }
-
 
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: left; }

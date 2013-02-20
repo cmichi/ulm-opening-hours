@@ -14,55 +14,12 @@ var now = new Date();
 // how often does the client pull new opening times?
 var updateFrequency = 1000 * 20; 
 
-var translate = {
-	"supermarket": "Supermarkt"
-	, "bank": "Bank"
-	, "cafe": "Cafe"
-	, "bar": "Bar"
-	, "car_repair": "Autowerkstatt"
-	, "optician": "Optiker"
-	, "hairdresser": "Friseur"
-	, "shop": "Einkaufsladen"
-	, "bakery": "B&auml;cker"
-	, "travel_agency": "Reiseb&uuml;ro"
-	, "restaurant": "Restaurant"
-	, "fuel": "Tankstelle"
-	, "doctors": "&Auml;rzte"
-	, "restaurant": "Restaurant"
-	, "pharmacy": "Apotheke"
-	, "butcher": "Metzgerei"
-	, "library": "Bibliothek"
-	, "atm": "Bankautomat"
-	, "police": "Polizei"
-	, "fast_food": "Schnellimbiss"
-	, "tailor": "Schneiderei"
-	, "computer": "Computer"
-	, "hotel": "Hotel"
-	, "dancing_school": "Tanzschule"
-}
-var food = "Ernährung"
-var med = "Gesundheit"
-var buy = "Einkaufen"
-var others = "Sonstige"
-var groups = {
-	 "restaurant": 	food
-	, "supermarket": buy
-	, "bar": food
-	, "butcher": food
-	, "cafe": food
-	, "shop": buy
-	, "pharmacy": med
-	, "doctors": med
-	, "bakery": food
-	, "fast_food": food
-	, "computer": buy
-}
 
 var socket;
 
 var dialog_opt = {
 	resizable: false,
-	width: 600,
+	width: 550,
 	modal: true,
 	/*
 	buttons: {
@@ -146,9 +103,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			entity_groups[entity.category].push( 
 				L.marker(
 					[entity.lat, entity.lon], {icon: myIcon}).bindPopup(
-					"<strong>" + entity.name + "</strong>"
-					+ "<br />Kategorie: " + trans + "<br />"
-					+ "<br />" + entity.original_opening_hours.split(';').join('<br />')
+						"<strong>" + entity.name + "</strong>"
+						+ "<br />Kategorie: " + trans + "<br />"
+						+ "<br />" + entity.original_opening_hours.split(';').join('<br />')
 					)
 			);
 		}
@@ -159,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		if (!init) {
 			map = L.map('map', {
-				//center: new L.LatLng(48.398949765641404, 9.981164932250977)
 				center: new L.LatLng(48.40783887047417, 9.987516403198242)
 				, zoom: 14
 				, layers: tile_groups
@@ -207,8 +163,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				else
 					label = i;
 
-				//console.log(i)
-
 				var newcnt = ""
 				newcnt = "<label>"
 				newcnt += "<input class='leaflet-control-layers-selector' "
@@ -223,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function() {
 					if (groups_cnt[ groups[i] ] == undefined) 
 						groups_cnt[groups[i]] = []
 
-					//groups_cnt[ groups[i] ] = []
 					groups_cnt[ groups[i] ].push(newcnt);
 				} else {
 					groups_cnt[ others ].push(newcnt);
@@ -251,7 +204,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				+ " (" + count + ")</a>"
 				+ "<img src='/img/arrow-left.png' alt='' onclick='toggle_drop(this);'"
 				+ " class='arrow' /></div>"
-				//+ "<br />" 
 				+ "<div class='dropbox' "+style+" id='drop'>" + groups_cnt[i].join('')
 				+ "</div></div>"
 
@@ -261,9 +213,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			cnt += others_cnt; // last item
 			cnt += "<div class='all_ctrls'><a " +
-				"class='left' href='javascript:toggle_all(true);'>Alle sichtbar</a>" +
+				"href='javascript:toggle_all(true);'>Alle sichtbar</a>" +
 				"&nbsp;|&nbsp;" + 
-				"<a class='right' href='javascript:toggle_all(false);'>Keine sichtbar</a>"
+				"<a href='javascript:toggle_all(false);'>Keine sichtbar</a>"
 				+ "<br /><a href='javascript:dialog();'>&Uuml;ber dieses Projekt</a>"
 				+ "</div>";
 
@@ -273,21 +225,19 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 
 
-		//if (!init) {
-			legend = L.control();
-			legend.onAdd = function (map) {
-				this._div = L.DomUtil.create('div', 'leaflet-control '
-					+ 'leaflet-control-layers leaflet-control-layers-expanded');
-				this._div.innerHTML += "<img src='/img/marker-icon-green.png' height='30' style='float:left;margin-top:4px' />"
-				this._div.innerHTML += "<div style='padding-top:10px;float:left;padding-left:5px '> Ge&ouml;ffnet</div>"
+		legend = L.control();
+		legend.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'legend leaflet-control '
+				+ 'leaflet-control-layers leaflet-control-layers-expanded');
+			this._div.innerHTML += "<img class='icon1' height='30' src='/img/marker-icon-green.png' />"
+			this._div.innerHTML += "<div class='label1'>Ge&ouml;ffnet</div>"
 
-				this._div.innerHTML += "<div style='padding-top:0px;float:right;padding-left:5px;'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
-				this._div.innerHTML += "<img src='/img/marker-icon-yellow.png' height='30' style='float:right;margin-top:4px;' />"
-				L.DomEvent.disableClickPropagation(this._div);
-				return this._div;
-			};
-			legend.addTo(map);
-		//}
+			this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
+			this._div.innerHTML += "<img class='icon2' height='30' src='/img/marker-icon-yellow.png' />"
+			L.DomEvent.disableClickPropagation(this._div);
+			return this._div;
+		};
+		legend.addTo(map);
 		myctrls.addTo(map);
 
 
