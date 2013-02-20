@@ -120,6 +120,12 @@ html, body, #map {
 	padding-left:5px;
 }
 
+.edit {
+	width:22px;
+	margin-left:5px;
+	margin-bottom:-4px;
+}
+
 #ui-datepicker-div {
 	display: none
 }

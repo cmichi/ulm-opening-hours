@@ -264,6 +264,7 @@ function toggle_all(v) {
 	}
 }
 
+
 function updateTime(diff) {
 	if (diff == undefined || diff == null)
 		diff = updateFrequency;
@@ -281,20 +282,20 @@ function updateTime(diff) {
 		, secs: now.getSeconds()
 	}
 
-	var edit_btn = "<a href='javascript:dialog();'><img src='/img/edit.png' alt='' style='width:22px;\
-	margin-left:5px;margin-bottom:-4px' \
-	onmouseout='this.src=\"/img/edit.png\"' \
-	onmouseover='this.src=\"/img/edit-hover.png\"' /></a>"
+	var edit_btn = "<a href='javascript:dialog();'><img src='/img/edit.png' alt='' class='edit'"
+		+ "onmouseout='this.src=\"/img/edit.png\"' "
+		+ "onmouseover='this.src=\"/img/edit-hover.png\"' /></a>"
 
 	time.mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
 	time.hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
 	time.secs = (time.secs < 10) ? ("0" + time.secs.toString()) : time.secs;
-	document.getElementById('time').innerHTML = 
-		"<div style='text-align:right'>"
+
+	document.getElementById('time').innerHTML = "<div style='text-align:right'>"
 		+ "<strong >" + days[time.day] + ", " 
-		+ now.getDate() + "." +
-		+ now.getMonth() + "." +
-		now.getFullYear() + "<br />"
+		+ now.getDate() + "." 
+		+ now.getMonth() + "." 
+		+ now.getFullYear() 
+		+ "<br />"
 		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>";
 }
 
@@ -321,6 +322,7 @@ function toggle_drop(here) {
 
 	$( here ).parent().parent().find(".dropbox").toggle("blind")
 }
+
 
 function dialog() {
 	$("#datepicker").datetimepicker('setDate', now)

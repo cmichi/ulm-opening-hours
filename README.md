@@ -25,7 +25,7 @@ trigger for me to start working on it.
  * Datepicker on page, not in modal dialog
  * Autompletion text field for fulltext search
 
- * Add data for: hostels, bakeries, local post stations
+ * Add data for: hostels, bakeries, local post station, clubs
 
 
 # Getting started
