@@ -1,7 +1,7 @@
 var fs = require('fs');
 var express = require('express');
 var io = require('socket.io');
-var opening_hours = require('./opening_hours.js');
+var opening_hours = require('./lib/opening_hours.js');
 var xmlParser = require('./data/parse_xml.js')
 var data = xmlParser.getData()
 

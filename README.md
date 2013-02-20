@@ -22,7 +22,6 @@ trigger for me to start working on it.
 
 # ToDo 
 
- * Remove need for external data.json, instead parse *.xml on startup
  * Datepicker on page, not in modal dialog
  * Autompletion text field for fulltext search
 
@@ -33,7 +32,7 @@ trigger for me to start working on it.
 
 	$ git clone https://github.com/cmichi/ulm-opening-hours.git
 
-	# install the necessary dependencies (express, socket.io) from the package.json
+	# install the necessary dependencies from the package.json
 	$ npm install	
 
 	$ node server.js
@@ -43,7 +42,7 @@ Then open [http://localhost:3000/](http://localhost:3000).
 
 # Exporting fresh data from OSM
 
-	$ ./data/export.sh > data.xml
+	$ ./data/export.sh > ./data/data.xml
 
 
 # Known bugs
@@ -55,21 +54,19 @@ Then open [http://localhost:3000/](http://localhost:3000).
 
 # Libraries & Icons
 
+ * [opening_hours.js](https://github.com/AMDmi3/opening_hours.js/)
  * [leaflet](https://github.com/Leaflet/Leaflet)
  * express
  * socket.io
- * [opening_hours.js](https://github.com/AMDmi3/opening_hours.js/)
  * jQuery and jQuery UI
 
- * [Check Icon](http://thenounproject.com/noun/check-mark/#icon-No2784) by
-   P.J. Onori, from The Noun Project
- * [Edit Icon](http://thenounproject.com/noun/edit/#icon-No5587) by
-   Naomi Atkinson, from The Noun Project
+ * [Check Icon](http://thenounproject.com/noun/check-mark/#icon-No2784) by P.J. Onori, from The Noun Project
+ * [Edit Icon](http://thenounproject.com/noun/edit/#icon-No5587) by Naomi Atkinson, from The Noun Project
 
 
 # License
 
-The database file `xapi_meta.xml` is exported from the Open Street Map
+The database file `./data/data.xml` is exported from the Open Street Map
 databse. It is made available under the Open Database License:
 http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual
 contents of the database are licensed under the Database Contents License:
