@@ -6,6 +6,8 @@
   "version": "0.0.1",
   "dependencies": {
     "express": "3.0.x",
+    "xpath": "0.0.x",
+    "xmldom": "0.1.x",
     "socket.io": "0.9.x"
   }
 }
