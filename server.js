@@ -38,7 +38,7 @@ io.sockets.on('connection', function (socket) {
 
 	socket.on('getEntries', function (data){
 		var now = new Date(data.ms);
-		socket.emit('initialisation', generateOpenEntities(now))
+		socket.emit('newEntries', generateOpenEntities(now))
 	});
 });
 

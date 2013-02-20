@@ -2,7 +2,7 @@ var map;
 var entity_groups = [];
 var tile_groups = [];
 var info, myctrls, legend;
-var init = false;
+var initialized = false;
 var prefs = {};
 var prefs_dropped = {};
 
@@ -17,22 +17,15 @@ var updateFrequency = 1000 * 20;
 var socket;
 
 var dialog_opt = {
-	resizable: false,
-	width: 550,
-	modal: true,
-	/*
-	buttons: {
-		Close: function() {
-			$( this ).dialog( "close" );
-		}
-	}
-	*/
+	resizable: false
+	, width: 550
+	, modal: true
 }
 
 
 document.addEventListener('DOMContentLoaded', function() {
 	$("#datepicker").datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
-	$("#datepicker").datetimepicker('setDate', now)
+	$("#datepicker").datetimepicker('setDate', now);
 
 	socket = io.connect('http://localhost');
 	socket.on('connection', function() {
@@ -40,10 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		setInterval(pullNewEntries, updateFrequency);
 	})
 
-	socket.on('initialisation', function (open_entities) {    
-		if (init) {
+	socket.on('newEntries', function (open_entities) {    
+		if (initialized) {
 			// everything has been initialized once before
-			for (var i in tile_groups) tile_groups[i].clearLayers();
+			for (var i in tile_groups) 
+				tile_groups[i].clearLayers();
 			map.removeControl(info);
 			map.removeControl(legend);
 			entity_groups = [];
@@ -99,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			tile_groups[i] = L.layerGroup(entity_groups[i]);
 		}
 
-		if (!init) {
+		if (!initialized) {
 			map = L.map('map', {
 				center: new L.LatLng(48.40783887047417, 9.987516403198242)
 				, zoom: 14
@@ -117,12 +111,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 		info.update = function (props) {
 			this._div.innerHTML = "<h4 style='line-height:1.2em;'>ulm<br />" 
-			+ 'Was hat ge&ouml;ffnet?</h4><h4>\
-			<span id="time"></span>';
-			if (open_entities.length == 0) {
+				+ 'Was hat ge&ouml;ffnet?</h4><h4>'
+				+ '<span id="time"></span>';
+
+			if (open_entities.length === 0) {
 				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
 				nichts ge&ouml;ffnnet!</h4>';
 			}
+
 			L.DomEvent.disableClickPropagation(this._div);
 		};
 		info.addTo(map);
@@ -239,9 +235,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
-		if (!init) {
+		if (!initialized) {
 			setInterval(updateTime, updateFrequency);
-			init = true;
+			initialized = true;
 		}
 	});
 }, false);

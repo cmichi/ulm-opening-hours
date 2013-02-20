@@ -31,6 +31,7 @@ trigger for me to start working on it.
 # Getting started
 
 	$ git clone https://github.com/cmichi/ulm-opening-hours.git
+	$ cd ulm-opening-hours/
 
 	# install the necessary dependencies from the package.json
 	$ npm install	
@@ -43,6 +44,12 @@ Then open [http://localhost:3000/](http://localhost:3000).
 # Exporting fresh data from OSM
 
 	$ ./data/export.sh > ./data/data.xml
+
+
+# Adapting to a different city
+
+ * Change the BoundingBox within `./data/data.xml` and adapt the map's
+ center within the file `./static/js/show.js`.
 
 
 # Known bugs
