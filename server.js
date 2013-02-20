@@ -36,38 +36,10 @@ io.sockets.on('connection', function (socket) {
 	socket.emit('connection');
 
 	socket.on('getEntries', function (data){
-		console.log(data)
 		var now = new Date(data.ms);
-		var h=now.getHours();
-		var m=now.getMinutes();
-		var s=now.getSeconds();
-
-		console.log(h)
-		console.log(m)
-		console.log(s)
-		console.log(now)
-
 		socket.emit('initialisation', generateOpenEntities(now))
 	});
 });
-
-/*
-sendTime = function() {
-	var now = new Date();
-	time = { hours: now.getHours(), mins: now.getMinutes(), 
-		 day: now.getDay() };
-	currTime = (now.getHours()*60 + now.getMinutes());
-	generateOpenEntities(currTime, now.getDay());
-
-	//io.sockets.emit('time', time);
-	io.sockets.emit('initialisation', open_entities);
-	//io.sockets.emit('initialisation', open_entities);
-	//io.sockets.emit('open_entities', open_entities);
-}
-*/
-//setInterval(sendTime, 10 * 1000);
-//setInterval(sendTime, 1000);
-//setInterval(sendTime, 1000 * 60);
 
 
 server.listen(3000, function() {

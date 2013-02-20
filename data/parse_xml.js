@@ -5,7 +5,7 @@ var xpath = require('xpath')
     , dom = require('xmldom').DOMParser
     , fs = require('fs');
 
-var xml = fs.readFileSync('./data/xapi_meta.xml', 'utf-8');
+var xml = fs.readFileSync('./data/data.xml', 'utf-8');
 
 var doc = new dom().parseFromString(xml)    
 var nodes = xpath.select("//node", doc)

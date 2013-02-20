@@ -12,6 +12,9 @@ Often times when searching for websites of stores or other facilities,
 people just look for the opening hours. This application offers a handy
 interface which displays opening times for many locations in your city.
 
+The data for this project is exported from the Open Street Map project on a
+regular basis. 
+
 Though I have been thinking about this idea for quite some time, it had to
 take the upcoming [Open Data Day](http://ulmapi.de/#opendataday) as a
 trigger for me to start working on it.
@@ -36,6 +39,11 @@ trigger for me to start working on it.
 	$ node server.js
 
 Then open [http://localhost:3000/](http://localhost:3000).
+
+
+# Exporting fresh data from OSM
+
+	$ ./data/export.sh > data.xml
 
 
 # Known bugs

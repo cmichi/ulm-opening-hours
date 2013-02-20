@@ -5,15 +5,14 @@ var info, myctrls, legend;
 var init = false;
 var prefs = {};
 var prefs_dropped = {};
-var currTime;
 
 var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
 
 var now = new Date();
-//now = new Date(1360771200 - 8*60*60*1000);
-//now.setYear(2013)
-var updateFrequency = 1000 * 20;
+
+// how often does the client pull new opening times?
+var updateFrequency = 1000 * 20; 
 
 var translate = {
 	"supermarket": "Supermarkt"
@@ -61,24 +60,25 @@ var groups = {
 
 var socket;
 
-		var dialog_opt = {
-			resizable: false,
-			//height: 140,
-			width: 600,
-			modal: true,
-			/*
-			buttons: {
-				Close: function() {
-					$( this ).dialog( "close" );
-				}
-			}
-			*/
+var dialog_opt = {
+	resizable: false,
+	width: 600,
+	modal: true,
+	/*
+	buttons: {
+		Close: function() {
+			$( this ).dialog( "close" );
 		}
+	}
+	*/
+}
 
-function foob() {
+
+function dialog() {
 	$("#datepicker").datetimepicker('setDate', now)
 	$("#dialog-confirm").dialog(dialog_opt);
 }
+
 
 function submit() {
 	now = $("#datepicker").datetimepicker('getDate')
@@ -86,18 +86,12 @@ function submit() {
 	$("#dialog-confirm").dialog("close");
 }
 
-function foo() {
-	$(function() {
-		$( "#datepicker" ).datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
-		$("#datepicker").datetimepicker('setDate', now)
-		//$( "#dialog-confirm" ).dialog(dialog_opt);
-	});
-}
 
 document.addEventListener('DOMContentLoaded', function() {
-	foo();
-	socket = io.connect('http://10.0.42.111');
-	//socket = io.connect('http://localhost');
+	$("#datepicker").datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
+	$("#datepicker").datetimepicker('setDate', now)
+
+	socket = io.connect('http://localhost');
 
 	socket.on('connection', function() {
 		getTime();
@@ -145,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				shadowUrl : "/img/marker-shadow.png"
 			});
 
-			//console.log(entity)
 			var trans = entity.category;
 			if (translate[entity.category] != undefined) 
 				trans = translate[entity.category];
@@ -268,14 +261,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			cnt += others_cnt; // last item
 			cnt += "<div class='all_ctrls'><a " +
-				//"class='left' href='javascript:toggle_all(true);'>Alle</a>" +
-				//"&nbsp;|&nbsp;" + 
-				//"<a class='right' href='javascript:toggle_all(false);'>Keine</a></div>";
-
 				"class='left' href='javascript:toggle_all(true);'>Alle sichtbar</a>" +
 				"&nbsp;|&nbsp;" + 
 				"<a class='right' href='javascript:toggle_all(false);'>Keine sichtbar</a>"
-				+ "<br /><a href='javascript:foob();'>&Uuml;ber dieses Projekt</a>"
+				+ "<br /><a href='javascript:dialog();'>&Uuml;ber dieses Projekt</a>"
 				+ "</div>";
 
 			this._div.innerHTML = cnt;
@@ -326,18 +315,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	socket.on('foo', function (data) {    
 		console.log(JSON.stringify(data))
 	});
-
-/*
-	socket.on('time', function (time) {    
-		currTime = time;
-		updateTime(currTime);
-	});
-	*/
 }, false);
 
 function getTime() {
-	//updateTime();
-	//console.log(now.getTime())
 	socket.emit('getEntries', {ms: now.getTime()})
 }
 
@@ -352,9 +332,6 @@ function toggle_all(v) {
 		$("input[name=" + i + "]").attr('checked', v)
 		prefs[i] = v;
 	}
-}
-
-function incTime() {
 }
 
 function updateTime(diff) {
@@ -374,13 +351,10 @@ function updateTime(diff) {
 		, secs: now.getSeconds()
 	}
 
-	var datepicker = "<a href='javascript:foob();'><img src='/img/edit.png' alt='' style='width:22px;\
+	var edit_btn = "<a href='javascript:dialog();'><img src='/img/edit.png' alt='' style='width:22px;\
 	margin-left:5px;margin-bottom:-4px' \
 	onmouseout='this.src=\"/img/edit.png\"' \
 	onmouseover='this.src=\"/img/edit-hover.png\"' /></a>"
-	//+ "<input type='text' id='edit' name='edit' style='width:100px' />"
-	var timepicker = datepicker
-	datepicker = ""
 
 	time.mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
 	time.hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
@@ -390,11 +364,8 @@ function updateTime(diff) {
 		+ "<strong >" + days[time.day] + ", " 
 		+ now.getDate() + "." +
 		+ now.getMonth() + "." +
-		now.getFullYear() + datepicker + "<br />"
-		+ time.hours + ":" + time.mins + timepicker  + "</strong></div>";
-		//+ '<br />(<a href="javascript:edit()">Edit</a>)</h4>';
-		//"<strong>" + days[time.day] + ", " + time.hours + ":" + time.mins +":" + time.secs  + "</strong>";
-	//$( "#date" ).datetimepicker();
+		now.getFullYear() + "<br />"
+		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>";
 }
 
 
@@ -405,6 +376,7 @@ function toggle(el) {
 		map.addLayer(tile_groups[el.name]);
 	}
 }
+
 
 function toggle_drop(here) {
 	if ($( here ).parent().parent().find(".dropbox").css('display') === "none") {
