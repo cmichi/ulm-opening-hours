@@ -5,16 +5,14 @@ var info, ctrls, legend;
 var initialized = false;
 var prefs = {};
 var prefs_dropped = {};
+var socket;
+var now = new Date();
 
 var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
 
-var now = new Date();
-
 // how often does the client pull new opening times?
 var updateFrequency = 1000 * 20; 
-
-var socket;
 
 var dialog_opt = {
 	resizable: false
@@ -27,18 +25,18 @@ document.addEventListener('DOMContentLoaded', function() {
 	$("#datepicker").datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
 	$("#datepicker").datetimepicker('setDate', now);
 
-		legend = L.control();
-		legend.onAdd = function (map) {
-			this._div = L.DomUtil.create('div', 'legend leaflet-control '
-				+ 'leaflet-control-layers leaflet-control-layers-expanded');
-			this._div.innerHTML += "<img class='icon1' height='30' src='/img/marker-icon-green.png' />"
-			this._div.innerHTML += "<div class='label1'>Ge&ouml;ffnet</div>"
+	legend = L.control();
+	legend.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'legend leaflet-control '
+			+ 'leaflet-control-layers leaflet-control-layers-expanded');
+		this._div.innerHTML += "<img class='icon1' height='30' src='/img/marker-icon-green.png' />"
+		this._div.innerHTML += "<div class='label1'>Ge&ouml;ffnet</div>"
 
-			this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
-			this._div.innerHTML += "<img class='icon2' height='30' src='/img/marker-icon-yellow.png' />"
-			L.DomEvent.disableClickPropagation(this._div);
-			return this._div;
-		};
+		this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
+		this._div.innerHTML += "<img class='icon2' height='30' src='/img/marker-icon-yellow.png' />"
+		L.DomEvent.disableClickPropagation(this._div);
+		return this._div;
+	};
 
 	socket = io.connect('http://localhost');
 	socket.on('connection', function() {
@@ -55,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			// add the whole newly received batch.
 			for (var i in tile_groups) 
 				tile_groups[i].clearLayers();
+
 			map.removeControl(info);
 			map.removeControl(legend);
 			entity_groups = [];
@@ -74,22 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
 				tile_groups[entity.category] = [];
 			}
 
-
-			var trans = entity.category;
+			var category_label = entity.category;
 			if (translate[entity.category] != undefined) 
-				trans = translate[entity.category];
+				category_label = translate[entity.category];
 
 			entity_groups[entity.category].push( 
 				L.marker(
 					[entity.lat, entity.lon], {icon: getIcon(entity)}).bindPopup(
 						"<strong>" + entity.name + "</strong>"
-						+ "<br />Kategorie: " + trans + "<br />"
+						+ "<br />Kategorie: " + category_label + "<br />"
 						+ "<br />" + entity.original_opening_hours.split(';').join('<br />')
 					)
 			);
 		}
 
-		// markers are grouped as groups (e.g. supermarket)
+		// markers are grouped within groups (e.g. supermarket)
 		for (var i in entity_groups) {
 			tile_groups[i] = L.layerGroup(entity_groups[i]);
 		}
@@ -171,7 +169,7 @@ function buildCtrls() {
 
 			if (groups[i] != undefined) {
 				if (groups_cnt[ groups[i] ] == undefined) 
-					groups_cnt[groups[i]] = []
+					groups_cnt[groups[i]] = [];
 
 				groups_cnt[ groups[i] ].push(newcnt);
 			} else {
@@ -187,7 +185,7 @@ function buildCtrls() {
 
 			var style = '';
 			if (prefs_dropped[i] != undefined && prefs_dropped[i]) 
-				style = "style='display:block'"
+				style = "style='display:block'";
 
 			var cnt2 = "<div><div class='dropheader'>"
 			+ "<div class='plus'>+</div>"
