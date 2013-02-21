@@ -24,7 +24,7 @@ html, body, #map {
 	color: #222;
 }
 
-.all_ctrls {
+.ctrls .bottom {
 	text-align:center;
 	width: 100%;
 	margin-top: 10px;
@@ -38,7 +38,7 @@ html, body, #map {
 	padding: 5px;
 }
 
-.myctrls a {
+.ctrls a {
 	font-size: 1.2em;
 }
 
@@ -49,14 +49,14 @@ html, body, #map {
 	display:none;
 }
 
-.myctrls .plus {
+.ctrls .plus {
 	margin-right:5px;
 	color: #0078A8;
 	float:right;
 	font-size: 1.2em;
 }
 
-.myctrls .dropheader {
+.ctrls .dropheader {
 	margin-bottom:0px;
 }
 
@@ -124,6 +124,14 @@ html, body, #map {
 	width:22px;
 	margin-left:5px;
 	margin-bottom:-4px;
+}
+
+.time {
+	text-align: right;
+}
+
+.appdesc {
+	line-height:1.2em;
 }
 
 #ui-datepicker-div {

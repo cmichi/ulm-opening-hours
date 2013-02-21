@@ -1,7 +1,7 @@
 var map;
 var entity_groups = [];
 var tile_groups = [];
-var info, myctrls, legend;
+var info, ctrls, legend;
 var initialized = false;
 var prefs = {};
 var prefs_dropped = {};
@@ -27,15 +27,32 @@ document.addEventListener('DOMContentLoaded', function() {
 	$("#datepicker").datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
 	$("#datepicker").datetimepicker('setDate', now);
 
+		legend = L.control();
+		legend.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'legend leaflet-control '
+				+ 'leaflet-control-layers leaflet-control-layers-expanded');
+			this._div.innerHTML += "<img class='icon1' height='30' src='/img/marker-icon-green.png' />"
+			this._div.innerHTML += "<div class='label1'>Ge&ouml;ffnet</div>"
+
+			this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
+			this._div.innerHTML += "<img class='icon2' height='30' src='/img/marker-icon-yellow.png' />"
+			L.DomEvent.disableClickPropagation(this._div);
+			return this._div;
+		};
+
 	socket = io.connect('http://localhost');
 	socket.on('connection', function() {
 		pullNewEntries();
 		setInterval(pullNewEntries, updateFrequency);
 	})
 
-	socket.on('newEntries', function (open_entities) {    
+	socket.on('receiveOpenEntities', function (open_entities) {    
 		if (initialized) {
-			// everything has been initialized once before
+			// everything has been initialized once before and
+			// has to be reset now. the gui is recreated on
+			// each fetch. hence we don't need to delete/add
+			// certain new markers, but instead delete all and
+			// add the whole newly received batch.
 			for (var i in tile_groups) 
 				tile_groups[i].clearLayers();
 			map.removeControl(info);
@@ -43,14 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
 			entity_groups = [];
 			tile_groups = [];
 
-			// save preferences 
-			$(".myctrls input[type=checkbox]").each(function(){
-				prefs[this.name] = this.checked;
-			});
-			map.removeControl(myctrls);
+			savePreferences();
+			map.removeControl(ctrls);
 		}
 
 
+		// create a marker for each entity 
 		for (var i in open_entities) {
 			entity = open_entities[i];
 
@@ -59,21 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				tile_groups[entity.category] = [];
 			}
 
-			if (entity.closing_soon) 
-				var iconUri = "/img/marker-icon-yellow.png"
-			else
-				var iconUri = "/img/marker-icon-green.png"
-
-			var myIcon = L.icon({
-				iconUrl : iconUri,
-				iconSize: new L.Point(26, 41),
-				iconAnchor: new L.Point(12, 41),
-				popupAnchor: new L.Point(1, -34),
-
-				shadowSize: new L.Point(41, 41),
-				shadowAnchor: [12, 41],
-				shadowUrl : "/img/marker-shadow.png"
-			});
 
 			var trans = entity.category;
 			if (translate[entity.category] != undefined) 
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			entity_groups[entity.category].push( 
 				L.marker(
-					[entity.lat, entity.lon], {icon: myIcon}).bindPopup(
+					[entity.lat, entity.lon], {icon: getIcon(entity)}).bindPopup(
 						"<strong>" + entity.name + "</strong>"
 						+ "<br />Kategorie: " + trans + "<br />"
 						+ "<br />" + entity.original_opening_hours.split(';').join('<br />')
@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			);
 		}
 
+		// markers are grouped as groups (e.g. supermarket)
 		for (var i in entity_groups) {
 			tile_groups[i] = L.layerGroup(entity_groups[i]);
 		}
@@ -110,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			return this._div;
 		};
 		info.update = function (props) {
-			this._div.innerHTML = "<h4 style='line-height:1.2em;'>ulm<br />" 
+			this._div.innerHTML = "<h4 class='appdesc'>ulm<br />" 
 				+ 'Was hat ge&ouml;ffnet?</h4><h4>'
 				+ '<span id="time"></span>';
 
@@ -124,116 +125,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		info.addTo(map);
 		updateTime(0);
 
-		myctrls = L.control();
-		myctrls.onAdd = function (map) {
-			this._div = L.DomUtil.create('div', 'myctrls leaflet-control \
-					leaflet-control-layers leaflet-control-layers-expanded'); 
-			L.DomEvent.disableClickPropagation(this._div);
-
-			var cnt = "";
-
-			var groups_cnt = {};
-			groups_cnt[others] = [];
-
-			for (var i in tile_groups) {
-				var label = "";
-				if (translate[i] != undefined) 
-					label = translate[i];
-				else
-					label = i;
-
-				var newcnt = ""
-				newcnt = "<label>"
-				newcnt += "<input class='leaflet-control-layers-selector' "
-						+ " type='checkbox' name='" + i + "' "
-						+ " checked='checked' "
-						+ " onclick='javascript:toggle(this)' "
-						+ " />"
-				newcnt += "<span>" + label + " (" + entity_groups[i].length  + ")</span>" 
-				newcnt += "</label>"
-
-				if (groups[i] != undefined) {
-					if (groups_cnt[ groups[i] ] == undefined) 
-						groups_cnt[groups[i]] = []
-
-					groups_cnt[ groups[i] ].push(newcnt);
-				} else {
-					groups_cnt[ others ].push(newcnt);
-				}
-
-
-			}
-
-			var others_cnt;
-
-			for (var i in groups_cnt) {
-				var count = groups_cnt[i].length;
-
-				var style = '';
-				if (prefs_dropped[i] != undefined && prefs_dropped[i]) 
-					style = "style='display:block'"
-
-				var cnt2 = "<div><div class='dropheader'>"
-				+ "<div class='plus'>+</div>"
-				+ "<a href='#' onclick='toggle_drop(this);'>" + i 
-				+ "</a>"
-				+ "<a href='#' onclick='toggle_drop(this);'>" 
-				+ " (" + count + ")</a>"
-				+ "<img src='/img/arrow-left.png' alt='' onclick='toggle_drop(this);'"
-				+ " class='arrow' /></div>"
-				+ "<div class='dropbox' "+style+" id='drop'>" + groups_cnt[i].join('')
-				+ "</div></div>"
-
-				if (i !== others) cnt += cnt2;
-				else others_cnt = cnt2;
-			}
-
-			cnt += others_cnt; // last item
-			cnt += "<div class='all_ctrls'><a "
-				+ "href='javascript:toggle_all(true);'>Alle sichtbar</a>"
-				+ "&nbsp;|&nbsp;"
-				+ "<a href='javascript:toggle_all(false);'>Keine sichtbar</a>"
-				+ "<br /><a href='javascript:dialog();'>&Uuml;ber dieses Projekt</a>"
-				+ "</div>";
-
-			this._div.innerHTML = cnt;
-
-			return this._div;
-		};
-
-
-		legend = L.control();
-		legend.onAdd = function (map) {
-			this._div = L.DomUtil.create('div', 'legend leaflet-control '
-				+ 'leaflet-control-layers leaflet-control-layers-expanded');
-			this._div.innerHTML += "<img class='icon1' height='30' src='/img/marker-icon-green.png' />"
-			this._div.innerHTML += "<div class='label1'>Ge&ouml;ffnet</div>"
-
-			this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
-			this._div.innerHTML += "<img class='icon2' height='30' src='/img/marker-icon-yellow.png' />"
-			L.DomEvent.disableClickPropagation(this._div);
-			return this._div;
-		};
 		legend.addTo(map);
-		myctrls.addTo(map);
 
+		ctrls = buildCtrls();
+		ctrls.addTo(map);
 
-		// restore preferences
-		$(".myctrls input[type=checkbox]").each(function(){
-			if (prefs != undefined && prefs[this.name] != undefined) {
-				this.checked = prefs[this.name];
-			} else {
-				prefs[ this.name ] = true;
-				this.checked = true;
-			}
-				
-
-			if (prefs[this.name] === false) {
-				map.removeLayer(tile_groups[this.name]);
-			} else {
-				map.addLayer(tile_groups[this.name]);
-			}
-		});
+		restorePreferences();
 
 		if (!initialized) {
 			setInterval(updateTime, updateFrequency);
@@ -241,6 +138,132 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	});
 }, false);
+
+
+function buildCtrls() {
+	ctrls = L.control();
+	ctrls.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'ctrls leaflet-control \
+				leaflet-control-layers leaflet-control-layers-expanded'); 
+		L.DomEvent.disableClickPropagation(this._div);
+
+		var cnt = "";
+
+		var groups_cnt = {};
+		groups_cnt[others] = [];
+
+		for (var i in tile_groups) {
+			var label = "";
+			if (translate[i] != undefined) 
+				label = translate[i];
+			else
+				label = i;
+
+			var newcnt = ""
+			newcnt = "<label>"
+			newcnt += "<input class='leaflet-control-layers-selector' "
+					+ " type='checkbox' name='" + i + "' "
+					+ " checked='checked' "
+					+ " onclick='javascript:toggle(this)' "
+					+ " />"
+			newcnt += "<span>" + label + " (" + entity_groups[i].length  + ")</span>" 
+			newcnt += "</label>"
+
+			if (groups[i] != undefined) {
+				if (groups_cnt[ groups[i] ] == undefined) 
+					groups_cnt[groups[i]] = []
+
+				groups_cnt[ groups[i] ].push(newcnt);
+			} else {
+				groups_cnt[ others ].push(newcnt);
+			}
+
+		}
+
+		var others_cnt;
+
+		for (var i in groups_cnt) {
+			var count = groups_cnt[i].length;
+
+			var style = '';
+			if (prefs_dropped[i] != undefined && prefs_dropped[i]) 
+				style = "style='display:block'"
+
+			var cnt2 = "<div><div class='dropheader'>"
+			+ "<div class='plus'>+</div>"
+			+ "<a href='#' onclick='toggle_drop(this);'>" + i 
+			+ "</a>"
+			+ "<a href='#' onclick='toggle_drop(this);'>" 
+			+ " (" + count + ")</a>"
+			+ "<img src='/img/arrow-left.png' alt='' onclick='toggle_drop(this);'"
+			+ " class='arrow' /></div>"
+			+ "<div class='dropbox' " + style + " id='drop'>" + groups_cnt[i].join('')
+			+ "</div></div>"
+
+			if (i !== others) cnt += cnt2;
+			else others_cnt = cnt2;
+		}
+
+		cnt += others_cnt; // last item
+		cnt += "<div class='bottom'><a "
+			+ "href='javascript:toggle_all(true);'>Alle sichtbar</a>"
+			+ "&nbsp;|&nbsp;"
+			+ "<a href='javascript:toggle_all(false);'>Keine sichtbar</a>"
+			+ "<br /><a href='javascript:dialog();'>&Uuml;ber dieses Projekt</a>"
+			+ "</div>";
+
+		this._div.innerHTML = cnt;
+
+		return this._div;
+	};
+
+	return ctrls;
+}
+
+
+function getIcon(entity) {
+	if (entity.closing_soon) 
+		var iconUri = "/img/marker-icon-yellow.png";
+	else
+		var iconUri = "/img/marker-icon-green.png";
+
+	return L.icon({
+		iconUrl : iconUri,
+		iconSize: new L.Point(26, 41),
+		iconAnchor: new L.Point(12, 41),
+		popupAnchor: new L.Point(1, -34),
+
+		shadowSize: new L.Point(41, 41),
+		shadowAnchor: [12, 41],
+		shadowUrl : "/img/marker-shadow.png"
+	});
+}
+
+
+function savePreferences() {
+	$(".ctrls input[type=checkbox]").each(function(){
+		prefs[this.name] = this.checked;
+	});
+}
+
+
+function restorePreferences() {
+	$(".ctrls input[type=checkbox]").each(function(){
+		if (prefs != undefined && prefs[this.name] != undefined) {
+			this.checked = prefs[this.name];
+		} else {
+			prefs[ this.name ] = true;
+			this.checked = true;
+		}
+			
+
+		if (prefs[this.name] === false) {
+			map.removeLayer(tile_groups[this.name]);
+		} else {
+			map.addLayer(tile_groups[this.name]);
+		}
+	});
+}
 
 
 function pullNewEntries() {
@@ -286,7 +309,7 @@ function updateTime(diff) {
 	time.hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
 	time.secs = (time.secs < 10) ? ("0" + time.secs.toString()) : time.secs;
 
-	document.getElementById('time').innerHTML = "<div style='text-align:right'>"
+	document.getElementById('time').innerHTML = "<div class='time'>"
 		+ "<strong >" + days[time.day] + ", " 
 		+ now.getDate() + "." 
 		+ now.getMonth() + "." 
