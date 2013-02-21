@@ -24,7 +24,7 @@ var dialog_opt = {
 document.addEventListener('DOMContentLoaded', function() {
 	$("#datepicker").datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
 	$("#datepicker").datetimepicker('setDate', now);
-
+	
 	map = L.map('map', {
 		center: new L.LatLng(48.40783887047417, 9.987516403198242)
 		, zoom: 14
@@ -130,6 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		if (!initialized) {
 			setInterval(updateTime, updateFrequency);
+//			$("#loading_box").css({'display': 'none'});
+			//$("#loading").css({'display': 'none'});
+			
 			initialized = true;
 		}
 	});
@@ -202,9 +205,9 @@ function buildCtrls() {
 
 		cnt += others_cnt; // last item
 		cnt += "<div class='bottom'><a "
-			+ "href='javascript:toggle_all(true);'>Alle sichtbar</a>"
+			+ "href='javascript:toggle_all(true);'>Alle anzeigen</a>"
 			+ "&nbsp;|&nbsp;"
-			+ "<a href='javascript:toggle_all(false);'>Keine sichtbar</a>"
+			+ "<a href='javascript:toggle_all(false);'>Keine anzeigen</a>"
 			+ "<br /><a href='javascript:dialog();'>&Uuml;ber dieses Projekt</a>"
 			+ "</div>";
 
@@ -351,3 +354,20 @@ function submit() {
 	$("#dialog-confirm").dialog("close");
 }
 
+
+var sw = true;
+var sw_cnt = "";
+function swap() {
+	if (sw) {
+		$("#spatz").css({'backgroundPosition': '-124px 0px'});
+		sw = false;
+	} else {
+		$("#spatz").css({'backgroundPosition':'0px 0px'});
+		sw = true;
+	}
+	
+	$("#loading_box #label").text("Loading" + sw_cnt);
+	sw_cnt += ".";
+	if (sw_cnt.length == 4) sw_cnt = ".";
+}
+setInterval("swap()", 500);

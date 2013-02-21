@@ -134,6 +134,42 @@ html, body, #map {
 	line-height:1.2em;
 }
 
+#loading_box {
+	position:absolute;
+	width:200px;
+	height:200px;
+	border:1px solid #000;
+	border-radius:10px;
+	text-align:center;
+	top:30%;
+	left:50%;
+	margin-left:-100px;
+	z-index:9999999;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+#loading_box #label {
+	position:absolute;
+	bottom:25px;
+	left:32%;
+	text-align:left;
+	color:#fff;
+	font-family:'Helvetica Neue',Arial,Helvetica,sans-serif; 
+	font-size:1.2em;
+}
+
+#loading_box #spatz {
+	background:url(/img/spatz-sprite.png) no-repeat;
+	background-position:0px 0px;
+	position:absolute;
+	left:50%;
+	margin-left:-62px;
+	top:40%;
+	margin-top:-50px;
+	width:124px;
+	height:101px;
+}
+
 #ui-datepicker-div {
 	display: none
 }
@@ -148,3 +184,13 @@ html, body, #map {
 .ui-timepicker-rtl{ direction: rtl; }
 .ui-timepicker-rtl dl { text-align: right; }
 .ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
+
+
+.ui-widget-overlay {
+	opacity: .4;
+}	
+	
+.ui-front {
+	z-index: 9999 !important;
+}
+	
