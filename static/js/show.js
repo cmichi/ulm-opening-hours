@@ -41,7 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
 		this._div.innerHTML += "<img class='icon2' height='30' src='/img/marker-icon-yellow.png' />"
+		
 		L.DomEvent.disableClickPropagation(this._div);
+		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
+		
 		return this._div;
 	};
 
@@ -104,6 +107,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			this._div = L.DomUtil.create('div', 'leaflet-control '
 				+ 'leaflet-control-layers leaflet-control-layers-expanded');
 			this.update();
+			
+			L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
+			L.DomEvent.disableClickPropagation(this._div);
+			
 			return this._div;
 		};
 		info.update = function (props) {
@@ -115,8 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
 				nichts ge&ouml;ffnnet!</h4>';
 			}
-
-			L.DomEvent.disableClickPropagation(this._div);
 		};
 		info.addTo(map);
 		updateTime(0);
@@ -130,8 +135,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		if (!initialized) {
 			setInterval(updateTime, updateFrequency);
-//			$("#loading_box").css({'display': 'none'});
-			//$("#loading").css({'display': 'none'});
+			clearInterval(sw_interval);
+			$("#loading_box").css({'display': 'none'});
+			$("#loading").css({'display': 'none'});
 			
 			initialized = true;
 		}
@@ -144,6 +150,8 @@ function buildCtrls() {
 	ctrls.onAdd = function (map) {
 		this._div = L.DomUtil.create('div', 'ctrls leaflet-control \
 				leaflet-control-layers leaflet-control-layers-expanded'); 
+				
+		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
 		L.DomEvent.disableClickPropagation(this._div);
 
 		var cnt = "";
@@ -308,7 +316,7 @@ function updateTime(diff) {
 	time.hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
 	time.secs = (time.secs < 10) ? ("0" + time.secs.toString()) : time.secs;
 
-	document.getElementById('time').innerHTML = "<div class='time'>"
+	$('#time').innerHTML = "<div class='time'>"
 		+ "<strong >" + days[time.day] + ", " 
 		+ now.getDate() + "." 
 		+ now.getMonth() + "." 
@@ -328,29 +336,29 @@ function toggle(el) {
 
 
 function toggle_drop(here) {
-	if ($( here ).parent().parent().find(".dropbox").css('display') === "none") {
+	if ($(here).parent().parent().find(".dropbox").css('display') === "none") {
 		prefs_dropped[here.innerHTML] = true;
-		$( here ).parent().parent().find("img").attr("src", "/img/arrow-down.png");
-		$( here ).parent().parent().find(".plus").text("-");
+		$(here).parent().parent().find("img").attr("src", "/img/arrow-down.png");
+		$(here).parent().parent().find(".plus").text("-");
 	} else {
 		prefs_dropped[here.innerHTML] = false;
-		$( here ).parent().parent().find("img").attr("src", "/img/arrow-left.png");
-		$( here ).parent().parent().find(".plus").text("+");
+		$(here).parent().parent().find("img").attr("src", "/img/arrow-left.png");
+		$(here).parent().parent().find(".plus").text("+");
 	}
 
-	$( here ).parent().parent().find(".dropbox").toggle("blind")
+	$(here).parent().parent().find(".dropbox").toggle("blind");
 }
 
 
 function dialog() {
-	$("#datepicker").datetimepicker('setDate', now)
+	$("#datepicker").datetimepicker('setDate', now);
 	$("#dialog-confirm").dialog(dialog_opt);
 }
 
 
 function submit() {
-	now = $("#datepicker").datetimepicker('getDate')
-	getTime()
+	now = $("#datepicker").datetimepicker('getDate');
+	getTime();
 	$("#dialog-confirm").dialog("close");
 }
 
@@ -370,4 +378,4 @@ function swap() {
 	sw_cnt += ".";
 	if (sw_cnt.length == 4) sw_cnt = ".";
 }
-setInterval("swap()", 500);
+var sw_interval = setInterval("swap()", 500);
