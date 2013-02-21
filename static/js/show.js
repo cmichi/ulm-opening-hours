@@ -12,7 +12,7 @@ var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd170
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
 
 // how often does the client pull new opening times?
-var updateFrequency = 1000 * 20; 
+var updateFrequency = 1000 * 60; // each minute
 
 var dialog_opt = {
 	resizable: false
@@ -24,6 +24,13 @@ var dialog_opt = {
 document.addEventListener('DOMContentLoaded', function() {
 	$("#datepicker").datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
 	$("#datepicker").datetimepicker('setDate', now);
+
+	map = L.map('map', {
+		center: new L.LatLng(48.40783887047417, 9.987516403198242)
+		, zoom: 14
+			, layers: tile_groups
+	});
+	L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
 
 	legend = L.control();
 	legend.onAdd = function (map) {
@@ -90,15 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		// markers are grouped within groups (e.g. supermarket)
 		for (var i in entity_groups) {
 			tile_groups[i] = L.layerGroup(entity_groups[i]);
-		}
-
-		if (!initialized) {
-			map = L.map('map', {
-				center: new L.LatLng(48.40783887047417, 9.987516403198242)
-				, zoom: 14
-				, layers: tile_groups
-			});
-			L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
 		}
 
 		info = L.control();
