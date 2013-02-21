@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		return this._div;
 	};
 
-	socket = io.connect('http://localhost');
+	socket = io.connect('/');
 	socket.on('connection', function() {
 		pullNewEntries();
 		setInterval(pullNewEntries, updateFrequency);
