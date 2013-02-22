@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	map = L.map('map', {
 		center: new L.LatLng(48.40783887047417, 9.987516403198242)
 		, zoom: 14
-			, layers: tile_groups
+		, layers: tile_groups
 	});
 	L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
 
@@ -197,7 +197,7 @@ function buildCtrls() {
 				style = "style='display:block'";
 
 			var cnt2 = "<div><div class='dropheader'>"
-			+ "<div class='plus'>+</div>"
+			+ "<div class='plus' onclick='toggle_drop(this);'>+</div>"
 			+ "<a href='#' onclick='toggle_drop(this);'>" + i 
 			+ "</a>"
 			+ "<a href='#' onclick='toggle_drop(this);'>" 
@@ -316,13 +316,13 @@ function updateTime(diff) {
 	time.hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
 	time.secs = (time.secs < 10) ? ("0" + time.secs.toString()) : time.secs;
 
-	$('#time').innerHTML = "<div class='time'>"
+	$('#time').html("<div class='time'>"
 		+ "<strong >" + days[time.day] + ", " 
 		+ now.getDate() + "." 
 		+ now.getMonth() + "." 
 		+ now.getFullYear() 
 		+ "<br />"
-		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>";
+		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>");
 }
 
 

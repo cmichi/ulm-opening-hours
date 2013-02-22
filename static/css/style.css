@@ -32,7 +32,7 @@ html, body, #map {
 
 .dropbox {
 	display:none;
-	overflow-y:scroll;
+	overflow-y:auto;
 	max-height:300px;
 	min-height:50px;
 	padding: 5px;
@@ -54,6 +54,7 @@ html, body, #map {
 	color: #0078A8;
 	float:right;
 	font-size: 1.2em;
+	cursor:pointer;
 }
 
 .ctrls .dropheader {
