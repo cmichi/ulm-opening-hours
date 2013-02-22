@@ -22,13 +22,8 @@ trigger for me to start working on it.
 
 # ToDo 
 
- * Datepicker on page, not in modal dialog
- * Now Button is outgreyed
  * Possiblity to display closed entities
- * Edit actions takes place after 1 minute
- * Scrollbar within Ctrl-Box also scrolls map
  * English in Dialog and Popup to German
- * Plus has to be clickable
  * Marker Popup: better formatting (tabulator)
  * "We off" in some popups to better readable label
  * Feedback when changing time
@@ -38,7 +33,10 @@ trigger for me to start working on it.
 
 OSM data:
 
- * Add data for: hostels, bakeries, local post station, clubs
+ * Add data for: 
+  * hostels, bakeries, local post station, clubs, 
+  * Arbeitsamt und andere Öffentliche Einrichtungen (Bürgerbüro)
+  * Parkhäuser, etc.
  * Check data for Bellavista and Tanzschule
  * Add lecture-free-time opening hours for uni related stuff (cafe, bistro, etc.)
 

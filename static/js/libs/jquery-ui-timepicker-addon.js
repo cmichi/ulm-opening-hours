@@ -742,6 +742,9 @@
 			if (hasChanged) {
 				this._updateDateTime();
 			}
+			
+			// buttons would otherwise get removed!
+			addBtns();
 		},
 
 		/*

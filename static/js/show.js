@@ -22,8 +22,33 @@ var dialog_opt = {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-	$("#datepicker").datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
+	$("#datepicker").datetimepicker({
+		dateFormat: 'dd.mm.yy'
+		, firstDay: 0
+		, monthNames: ["Januar", "Februar", "März", "April", "Mai",
+						"Juni", "Juli", "August", "September", 
+						"Oktober", "November", "Dezember"]
+		, monthNamesShort: ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun",
+							"Jul", "Aug", "Sep", "Okt", "Nov", "Dez"]
+		, dayNames: ["Sonntag", "Montag", "Dienstag", "Mittwoch", 
+					 "Donnerstag", "Freitag", "Samstag"]
+					, dayNamesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+					, dayNamesMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+					, timeText: 'Zeit'
+					, hourText: 'Stunde'
+					, minuteText: 'Minute'
+					, secondText: 'Sekunde'
+	});
 	$("#datepicker").datetimepicker('setDate', now);
+	//$(".ui-datepicker-buttonpane .ui-datepicker-close").remove();
+	$(".ui-datepicker-buttonpane").css({'display': 'none'});
+	/*
+	$("#ui-datepicker-div").click(function() {
+		console.log('cl')
+		addBtns();		
+	})
+	*/
+//	addBtns();
 	
 	map = L.map('map', {
 		center: new L.LatLng(48.40783887047417, 9.987516403198242)
@@ -61,16 +86,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			// each fetch. hence we don't need to delete/add
 			// certain new markers, but instead delete all and
 			// add the whole newly received batch.
-			for (var i in tile_groups) 
-				tile_groups[i].clearLayers();
-
 			map.removeControl(info);
 			map.removeControl(legend);
 			entity_groups = [];
-			tile_groups = [];
 
 			savePreferences();
 			map.removeControl(ctrls);
+			
+			for (var i in tile_groups) 
+				tile_groups[i].clearLayers();
+			tile_groups = [];
 		}
 
 
@@ -235,14 +260,14 @@ function getIcon(entity) {
 		var iconUri = "/img/marker-icon-green.png";
 
 	return L.icon({
-		iconUrl : iconUri,
-		iconSize: new L.Point(26, 41),
-		iconAnchor: new L.Point(12, 41),
-		popupAnchor: new L.Point(1, -34),
+		iconUrl : iconUri
+		, iconSize: new L.Point(26, 41)
+		, iconAnchor: new L.Point(12, 41)
+		, popupAnchor: new L.Point(1, -34)
 
-		shadowSize: new L.Point(41, 41),
-		shadowAnchor: [12, 41],
-		shadowUrl : "/img/marker-shadow.png"
+		//shadowSize: new L.Point(41, 41),
+		//shadowAnchor: [12, 41],
+		//shadowUrl : "/img/marker-shadow.png"
 	});
 }
 
@@ -308,9 +333,10 @@ function updateTime(diff) {
 		, secs: now.getSeconds()
 	}
 
-	var edit_btn = "<a href='javascript:dialog();'><img src='/img/edit.png' alt='' class='edit'"
-		+ "onmouseout='this.src=\"/img/edit.png\"' "
-		+ "onmouseover='this.src=\"/img/edit-hover.png\"' /></a>"
+	var edit_btn = "<img src='/img/edit.png' alt='' class='edit'"
+		+ "onclick='javascript:toggle_picker();' "
+		+ "onmouseout='picker_mouse(false)' "
+		+ "onmouseover='picker_mouse(true)' />"
 
 	time.mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
 	time.hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
@@ -323,6 +349,11 @@ function updateTime(diff) {
 		+ now.getFullYear() 
 		+ "<br />"
 		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>");
+		
+//	$(".edit").click(function(e) {
+//	});
+	
+	$("#ui-datepicker-div").html()
 }
 
 
@@ -358,8 +389,12 @@ function dialog() {
 
 function submit() {
 	now = $("#datepicker").datetimepicker('getDate');
-	getTime();
-	$("#dialog-confirm").dialog("close");
+   	//$("#datepicker").datetimepicker('setDate', d);
+	
+	//now = $("#datepicker").datetimepicker('getDate');
+	pullNewEntries();
+	//$("#dialog-confirm").dialog("close");
+	toggle_picker();
 }
 
 
@@ -379,3 +414,52 @@ function swap() {
 	if (sw_cnt.length == 4) sw_cnt = ".";
 }
 var sw_interval = setInterval("swap()", 500);
+
+var picker = false;
+function picker_mouse(v) {
+	if (v === false && picker === true)
+		$(".edit").attr('src', './img/edit-hover.png');	
+	else if (v === false && picker === false)
+		$(".edit").attr('src', './img/edit.png');	
+	else if (v === true && picker === false) 
+		$(".edit").attr('src', './img/edit-hover.png');	
+	else if (v === true && picker === true) 
+		$(".edit").attr('src', './img/edit-hover.png');	
+}
+
+function toggle_picker(evnt) {
+	if (picker === false) {
+		//$("#ui-datepicker-div").css({'display': 'block'});
+		$("#ui-datepicker-div").css({
+			'display': 'block'
+			, 'position': 'absolute'
+			, 'top': '10px' // e.pageX + 'px'
+			, 'right': '235px'
+			, 'z-index': '99999'
+		});
+		
+		//$("#ui-datepicker-div").css({'top': evnt.pageX});
+		picker = true;
+		console.log(picker)
+	} else {
+		console.log(picker + "!")
+		$("#ui-datepicker-div").css({'display': 'none'});		
+		picker = false;
+	}
+}
+
+function addBtns() {
+	if (!$("#ui-datepicker-div #ctrlbtns").length > 0) {
+		$(
+			'<div id="ctrlbtns">'
+			+ '<button id="jetz_btn" onclick="jetz()" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" type="button">Jetzt</button>'
+			+ '<button onclick="submit()" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" type="button">Anwenden</button>'
+			+ '</div>'
+		).appendTo('#ui-datepicker-div');
+	}
+}
+
+function jetz() {
+   	$("#datepicker").datetimepicker('setDate', new Date());
+   	//addBtns();
+}
