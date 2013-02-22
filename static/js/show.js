@@ -333,7 +333,8 @@ function updateTime(diff) {
 		, secs: now.getSeconds()
 	}
 
-	var edit_btn = "<img src='/img/edit.png' alt='' class='edit'"
+	var edit_btn = "<img src='/img/edit.png' class='edit' "
+		+ "alt='Bearbeiten' title='Dargestellten Zeitpunkt ändern' "
 		+ "onclick='javascript:toggle_picker();' "
 		+ "onmouseout='picker_mouse(false)' "
 		+ "onmouseover='picker_mouse(true)' />"
@@ -429,20 +430,9 @@ function picker_mouse(v) {
 
 function toggle_picker(evnt) {
 	if (picker === false) {
-		//$("#ui-datepicker-div").css({'display': 'block'});
-		$("#ui-datepicker-div").css({
-			'display': 'block'
-			, 'position': 'absolute'
-			, 'top': '10px' // e.pageX + 'px'
-			, 'right': '235px'
-			, 'z-index': '99999'
-		});
-		
-		//$("#ui-datepicker-div").css({'top': evnt.pageX});
+		$("#ui-datepicker-div").css({'display': 'block'});
 		picker = true;
-		console.log(picker)
 	} else {
-		console.log(picker + "!")
 		$("#ui-datepicker-div").css({'display': 'none'});		
 		picker = false;
 	}
@@ -452,14 +442,13 @@ function addBtns() {
 	if (!$("#ui-datepicker-div #ctrlbtns").length > 0) {
 		$(
 			'<div id="ctrlbtns">'
-			+ '<button id="jetz_btn" onclick="jetz()" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" type="button">Jetzt</button>'
-			+ '<button onclick="submit()" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" type="button">Anwenden</button>'
+			+ '<button onclick="submit()" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" type="button">Einstellen</button>'
+			+ '<button onclick="setNow()" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" type="button">Aktuelle Zeit</button>'
 			+ '</div>'
 		).appendTo('#ui-datepicker-div');
 	}
 }
 
-function jetz() {
+function setNow() {
    	$("#datepicker").datetimepicker('setDate', new Date());
-   	//addBtns();
 }

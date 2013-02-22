@@ -17,9 +17,9 @@ html, body, #map {
 
 .leaflet-control h4 {
 	margin:8px 0px 8px 5px;
-	font-size:1.6em;
 	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.15);
 	text-align: right;
+	font-size:1.6em;
 	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 	color: #222;
 }
@@ -177,7 +177,40 @@ html, body, #map {
 }
 
 #ui-datepicker-div {
-	display: none
+	display: none;
+	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;	
+	width:250px;
+	border-radius: 8px;
+	box-shadow: 0 1px 7px rgba(0, 0, 0, 0.4);
+	background: none repeat scroll 0 0 #FFFFFF;
+	color: #333333;
+	padding: 10px 10px 10px 10px;
+	
+	position: absolute;
+	top: 10px;
+	right: 235px;
+	z-index: 99;
+}
+
+.ui-datepicker table {
+	font-size:0.7em;
+	width:100%;
+	
+}
+
+.ui_tpicker_time_label, .ui_tpicker_minute_label, .ui_tpicker_hour_label, .ui_tpicker_time {
+	font-size:0.7em;
+}
+
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary {
+	font-weight:normal;
+	font-size:0.7em;
+	float:right;
+	margin-left:10px;
+}
+
+.ui-datepicker-header {
+	width:100%;
 }
 
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }

@@ -23,11 +23,8 @@ trigger for me to start working on it.
 # ToDo 
 
  * Possiblity to display closed entities
- * English in Dialog and Popup to German
  * Marker Popup: better formatting (tabulator)
  * "We off" in some popups to better readable label
- * Feedback when changing time
- * Constrain maximum zoom out
 
  * Autompletion text field for fulltext search
 
