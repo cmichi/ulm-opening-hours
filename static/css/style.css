@@ -17,9 +17,9 @@ html, body, #map {
 
 .leaflet-control h4 {
 	margin:8px 0px 8px 5px;
-	font-size:1.6em;
 	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.15);
 	text-align: right;
+	font-size:1.6em;
 	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 	color: #222;
 }
@@ -32,7 +32,7 @@ html, body, #map {
 
 .dropbox {
 	display:none;
-	overflow-y:scroll;
+	overflow-y:auto;
 	max-height:300px;
 	min-height:50px;
 	padding: 5px;
@@ -54,6 +54,7 @@ html, body, #map {
 	color: #0078A8;
 	float:right;
 	font-size: 1.2em;
+	cursor:pointer;
 }
 
 .ctrls .dropheader {
@@ -120,10 +121,15 @@ html, body, #map {
 	padding-left:5px;
 }
 
+#datepicker, .ui-datepicker-buttonpane {
+	display:none;
+}
+
 .edit {
 	width:22px;
 	margin-left:5px;
 	margin-bottom:-4px;
+	cursor:pointer;
 }
 
 .time {
@@ -134,8 +140,77 @@ html, body, #map {
 	line-height:1.2em;
 }
 
+#loading_box {
+	position:absolute;
+	width:200px;
+	height:200px;
+	border:1px solid #000;
+	border-radius:10px;
+	text-align:center;
+	top:30%;
+	left:50%;
+	margin-left:-100px;
+	z-index:9999999;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+#loading_box #label {
+	position:absolute;
+	bottom:25px;
+	left:32%;
+	text-align:left;
+	color:#fff;
+	font-family:'Helvetica Neue',Arial,Helvetica,sans-serif; 
+	font-size:1.2em;
+}
+
+#loading_box #spatz {
+	background:url(/img/spatz-sprite.png) no-repeat;
+	background-position:0px 0px;
+	position:absolute;
+	left:50%;
+	margin-left:-62px;
+	top:40%;
+	margin-top:-50px;
+	width:124px;
+	height:101px;
+}
+
 #ui-datepicker-div {
-	display: none
+	display: none;
+	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;	
+	width:250px;
+	border-radius: 8px;
+	box-shadow: 0 1px 7px rgba(0, 0, 0, 0.4);
+	background: none repeat scroll 0 0 #FFFFFF;
+	color: #333333;
+	padding: 10px 10px 10px 10px;
+	
+	position: absolute;
+	top: 10px;
+	right: 235px;
+	z-index: 99;
+}
+
+.ui-datepicker table {
+	font-size:0.7em;
+	width:100%;
+	
+}
+
+.ui_tpicker_time_label, .ui_tpicker_minute_label, .ui_tpicker_hour_label, .ui_tpicker_time {
+	font-size:0.7em;
+}
+
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary {
+	font-weight:normal;
+	font-size:0.7em;
+	float:right;
+	margin-left:10px;
+}
+
+.ui-datepicker-header {
+	width:100%;
 }
 
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
@@ -148,3 +223,13 @@ html, body, #map {
 .ui-timepicker-rtl{ direction: rtl; }
 .ui-timepicker-rtl dl { text-align: right; }
 .ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
+
+
+.ui-widget-overlay {
+	opacity: .4;
+}	
+	
+.ui-front {
+	z-index: 9999 !important;
+}
+	

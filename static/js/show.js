@@ -12,7 +12,7 @@ var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd170
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
 
 // how often does the client pull new opening times?
-var updateFrequency = 1000 * 20; 
+var updateFrequency = 1000 * 60; // each minute
 
 var dialog_opt = {
 	resizable: false
@@ -22,8 +22,40 @@ var dialog_opt = {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-	$("#datepicker").datetimepicker({dateFormat: 'dd.mm.yy', firstDay: 0 });
+	$("#datepicker").datetimepicker({
+		dateFormat: 'dd.mm.yy'
+		, firstDay: 0
+		, monthNames: ["Januar", "Februar", "März", "April", "Mai",
+						"Juni", "Juli", "August", "September", 
+						"Oktober", "November", "Dezember"]
+		, monthNamesShort: ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun",
+							"Jul", "Aug", "Sep", "Okt", "Nov", "Dez"]
+		, dayNames: ["Sonntag", "Montag", "Dienstag", "Mittwoch", 
+					 "Donnerstag", "Freitag", "Samstag"]
+					, dayNamesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+					, dayNamesMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+					, timeText: 'Zeit'
+					, hourText: 'Stunde'
+					, minuteText: 'Minute'
+					, secondText: 'Sekunde'
+	});
 	$("#datepicker").datetimepicker('setDate', now);
+	//$(".ui-datepicker-buttonpane .ui-datepicker-close").remove();
+	$(".ui-datepicker-buttonpane").css({'display': 'none'});
+	/*
+	$("#ui-datepicker-div").click(function() {
+		console.log('cl')
+		addBtns();		
+	})
+	*/
+//	addBtns();
+	
+	map = L.map('map', {
+		center: new L.LatLng(48.40783887047417, 9.987516403198242)
+		, zoom: 14
+		, layers: tile_groups
+	});
+	L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
 
 	legend = L.control();
 	legend.onAdd = function (map) {
@@ -34,7 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
 		this._div.innerHTML += "<img class='icon2' height='30' src='/img/marker-icon-yellow.png' />"
+		
 		L.DomEvent.disableClickPropagation(this._div);
+		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
+		
 		return this._div;
 	};
 
@@ -51,16 +86,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			// each fetch. hence we don't need to delete/add
 			// certain new markers, but instead delete all and
 			// add the whole newly received batch.
-			for (var i in tile_groups) 
-				tile_groups[i].clearLayers();
-
 			map.removeControl(info);
 			map.removeControl(legend);
 			entity_groups = [];
-			tile_groups = [];
 
 			savePreferences();
 			map.removeControl(ctrls);
+			
+			for (var i in tile_groups) 
+				tile_groups[i].clearLayers();
+			tile_groups = [];
 		}
 
 
@@ -92,20 +127,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			tile_groups[i] = L.layerGroup(entity_groups[i]);
 		}
 
-		if (!initialized) {
-			map = L.map('map', {
-				center: new L.LatLng(48.40783887047417, 9.987516403198242)
-				, zoom: 14
-				, layers: tile_groups
-			});
-			L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
-		}
-
 		info = L.control();
 		info.onAdd = function (map) {
 			this._div = L.DomUtil.create('div', 'leaflet-control '
 				+ 'leaflet-control-layers leaflet-control-layers-expanded');
 			this.update();
+			
+			L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
+			L.DomEvent.disableClickPropagation(this._div);
+			
 			return this._div;
 		};
 		info.update = function (props) {
@@ -117,8 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
 				nichts ge&ouml;ffnnet!</h4>';
 			}
-
-			L.DomEvent.disableClickPropagation(this._div);
 		};
 		info.addTo(map);
 		updateTime(0);
@@ -132,6 +160,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		if (!initialized) {
 			setInterval(updateTime, updateFrequency);
+			clearInterval(sw_interval);
+			$("#loading_box").css({'display': 'none'});
+			$("#loading").css({'display': 'none'});
+			
 			initialized = true;
 		}
 	});
@@ -143,6 +175,8 @@ function buildCtrls() {
 	ctrls.onAdd = function (map) {
 		this._div = L.DomUtil.create('div', 'ctrls leaflet-control \
 				leaflet-control-layers leaflet-control-layers-expanded'); 
+				
+		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
 		L.DomEvent.disableClickPropagation(this._div);
 
 		var cnt = "";
@@ -188,7 +222,7 @@ function buildCtrls() {
 				style = "style='display:block'";
 
 			var cnt2 = "<div><div class='dropheader'>"
-			+ "<div class='plus'>+</div>"
+			+ "<div class='plus' onclick='toggle_drop(this);'>+</div>"
 			+ "<a href='#' onclick='toggle_drop(this);'>" + i 
 			+ "</a>"
 			+ "<a href='#' onclick='toggle_drop(this);'>" 
@@ -204,9 +238,9 @@ function buildCtrls() {
 
 		cnt += others_cnt; // last item
 		cnt += "<div class='bottom'><a "
-			+ "href='javascript:toggle_all(true);'>Alle sichtbar</a>"
+			+ "href='javascript:toggle_all(true);'>Alle anzeigen</a>"
 			+ "&nbsp;|&nbsp;"
-			+ "<a href='javascript:toggle_all(false);'>Keine sichtbar</a>"
+			+ "<a href='javascript:toggle_all(false);'>Keine anzeigen</a>"
 			+ "<br /><a href='javascript:dialog();'>&Uuml;ber dieses Projekt</a>"
 			+ "</div>";
 
@@ -226,14 +260,14 @@ function getIcon(entity) {
 		var iconUri = "/img/marker-icon-green.png";
 
 	return L.icon({
-		iconUrl : iconUri,
-		iconSize: new L.Point(26, 41),
-		iconAnchor: new L.Point(12, 41),
-		popupAnchor: new L.Point(1, -34),
+		iconUrl : iconUri
+		, iconSize: new L.Point(26, 41)
+		, iconAnchor: new L.Point(12, 41)
+		, popupAnchor: new L.Point(1, -34)
 
-		shadowSize: new L.Point(41, 41),
-		shadowAnchor: [12, 41],
-		shadowUrl : "/img/marker-shadow.png"
+		//shadowSize: new L.Point(41, 41),
+		//shadowAnchor: [12, 41],
+		//shadowUrl : "/img/marker-shadow.png"
 	});
 }
 
@@ -299,21 +333,28 @@ function updateTime(diff) {
 		, secs: now.getSeconds()
 	}
 
-	var edit_btn = "<a href='javascript:dialog();'><img src='/img/edit.png' alt='' class='edit'"
-		+ "onmouseout='this.src=\"/img/edit.png\"' "
-		+ "onmouseover='this.src=\"/img/edit-hover.png\"' /></a>"
+	var edit_btn = "<img src='/img/edit.png' class='edit' "
+		+ "alt='Bearbeiten' title='Dargestellten Zeitpunkt ändern' "
+		+ "onclick='javascript:toggle_picker();' "
+		+ "onmouseout='picker_mouse(false)' "
+		+ "onmouseover='picker_mouse(true)' />"
 
 	time.mins = (time.mins < 10) ? ("0" + time.mins.toString()) : time.mins;
 	time.hours = (time.hours < 10) ? ("0" + time.hours.toString()) : time.hours;
 	time.secs = (time.secs < 10) ? ("0" + time.secs.toString()) : time.secs;
 
-	document.getElementById('time').innerHTML = "<div class='time'>"
+	$('#time').html("<div class='time'>"
 		+ "<strong >" + days[time.day] + ", " 
 		+ now.getDate() + "." 
 		+ now.getMonth() + "." 
 		+ now.getFullYear() 
 		+ "<br />"
-		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>";
+		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>");
+		
+//	$(".edit").click(function(e) {
+//	});
+	
+	$("#ui-datepicker-div").html()
 }
 
 
@@ -327,29 +368,87 @@ function toggle(el) {
 
 
 function toggle_drop(here) {
-	if ($( here ).parent().parent().find(".dropbox").css('display') === "none") {
+	if ($(here).parent().parent().find(".dropbox").css('display') === "none") {
 		prefs_dropped[here.innerHTML] = true;
-		$( here ).parent().parent().find("img").attr("src", "/img/arrow-down.png");
-		$( here ).parent().parent().find(".plus").text("-");
+		$(here).parent().parent().find("img").attr("src", "/img/arrow-down.png");
+		$(here).parent().parent().find(".plus").text("-");
 	} else {
 		prefs_dropped[here.innerHTML] = false;
-		$( here ).parent().parent().find("img").attr("src", "/img/arrow-left.png");
-		$( here ).parent().parent().find(".plus").text("+");
+		$(here).parent().parent().find("img").attr("src", "/img/arrow-left.png");
+		$(here).parent().parent().find(".plus").text("+");
 	}
 
-	$( here ).parent().parent().find(".dropbox").toggle("blind")
+	$(here).parent().parent().find(".dropbox").toggle("blind");
 }
 
 
 function dialog() {
-	$("#datepicker").datetimepicker('setDate', now)
+	$("#datepicker").datetimepicker('setDate', now);
 	$("#dialog-confirm").dialog(dialog_opt);
 }
 
 
 function submit() {
-	now = $("#datepicker").datetimepicker('getDate')
-	getTime()
-	$("#dialog-confirm").dialog("close");
+	now = $("#datepicker").datetimepicker('getDate');
+   	//$("#datepicker").datetimepicker('setDate', d);
+	
+	//now = $("#datepicker").datetimepicker('getDate');
+	pullNewEntries();
+	//$("#dialog-confirm").dialog("close");
+	toggle_picker();
 }
 
+
+var sw = true;
+var sw_cnt = "";
+function swap() {
+	if (sw) {
+		$("#spatz").css({'backgroundPosition': '-124px 0px'});
+		sw = false;
+	} else {
+		$("#spatz").css({'backgroundPosition':'0px 0px'});
+		sw = true;
+	}
+	
+	$("#loading_box #label").text("Loading" + sw_cnt);
+	sw_cnt += ".";
+	if (sw_cnt.length == 4) sw_cnt = ".";
+}
+var sw_interval = setInterval("swap()", 500);
+
+var picker = false;
+function picker_mouse(v) {
+	if (v === false && picker === true)
+		$(".edit").attr('src', './img/edit-hover.png');	
+	else if (v === false && picker === false)
+		$(".edit").attr('src', './img/edit.png');	
+	else if (v === true && picker === false) 
+		$(".edit").attr('src', './img/edit-hover.png');	
+	else if (v === true && picker === true) 
+		$(".edit").attr('src', './img/edit-hover.png');	
+}
+
+function toggle_picker(evnt) {
+	if (picker === false) {
+		$("#ui-datepicker-div").css({'display': 'block'});
+		picker = true;
+	} else {
+		$("#ui-datepicker-div").css({'display': 'none'});		
+		picker = false;
+	}
+}
+
+function addBtns() {
+	if (!$("#ui-datepicker-div #ctrlbtns").length > 0) {
+		$(
+			'<div id="ctrlbtns">'
+			+ '<button onclick="submit()" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" type="button">Einstellen</button>'
+			+ '<button onclick="setNow()" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" type="button">Aktuelle Zeit</button>'
+			+ '</div>'
+		).appendTo('#ui-datepicker-div');
+	}
+}
+
+function setNow() {
+   	$("#datepicker").datetimepicker('setDate', new Date());
+}

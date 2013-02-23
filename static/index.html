@@ -4,9 +4,6 @@
 	<meta charset="utf-8">
 	<title>&Ouml;ffnungszeiten in Ulm</title>
 
-	<script src="/js/translations.js"></script>
-	<script src="/js/show.js"></script>
-	<link rel="stylesheet" href="/css/style.css">
 
 	<link rel="stylesheet" href="/css/leaflet.css" />
 	<!--[if lte IE 8]>
@@ -22,45 +19,40 @@
 	<script src="/js/libs/jquery-ui.js"></script>
 	<script src="/js/libs/jquery-ui-sliderAccess.js"></script>
 	<script src="/js/libs/jquery-ui-timepicker-addon.js"></script>
+	
+	<script src="/js/translations.js"></script>
+	<script src="/js/show.js"></script>	
+	<link rel="stylesheet" href="/css/style.css">	
 </head>
 <body>
+
+
+	<div id="loading_box">
+		<div id="spatz"></div>
+		<div id="label">Loading...</div>
+	</div>
+
+	<div id="loading" class="ui-widget-overlay ui-front"></div>
+		
 	<div id="map"></div>
 	
-
 	<div class="logos">
 		<a href="javascript:dialog()"><img src="/img/ulmapi.png" alt="ulmapi"
 			title="Informationen zu diesem Projekt" /></a>
 	</div>
 
+	<input tabindex="-1" type="text" id="datepicker" />
 
 	<div id="dialog-confirm" title="&Ouml;ffnungszeiten in Ulm">
-		<p>
-			Dargestellter Zeitpunkt: <input tabindex="-1" type="text" id="datepicker" />
-			<img src="/img/check.png" 
-				style="cursor:pointer;border:none;width:22px;" 
-				onclick="javascript:submit()" 
-				alt="&Auml;ndern"
-				title="Zeitpunkt anpassen" />
-		</p>
-
-		<hr />
-
 		<h4 style='margin-bottom:8px'>&Uuml;ber dieses Projekt</h4>
 
 		<div style='float:right;margin-left:10px;'>
 			<a href="http://ulmAPI.de/" tabindex="-1"
-			   title="Hochschulgruppe f&uuml;r offene Daten an der Uni Ulm">
+			   title="Hochschulgruppe 'datalove' f&uuml;r offene Daten an der Uni Ulm">
 				<img src="/img/logos-large/ulmapi.png" 
 					width='100' 
 					alt="ulmAPI.de"
 					title="Hochschulgruppe f&uuml;r offene Daten an der Uni Ulm" />
-			</a>
-			<a href="http://ulmAPI.de/" tabindex="-1" 
-			   title="datalove Hochschulgruppe an der Uni Ulm">
-				<img src="/img/logos-large/datalove.png" 
-					width='100' 
-					alt="datalove"
-					title="datalove Hochschulgruppe an der Uni Ulm" />
 			</a>
 		</div>
 
@@ -69,8 +61,8 @@
 			genommen, diese Idee endlich zu verwirklichen. 
 
 			Der Quelltext dieser Anwendung ist unter einer freien 
-			Lizenz f&uuml;r jedermann nutzbar 
-			<a href="https://github.com/cmichi/ulm-opening-hours">hier</a> 
+			Lizenz f&uuml;r jedermann nutzbar auf
+			<a href="https://github.com/cmichi/ulm-opening-hours">GitHub</a> 
 			ver&ouml;ffentlicht.
 
 			Die &Ouml;ffnungszeiten exportiere ich regelm&auml;&szlig;ig
@@ -81,11 +73,10 @@
 		</p>
 
 		<p>
-			Wenn entsprechende &Ouml;ffnungszeiten fehlen, bitte entweder 
-			direkt in den Open Street Map Daten nachtragen
-			(<a href="http://www.openstreetmap.de/123.html">Anleitung</a>)
-			oder mir eine kurze Notiz zukommen lassen (<a 
-			href="http://micha.elmueller.net/contact">hier</a>).
+			Wenn entsprechende &Ouml;ffnungszeiten fehlen, diese am Besten
+			direkt in den Open Street Map Daten nachtragen.
+			<a href="http://www.openstreetmap.de/123.html">Hier</a> gibt
+			es eine passende Anleitung.
 		</p>
 
 		<p>
