@@ -22,11 +22,14 @@ trigger for me to start working on it.
 
 # ToDo 
 
+ * Replace socket.io with plain AJAX requests
+ * Add "Fork Me" within dialog
+ * Complete translation of `categories`
  * Possiblity to display closed entities
  * Marker Popup: better formatting (tabulator)
  * "We off" in some popups to better readable label
 
- * Autompletion text field for fulltext search
+ * (Autompletion text field for fulltext search)
 
 OSM data:
 
