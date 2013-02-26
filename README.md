@@ -22,7 +22,7 @@ trigger for me to start working on it.
 
 # ToDo 
 
- * Replace socket.io with plain AJAX requests
+ * Replace socket.io with plain AJAX requests, then remove loading screen
  * Add "Fork Me" within dialog
  * Complete translation of `categories`
  * Possiblity to display closed entities
@@ -65,7 +65,8 @@ Then open [http://localhost:3000/](http://localhost:3000).
 
  * Change the BoundingBox within `./data/export.sh` and adapt the map's
  center within the file `./static/js/show.js`.
- * Execute `$ ./data/export.sh > ./data/data.xml`
+ * Execute `$ ./data/export.sh > ./data/data.xml`.
+ * Restart the server `$ node server.js` and the data should be displayed on http://localhost:3000/](http://localhost:3000).
 
 
 # Known bugs
