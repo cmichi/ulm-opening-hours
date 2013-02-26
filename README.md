@@ -29,10 +29,12 @@ trigger for me to start working on it.
  * Marker Popup: better formatting (tabulator)
  * "We off" in some popups to better readable label
 
+ * (Special CSS for Smartphones)
  * (Autompletion text field for fulltext search)
 
 OSM data:
 
+ * Some data has to be fixed, sometimes there are german day names in the data!
  * Add data for: 
   * hostels, bakeries, local post station, clubs, 
   * Arbeitsamt und andere Öffentliche Einrichtungen (Bürgerbüro)
@@ -61,8 +63,9 @@ Then open [http://localhost:3000/](http://localhost:3000).
 
 # Adapting to a different city
 
- * Change the BoundingBox within `./data/data.xml` and adapt the map's
+ * Change the BoundingBox within `./data/export.sh` and adapt the map's
  center within the file `./static/js/show.js`.
+ * Execute `$ ./data/export.sh > ./data/data.xml`
 
 
 # Known bugs
@@ -79,7 +82,6 @@ Then open [http://localhost:3000/](http://localhost:3000).
  * express
  * socket.io
  * jQuery and jQuery UI
-
  * [Check Icon](http://thenounproject.com/noun/check-mark/#icon-No2784) by P.J. Onori, from The Noun Project
  * [Edit Icon](http://thenounproject.com/noun/edit/#icon-No5587) by Naomi Atkinson, from The Noun Project
 
