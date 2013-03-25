@@ -154,20 +154,24 @@ function buildCtrls() {
 
 
 function getIcon(entity) {
-	if (entity.closing_soon) 
+	if (entity.closing_soon) {
 		var iconUri = "/img/marker-icon-yellow.png";
-	else
+		var iconUriRetina = "/img/marker-icon@2x-green.png";
+	} else {
 		var iconUri = "/img/marker-icon-green.png";
+		var iconUriRetina = "/img/marker-icon@2x-yellow.png";
+	}
 
 	return L.icon({
 		iconUrl : iconUri
+		, iconRetinaUrl: iconUriRetina
 		, iconSize: new L.Point(26, 41)
 		, iconAnchor: new L.Point(12, 41)
 		, popupAnchor: new L.Point(1, -34)
 
-		//shadowSize: new L.Point(41, 41),
-		//shadowAnchor: [12, 41],
-		//shadowUrl : "/img/marker-shadow.png"
+		, shadowSize: new L.Point(41, 41)
+		, shadowAnchor: [12, 41]
+		, shadowUrl : "/img/marker-shadow.png"
 	});
 }
 
