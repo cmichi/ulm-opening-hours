@@ -14,7 +14,6 @@ regular basis.
 
 # ToDo Code
 
- * Add "Fork Me" within dialog
  * Complete translation of `categories`
  * Possiblity to display closed entities
  * Marker Popup: better formatting (tabulator)
@@ -74,6 +73,7 @@ Then open [http://localhost:3000/](http://localhost:3000).
  * jQuery and jQuery UI
  * [Check Icon](http://thenounproject.com/noun/check-mark/#icon-No2784) by P.J. Onori, from The Noun Project
  * [Edit Icon](http://thenounproject.com/noun/edit/#icon-No5587) by Naomi Atkinson, from The Noun Project
+ * [GitHub Buttons](https://github.com/mdo/github-buttons)
 
 
 # License

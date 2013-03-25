@@ -83,14 +83,20 @@ html, body, #map {
 	display: none;
 }
 
-#dialog-confirm a {
+#dialog-confirm p a {
 	color: #0078A8;
 }
 
-#dialog-confirm .bottom {
+#dialog-confirm .bottom-left {
+	float:left; 
+	text-align:left;
+	position: absolute;
+	bottom: 20px;
+}
+
+#dialog-confirm .bottom-right {
 	float:right; 
 	text-align:right;
-	/* font-size:0.8em */
 }
 
 #dialog-confirm .bottom a {
