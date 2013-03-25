@@ -28,8 +28,8 @@ trigger for me to start working on it.
  * Marker Popup: better formatting (tabulator)
  * "We off" in some popups to better readable label
 
- * (Special CSS for Smartphones)
- * (Autompletion text field for fulltext search)
+ * Special CSS for mobile devices
+ * Autompletion text field for fulltext search?
 
 OSM data:
 
@@ -49,7 +49,6 @@ OSM data:
 
 	# install the necessary dependencies from the package.json
 	$ npm install	
-
 	$ node server.js
 
 Then open [http://localhost:3000/](http://localhost:3000).
@@ -80,7 +79,6 @@ Then open [http://localhost:3000/](http://localhost:3000).
  * [opening_hours.js](https://github.com/AMDmi3/opening_hours.js/)
  * [leaflet](https://github.com/Leaflet/Leaflet)
  * express
- * socket.io
  * jQuery and jQuery UI
  * [Check Icon](http://thenounproject.com/noun/check-mark/#icon-No2784) by P.J. Onori, from The Noun Project
  * [Edit Icon](http://thenounproject.com/noun/edit/#icon-No5587) by Naomi Atkinson, from The Noun Project
