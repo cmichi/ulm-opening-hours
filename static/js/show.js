@@ -342,7 +342,7 @@ function updateTime(diff) {
 	$('#time').html("<div class='time'>"
 		+ "<strong >" + days[time.day] + ", " 
 		+ now.getDate() + "." 
-		+ now.getMonth() + "." 
+		+ (now.getMonth()+1) + "." 
 		+ now.getFullYear() 
 		+ "<br />"
 		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>");
