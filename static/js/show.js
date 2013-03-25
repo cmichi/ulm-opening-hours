@@ -39,15 +39,7 @@ $(function() {
 					, secondText: 'Sekunde'
 	});
 	$("#datepicker").datetimepicker('setDate', now);
-	//$(".ui-datepicker-buttonpane .ui-datepicker-close").remove();
 	$(".ui-datepicker-buttonpane").css({'display': 'none'});
-	/*
-	$("#ui-datepicker-div").click(function() {
-		console.log('cl')
-		addBtns();		
-	})
-	*/
-//	addBtns();
 	
 	map = L.map('map', {
 		center: new L.LatLng(48.40783887047417, 9.987516403198242)
@@ -316,7 +308,6 @@ function updateTime(diff) {
 	if (diff == undefined || diff == null)
 		diff = updateFrequency;
 
-	//console.log('update')
 	now = new Date(now.getTime() + diff);
 
 	var days = { 0: "So", 1: "Mo", 2: "Di", 3: "Mi", 4: "Do", 
@@ -347,9 +338,6 @@ function updateTime(diff) {
 		+ "<br />"
 		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>");
 		
-//	$(".edit").click(function(e) {
-//	});
-	
 	$("#ui-datepicker-div").html()
 }
 
@@ -386,11 +374,8 @@ function dialog() {
 
 function submit() {
 	now = $("#datepicker").datetimepicker('getDate');
-   	//$("#datepicker").datetimepicker('setDate', d);
 	
-	//now = $("#datepicker").datetimepicker('getDate');
 	pullNewEntries();
-	//$("#dialog-confirm").dialog("close");
 	toggle_picker();
 }
 
