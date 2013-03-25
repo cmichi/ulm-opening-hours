@@ -25,18 +25,18 @@ $(function() {
 		dateFormat: 'dd.mm.yy'
 		, firstDay: 0
 		, monthNames: ["Januar", "Februar", "März", "April", "Mai",
-						"Juni", "Juli", "August", "September", 
-						"Oktober", "November", "Dezember"]
+			       "Juni", "Juli", "August", "September", 
+			       "Oktober", "November", "Dezember"]
 		, monthNamesShort: ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun",
-							"Jul", "Aug", "Sep", "Okt", "Nov", "Dez"]
+			            "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"]
 		, dayNames: ["Sonntag", "Montag", "Dienstag", "Mittwoch", 
-					 "Donnerstag", "Freitag", "Samstag"]
-					, dayNamesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
-					, dayNamesMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
-					, timeText: 'Zeit'
-					, hourText: 'Stunde'
-					, minuteText: 'Minute'
-					, secondText: 'Sekunde'
+			     "Donnerstag", "Freitag", "Samstag"]
+		, dayNamesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+		, dayNamesMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+		, timeText: 'Zeit'
+		, hourText: 'Stunde'
+		, minuteText: 'Minute'
+		, secondText: 'Sekunde'
 	});
 	$("#datepicker").datetimepicker('setDate', now);
 	$(".ui-datepicker-buttonpane").css({'display': 'none'});

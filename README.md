@@ -1,7 +1,7 @@
 # Ulm Opening Hours
 
 **Project Status:** Everyhting is working as expected.
-The code is still messy and has to be refactored, also the UI has
+The code is still a bit messy and has to be cleaned, also the UI has
 to be optimized for mobile clients. This will be done as a next step.
 
 The goal of this project is to create a website which can be used to answer
