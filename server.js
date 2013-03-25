@@ -36,6 +36,6 @@ app.get('/get_entries', function(req, res) {
 });
 
 
-server.listen(process.env.PORT || 3000, function() {
+server.listen(process.env.PORT || 3046, function() {
 	console.log('Listening on port ' + server.address().port);
 });

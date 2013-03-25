@@ -1,11 +1,7 @@
 # Ulm Opening Hours
 
-**Project Status:** Everyhting is working as expected.
-The code is still a bit messy and has to be cleaned, also the UI has
-to be optimized for mobile clients. This will be done as a next step.
-
-The goal of this project is to create a website which can be used to answer
-questions like *Which shops/bakeries/restaurants/etc. are still open?* or
+This project creates a website which can be used to answer questions 
+like *Which shops/bakeries/restaurants/etc. are still open?* or
 *Where can I get beer at this time?*.
 
 Often times when searching for websites of stores or other facilities,
@@ -15,12 +11,8 @@ interface which displays opening times for many locations in your city.
 The data for this project is exported from the Open Street Map project on a
 regular basis. 
 
-Though I have been thinking about this idea for quite some time, it had to
-take the upcoming [Open Data Day](http://ulmapi.de/#opendataday) as a
-trigger for me to start working on it.
 
-
-# ToDo 
+# ToDo Code
 
  * Add "Fork Me" within dialog
  * Complete translation of `categories`
@@ -31,7 +23,7 @@ trigger for me to start working on it.
  * Special CSS for mobile devices
  * Autompletion text field for fulltext search?
 
-OSM data:
+# ToDo OSM database
 
  * Some data has to be fixed, sometimes there are german day names in the data!
  * Add data for: 
@@ -64,7 +56,7 @@ Then open [http://localhost:3000/](http://localhost:3000).
  * Change the BoundingBox within `./data/export.sh` and adapt the map's
  center within the file `./static/js/show.js`.
  * Execute `$ ./data/export.sh > ./data/data.xml`.
- * Restart the server `$ node server.js` and the data should be displayed on http://localhost:3000/](http://localhost:3000).
+ * Restart the server `$ node server.js` and the data should be displayed on [http://localhost:3000/](http://localhost:3000).
 
 
 # Known bugs
