@@ -1,11 +1,7 @@
 # Ulm Opening Hours
 
-**Project Status:** Everyhting is working as expected.
-The code is still messy and has to be refactored, also the UI has
-to be optimized for mobile clients. This will be done as a next step.
-
-The goal of this project is to create a website which can be used to answer
-questions like *Which shops/bakeries/restaurants/etc. are still open?* or
+This project creates a website which can be used to answer questions 
+like *Which shops/bakeries/restaurants/etc. are still open?* or
 *Where can I get beer at this time?*.
 
 Often times when searching for websites of stores or other facilities,
@@ -15,21 +11,20 @@ interface which displays opening times for many locations in your city.
 The data for this project is exported from the Open Street Map project on a
 regular basis. 
 
-Though I have been thinking about this idea for quite some time, it had to
-take the upcoming [Open Data Day](http://ulmapi.de/#opendataday) as a
-trigger for me to start working on it.
 
+# ToDo Code
 
-# ToDo 
-
+ * Complete translation of `categories`
  * Possiblity to display closed entities
  * Marker Popup: better formatting (tabulator)
  * "We off" in some popups to better readable label
 
- * Autompletion text field for fulltext search
+ * Special CSS for mobile devices
+ * Autompletion text field for fulltext search?
 
-OSM data:
+# ToDo OSM database
 
+ * Some data has to be fixed, sometimes there are german day names in the data!
  * Add data for: 
   * hostels, bakeries, local post station, clubs, 
   * Arbeitsamt und andere Öffentliche Einrichtungen (Bürgerbüro)
@@ -45,7 +40,6 @@ OSM data:
 
 	# install the necessary dependencies from the package.json
 	$ npm install	
-
 	$ node server.js
 
 Then open [http://localhost:3000/](http://localhost:3000).
@@ -58,8 +52,10 @@ Then open [http://localhost:3000/](http://localhost:3000).
 
 # Adapting to a different city
 
- * Change the BoundingBox within `./data/data.xml` and adapt the map's
+ * Change the BoundingBox within `./data/export.sh` and adapt the map's
  center within the file `./static/js/show.js`.
+ * Execute `$ ./data/export.sh > ./data/data.xml`.
+ * Restart the server `$ node server.js` and the data should be displayed on [http://localhost:3000/](http://localhost:3000).
 
 
 # Known bugs
@@ -74,11 +70,10 @@ Then open [http://localhost:3000/](http://localhost:3000).
  * [opening_hours.js](https://github.com/AMDmi3/opening_hours.js/)
  * [leaflet](https://github.com/Leaflet/Leaflet)
  * express
- * socket.io
  * jQuery and jQuery UI
-
  * [Check Icon](http://thenounproject.com/noun/check-mark/#icon-No2784) by P.J. Onori, from The Noun Project
  * [Edit Icon](http://thenounproject.com/noun/edit/#icon-No5587) by Naomi Atkinson, from The Noun Project
+ * [GitHub Buttons](https://github.com/mdo/github-buttons)
 
 
 # License

@@ -5,7 +5,6 @@ var info, ctrls, legend;
 var initialized = false;
 var prefs = {};
 var prefs_dropped = {};
-var socket;
 var now = new Date();
 
 var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
@@ -21,34 +20,26 @@ var dialog_opt = {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
+$(function() {
 	$("#datepicker").datetimepicker({
 		dateFormat: 'dd.mm.yy'
 		, firstDay: 0
 		, monthNames: ["Januar", "Februar", "März", "April", "Mai",
-						"Juni", "Juli", "August", "September", 
-						"Oktober", "November", "Dezember"]
+			       "Juni", "Juli", "August", "September", 
+			       "Oktober", "November", "Dezember"]
 		, monthNamesShort: ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun",
-							"Jul", "Aug", "Sep", "Okt", "Nov", "Dez"]
+			            "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"]
 		, dayNames: ["Sonntag", "Montag", "Dienstag", "Mittwoch", 
-					 "Donnerstag", "Freitag", "Samstag"]
-					, dayNamesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
-					, dayNamesMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
-					, timeText: 'Zeit'
-					, hourText: 'Stunde'
-					, minuteText: 'Minute'
-					, secondText: 'Sekunde'
+			     "Donnerstag", "Freitag", "Samstag"]
+		, dayNamesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+		, dayNamesMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+		, timeText: 'Zeit'
+		, hourText: 'Stunde'
+		, minuteText: 'Minute'
+		, secondText: 'Sekunde'
 	});
 	$("#datepicker").datetimepicker('setDate', now);
-	//$(".ui-datepicker-buttonpane .ui-datepicker-close").remove();
 	$(".ui-datepicker-buttonpane").css({'display': 'none'});
-	/*
-	$("#ui-datepicker-div").click(function() {
-		console.log('cl')
-		addBtns();		
-	})
-	*/
-//	addBtns();
 	
 	map = L.map('map', {
 		center: new L.LatLng(48.40783887047417, 9.987516403198242)
@@ -73,101 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		return this._div;
 	};
 
-	socket = io.connect('/');
-	socket.on('connection', function() {
-		pullNewEntries();
-		setInterval(pullNewEntries, updateFrequency);
-	})
+	pullNewEntries();
+	setInterval(pullNewEntries, updateFrequency);
 
-	socket.on('receiveOpenEntities', function (open_entities) {    
-		if (initialized) {
-			// everything has been initialized once before and
-			// has to be reset now. the gui is recreated on
-			// each fetch. hence we don't need to delete/add
-			// certain new markers, but instead delete all and
-			// add the whole newly received batch.
-			map.removeControl(info);
-			map.removeControl(legend);
-			entity_groups = [];
-
-			savePreferences();
-			map.removeControl(ctrls);
-			
-			for (var i in tile_groups) 
-				tile_groups[i].clearLayers();
-			tile_groups = [];
-		}
-
-
-		// create a marker for each entity 
-		for (var i in open_entities) {
-			entity = open_entities[i];
-
-			if (entity_groups[entity.category] == undefined) {
-				entity_groups[entity.category] = [];
-				tile_groups[entity.category] = [];
-			}
-
-			var category_label = entity.category;
-			if (translate[entity.category] != undefined) 
-				category_label = translate[entity.category];
-
-			entity_groups[entity.category].push( 
-				L.marker(
-					[entity.lat, entity.lon], {icon: getIcon(entity)}).bindPopup(
-						"<strong>" + entity.name + "</strong>"
-						+ "<br />Kategorie: " + category_label + "<br />"
-						+ "<br />" + entity.original_opening_hours.split(';').join('<br />')
-					)
-			);
-		}
-
-		// markers are grouped within groups (e.g. supermarket)
-		for (var i in entity_groups) {
-			tile_groups[i] = L.layerGroup(entity_groups[i]);
-		}
-
-		info = L.control();
-		info.onAdd = function (map) {
-			this._div = L.DomUtil.create('div', 'leaflet-control '
-				+ 'leaflet-control-layers leaflet-control-layers-expanded');
-			this.update();
-			
-			L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
-			L.DomEvent.disableClickPropagation(this._div);
-			
-			return this._div;
-		};
-		info.update = function (props) {
-			this._div.innerHTML = "<h4 class='appdesc'>ulm<br />" 
-				+ 'Was hat ge&ouml;ffnet?</h4><h4>'
-				+ '<span id="time"></span>';
-
-			if (open_entities.length === 0) {
-				this._div.innerHTML += '<br /><h4>Aktuell hat leider \
-				nichts ge&ouml;ffnnet!</h4>';
-			}
-		};
-		info.addTo(map);
-		updateTime(0);
-
-		legend.addTo(map);
-
-		ctrls = buildCtrls();
-		ctrls.addTo(map);
-
-		restorePreferences();
-
-		if (!initialized) {
-			setInterval(updateTime, updateFrequency);
-			clearInterval(sw_interval);
-			$("#loading_box").css({'display': 'none'});
-			$("#loading").css({'display': 'none'});
-			
-			initialized = true;
-		}
-	});
-}, false);
+});
 
 
 function buildCtrls() {
@@ -299,7 +199,95 @@ function restorePreferences() {
 
 
 function pullNewEntries() {
-	socket.emit('getEntries', {ms: now.getTime()})
+	$.getJSON('/get_entries', {ms: now.getTime()}, function(data) {
+		receiveNewEntries(data)
+	});
+}
+
+
+function receiveNewEntries(open_entities) {
+	if (initialized) {
+		// everything has been initialized once before and
+		// has to be reset now. the gui is recreated on
+		// each fetch. hence we don't need to delete/add
+		// certain new markers, but instead delete all and
+		// add the whole newly received batch.
+		map.removeControl(info);
+		map.removeControl(legend);
+		entity_groups = [];
+
+		savePreferences();
+		map.removeControl(ctrls);
+		
+		for (var i in tile_groups) 
+			tile_groups[i].clearLayers();
+		tile_groups = [];
+	}
+
+
+	// create a marker for each entity 
+	for (var i in open_entities) {
+		entity = open_entities[i];
+
+		if (entity_groups[entity.category] == undefined) {
+			entity_groups[entity.category] = [];
+			tile_groups[entity.category] = [];
+		}
+
+		var category_label = entity.category;
+		if (translate[entity.category] != undefined) 
+			category_label = translate[entity.category];
+
+		entity_groups[entity.category].push( 
+			L.marker(
+				[entity.lat, entity.lon], {icon: getIcon(entity)}).bindPopup(
+					"<strong>" + entity.name + "</strong>"
+					+ "<br />Kategorie: " + category_label + "<br />"
+					+ "<br />" + entity.original_opening_hours.split(';').join('<br />')
+				)
+		);
+	}
+
+	// markers are grouped within groups (e.g. supermarket)
+	for (var i in entity_groups) {
+		tile_groups[i] = L.layerGroup(entity_groups[i]);
+	}
+
+	info = L.control();
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'leaflet-control '
+			+ 'leaflet-control-layers leaflet-control-layers-expanded');
+		this.update();
+		
+		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
+		L.DomEvent.disableClickPropagation(this._div);
+		
+		return this._div;
+	};
+	info.update = function (props) {
+		this._div.innerHTML = "<h4 class='appdesc'>ulm<br />" 
+			+ 'Was hat ge&ouml;ffnet?</h4><h4>'
+			+ '<span id="time"></span>';
+
+		if (open_entities.length === 0) {
+			this._div.innerHTML += '<br /><h4>Aktuell hat leider \
+			nichts ge&ouml;ffnnet!</h4>';
+		}
+	};
+	info.addTo(map);
+	updateTime(0);
+
+	legend.addTo(map);
+
+	ctrls = buildCtrls();
+	ctrls.addTo(map);
+
+	restorePreferences();
+
+	if (!initialized) {
+		setInterval(updateTime, updateFrequency);
+		initialized = true;
+	}
 }
 
 
@@ -320,7 +308,6 @@ function updateTime(diff) {
 	if (diff == undefined || diff == null)
 		diff = updateFrequency;
 
-	//console.log('update')
 	now = new Date(now.getTime() + diff);
 
 	var days = { 0: "So", 1: "Mo", 2: "Di", 3: "Mi", 4: "Do", 
@@ -346,14 +333,11 @@ function updateTime(diff) {
 	$('#time').html("<div class='time'>"
 		+ "<strong >" + days[time.day] + ", " 
 		+ now.getDate() + "." 
-		+ now.getMonth() + "." 
+		+ (now.getMonth()+1) + "." 
 		+ now.getFullYear() 
 		+ "<br />"
 		+ time.hours + ":" + time.mins + edit_btn  + "</strong></div>");
 		
-//	$(".edit").click(function(e) {
-//	});
-	
 	$("#ui-datepicker-div").html()
 }
 
@@ -390,31 +374,11 @@ function dialog() {
 
 function submit() {
 	now = $("#datepicker").datetimepicker('getDate');
-   	//$("#datepicker").datetimepicker('setDate', d);
 	
-	//now = $("#datepicker").datetimepicker('getDate');
 	pullNewEntries();
-	//$("#dialog-confirm").dialog("close");
 	toggle_picker();
 }
 
-
-var sw = true;
-var sw_cnt = "";
-function swap() {
-	if (sw) {
-		$("#spatz").css({'backgroundPosition': '-124px 0px'});
-		sw = false;
-	} else {
-		$("#spatz").css({'backgroundPosition':'0px 0px'});
-		sw = true;
-	}
-	
-	$("#loading_box #label").text("Loading" + sw_cnt);
-	sw_cnt += ".";
-	if (sw_cnt.length == 4) sw_cnt = ".";
-}
-var sw_interval = setInterval("swap()", 500);
 
 var picker = false;
 function picker_mouse(v) {

@@ -83,14 +83,20 @@ html, body, #map {
 	display: none;
 }
 
-#dialog-confirm a {
+#dialog-confirm p a {
 	color: #0078A8;
 }
 
-#dialog-confirm .bottom {
+#dialog-confirm .bottom-left {
+	float:left; 
+	text-align:left;
+	position: absolute;
+	bottom: 20px;
+}
+
+#dialog-confirm .bottom-right {
 	float:right; 
 	text-align:right;
-	/* font-size:0.8em */
 }
 
 #dialog-confirm .bottom a {
@@ -138,42 +144,6 @@ html, body, #map {
 
 .appdesc {
 	line-height:1.2em;
-}
-
-#loading_box {
-	position:absolute;
-	width:200px;
-	height:200px;
-	border:1px solid #000;
-	border-radius:10px;
-	text-align:center;
-	top:30%;
-	left:50%;
-	margin-left:-100px;
-	z-index:9999999;
-	background: rgba(0, 0, 0, 0.6);
-}
-
-#loading_box #label {
-	position:absolute;
-	bottom:25px;
-	left:32%;
-	text-align:left;
-	color:#fff;
-	font-family:'Helvetica Neue',Arial,Helvetica,sans-serif; 
-	font-size:1.2em;
-}
-
-#loading_box #spatz {
-	background:url(/img/spatz-sprite.png) no-repeat;
-	background-position:0px 0px;
-	position:absolute;
-	left:50%;
-	margin-left:-62px;
-	top:40%;
-	margin-top:-50px;
-	width:124px;
-	height:101px;
 }
 
 #ui-datepicker-div {
