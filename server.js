@@ -1,6 +1,5 @@
 var fs = require('fs');
 var express = require('express');
-var io = require('socket.io');
 var opening_hours = require('./lib/opening_hours.js');
 
 var xmlParser = require('./data/parse_xml.js')
@@ -11,7 +10,6 @@ app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
 
 var server = require('http').createServer(app);
-io = io.listen(server);
 
 
 function generateOpenEntities(date) {
@@ -32,14 +30,9 @@ function generateOpenEntities(date) {
 	return open_entities;
 }
 
-
-io.sockets.on('connection', function (socket) {
-	socket.emit('connection');
-
-	socket.on('getEntries', function (data){
-		var now = new Date(data.ms);
-		socket.emit('receiveOpenEntities', generateOpenEntities(now))
-	});
+app.get('/get_entries', function(req, res) {
+	var now = new Date(parseInt(req.query.ms));
+	res.send(generateOpenEntities(now));
 });
 
 

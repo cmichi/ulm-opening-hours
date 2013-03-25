@@ -22,7 +22,6 @@ trigger for me to start working on it.
 
 # ToDo 
 
- * Replace socket.io with plain AJAX requests, then remove loading screen
  * Add "Fork Me" within dialog
  * Complete translation of `categories`
  * Possiblity to display closed entities
