@@ -4,37 +4,38 @@
 	<meta charset="utf-8">
 	<title>&Ouml;ffnungszeiten in Ulm</title>
 
-	<link rel="stylesheet" href="/css/github-btn.css" />
 	<link rel="stylesheet" href="/css/leaflet.css" />
 	<!--[if lte IE 8]>
 	    <link rel="stylesheet" href="/css/leaflet.ie.css" />
 	<![endif]-->
 
 	<script src="/js/libs/leaflet.js"></script>
-
-	<link rel="stylesheet" href="/css/jquery-ui.css" />
-	<script src="/js/libs/jquery-1.8.3.js"></script>
-	<script src="/js/libs/jquery-ui.js"></script>
+	<script src="/js/libs/jquery-1.9.1.js"></script>
+	<script src="/js/libs/jquery-ui-1.10.2.custom.min.js"></script>
 	<script src="/js/libs/jquery-ui-sliderAccess.js"></script>
 	<script src="/js/libs/jquery-ui-timepicker-addon.js"></script>
+	<script src="/js/basic.js"></script>
+	<script src="/js/jquery.simplemodal.js"></script>
+
+	<link rel="stylesheet" href="/css/jquery-ui.css" />
+	<link rel="stylesheet" href="/css/basic_ie.css" />
+	<link rel="stylesheet" href="/css/basic.css" />
+
+	<!-- IE6 "fix" for the close png image -->
+	<!--[if lt IE 7]>
+		<link type='text/css' href='css/basic_ie.css' rel='stylesheet' media='screen' />
+	<![endif]-->	
 	
 	<script src="/js/translations.js"></script>
 	<script src="/js/show.js"></script>	
-	<link rel="stylesheet" href="/css/style.css">	
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/github-btn.css" />		
 </head>
 <body>
-
-	<div id="map"></div>
 	
-	<div class="logos">
-		<a href="javascript:dialog()"><img src="/img/ulmapi.png" alt="ulmapi"
-			title="Informationen zu diesem Projekt" /></a>
-	</div>
-
-	<input tabindex="-1" type="text" id="datepicker" />
-
-	<div id="dialog-confirm" title="&Ouml;ffnungszeiten in Ulm">
-		<h4 style='margin-bottom:8px'>&Uuml;ber dieses Projekt</h4>
+	<!-- modal dialog content -->
+	<div id="dialog-confirm">
+		<h3 style='margin-bottom:8px'>&Uuml;ber dieses Projekt</h3>
 
 		<div style='float:right;margin-left:10px;'>
 			<a href="http://ulmAPI.de/" tabindex="-1"
@@ -79,7 +80,7 @@
 			<span id="github-btn" class="github-btn github-me github-btn-large">
 			<a target="_blank" href="https://github.com/cmichi/ulm-opening-hours" id="gh-btn" class="gh-btn">
 				<span class="gh-ico"></span>
-				<span id="gh-text" class="gh-text">View on GitHub</span>
+				<span id="gh-text" class="gh-text">ulm-opening-hours on GitHub</span>
 			</a>
 			</span>
 		</div>
@@ -89,21 +90,37 @@
 			<a href="http://micha.elmueller.net">http://micha.elmueller.net</a>
 		</p>
 	</div>
+	
+	<!-- preload the images -->
+	<div style='display:none'>
+		<img src='img/basic/x.png' alt='' />
+	</div>	
 
-<!-- Piwik -->
-<script type="text/javascript">
-	var pkBaseURL = (("https:" == document.location.protocol) ?  "https://piwik.elmueller.net/" : "http://piwik.elmueller.net/");
-	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-	try {
-		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 2);
-		piwikTracker.trackPageView();
-		piwikTracker.enableLinkTracking();
-	} catch( err ) {}
+	<div id="map"></div>
+	
+	<div class="logos">
+		<a href="javascript:dialog()"><img src="/img/ulmapi.png" alt="ulmapi"
+			title="Informationen zu diesem Projekt" /></a>
+	</div>
 
-</script><noscript><p><img src="http://piwik.elmueller.net/piwik.php?idsite=2" style="border:0" alt="" /></p></noscript>
-<!-- End Piwik Tag -->
+	<input tabindex="-1" type="text" id="datepicker" />
+
+
+	<!-- Piwik -->
+	<script type="text/javascript">
+		var pkBaseURL = (("https:" == document.location.protocol) ?  
+			"https://piwik.elmueller.net/" : "http://piwik.elmueller.net/");
+		document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 2);
+			piwikTracker.trackPageView();
+			piwikTracker.enableLinkTracking();
+		} catch( err ) {}
+
+	</script><noscript><p><img src="http://piwik.elmueller.net/piwik.php?idsite=2" style="border:0" alt="" /></p></noscript>
+	<!-- End Piwik Tag -->
 
 </body>
 </html>

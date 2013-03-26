@@ -18,9 +18,9 @@ regular basis.
  * Possiblity to display closed entities
  * Marker Popup: better formatting (tabulator)
  * "We off" in some popups to better readable label
-
- * Special CSS for mobile devices
+ * Special CSS for mobile devices 
  * Autompletion text field for fulltext search?
+
 
 # ToDo OSM database
 
@@ -71,6 +71,7 @@ Then open [http://localhost:3000/](http://localhost:3000).
  * [leaflet](https://github.com/Leaflet/Leaflet)
  * express
  * jQuery and jQuery UI
+ * [SimpleModal](https://github.com/ericmmartin/simplemodal)
  * [Check Icon](http://thenounproject.com/noun/check-mark/#icon-No2784) by P.J. Onori, from The Noun Project
  * [Edit Icon](http://thenounproject.com/noun/edit/#icon-No5587) by Naomi Atkinson, from The Noun Project
  * [GitHub Buttons](https://github.com/mdo/github-buttons)

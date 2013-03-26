@@ -17,6 +17,8 @@ var dialog_opt = {
 	resizable: false
 	, width: 550
 	, modal: true
+	, autoOpen: false
+	, position: 'center'
 }
 
 
@@ -63,6 +65,8 @@ $(function() {
 		
 		return this._div;
 	};
+
+	//$("#dialog-confirm").dialog(dialog_opt);
 
 	pullNewEntries();
 	setInterval(pullNewEntries, updateFrequency);
@@ -371,8 +375,7 @@ function toggle_drop(here) {
 
 
 function dialog() {
-	$("#datepicker").datetimepicker('setDate', now);
-	$("#dialog-confirm").dialog(dialog_opt);
+	$('#dialog-confirm').modal();
 }
 
 
@@ -398,6 +401,7 @@ function picker_mouse(v) {
 
 function toggle_picker(evnt) {
 	if (picker === false) {
+		$("#datepicker").datetimepicker('setDate', now);
 		$("#ui-datepicker-div").css({'display': 'block'});
 		picker = true;
 	} else {

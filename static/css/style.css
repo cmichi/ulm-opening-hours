@@ -91,12 +91,15 @@ html, body, #map {
 	float:left; 
 	text-align:left;
 	position: absolute;
-	bottom: 20px;
+	bottom: 30px;
 }
 
 #dialog-confirm .bottom-right {
 	float:right; 
 	text-align:right;
+	position: absolute;
+	bottom: 20px;
+	right:25px;
 }
 
 #dialog-confirm .bottom a {
