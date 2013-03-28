@@ -11,6 +11,9 @@ interface which displays opening times for many locations in your city.
 The data for this project is exported from the Open Street Map project on a
 regular basis. 
 
+A public instance of this project is hosted on 
+[http://oeffnungszeiten.ulmApi.de](http://oeffnungszeiten.ulmApi.de).
+
 
 # ToDo Code
 
