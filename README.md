@@ -45,7 +45,7 @@ A public instance of this project is hosted on
 	$ npm install	
 	$ node server.js
 
-Then open [http://localhost:3000/](http://localhost:3000).
+Then open [http://localhost:3046/](http://localhost:3046).
 
 
 # Exporting fresh data from OSM
@@ -58,7 +58,7 @@ Then open [http://localhost:3000/](http://localhost:3000).
  * Change the BoundingBox within `./data/export.sh` and adapt the map's
  center within the file `./static/js/show.js`.
  * Execute `$ ./data/export.sh > ./data/data.xml`.
- * Restart the server `$ node server.js` and the data should be displayed on [http://localhost:3000/](http://localhost:3000).
+ * Restart the server `$ node server.js` and the data should be displayed on [http://localhost:3046/](http://localhost:3046).
 
 
 # Known bugs
