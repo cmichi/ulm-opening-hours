@@ -160,10 +160,10 @@ function buildCtrls() {
 function getIcon(entity) {
 	if (entity.closing_soon) {
 		var iconUri = "/img/marker-icon-yellow.png";
-		var iconUriRetina = "/img/marker-icon@2x-green.png";
+		var iconUriRetina = "/img/marker-icon@2x-yellow.png";
 	} else {
 		var iconUri = "/img/marker-icon-green.png";
-		var iconUriRetina = "/img/marker-icon@2x-yellow.png";
+		var iconUriRetina = "/img/marker-icon@2x-green.png";
 	}
 
 	return L.icon({
