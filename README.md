@@ -18,21 +18,16 @@ A public instance of this project is hosted on
 # ToDo Code
 
  * Complete translation of `categories`
- * Possiblity to display closed entities
  * Marker Popup: better formatting (tabulator)
  * "We off" in some popups to better readable label
- * Special CSS for mobile devices 
- * Autompletion text field for fulltext search?
 
 
 # ToDo OSM database
 
- * Some data has to be fixed, sometimes there are german day names in the data!
  * Add data for: 
-  * hostels, bakeries, local post station, clubs, 
+  * Hostels, bakeries, local post station, clubs
   * Arbeitsamt und andere Öffentliche Einrichtungen (Bürgerbüro)
   * Parkhäuser, etc.
- * Check data for Bellavista and Tanzschule
  * Add lecture-free-time opening hours for uni related stuff (cafe, bistro, etc.)
 
 
