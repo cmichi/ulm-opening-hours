@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="Overpass API">
 <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
-<meta osm_base="2013-03-30T23:42:02Z"/>
+<meta osm_base="2013-04-27T13:45:03Z"/>
 
-  <node id="142006030" lat="48.4143605" lon="9.9456200" version="13" timestamp="2012-10-13T16:40:22Z" changeset="13481161" uid="287306" user="Matthias Frank">
+  <node id="142006030" lat="48.4143285" lon="9.9456495" version="14" timestamp="2013-04-13T14:55:52Z" changeset="15713255" uid="287306" user="Matthias Frank">
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="2"/>
     <tag k="addr:postcode" v="89075"/>
@@ -25,7 +25,7 @@
     <tag k="opening_hours" v="Mo-Fr 7:00-13:00, 14:30-18:30; Sa 7:00-13:00"/>
     <tag k="shop" v="bakery"/>
   </node>
-  <node id="270813202" lat="48.3954247" lon="9.9962079" version="6" timestamp="2012-07-20T11:16:46Z" changeset="12372779" uid="168758" user="NUP">
+  <node id="270813202" lat="48.3953748" lon="9.9960496" version="7" timestamp="2013-04-24T18:06:10Z" changeset="15852191" uid="287306" user="Matthias Frank">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="1"/>
@@ -139,7 +139,7 @@
     <tag k="opening_hours" v="Mo-Fr 07:00-20:00"/>
     <tag k="recycling:glass" v="yes"/>
   </node>
-  <node id="352860286" lat="48.4142768" lon="9.9456790" version="10" timestamp="2012-10-13T16:40:22Z" changeset="13481161" uid="287306" user="Matthias Frank">
+  <node id="352860286" lat="48.4142448" lon="9.9457085" version="11" timestamp="2013-04-13T14:55:54Z" changeset="15713255" uid="287306" user="Matthias Frank">
     <tag k="amenity" v="atm"/>
     <tag k="name" v="Sparkasse Ulm"/>
     <tag k="opening_hours" v="24/7"/>
@@ -275,7 +275,7 @@
   <node id="597380156" lat="48.4215038" lon="9.9490270" version="5" timestamp="2012-07-19T17:50:47Z" changeset="12342386" uid="13072" user="Kai Brühne"/>
   <node id="597380158" lat="48.4218385" lon="9.9487422" version="5" timestamp="2012-07-19T17:50:47Z" changeset="12342386" uid="13072" user="Kai Brühne"/>
   <node id="597380159" lat="48.4216174" lon="9.9481523" version="5" timestamp="2012-07-19T17:50:47Z" changeset="12342386" uid="13072" user="Kai Brühne"/>
-  <node id="611282254" lat="48.3957972" lon="9.9812787" version="12" timestamp="2011-07-30T21:53:02Z" changeset="8876323" uid="287306" user="Matthias Frank">
+  <node id="611282254" lat="48.3957705" lon="9.9812653" version="13" timestamp="2013-04-18T11:52:00Z" changeset="15772534" uid="287306" user="Matthias Frank">
     <tag k="amenity" v="restaurant"/>
     <tag k="cuisine" v="spanish"/>
     <tag k="name" v="Casa de España"/>
@@ -393,18 +393,18 @@
     <tag k="website" v="http://www.donau-hotel.net/"/>
     <tag k="wheelchair" v="no"/>
   </node>
-  <node id="766956581" lat="48.3920438" lon="10.0008056" version="2" timestamp="2010-12-23T12:22:10Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956582" lat="48.3925229" lon="10.0001136" version="2" timestamp="2010-12-23T12:22:13Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956583" lat="48.3921692" lon="9.9995271" version="2" timestamp="2010-12-23T12:22:10Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956584" lat="48.3919787" lon="9.9997219" version="2" timestamp="2010-12-23T12:22:10Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956585" lat="48.3919865" lon="9.9997371" version="3" timestamp="2010-12-23T12:22:11Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956586" lat="48.3918605" lon="9.9998651" version="3" timestamp="2010-12-23T12:22:18Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956587" lat="48.3919444" lon="10.0000523" version="3" timestamp="2010-12-23T12:22:12Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956588" lat="48.3920752" lon="9.9999151" version="3" timestamp="2010-12-23T12:22:18Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956589" lat="48.3920665" lon="9.9998979" version="2" timestamp="2010-12-23T12:22:19Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956590" lat="48.3921410" lon="9.9998205" version="3" timestamp="2010-12-23T12:22:19Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956591" lat="48.3922842" lon="10.0000519" version="2" timestamp="2010-12-23T12:22:13Z" changeset="6744682" uid="168758" user="NUP"/>
-  <node id="766956592" lat="48.3919013" lon="10.0005776" version="2" timestamp="2010-12-23T12:22:19Z" changeset="6744682" uid="168758" user="NUP"/>
+  <node id="766956581" lat="48.3920135" lon="10.0007573" version="3" timestamp="2013-04-08T13:33:38Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956582" lat="48.3924926" lon="10.0000653" version="3" timestamp="2013-04-08T13:33:37Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956583" lat="48.3921389" lon="9.9994788" version="3" timestamp="2013-04-08T13:33:38Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956584" lat="48.3919484" lon="9.9996736" version="3" timestamp="2013-04-08T13:33:38Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956585" lat="48.3919562" lon="9.9996888" version="4" timestamp="2013-04-08T13:33:38Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956586" lat="48.3918302" lon="9.9998168" version="4" timestamp="2013-04-08T13:33:38Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956587" lat="48.3919141" lon="10.0000040" version="4" timestamp="2013-04-08T13:33:37Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956588" lat="48.3920449" lon="9.9998668" version="4" timestamp="2013-04-08T13:33:37Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956589" lat="48.3920362" lon="9.9998496" version="3" timestamp="2013-04-08T13:33:38Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956590" lat="48.3921107" lon="9.9997722" version="4" timestamp="2013-04-08T13:33:38Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956591" lat="48.3922539" lon="10.0000036" version="3" timestamp="2013-04-08T13:33:37Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
+  <node id="766956592" lat="48.3918710" lon="10.0005293" version="3" timestamp="2013-04-08T13:33:38Z" changeset="15654668" uid="287306" user="Matthias Frank"/>
   <node id="768543251" lat="48.3941680" lon="10.0000317" version="4" timestamp="2011-05-14T15:26:58Z" changeset="8142027" uid="168758" user="NUP"/>
   <node id="768543252" lat="48.3942450" lon="9.9999271" version="3" timestamp="2011-05-14T15:26:46Z" changeset="8142027" uid="168758" user="NUP"/>
   <node id="768576826" lat="48.3936497" lon="9.9977807" version="5" timestamp="2012-12-11T13:26:51Z" changeset="14238134" uid="38515" user="soeren_gasch">
@@ -612,22 +612,6 @@
   <node id="813356722" lat="48.3911405" lon="10.0283905" version="4" timestamp="2011-06-25T21:42:47Z" changeset="8547086" uid="168758" user="NUP"/>
   <node id="813356723" lat="48.3910391" lon="10.0285250" version="4" timestamp="2011-06-25T21:42:38Z" changeset="8547086" uid="168758" user="NUP"/>
   <node id="813356724" lat="48.3905345" lon="10.0276621" version="2" timestamp="2011-06-25T21:42:32Z" changeset="8547086" uid="168758" user="NUP"/>
-  <node id="814760293" lat="48.3947705" lon="10.0153074" version="5" timestamp="2013-01-13T15:25:11Z" changeset="14635517" uid="39504" user="malenki">
-    <tag k="addr:city" v="Neu-Ulm"/>
-    <tag k="addr:country" v="DE"/>
-    <tag k="addr:housenumber" v="6-20"/>
-    <tag k="addr:postcode" v="89231"/>
-    <tag k="addr:street" v="Vorwerkstraße"/>
-    <tag k="amenity" v="shop"/>
-    <tag k="email" v="service@charles-voegele.com"/>
-    <tag k="name" v="Vögele"/>
-    <tag k="opening_hours" v="Mo-Fr 09:30-18:30; Sa 09:30-16:00"/>
-    <tag k="operator" v="Charles Vögele Holding AG"/>
-    <tag k="phone" v="0731/9709941"/>
-    <tag k="shop" v="clothes"/>
-    <tag k="website" v="http://www.charles-voegele.de/"/>
-    <tag k="wikipedia:de" v="Charles_Vögele_Gruppe"/>
-  </node>
   <node id="814760483" lat="48.3925097" lon="9.9963618" version="5" timestamp="2012-03-12T15:55:54Z" changeset="10951246" uid="290680" user="wheelmap_visitor">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
@@ -965,7 +949,7 @@
   <node id="922724973" lat="48.3972405" lon="10.0269159" version="3" timestamp="2012-03-30T10:06:39Z" changeset="11149772" uid="451764" user="M_Vogt"/>
   <node id="922748203" lat="48.3853855" lon="10.0046362" version="3" timestamp="2011-06-11T16:53:44Z" changeset="8407657" uid="168758" user="NUP"/>
   <node id="923986628" lat="48.3860237" lon="10.0353670" version="3" timestamp="2011-03-25T19:41:21Z" changeset="7668767" uid="168758" user="NUP"/>
-  <node id="923986633" lat="48.3840113" lon="10.0337776" version="1" timestamp="2010-09-24T10:29:36Z" changeset="5861569" uid="168758" user="NUP"/>
+  <node id="923986633" lat="48.3840175" lon="10.0331886" version="2" timestamp="2013-04-21T13:22:55Z" changeset="15810732" uid="451764" user="M_Vogt"/>
   <node id="923986646" lat="48.3844046" lon="10.0345728" version="1" timestamp="2010-09-24T10:29:39Z" changeset="5861569" uid="168758" user="NUP"/>
   <node id="923986652" lat="48.3858856" lon="10.0352802" version="3" timestamp="2011-03-25T19:41:49Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="923986655" lat="48.3858741" lon="10.0346931" version="3" timestamp="2011-03-25T19:40:44Z" changeset="7668767" uid="168758" user="NUP"/>
@@ -981,7 +965,7 @@
   <node id="923986728" lat="48.3855015" lon="10.0354054" version="3" timestamp="2011-03-25T19:41:49Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="923986732" lat="48.3855367" lon="10.0347081" version="3" timestamp="2011-03-25T19:40:25Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="923986737" lat="48.3854674" lon="10.0335222" version="2" timestamp="2011-07-15T14:20:32Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="923986743" lat="48.3844177" lon="10.0337891" version="1" timestamp="2010-09-24T10:29:55Z" changeset="5861569" uid="168758" user="NUP"/>
+  <node id="923986743" lat="48.3844443" lon="10.0332141" version="2" timestamp="2013-04-21T13:22:55Z" changeset="15810732" uid="451764" user="M_Vogt"/>
   <node id="923986745" lat="48.3854747" lon="10.0343223" version="2" timestamp="2011-07-15T14:20:32Z" changeset="8731731" uid="168758" user="NUP"/>
   <node id="923986749" lat="48.3864423" lon="10.0342989" version="3" timestamp="2011-07-15T14:20:33Z" changeset="8731731" uid="168758" user="NUP"/>
   <node id="923986756" lat="48.3861869" lon="10.0346051" version="3" timestamp="2011-07-15T14:20:33Z" changeset="8731731" uid="168758" user="NUP"/>
@@ -1207,8 +1191,8 @@
   <node id="1072959968" lat="48.3716156" lon="10.0079498" version="1" timestamp="2010-12-30T14:43:05Z" changeset="6810164" uid="168758" user="NUP"/>
   <node id="1072960039" lat="48.3713684" lon="10.0080108" version="1" timestamp="2010-12-30T14:43:06Z" changeset="6810164" uid="168758" user="NUP"/>
   <node id="1072960042" lat="48.3713381" lon="10.0077324" version="1" timestamp="2010-12-30T14:43:06Z" changeset="6810164" uid="168758" user="NUP"/>
-  <node id="1072999795" lat="48.3792097" lon="10.0093095" version="1" timestamp="2010-12-30T15:00:16Z" changeset="6810350" uid="168758" user="NUP"/>
-  <node id="1072999830" lat="48.3790153" lon="10.0097042" version="1" timestamp="2010-12-30T15:00:16Z" changeset="6810350" uid="168758" user="NUP"/>
+  <node id="1072999795" lat="48.3791758" lon="10.0092719" version="2" timestamp="2013-04-24T17:19:25Z" changeset="15851756" uid="287306" user="Matthias Frank"/>
+  <node id="1072999830" lat="48.3789815" lon="10.0096666" version="2" timestamp="2013-04-24T17:19:25Z" changeset="15851756" uid="287306" user="Matthias Frank"/>
   <node id="1076876634" lat="48.3587734" lon="9.9503251" version="1" timestamp="2011-01-01T13:05:56Z" changeset="6827583" uid="153109" user="pschaefer"/>
   <node id="1076876714" lat="48.3588646" lon="9.9501714" version="1" timestamp="2011-01-01T13:06:03Z" changeset="6827583" uid="153109" user="pschaefer"/>
   <node id="1076876827" lat="48.3587725" lon="9.9501798" version="1" timestamp="2011-01-01T13:06:14Z" changeset="6827583" uid="153109" user="pschaefer"/>
@@ -1252,20 +1236,6 @@
   <node id="1111686608" lat="48.3691611" lon="10.0083872" version="1" timestamp="2011-01-20T14:45:55Z" changeset="7031190" uid="168758" user="NUP"/>
   <node id="1111686812" lat="48.3693513" lon="10.0086175" version="1" timestamp="2011-01-20T14:46:03Z" changeset="7031190" uid="168758" user="NUP"/>
   <node id="1111686863" lat="48.3691871" lon="10.0086538" version="1" timestamp="2011-01-20T14:46:05Z" changeset="7031190" uid="168758" user="NUP"/>
-  <node id="1122270942" lat="48.3948164" lon="10.0155971" version="2" timestamp="2011-04-16T15:30:40Z" changeset="7879132" uid="168758" user="NUP">
-    <tag k="addr:city" v="Neu-Ulm"/>
-    <tag k="addr:country" v="DE"/>
-    <tag k="addr:housenumber" v="6-20"/>
-    <tag k="addr:postcode" v="89231"/>
-    <tag k="addr:street" v="Vorwerkstraße"/>
-    <tag k="email" v="info@tophair.com"/>
-    <tag k="name" v="Top Hair"/>
-    <tag k="opening_hours" v="Mo-Fr 08:00-20:00;Sa 08:00-18:00"/>
-    <tag k="operator" v="Top Hair GmbH"/>
-    <tag k="phone" v="0731/725225"/>
-    <tag k="shop" v="hairdresser"/>
-    <tag k="website" v="http://www.tophairgmbh.de/"/>
-  </node>
   <node id="1125494567" lat="48.3941597" lon="9.9981218" version="2" timestamp="2012-05-16T20:57:11Z" changeset="11617983" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
@@ -1320,14 +1290,18 @@
     <tag k="shop" v="travel_agency"/>
     <tag k="website" v="http://www.nurtravel.de/"/>
   </node>
-  <node id="1141039463" lat="48.3793853" lon="10.0098488" version="1" timestamp="2011-02-07T17:54:28Z" changeset="7218670" uid="168758" user="NUP"/>
-  <node id="1141039617" lat="48.3790390" lon="10.0099309" version="1" timestamp="2011-02-07T17:54:37Z" changeset="7218670" uid="168758" user="NUP"/>
-  <node id="1141039718" lat="48.3792453" lon="10.0096497" version="1" timestamp="2011-02-07T17:54:42Z" changeset="7218670" uid="168758" user="NUP"/>
-  <node id="1141040119" lat="48.3793260" lon="10.0092819" version="1" timestamp="2011-02-07T17:54:58Z" changeset="7218670" uid="168758" user="NUP"/>
+  <node id="1141039463" lat="48.3793514" lon="10.0098112" version="2" timestamp="2013-04-24T17:19:25Z" changeset="15851756" uid="287306" user="Matthias Frank"/>
+  <node id="1141039617" lat="48.3790052" lon="10.0098933" version="2" timestamp="2013-04-24T17:19:25Z" changeset="15851756" uid="287306" user="Matthias Frank"/>
+  <node id="1141039718" lat="48.3792114" lon="10.0096121" version="2" timestamp="2013-04-24T17:19:25Z" changeset="15851756" uid="287306" user="Matthias Frank"/>
+  <node id="1141040119" lat="48.3792921" lon="10.0092444" version="2" timestamp="2013-04-24T17:19:25Z" changeset="15851756" uid="287306" user="Matthias Frank"/>
   <node id="1159042454" lat="48.4000461" lon="9.9565838" version="2" timestamp="2013-01-28T07:50:39Z" changeset="14818411" uid="12096" user="HCX Biker"/>
   <node id="1159042638" lat="48.4002063" lon="9.9563424" version="2" timestamp="2013-01-28T07:50:39Z" changeset="14818411" uid="12096" user="HCX Biker"/>
   <node id="1159042642" lat="48.4004556" lon="9.9572006" version="2" timestamp="2013-01-28T07:50:39Z" changeset="14818411" uid="12096" user="HCX Biker"/>
   <node id="1159042649" lat="48.4006158" lon="9.9569592" version="2" timestamp="2013-01-28T07:50:39Z" changeset="14818411" uid="12096" user="HCX Biker"/>
+  <node id="1176233557" lat="48.4148686" lon="10.0385161" version="1" timestamp="2011-02-27T01:42:03Z" changeset="7406419" uid="242437" user="skleber"/>
+  <node id="1176233843" lat="48.4151886" lon="10.0386875" version="1" timestamp="2011-02-27T01:42:07Z" changeset="7406419" uid="242437" user="skleber"/>
+  <node id="1176233912" lat="48.4150961" lon="10.0386661" version="1" timestamp="2011-02-27T01:42:08Z" changeset="7406419" uid="242437" user="skleber"/>
+  <node id="1176233968" lat="48.4149112" lon="10.0387090" version="1" timestamp="2011-02-27T01:42:09Z" changeset="7406419" uid="242437" user="skleber"/>
   <node id="1187183705" lat="48.4213540" lon="9.9486272" version="2" timestamp="2012-07-19T17:50:46Z" changeset="12342386" uid="13072" user="Kai Brühne"/>
   <node id="1187183706" lat="48.4213425" lon="9.9485967" version="2" timestamp="2012-07-19T17:50:46Z" changeset="12342386" uid="13072" user="Kai Brühne"/>
   <node id="1189377703" lat="48.3631908" lon="10.0122932" version="2" timestamp="2011-03-12T12:09:46Z" changeset="7532432" uid="168758" user="NUP"/>
@@ -1401,9 +1375,7 @@
   <node id="1217716638" lat="48.3997843" lon="10.0117757" version="1" timestamp="2011-03-25T16:44:20Z" changeset="7667164" uid="168758" user="NUP"/>
   <node id="1217921136" lat="48.3859471" lon="10.0353704" version="1" timestamp="2011-03-25T19:38:59Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217921141" lat="48.3834303" lon="10.0307047" version="3" timestamp="2011-09-24T12:33:01Z" changeset="9383753" uid="168758" user="NUP"/>
-  <node id="1217921181" lat="48.3854690" lon="10.0308731" version="1" timestamp="2011-03-25T19:39:01Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217921257" lat="48.3843691" lon="10.0302273" version="2" timestamp="2011-09-24T12:33:01Z" changeset="9383753" uid="168758" user="NUP"/>
-  <node id="1217921286" lat="48.3863304" lon="10.0307571" version="1" timestamp="2011-03-25T19:39:06Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217921345" lat="48.3846442" lon="10.0316568" version="1" timestamp="2011-03-25T19:39:08Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217921353" lat="48.3834227" lon="10.0308296" version="3" timestamp="2011-09-24T12:33:01Z" changeset="9383753" uid="168758" user="NUP"/>
   <node id="1217921430" lat="48.3843709" lon="10.0298069" version="2" timestamp="2011-09-24T12:33:01Z" changeset="9383753" uid="168758" user="NUP"/>
@@ -1412,21 +1384,15 @@
   <node id="1217921620" lat="48.3843356" lon="10.0316625" version="1" timestamp="2011-03-25T19:39:21Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217921632" lat="48.3859452" lon="10.0352775" version="1" timestamp="2011-03-25T19:39:21Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217921655" lat="48.3835943" lon="10.0308535" version="3" timestamp="2011-09-24T12:33:02Z" changeset="9383753" uid="168758" user="NUP"/>
-  <node id="1217921694" lat="48.3863336" lon="10.0308115" version="1" timestamp="2011-03-25T19:39:23Z" changeset="7668767" uid="168758" user="NUP"/>
-  <node id="1217921727" lat="48.3854201" lon="10.0300499" version="1" timestamp="2011-03-25T19:39:24Z" changeset="7668767" uid="168758" user="NUP"/>
-  <node id="1217921831" lat="48.3867471" lon="10.0299297" version="1" timestamp="2011-03-25T19:39:28Z" changeset="7668767" uid="168758" user="NUP"/>
-  <node id="1217921854" lat="48.3867998" lon="10.0307487" version="1" timestamp="2011-03-25T19:39:29Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217921986" lat="48.3862676" lon="10.0357139" version="2" timestamp="2011-07-15T15:27:57Z" changeset="8732273" uid="168758" user="NUP"/>
   <node id="1217922035" lat="48.3864659" lon="10.0358944" version="2" timestamp="2011-07-15T15:27:57Z" changeset="8732273" uid="168758" user="NUP"/>
   <node id="1217922049" lat="48.3843325" lon="10.0312811" version="1" timestamp="2011-03-25T19:39:36Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217922108" lat="48.3833034" lon="10.0301718" version="3" timestamp="2011-09-24T12:33:02Z" changeset="9383753" uid="168758" user="NUP"/>
-  <node id="1217922123" lat="48.3862843" lon="10.0299335" version="1" timestamp="2011-03-25T19:39:40Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217922152" lat="48.3834819" lon="10.0301966" version="3" timestamp="2011-09-24T12:33:02Z" changeset="9383753" uid="168758" user="NUP"/>
   <node id="1217922225" lat="48.3839051" lon="10.0298025" version="2" timestamp="2011-09-24T12:33:02Z" changeset="9383753" uid="168758" user="NUP"/>
   <node id="1217922305" lat="48.3836048" lon="10.0306830" version="3" timestamp="2011-09-24T12:33:02Z" changeset="9383753" uid="168758" user="NUP"/>
   <node id="1217922421" lat="48.3834533" lon="10.0306619" version="3" timestamp="2011-09-24T12:33:02Z" changeset="9383753" uid="168758" user="NUP"/>
   <node id="1217922480" lat="48.3832720" lon="10.0306826" version="3" timestamp="2011-09-24T12:33:02Z" changeset="9383753" uid="168758" user="NUP"/>
-  <node id="1217922590" lat="48.3862665" lon="10.0296632" version="1" timestamp="2011-03-25T19:39:54Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217922596" lat="48.3854995" lon="10.0353036" version="1" timestamp="2011-03-25T19:39:54Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="1217922620" lat="48.3839034" lon="10.0302229" version="2" timestamp="2011-09-24T12:33:02Z" changeset="9383753" uid="168758" user="NUP"/>
   <node id="1217922635" lat="48.3864597" lon="10.0357000" version="2" timestamp="2011-07-15T15:27:57Z" changeset="8732273" uid="168758" user="NUP"/>
@@ -1519,14 +1485,14 @@
   <node id="1223201667" lat="48.3888915" lon="10.0059284" version="1" timestamp="2011-03-28T15:23:45Z" changeset="7697554" uid="168758" user="NUP"/>
   <node id="1223201714" lat="48.3888297" lon="10.0057029" version="1" timestamp="2011-03-28T15:23:48Z" changeset="7697554" uid="168758" user="NUP"/>
   <node id="1223201720" lat="48.3886895" lon="10.0053622" version="1" timestamp="2011-03-28T15:23:49Z" changeset="7697554" uid="168758" user="NUP"/>
-  <node id="1223358601" lat="48.3939331" lon="10.0103404" version="2" timestamp="2011-07-18T13:32:10Z" changeset="8758492" uid="168758" user="NUP"/>
+  <node id="1223358601" lat="48.3939050" lon="10.0102573" version="3" timestamp="2013-04-15T11:24:21Z" changeset="15735973" uid="287306" user="Matthias Frank"/>
   <node id="1223358728" lat="48.3927514" lon="10.0097505" version="1" timestamp="2011-03-28T17:48:39Z" changeset="7699289" uid="168758" user="NUP"/>
-  <node id="1223358928" lat="48.3938402" lon="10.0104154" version="2" timestamp="2011-07-18T13:32:10Z" changeset="8758492" uid="168758" user="NUP"/>
+  <node id="1223358928" lat="48.3938121" lon="10.0103323" version="3" timestamp="2013-04-15T11:24:21Z" changeset="15735973" uid="287306" user="Matthias Frank"/>
   <node id="1223359076" lat="48.3927260" lon="10.0094229" version="1" timestamp="2011-03-28T17:48:54Z" changeset="7699289" uid="168758" user="NUP"/>
   <node id="1223359152" lat="48.3928644" lon="10.0096460" version="1" timestamp="2011-03-28T17:48:58Z" changeset="7699289" uid="168758" user="NUP"/>
   <node id="1223359383" lat="48.3927604" lon="10.0093911" version="1" timestamp="2011-03-28T17:49:12Z" changeset="7699289" uid="168758" user="NUP"/>
-  <node id="1223359469" lat="48.3937092" lon="10.0100468" version="2" timestamp="2011-07-18T13:32:10Z" changeset="8758492" uid="168758" user="NUP"/>
-  <node id="1223359503" lat="48.3938021" lon="10.0099719" version="2" timestamp="2011-07-18T13:32:10Z" changeset="8758492" uid="168758" user="NUP"/>
+  <node id="1223359469" lat="48.3936811" lon="10.0099637" version="3" timestamp="2013-04-15T11:24:21Z" changeset="15735973" uid="287306" user="Matthias Frank"/>
+  <node id="1223359503" lat="48.3937740" lon="10.0098888" version="3" timestamp="2013-04-15T11:24:21Z" changeset="15735973" uid="287306" user="Matthias Frank"/>
   <node id="1223359523" lat="48.3926026" lon="10.0091203" version="1" timestamp="2011-03-28T17:49:24Z" changeset="7699289" uid="168758" user="NUP"/>
   <node id="1223359608" lat="48.3925240" lon="10.0091930" version="1" timestamp="2011-03-28T17:49:29Z" changeset="7699289" uid="168758" user="NUP"/>
   <node id="1226843157" lat="48.3999822" lon="10.0105861" version="1" timestamp="2011-03-31T16:54:12Z" changeset="7727711" uid="168758" user="NUP">
@@ -1705,12 +1671,12 @@
   <node id="1311050902" lat="48.3626405" lon="10.0735147" version="1" timestamp="2011-06-03T21:00:03Z" changeset="8333907" uid="168758" user="NUP"/>
   <node id="1311050953" lat="48.3625476" lon="10.0735535" version="1" timestamp="2011-06-03T21:00:05Z" changeset="8333907" uid="168758" user="NUP"/>
   <node id="1311051067" lat="48.3626024" lon="10.0738502" version="1" timestamp="2011-06-03T21:00:10Z" changeset="8333907" uid="168758" user="NUP"/>
-  <node id="1311982328" lat="48.3954122" lon="9.9975880" version="1" timestamp="2011-06-04T15:51:03Z" changeset="8340276" uid="168758" user="NUP"/>
-  <node id="1311982351" lat="48.3955704" lon="9.9983402" version="1" timestamp="2011-06-04T15:51:03Z" changeset="8340276" uid="168758" user="NUP"/>
-  <node id="1311982450" lat="48.3956961" lon="9.9982101" version="1" timestamp="2011-06-04T15:51:06Z" changeset="8340276" uid="168758" user="NUP"/>
-  <node id="1311982465" lat="48.3953469" lon="9.9978504" version="1" timestamp="2011-06-04T15:51:07Z" changeset="8340276" uid="168758" user="NUP"/>
-  <node id="1311982484" lat="48.3953146" lon="9.9978838" version="1" timestamp="2011-06-04T15:51:08Z" changeset="8340276" uid="168758" user="NUP"/>
-  <node id="1311982553" lat="48.3952542" lon="9.9977515" version="1" timestamp="2011-06-04T15:51:10Z" changeset="8340276" uid="168758" user="NUP"/>
+  <node id="1311982328" lat="48.3953601" lon="9.9974821" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
+  <node id="1311982351" lat="48.3955190" lon="9.9982605" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
+  <node id="1311982450" lat="48.3956439" lon="9.9981363" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
+  <node id="1311982465" lat="48.3952948" lon="9.9977445" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
+  <node id="1311982484" lat="48.3952625" lon="9.9977779" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
+  <node id="1311982553" lat="48.3952021" lon="9.9976456" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
   <node id="1313559538" lat="48.4101319" lon="10.0714748" version="1" timestamp="2011-06-05T22:16:40Z" changeset="8355086" uid="168758" user="NUP"/>
   <node id="1313559575" lat="48.3983626" lon="10.0050361" version="3" timestamp="2011-07-18T13:32:09Z" changeset="8758492" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
@@ -2112,18 +2078,18 @@
   <node id="1360371252" lat="48.4012662" lon="10.0205839" version="2" timestamp="2013-02-04T12:41:38Z" changeset="14909373" uid="287306" user="Matthias Frank"/>
   <node id="1360371260" lat="48.4013218" lon="10.0203972" version="2" timestamp="2013-02-04T12:41:37Z" changeset="14909373" uid="287306" user="Matthias Frank"/>
   <node id="1360371261" lat="48.4013228" lon="10.0205107" version="2" timestamp="2013-02-04T12:41:43Z" changeset="14909373" uid="287306" user="Matthias Frank"/>
-  <node id="1362778288" lat="48.3850124" lon="10.0281707" version="1" timestamp="2011-07-15T14:19:48Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778300" lat="48.3850426" lon="10.0287557" version="1" timestamp="2011-07-15T14:19:48Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778304" lat="48.3851703" lon="10.0281218" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778305" lat="48.3851719" lon="10.0281520" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778306" lat="48.3852021" lon="10.0287370" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778307" lat="48.3852134" lon="10.0289548" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778320" lat="48.3853224" lon="10.0280321" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778321" lat="48.3853261" lon="10.0281035" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778324" lat="48.3855193" lon="10.0288313" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778325" lat="48.3855238" lon="10.0289184" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778342" lat="48.3859448" lon="10.0279592" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
-  <node id="1362778343" lat="48.3859871" lon="10.0287765" version="1" timestamp="2011-07-15T14:19:49Z" changeset="8731731" uid="168758" user="NUP"/>
+  <node id="1362778288" lat="48.3849515" lon="10.0281463" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778300" lat="48.3849817" lon="10.0287313" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778304" lat="48.3851094" lon="10.0280974" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778305" lat="48.3851110" lon="10.0281276" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778306" lat="48.3851412" lon="10.0287126" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778307" lat="48.3851525" lon="10.0289304" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778320" lat="48.3852615" lon="10.0280077" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778321" lat="48.3852652" lon="10.0280791" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778324" lat="48.3854584" lon="10.0288069" version="2" timestamp="2013-04-18T20:01:43Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778325" lat="48.3854629" lon="10.0288940" version="2" timestamp="2013-04-18T20:01:43Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778342" lat="48.3858839" lon="10.0279348" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
+  <node id="1362778343" lat="48.3859262" lon="10.0287521" version="2" timestamp="2013-04-18T20:01:42Z" changeset="15777888" uid="451764" user="M_Vogt"/>
   <node id="1362827533" lat="48.3879491" lon="10.0356608" version="1" timestamp="2011-07-15T15:27:21Z" changeset="8732273" uid="168758" user="NUP"/>
   <node id="1362827534" lat="48.3879765" lon="10.0351910" version="1" timestamp="2011-07-15T15:27:21Z" changeset="8732273" uid="168758" user="NUP"/>
   <node id="1362827535" lat="48.3879832" lon="10.0358388" version="1" timestamp="2011-07-15T15:27:22Z" changeset="8732273" uid="168758" user="NUP"/>
@@ -2191,36 +2157,36 @@
     <tag k="opening_hours" v="We-Th 14:00-01:00; Fr-Sa 14:00-03:00; Su 14:00-01:00"/>
     <tag k="website" v="http://www.gaybar-ulm.de"/>
   </node>
-  <node id="1370202373" lat="48.4002416" lon="9.9835717" version="1" timestamp="2011-07-22T17:06:01Z" changeset="8799472" uid="168758" user="NUP"/>
-  <node id="1370202376" lat="48.4002477" lon="9.9842327" version="1" timestamp="2011-07-22T17:06:01Z" changeset="8799472" uid="168758" user="NUP"/>
-  <node id="1370202379" lat="48.4002843" lon="9.9842319" version="1" timestamp="2011-07-22T17:06:01Z" changeset="8799472" uid="168758" user="NUP"/>
-  <node id="1370202385" lat="48.4003755" lon="9.9835689" version="1" timestamp="2011-07-22T17:06:02Z" changeset="8799472" uid="168758" user="NUP"/>
-  <node id="1370202388" lat="48.4003757" lon="9.9835884" version="1" timestamp="2011-07-22T17:06:02Z" changeset="8799472" uid="168758" user="NUP"/>
-  <node id="1370202393" lat="48.4003796" lon="9.9840122" version="1" timestamp="2011-07-22T17:06:02Z" changeset="8799472" uid="168758" user="NUP"/>
-  <node id="1370202395" lat="48.4003814" lon="9.9842078" version="1" timestamp="2011-07-22T17:06:02Z" changeset="8799472" uid="168758" user="NUP"/>
-  <node id="1370202397" lat="48.4003816" lon="9.9842299" version="1" timestamp="2011-07-22T17:06:02Z" changeset="8799472" uid="168758" user="NUP"/>
-  <node id="1370202504" lat="48.4025705" lon="9.9847387" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202513" lat="48.4026376" lon="9.9849991" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202515" lat="48.4027041" lon="9.9851468" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202517" lat="48.4027012" lon="9.9849619" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202519" lat="48.4027429" lon="9.9851241" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202521" lat="48.4027746" lon="9.9854203" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202523" lat="48.4029357" lon="9.9845252" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202526" lat="48.4029533" lon="9.9845934" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202535" lat="48.4029520" lon="9.9852722" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202536" lat="48.4030309" lon="9.9855786" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202538" lat="48.4030725" lon="9.9844507" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202543" lat="48.4030889" lon="9.9845141" version="2" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202545" lat="48.4032411" lon="9.9853199" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202548" lat="48.4032404" lon="9.9843525" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202550" lat="48.4032715" lon="9.9854379" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202552" lat="48.4032905" lon="9.9852910" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202559" lat="48.4033007" lon="9.9853308" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202560" lat="48.4033217" lon="9.9847459" version="3" timestamp="2012-06-15T11:17:24Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202562" lat="48.4033391" lon="9.9847357" version="3" timestamp="2012-06-15T11:17:25Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202565" lat="48.4033500" lon="9.9848559" version="3" timestamp="2012-06-15T11:17:25Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202568" lat="48.4033734" lon="9.9848422" version="3" timestamp="2012-06-15T11:17:25Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1370202569" lat="48.4034733" lon="9.9852299" version="3" timestamp="2012-06-15T11:17:25Z" changeset="11903753" uid="168758" user="NUP"/>
+  <node id="1370202373" lat="48.4002152" lon="9.9834966" version="2" timestamp="2013-04-22T17:05:20Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202376" lat="48.4002316" lon="9.9842205" version="2" timestamp="2013-04-22T17:05:20Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202379" lat="48.4002623" lon="9.9842197" version="2" timestamp="2013-04-22T17:05:20Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202385" lat="48.4003484" lon="9.9834938" version="2" timestamp="2013-04-22T17:05:20Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202388" lat="48.4003478" lon="9.9835265" version="2" timestamp="2013-04-22T17:05:20Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202393" lat="48.4003596" lon="9.9839327" version="2" timestamp="2013-04-22T17:05:21Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202395" lat="48.4003679" lon="9.9841093" version="2" timestamp="2013-04-22T17:05:21Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202397" lat="48.4002612" lon="9.9841471" version="2" timestamp="2013-04-22T17:05:21Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202504" lat="48.4025222" lon="9.9846871" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202513" lat="48.4025893" lon="9.9849475" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202515" lat="48.4026558" lon="9.9850952" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202517" lat="48.4026529" lon="9.9849103" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202519" lat="48.4026946" lon="9.9850725" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202521" lat="48.4027263" lon="9.9853687" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202523" lat="48.4028874" lon="9.9844736" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202526" lat="48.4029050" lon="9.9845418" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202535" lat="48.4029037" lon="9.9852206" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202536" lat="48.4029826" lon="9.9855270" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202538" lat="48.4030242" lon="9.9843991" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202543" lat="48.4030406" lon="9.9844625" version="3" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202545" lat="48.4031928" lon="9.9852683" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202548" lat="48.4031921" lon="9.9843009" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202550" lat="48.4032232" lon="9.9853863" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202552" lat="48.4032422" lon="9.9852394" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202559" lat="48.4032524" lon="9.9852792" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202560" lat="48.4032734" lon="9.9846943" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202562" lat="48.4032908" lon="9.9846841" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202565" lat="48.4033017" lon="9.9848043" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202568" lat="48.4033251" lon="9.9847906" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1370202569" lat="48.4034250" lon="9.9851783" version="4" timestamp="2013-04-22T17:05:22Z" changeset="15826940" uid="110161" user="J-B"/>
   <node id="1377386773" lat="48.3991683" lon="9.9921172" version="3" timestamp="2011-12-31T11:01:08Z" changeset="10252363" uid="290680" user="wheelmap_visitor">
     <tag k="name" v="Rossmann"/>
     <tag k="opening_hours" v="Mo 08:30-20:00; Tu 08:30-20:00; We 08:00-20:00; Th 08:30-20:00; Fr 08:30-20:00; Sa 08:00-20:00"/>
@@ -2230,7 +2196,7 @@
     <tag k="website" v="http://www.rossmann.de"/>
     <tag k="wheelchair" v="yes"/>
   </node>
-  <node id="1377390880" lat="48.3981810" lon="9.9877142" version="1" timestamp="2011-07-29T09:02:33Z" changeset="8861264" uid="287306" user="Matthias Frank">
+  <node id="1377390880" lat="48.3981365" lon="9.9876740" version="2" timestamp="2013-04-01T10:51:17Z" changeset="15565968" uid="287306" user="Matthias Frank">
     <tag k="amenity" v="pharmacy"/>
     <tag k="email" v="info@hirsch-apotheke-ulm.de"/>
     <tag k="fax" v="0731/96617-10"/>
@@ -2266,7 +2232,7 @@
     <tag k="source" v="local_knowledge"/>
   </node>
   <node id="1409662833" lat="48.3957479" lon="10.0204289" version="4" timestamp="2012-12-22T13:10:22Z" changeset="14365808" uid="168758" user="NUP"/>
-  <node id="1423788329" lat="48.3975628" lon="9.9917601" version="2" timestamp="2012-04-06T21:00:12Z" changeset="11207078" uid="287835" user="heziegl">
+  <node id="1423788329" lat="48.3975126" lon="9.9917567" version="3" timestamp="2013-04-09T12:41:34Z" changeset="15665737" uid="287306" user="Matthias Frank">
     <tag k="amenity" v="restaurant"/>
     <tag k="internet_access" v="no"/>
     <tag k="name" v="BellaVista"/>
@@ -2349,7 +2315,7 @@
   <node id="1444937271" lat="48.4017520" lon="9.9757277" version="1" timestamp="2011-09-24T20:42:47Z" changeset="9387841" uid="168758" user="NUP"/>
   <node id="1444937272" lat="48.4017535" lon="9.9758043" version="1" timestamp="2011-09-24T20:42:47Z" changeset="9387841" uid="168758" user="NUP"/>
   <node id="1444937274" lat="48.4017603" lon="9.9759599" version="1" timestamp="2011-09-24T20:42:47Z" changeset="9387841" uid="168758" user="NUP"/>
-  <node id="1449489349" lat="48.4002438" lon="9.9838121" version="4" timestamp="2013-01-17T19:43:09Z" changeset="14687985" uid="89073" user="eimer42">
+  <node id="1449489349" lat="48.4002240" lon="9.9838044" version="5" timestamp="2013-04-22T17:05:23Z" changeset="15826940" uid="110161" user="J-B">
     <tag k="entrance" v="main"/>
   </node>
   <node id="1449539363" lat="48.3873582" lon="10.0605253" version="1" timestamp="2011-09-30T13:26:15Z" changeset="9435282" uid="168758" user="NUP"/>
@@ -2666,11 +2632,12 @@
   <node id="1659368160" lat="48.4280864" lon="10.0118112" version="1" timestamp="2012-03-04T18:34:33Z" changeset="10872177" uid="72345" user="Mondlicht"/>
   <node id="1659402528" lat="48.4252377" lon="9.9850371" version="3" timestamp="2012-04-05T16:05:30Z" changeset="11191190" uid="72345" user="Mondlicht"/>
   <node id="1659414030" lat="48.4252550" lon="9.9853275" version="2" timestamp="2012-04-05T16:05:31Z" changeset="11191190" uid="72345" user="Mondlicht"/>
-  <node id="1662315204" lat="48.3989851" lon="9.9885312" version="1" timestamp="2012-03-06T12:35:11Z" changeset="10889546" uid="287306" user="Matthias Frank">
+  <node id="1662315204" lat="48.3989851" lon="9.9885312" version="2" timestamp="2013-04-04T07:27:08Z" changeset="15603243" uid="290680" user="wheelmap_visitor">
     <tag k="amenity" v="pub"/>
     <tag k="name" v="Altbierlokal"/>
     <tag k="opening_hours" v="Fr 19-1, Sa 19-1"/>
     <tag k="smoking" v="yes"/>
+    <tag k="wheelchair" v="no"/>
   </node>
   <node id="1683153164" lat="48.4122984" lon="9.9751009" version="1" timestamp="2012-03-20T11:53:06Z" changeset="11040379" uid="13072" user="Kai Brühne"/>
   <node id="1683153165" lat="48.4123027" lon="9.9755441" version="1" timestamp="2012-03-20T11:53:06Z" changeset="11040379" uid="13072" user="Kai Brühne"/>
@@ -2717,8 +2684,8 @@
     <tag k="phone" v="+49 731 / 70535851"/>
     <tag k="website" v="http://kings-neu-ulm.de/"/>
   </node>
-  <node id="1788441284" lat="48.4029114" lon="9.9852959" version="1" timestamp="2012-06-15T11:17:12Z" changeset="11903753" uid="168758" user="NUP"/>
-  <node id="1788441287" lat="48.4029213" lon="9.9853345" version="1" timestamp="2012-06-15T11:17:12Z" changeset="11903753" uid="168758" user="NUP"/>
+  <node id="1788441284" lat="48.4028631" lon="9.9852443" version="2" timestamp="2013-04-22T17:05:24Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1788441287" lat="48.4028730" lon="9.9852829" version="2" timestamp="2013-04-22T17:05:24Z" changeset="15826940" uid="110161" user="J-B"/>
   <node id="1796789277" lat="48.3853382" lon="9.9849763" version="2" timestamp="2012-07-23T16:23:35Z" changeset="12452991" uid="168758" user="NUP"/>
   <node id="1801653860" lat="48.3907001" lon="9.9882106" version="2" timestamp="2013-02-11T21:19:04Z" changeset="14999600" uid="165061" user="mapper999">
     <tag k="addr:city" v="Neu-Ulm"/>
@@ -2750,7 +2717,7 @@
     <tag k="tourism" v="hotel"/>
     <tag k="website" v="http://www.hotel-sonnenkeller.de/"/>
   </node>
-  <node id="1811510979" lat="48.3954678" lon="9.9977116" version="1" timestamp="2012-07-03T17:36:23Z" changeset="12102486" uid="37354" user="bluestone712"/>
+  <node id="1811510979" lat="48.3954157" lon="9.9976057" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
   <node id="1824928079" lat="48.3771793" lon="10.0124206" version="1" timestamp="2012-07-14T00:15:50Z" changeset="12212802" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
@@ -2798,14 +2765,11 @@
   <node id="1831299788" lat="48.3991407" lon="10.0057382" version="1" timestamp="2012-07-19T18:42:16Z" changeset="12342561" uid="168758" user="NUP"/>
   <node id="1831299789" lat="48.3993116" lon="10.0064103" version="1" timestamp="2012-07-19T18:42:16Z" changeset="12342561" uid="168758" user="NUP"/>
   <node id="1831299790" lat="48.3987501" lon="10.0059635" version="1" timestamp="2012-07-19T18:42:16Z" changeset="12342561" uid="168758" user="NUP"/>
-  <node id="1831392092" lat="48.4023233" lon="9.9938106" version="3" timestamp="2013-03-20T12:57:37Z" changeset="15431332" uid="346758" user="kukuk"/>
-  <node id="1831392093" lat="48.4023457" lon="9.9940080" version="3" timestamp="2013-03-20T12:57:37Z" changeset="15431332" uid="346758" user="kukuk"/>
-  <node id="1831392094" lat="48.4023651" lon="9.9940030" version="3" timestamp="2013-03-20T12:57:37Z" changeset="15431332" uid="346758" user="kukuk"/>
-  <node id="1831392095" lat="48.4023762" lon="9.9941011" version="3" timestamp="2013-03-20T12:57:37Z" changeset="15431332" uid="346758" user="kukuk"/>
-  <node id="1831392096" lat="48.4024491" lon="9.9937782" version="3" timestamp="2013-03-20T12:57:37Z" changeset="15431332" uid="346758" user="kukuk"/>
-  <node id="1831392097" lat="48.4024712" lon="9.9939727" version="3" timestamp="2013-03-20T12:57:37Z" changeset="15431332" uid="346758" user="kukuk"/>
-  <node id="1831392098" lat="48.4025324" lon="9.9939570" version="3" timestamp="2013-03-20T12:57:37Z" changeset="15431332" uid="346758" user="kukuk"/>
-  <node id="1831392099" lat="48.4025439" lon="9.9940580" version="3" timestamp="2013-03-20T12:57:37Z" changeset="15431332" uid="346758" user="kukuk"/>
+  <node id="1831392094" lat="48.4023900" lon="9.9940141" version="4" timestamp="2013-04-22T17:05:25Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1831392095" lat="48.4024011" lon="9.9941122" version="4" timestamp="2013-04-22T17:05:25Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1831392097" lat="48.4024961" lon="9.9939838" version="4" timestamp="2013-04-22T17:05:25Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1831392098" lat="48.4025573" lon="9.9939681" version="4" timestamp="2013-04-22T17:05:25Z" changeset="15826940" uid="110161" user="J-B"/>
+  <node id="1831392099" lat="48.4025688" lon="9.9940691" version="4" timestamp="2013-04-22T17:05:25Z" changeset="15826940" uid="110161" user="J-B"/>
   <node id="1831908522" lat="48.3962260" lon="9.9580380" version="2" timestamp="2012-09-07T07:48:00Z" changeset="13019141" uid="290680" user="wheelmap_visitor">
     <tag k="addr:city" v="Ulm-Söflingen"/>
     <tag k="addr:country" v="DE"/>
@@ -2837,7 +2801,7 @@
     <tag k="website" v="http://www.pizzaexpress-mario.de/"/>
     <tag k="wheelchair" v="limited"/>
   </node>
-  <node id="1831948843" lat="48.3952286" lon="9.9967140" version="2" timestamp="2012-09-14T19:18:16Z" changeset="13111072" uid="168758" user="NUP">
+  <node id="1831948843" lat="48.3951796" lon="9.9965877" version="3" timestamp="2013-04-24T18:06:11Z" changeset="15852191" uid="287306" user="Matthias Frank">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="7"/>
@@ -2948,6 +2912,7 @@
   <node id="2201614971" lat="48.3756907" lon="10.0259410" version="1" timestamp="2013-03-14T14:01:45Z" changeset="15362834" uid="557496" user="claudia10"/>
   <node id="2201614979" lat="48.3758630" lon="10.0257312" version="1" timestamp="2013-03-14T14:01:45Z" changeset="15362834" uid="557496" user="claudia10"/>
   <node id="2211255871" lat="48.4012930" lon="9.9916542" version="1" timestamp="2013-03-20T12:57:27Z" changeset="15431332" uid="346758" user="kukuk"/>
+  <node id="2266339485" lat="48.4151055" lon="10.0383696" version="1" timestamp="2013-04-13T21:09:43Z" changeset="15717758" uid="168758" user="NUP"/>
   <way id="27098755" version="5" timestamp="2011-03-07T21:00:49Z" changeset="7488808" uid="242437" user="skleber">
     <nd ref="297323662"/>
     <nd ref="1191595173"/>
@@ -4822,7 +4787,7 @@
     <tag k="name" v="Finanzamt Ulm"/>
     <tag k="opening_hours" v="Mo-We 07:30-15:30; Th 07:30-17:30; Fr 07:30-12:00"/>
   </way>
-  <way id="105180917" version="1" timestamp="2011-03-21T16:08:42Z" changeset="7628628" uid="168758" user="NUP">
+  <way id="105180917" version="2" timestamp="2013-04-27T09:36:29Z" changeset="15881311" uid="85218" user="Aleks-Berlin">
     <nd ref="1212060589"/>
     <nd ref="1212058393"/>
     <nd ref="1212058860"/>
@@ -4833,7 +4798,6 @@
     <tag k="addr:housenumber" v="41"/>
     <tag k="addr:postcode" v="89231"/>
     <tag k="addr:street" v="Messerschmittstraße"/>
-    <tag k="amenity" v="shop"/>
     <tag k="building" v="yes"/>
     <tag k="email" v="neu-ulm@raiss-baustoffe.de"/>
     <tag k="fax" v="07 31 / 9 79 60-25"/>
@@ -4874,7 +4838,7 @@
     <tag k="shop" v="electronics"/>
     <tag k="website" v="http://www.elektro-fernseh-starz.de/"/>
   </way>
-  <way id="105748910" version="4" timestamp="2012-07-16T15:02:50Z" changeset="12246427" uid="168758" user="NUP">
+  <way id="105748910" version="5" timestamp="2013-04-05T10:40:53Z" changeset="15618065" uid="1109397" user="Wall·E">
     <nd ref="1217716512"/>
     <nd ref="1217716407"/>
     <nd ref="1226843157"/>
@@ -4911,7 +4875,7 @@
     <tag k="building" v="yes"/>
     <tag k="district_office" v="yes"/>
     <tag k="email" v="poststelle@lra.neu-ulm.de"/>
-    <tag k="fax" v="+49 731 / 7040-690 "/>
+    <tag k="fax" v="+49 731 / 7040-690"/>
     <tag k="name" v="Landratsamt Neu-Ulm"/>
     <tag k="opening_hours" v="Mo-We 07:30-12:30; Th 07:30-17:30; Fr 07:30-12:30"/>
     <tag k="phone" v="+49 731 / 7040-0"/>
@@ -4980,26 +4944,6 @@
     <tag k="phone" v="0731/2077785"/>
     <tag k="website" v="http://www.kuehlerbau-neuulm.de/"/>
   </way>
-  <way id="105770658" version="2" timestamp="2012-09-08T03:46:39Z" changeset="13029872" uid="1679" user="andrewpmk">
-    <nd ref="1217921286"/>
-    <nd ref="1217921181"/>
-    <nd ref="1217921727"/>
-    <nd ref="1217922123"/>
-    <nd ref="1217922590"/>
-    <nd ref="1217921831"/>
-    <nd ref="1217921854"/>
-    <nd ref="1217921694"/>
-    <nd ref="1217921286"/>
-    <tag k="addr:city" v="Neu-Ulm"/>
-    <tag k="addr:country" v="DE"/>
-    <tag k="addr:housenumber" v="4"/>
-    <tag k="addr:postcode" v="89231"/>
-    <tag k="addr:street" v="Von-Liebig-Straße"/>
-    <tag k="building" v="retail"/>
-    <tag k="name" v="Praktiker"/>
-    <tag k="opening_hours" v="Mo-Fr 08:00-20:00; Sa 08:00-18:00"/>
-    <tag k="shop" v="doityourself"/>
-  </way>
   <way id="105770691" version="3" timestamp="2011-07-15T15:27:37Z" changeset="8732273" uid="168758" user="NUP">
     <nd ref="1217922635"/>
     <nd ref="1217922035"/>
@@ -5060,7 +5004,7 @@
     <tag k="opening_hours" v="Mo-Th 07:00-17:30; Fr 07:00-14:30"/>
     <tag k="website" v="http://www.buderus.de/"/>
   </way>
-  <way id="105787921" version="2" timestamp="2011-07-15T15:27:50Z" changeset="8732273" uid="168758" user="NUP">
+  <way id="105787921" version="3" timestamp="2013-04-27T09:38:46Z" changeset="15881324" uid="85218" user="Aleks-Berlin">
     <nd ref="814769559"/>
     <nd ref="814769761"/>
     <nd ref="814769604"/>
@@ -5071,7 +5015,6 @@
     <tag k="addr:housenumber" v="2/1"/>
     <tag k="addr:postcode" v="89231"/>
     <tag k="addr:street" v="Otto-Hahn-Straße"/>
-    <tag k="amenity" v="shop"/>
     <tag k="building" v="yes"/>
     <tag k="name" v="SIEMES Schuhcenter"/>
     <tag k="opening_hours" v="Mo-Fr 09:00-20:00; Sa 09:00-18:00"/>
@@ -5285,7 +5228,7 @@
     <tag k="phone" v="0731/72907-0"/>
     <tag k="website" v="http://www.boesner.com/"/>
   </way>
-  <way id="108781921" version="4" timestamp="2013-03-12T15:15:20Z" changeset="15341172" uid="451764" user="M_Vogt">
+  <way id="108781921" version="5" timestamp="2013-04-19T22:34:08Z" changeset="15791353" uid="451764" user="M_Vogt">
     <nd ref="1247206742"/>
     <nd ref="1247206811"/>
     <nd ref="1247206974"/>
@@ -5304,14 +5247,13 @@
     <tag k="addr:housenumber" v="1"/>
     <tag k="addr:postcode" v="89231"/>
     <tag k="addr:street" v="Im Starkfeld"/>
+    <tag k="building" v="yes"/>
     <tag k="description" v="http://www.swp.de/ulm/lokales/ulm_neu_ulm/Obi-schliesst-in-Neu-Ulm;art4329,1529895"/>
     <tag k="email" v="neu-ulm@obi.de"/>
     <tag k="fax" v="0731/7299299"/>
-    <tag k="name" v="ehem. OBI"/>
     <tag k="note" v="http://www.swp.de/ulm/lokales/ulm_neu_ulm/Obi-schliesst-in-Neu-Ulm;art4329,1529895"/>
     <tag k="opening_hours" v="Mo-Fr 08:00-20:00; Sa 08:00-19:00"/>
     <tag k="phone" v="0731/72990"/>
-    <tag k="shop" v="doityourself"/>
     <tag k="source" v="http://www.swp.de/ulm/lokales/ulm_neu_ulm/Obi-schliesst-in-Neu-Ulm;art4329,1529895"/>
     <tag k="website" v="http://www.swp.de/ulm/lokales/ulm_neu_ulm/Obi-schliesst-in-Neu-Ulm;art4329,1529895"/>
     <tag k="wikipedia:de" v="Obi_(Baumarkt)"/>
@@ -5507,7 +5449,7 @@
     <tag k="phone" v="+49 731 / 9260421"/>
     <tag k="website" v="http://www.ulmerzelt.de/"/>
   </way>
-  <way id="115717600" version="3" timestamp="2013-03-22T21:18:40Z" changeset="15459363" uid="451764" user="M_Vogt">
+  <way id="115717600" version="4" timestamp="2013-04-19T22:34:38Z" changeset="15791353" uid="451764" user="M_Vogt">
     <nd ref="1306601023"/>
     <nd ref="1306601349"/>
     <nd ref="1306601238"/>
@@ -5526,11 +5468,9 @@
     <tag k="addr:street" v="Bahnhofstraße"/>
     <tag k="building" v="yes"/>
     <tag k="fax" v="0731/7253499"/>
-    <tag k="name" v="ehem. Edeka Aktiv Markt"/>
     <tag k="opening_hours" v="Mo-Sa 08:00-20:00"/>
     <tag k="operator" v="Edeka Zentrale AG &amp; Co. KG"/>
     <tag k="phone" v="0731/7253497"/>
-    <tag k="shop" v="supermarket"/>
     <tag k="website" v="http://www.edeka.de/EDEKA/Content/Home/index.jsp"/>
     <tag k="wheelchair" v="yes"/>
   </way>
@@ -7220,32 +7160,6 @@
     <tag k="phone" v="+49 731 / 974480"/>
     <tag k="website" v="http://www.barfuesser-brauhaus.de/"/>
   </way>
-  <way id="172210078" version="2" timestamp="2013-02-09T11:59:03Z" changeset="14966530" uid="39504" user="malenki">
-    <nd ref="1831392094"/>
-    <nd ref="1831392093"/>
-    <nd ref="1831392092"/>
-    <nd ref="1831392096"/>
-    <nd ref="1831392097"/>
-    <nd ref="1831392098"/>
-    <nd ref="1831392099"/>
-    <nd ref="1831392095"/>
-    <nd ref="1831392094"/>
-    <tag k="addr:city" v="Ulm"/>
-    <tag k="addr:country" v="DE"/>
-    <tag k="addr:housenumber" v="2"/>
-    <tag k="addr:postcode" v="89073"/>
-    <tag k="addr:street" v="Keplerstraße"/>
-    <tag k="amenity" v="fuel"/>
-    <tag k="brand" v="Tamoil"/>
-    <tag k="building" v="yes"/>
-    <tag k="fuel:diesel" v="yes"/>
-    <tag k="fuel:e10" v="yes"/>
-    <tag k="fuel:octane_95" v="yes"/>
-    <tag k="fuel:octane_98" v="yes"/>
-    <tag k="name" v="Tamoil"/>
-    <tag k="opening_hours" v="Mo-Fr 06:00-24:00; Sa 07:00-24:00; Su 08:00-24:00"/>
-    <tag k="shop" v="kiosk"/>
-  </way>
   <way id="193669816" version="1" timestamp="2012-11-30T13:22:25Z" changeset="14098502" uid="557496" user="claudia10">
     <nd ref="2041892100"/>
     <nd ref="2041892099"/>
@@ -7310,6 +7224,50 @@
     <tag k="shop" v="doityourself"/>
     <tag k="website" v="http://www.praktiker.de/"/>
     <tag k="wheelchair" v="yes"/>
+  </way>
+  <way id="217361612" version="1" timestamp="2013-04-13T21:09:45Z" changeset="15717758" uid="168758" user="NUP">
+    <nd ref="1176233843"/>
+    <nd ref="2266339485"/>
+    <nd ref="1176233557"/>
+    <nd ref="1176233968"/>
+    <nd ref="1176233912"/>
+    <nd ref="1176233843"/>
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="39"/>
+    <tag k="addr:postcode" v="89233"/>
+    <tag k="addr:street" v="Holzstraße"/>
+    <tag k="club" v="sport"/>
+    <tag k="email" v="info@tsv-pfuhl-fussball.de"/>
+    <tag k="fax" v="+49 731 / 712964"/>
+    <tag k="name" v="TSV Pfuhl 1894 e. V."/>
+    <tag k="opening_hours" v="Mo-Do 08:00-12:00"/>
+    <tag k="phone" v="+49 731 / 719430"/>
+    <tag k="sport" v="soccer"/>
+    <tag k="website" v="http://www.tsv-pfuhl-fussball.de/"/>
+  </way>
+  <way id="217730924" version="1" timestamp="2013-04-17T07:47:17Z" changeset="15759451" uid="287306" user="Matthias Frank">
+    <nd ref="1831392097"/>
+    <nd ref="1831392098"/>
+    <nd ref="1831392099"/>
+    <nd ref="1831392095"/>
+    <nd ref="1831392094"/>
+    <nd ref="1831392097"/>
+    <tag k="addr:city" v="Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="2"/>
+    <tag k="addr:postcode" v="89073"/>
+    <tag k="addr:street" v="Keplerstraße"/>
+    <tag k="amenity" v="fuel"/>
+    <tag k="brand" v="Tamoil"/>
+    <tag k="building" v="yes"/>
+    <tag k="fuel:diesel" v="yes"/>
+    <tag k="fuel:e10" v="yes"/>
+    <tag k="fuel:octane_95" v="yes"/>
+    <tag k="fuel:octane_98" v="yes"/>
+    <tag k="name" v="Tamoil"/>
+    <tag k="opening_hours" v="Mo-Fr 06:00-24:00; Sa 07:00-24:00; Su 08:00-24:00"/>
+    <tag k="shop" v="kiosk"/>
   </way>
   <relation id="374356" version="6" timestamp="2012-07-19T18:53:32Z" changeset="12343862" uid="130472" user="fx99">
     <member type="way" ref="172199683" role="outer"/>
