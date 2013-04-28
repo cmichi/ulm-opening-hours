@@ -251,7 +251,7 @@ function receiveNewEntries(open_entities) {
 				[entity.lat, entity.lon], {icon: getIcon(entity)}).bindPopup(
 					"<strong>" + entity.name + "</strong>"
 					+ "<br />Kategorie: " + category_label + "<br />"
-					+ "<br />" + entity.original_opening_hours.split(';').join('<br />')
+					+ "<br />" + entity.opening_hours.split(';').join('<br />')
 				)
 		);
 	}
