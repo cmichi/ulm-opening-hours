@@ -17,12 +17,12 @@ function generateOpenEntities(date) {
 	var open_entities = [];
 	for (var i in data) {
 		try {
-			var oh = new opening_hours(data[i].original_opening_hours);
+			var oh = new opening_hours(data[i].opening_hours);
 		} catch (err) {			
 			/* only output error messages at the first time they are thrown.
 			   otherwise our program will flood stdout on each /get_entries request */
 			if (!parse_err_output) {
-				console.log("error while parsing '" + data[i].original_opening_hours + "':");
+				console.log("error while parsing '" + data[i].opening_hours + "':");
 				console.log(err);
 				console.log(JSON.stringify(data[i]) + "\n");
 			}
