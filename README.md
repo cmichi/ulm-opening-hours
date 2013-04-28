@@ -17,9 +17,8 @@ A public instance of this project is hosted on
 
 # ToDo Code
 
- * Complete translation of `categories`
- * Marker Popup: better formatting (tabulator)
- * "We off" in some popups to better readable label
+ * Marker Popup: better formatting of opening_hours
+ * Change "We off" in some popups to a better readable label
 
 
 # ToDo OSM database
@@ -28,6 +27,7 @@ A public instance of this project is hosted on
   * Hostels, bakeries, local post station, clubs
   * Arbeitsamt und andere Öffentliche Einrichtungen (Bürgerbüro)
   * Parkhäuser, etc.
+  * Schwörmontag Ausnahmen fuer Öffentliche Einrichtungen 
  * Add lecture-free-time opening hours for uni related stuff (cafe, bistro, etc.)
 
 
