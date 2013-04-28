@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="Overpass API">
 <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
-<meta osm_base="2013-04-27T13:45:03Z"/>
+<meta osm_base="2013-04-28T18:36:03Z"/>
 
   <node id="142006030" lat="48.4143285" lon="9.9456495" version="14" timestamp="2013-04-13T14:55:52Z" changeset="15713255" uid="287306" user="Matthias Frank">
     <tag k="addr:country" v="DE"/>
@@ -151,6 +151,17 @@
     <tag k="opening_hours" v="Mo-Fr 07:00-20:00"/>
     <tag k="recycling:clothes" v="yes"/>
     <tag k="recycling:glass" v="yes"/>
+  </node>
+  <node id="369781517" lat="48.4017487" lon="9.9873161" version="11" timestamp="2013-04-28T14:28:39Z" changeset="15896347" uid="473431" user="cmichi">
+    <tag k="addr:housenumber" v="12"/>
+    <tag k="addr:postcode" v="89073"/>
+    <tag k="addr:street" v="Neutorstraße"/>
+    <tag k="name" v="Hamma"/>
+    <tag k="opening_hours" v="Mo-Fr 6:30-19:00; Sa 7:00-18:00; Su 8:00-11:00"/>
+    <tag k="phone" v="+49 731 37860280"/>
+    <tag k="shop" v="bakery"/>
+    <tag k="website" v="http://www.hamma.de/index.php?id=88"/>
+    <tag k="wheelchair" v="yes"/>
   </node>
   <node id="384752800" lat="48.4120827" lon="9.9505978" version="3" timestamp="2010-11-21T20:16:45Z" changeset="6426403" uid="118863" user="bstegmaier">
     <tag k="amenity" v="recycling"/>
@@ -442,13 +453,12 @@
   <node id="768806604" lat="48.3948756" lon="9.9994449" version="3" timestamp="2011-06-15T17:30:25Z" changeset="8449045" uid="168758" user="NUP"/>
   <node id="768806605" lat="48.3949720" lon="9.9996060" version="3" timestamp="2011-06-15T17:30:10Z" changeset="8449045" uid="168758" user="NUP"/>
   <node id="768806606" lat="48.3950570" lon="9.9994938" version="3" timestamp="2011-06-15T17:30:26Z" changeset="8449045" uid="168758" user="NUP"/>
-  <node id="769172912" lat="48.3934660" lon="9.9987935" version="5" timestamp="2011-06-15T17:16:29Z" changeset="8448923" uid="168758" user="NUP">
+  <node id="769172912" lat="48.3934660" lon="9.9987935" version="6" timestamp="2013-04-28T09:44:48Z" changeset="15893081" uid="85218" user="Aleks-Berlin">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="15"/>
     <tag k="addr:postcode" v="89231"/>
     <tag k="addr:street" v="Hermann-Köhl-Straße"/>
-    <tag k="amenity" v="shop"/>
     <tag k="description" v="23 Waschmaschinen + 1 Waschmaschine 12 kg"/>
     <tag k="name" v="Eco-Express Waschsalon"/>
     <tag k="opening_hours" v="Mo-Sa 06:00-23:00"/>
@@ -469,13 +479,12 @@
     <tag k="shop" v="electronics"/>
     <tag k="website" v="http://www.elektro-wanner.de/"/>
   </node>
-  <node id="769215833" lat="48.3958881" lon="10.0008827" version="6" timestamp="2011-05-09T19:21:44Z" changeset="8095861" uid="168758" user="NUP">
+  <node id="769215833" lat="48.3958881" lon="10.0008827" version="7" timestamp="2013-04-28T09:47:04Z" changeset="15893112" uid="85218" user="Aleks-Berlin">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="22"/>
     <tag k="addr:postcode" v="89231"/>
     <tag k="addr:street" v="Augsburger Straße"/>
-    <tag k="amenity" v="shop"/>
     <tag k="description" v="Systempartner Computervertriebs GmbH"/>
     <tag k="name" v="PC-Spezialist"/>
     <tag k="opening_hours" v="Mo-Fr 9:30-18:00; Sa 09:30-13:00"/>
@@ -487,9 +496,9 @@
   <node id="781674949" lat="48.3939669" lon="9.9982068" version="4" timestamp="2011-06-19T01:04:18Z" changeset="8479392" uid="168758" user="NUP"/>
   <node id="783970168" lat="48.3589919" lon="9.9503389" version="2" timestamp="2011-01-01T13:06:48Z" changeset="6827583" uid="153109" user="pschaefer"/>
   <node id="787131009" lat="48.3940195" lon="9.9997830" version="4" timestamp="2011-05-14T15:26:53Z" changeset="8142027" uid="168758" user="NUP"/>
-  <node id="787131021" lat="48.3939851" lon="9.9994940" version="4" timestamp="2011-05-14T15:26:41Z" changeset="8142027" uid="168758" user="NUP"/>
+  <node id="787131021" lat="48.3939404" lon="9.9995020" version="5" timestamp="2013-04-27T22:06:57Z" changeset="15889264" uid="451764" user="M_Vogt"/>
   <node id="787131091" lat="48.3939103" lon="9.9996021" version="4" timestamp="2011-05-14T15:26:44Z" changeset="8142027" uid="168758" user="NUP"/>
-  <node id="787131133" lat="48.3941325" lon="9.9997386" version="4" timestamp="2011-05-14T15:26:40Z" changeset="8142027" uid="168758" user="NUP"/>
+  <node id="787131133" lat="48.3940878" lon="9.9997466" version="5" timestamp="2013-04-27T22:06:57Z" changeset="15889264" uid="451764" user="M_Vogt"/>
   <node id="787159620" lat="48.3968020" lon="10.0012168" version="2" timestamp="2011-05-09T19:21:23Z" changeset="8095861" uid="168758" user="NUP"/>
   <node id="787159627" lat="48.3960999" lon="10.0021302" version="4" timestamp="2011-05-09T19:22:38Z" changeset="8095861" uid="168758" user="NUP"/>
   <node id="787159659" lat="48.3969323" lon="10.0009520" version="2" timestamp="2011-05-09T19:20:30Z" changeset="8095861" uid="168758" user="NUP"/>
@@ -517,6 +526,16 @@
     <tag k="name" v="Siedepunkt"/>
     <tag k="opening_hours" v="17:00-1:00"/>
   </node>
+  <node id="801016442" lat="48.4012417" lon="9.9913137" version="8" timestamp="2013-04-28T14:20:54Z" changeset="15896347" uid="473431" user="cmichi">
+    <tag k="amenity" v="fast_food"/>
+    <tag k="brand" v="Subway"/>
+    <tag k="cuisine" v="sandwich"/>
+    <tag k="name" v="Subway"/>
+    <tag k="opening_hours" v="Mo-Th 09:00-22:00; Fr-Sa 09:00-23:00; Su 10:00-22:00"/>
+    <tag k="smoking" v="no"/>
+    <tag k="website" v="http://www.subway-sandwiches.de"/>
+    <tag k="wheelchair" v="no"/>
+  </node>
   <node id="801035000" lat="48.3992328" lon="9.9831790" version="6" timestamp="2012-09-29T10:13:14Z" changeset="13294554" uid="89073" user="eimer42">
     <tag k="contact:phone" v="+49 731 96440"/>
     <tag k="name" v="Point Markt"/>
@@ -524,6 +543,7 @@
     <tag k="shop" v="supermarket"/>
     <tag k="wheelchair" v="yes"/>
   </node>
+  <node id="801887741" lat="48.3910893" lon="10.0035467" version="4" timestamp="2013-04-08T13:23:06Z" changeset="15654556" uid="287306" user="Matthias Frank"/>
   <node id="803744296" lat="48.3949067" lon="10.0149015" version="6" timestamp="2013-01-13T15:15:30Z" changeset="14635517" uid="39504" user="malenki">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
@@ -537,21 +557,20 @@
     <tag k="wheelchair" v="yes"/>
     <tag k="wikipedia:de" v="Kaufland"/>
   </node>
-  <node id="803744300" lat="48.3946525" lon="10.0155017" version="5" timestamp="2013-01-13T15:14:07Z" changeset="14635517" uid="39504" user="malenki">
+  <node id="803744300" lat="48.3946525" lon="10.0155017" version="6" timestamp="2013-04-28T09:52:49Z" changeset="15893158" uid="85218" user="Aleks-Berlin">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="6-20"/>
     <tag k="addr:postcode" v="89231"/>
     <tag k="addr:street" v="Vorwerkstraße"/>
-    <tag k="amenity" v="shop"/>
     <tag k="email" v="info@deichmann.com"/>
     <tag k="name" v="Deichmann"/>
     <tag k="opening_hours" v="Mo-Fr 09:00-19:00; Sa 09:00-18:00"/>
     <tag k="operator" v="Deichmann SE"/>
     <tag k="phone" v="0731/9709970"/>
     <tag k="shop" v="shoes"/>
-    <tag k="website" v="http://www.deichmann.com/"/>
-    <tag k="wikipedia:de" v="Heinrich_Deichmann-Schuhe"/>
+    <tag k="website" v="www.deichmann.com"/>
+    <tag k="wikipedia" v="de:Heinrich_Deichmann-Schuhe"/>
   </node>
   <node id="803744313" lat="48.3951834" lon="10.0152802" version="5" timestamp="2013-01-13T15:16:06Z" changeset="14635517" uid="39504" user="malenki">
     <tag k="addr:city" v="Neu-Ulm"/>
@@ -567,13 +586,12 @@
     <tag k="website" v="http://mcfit.com/studios/de/mcfit-studio-neu-ulm.html"/>
     <tag k="wikipedia:de" v="McFit"/>
   </node>
-  <node id="813134322" lat="48.3961147" lon="10.0162368" version="7" timestamp="2010-12-06T19:38:07Z" changeset="6567609" uid="168758" user="NUP">
+  <node id="813134322" lat="48.3961147" lon="10.0162368" version="8" timestamp="2013-04-28T10:02:59Z" changeset="15893312" uid="85218" user="Aleks-Berlin">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="1"/>
     <tag k="addr:postcode" v="89231"/>
     <tag k="addr:street" v="Ahornstraße"/>
-    <tag k="amenity" v="shop"/>
     <tag k="email" v="info@autoplus-neu-ulm.de"/>
     <tag k="fax" v="0731/9755-255"/>
     <tag k="name" v="AUTOplus Neu-Ulm"/>
@@ -612,13 +630,12 @@
   <node id="813356722" lat="48.3911405" lon="10.0283905" version="4" timestamp="2011-06-25T21:42:47Z" changeset="8547086" uid="168758" user="NUP"/>
   <node id="813356723" lat="48.3910391" lon="10.0285250" version="4" timestamp="2011-06-25T21:42:38Z" changeset="8547086" uid="168758" user="NUP"/>
   <node id="813356724" lat="48.3905345" lon="10.0276621" version="2" timestamp="2011-06-25T21:42:32Z" changeset="8547086" uid="168758" user="NUP"/>
-  <node id="814760483" lat="48.3925097" lon="9.9963618" version="5" timestamp="2012-03-12T15:55:54Z" changeset="10951246" uid="290680" user="wheelmap_visitor">
+  <node id="814760483" lat="48.3925097" lon="9.9963618" version="6" timestamp="2013-04-28T10:04:55Z" changeset="15893330" uid="85218" user="Aleks-Berlin">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="18-20"/>
     <tag k="addr:postcode" v="89231"/>
     <tag k="addr:street" v="Luitpoldstraße"/>
-    <tag k="amenity" v="shop"/>
     <tag k="name" v="Wasch-Treff"/>
     <tag k="opening_hours" v="Mo-Sa 07:00-23:00"/>
     <tag k="shop" v="laundry"/>
@@ -694,18 +711,16 @@
     <tag k="website" v="http://www.home-club.de/"/>
     <tag k="wheelchair" v="no"/>
   </node>
-  <node id="817240901" lat="48.3979674" lon="10.0040316" version="4" timestamp="2011-06-01T00:01:16Z" changeset="8306691" uid="168758" user="NUP">
+  <node id="817240901" lat="48.3979674" lon="10.0040316" version="5" timestamp="2013-04-28T10:08:02Z" changeset="15893367" uid="85218" user="Aleks-Berlin">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="1"/>
     <tag k="addr:postcode" v="89231"/>
     <tag k="addr:street" v="Brückenstraße"/>
-    <tag k="amenity" v="shop"/>
-    <tag k="description" v="Winter time / Winterzeit andere Öffnungszeiten (01.11.-31.03.): Tu-Fr 11:30-18:30; Sa 08:30-13:00 | Die aktuelle Sommerzeit gilt daher von 01.04.2011-31.10.2011!"/>
     <tag k="email" v="info@radweg-schneider.de"/>
     <tag k="fax" v="0731/9723889"/>
     <tag k="name" v="Radweg Uwe Schneider"/>
-    <tag k="note" v="Winter time / Winterzeit andere Öffnungszeiten (01.11.-31.03.): Tu-Fr 11:30-18:30; Sa 08:30-13:00 | Die aktuelle Sommerzeit gilt daher von 01.04.2011-31.10.2011!"/>
+    <tag k="note" v="Winter time / Winterzeit andere Öffnungszeiten (01.11.-31.03.): Tu-Fr 11:30-18:30; Sa 08:30-13:00"/>
     <tag k="opening_hours" v="Tu-Th 11:30-18:30; Fr 11:30-20:00; Sa 07:30-13:00"/>
     <tag k="phone" v="0731/9723890"/>
     <tag k="shop" v="bicycle"/>
@@ -920,10 +935,6 @@
   <node id="850793465" lat="48.3852960" lon="9.9991350" version="2" timestamp="2011-06-06T14:44:16Z" changeset="8360974" uid="168758" user="NUP"/>
   <node id="850793474" lat="48.3851687" lon="9.9986471" version="2" timestamp="2011-06-06T14:44:33Z" changeset="8360974" uid="168758" user="NUP"/>
   <node id="850793504" lat="48.3854771" lon="9.9986231" version="2" timestamp="2011-06-06T14:44:20Z" changeset="8360974" uid="168758" user="NUP"/>
-  <node id="911184534" lat="48.3948877" lon="10.0000840" version="2" timestamp="2011-05-14T15:26:49Z" changeset="8142027" uid="168758" user="NUP"/>
-  <node id="911184536" lat="48.3946555" lon="10.0004123" version="3" timestamp="2011-05-14T15:26:43Z" changeset="8142027" uid="168758" user="NUP"/>
-  <node id="911184537" lat="48.3949025" lon="10.0008149" version="3" timestamp="2011-05-14T15:26:48Z" changeset="8142027" uid="168758" user="NUP"/>
-  <node id="911184538" lat="48.3951364" lon="10.0004894" version="3" timestamp="2011-05-14T15:26:53Z" changeset="8142027" uid="168758" user="NUP"/>
   <node id="911186628" lat="48.3948638" lon="9.9981816" version="5" timestamp="2012-03-15T07:14:55Z" changeset="10985402" uid="287306" user="Matthias Frank">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
@@ -947,7 +958,7 @@
   <node id="922724964" lat="48.3972981" lon="10.0267933" version="3" timestamp="2012-03-30T10:06:38Z" changeset="11149772" uid="451764" user="M_Vogt"/>
   <node id="922724965" lat="48.3972413" lon="10.0268827" version="3" timestamp="2012-03-30T10:06:38Z" changeset="11149772" uid="451764" user="M_Vogt"/>
   <node id="922724973" lat="48.3972405" lon="10.0269159" version="3" timestamp="2012-03-30T10:06:39Z" changeset="11149772" uid="451764" user="M_Vogt"/>
-  <node id="922748203" lat="48.3853855" lon="10.0046362" version="3" timestamp="2011-06-11T16:53:44Z" changeset="8407657" uid="168758" user="NUP"/>
+  <node id="922748203" lat="48.3853598" lon="10.0045654" version="4" timestamp="2013-04-27T23:37:17Z" changeset="15889801" uid="287306" user="Matthias Frank"/>
   <node id="923986628" lat="48.3860237" lon="10.0353670" version="3" timestamp="2011-03-25T19:41:21Z" changeset="7668767" uid="168758" user="NUP"/>
   <node id="923986633" lat="48.3840175" lon="10.0331886" version="2" timestamp="2013-04-21T13:22:55Z" changeset="15810732" uid="451764" user="M_Vogt"/>
   <node id="923986646" lat="48.3844046" lon="10.0345728" version="1" timestamp="2010-09-24T10:29:39Z" changeset="5861569" uid="168758" user="NUP"/>
@@ -1059,10 +1070,6 @@
   <node id="974743365" lat="48.3761298" lon="10.0062886" version="5" timestamp="2012-01-17T16:36:55Z" changeset="10419319" uid="168758" user="NUP"/>
   <node id="974743371" lat="48.3752870" lon="10.0057236" version="4" timestamp="2012-01-17T16:36:55Z" changeset="10419319" uid="168758" user="NUP"/>
   <node id="974743391" lat="48.3753715" lon="10.0065100" version="4" timestamp="2012-01-17T16:36:55Z" changeset="10419319" uid="168758" user="NUP"/>
-  <node id="975892115" lat="48.3937569" lon="9.9988470" version="2" timestamp="2011-03-25T15:50:45Z" changeset="7666666" uid="168758" user="NUP"/>
-  <node id="975892136" lat="48.3939987" lon="9.9985188" version="2" timestamp="2011-03-25T15:52:02Z" changeset="7666666" uid="168758" user="NUP"/>
-  <node id="975892144" lat="48.3941701" lon="9.9988017" version="2" timestamp="2011-03-25T15:51:57Z" changeset="7666666" uid="168758" user="NUP"/>
-  <node id="975892147" lat="48.3939283" lon="9.9991299" version="2" timestamp="2011-03-25T15:51:05Z" changeset="7666666" uid="168758" user="NUP"/>
   <node id="987070656" lat="48.3749122" lon="10.0066007" version="2" timestamp="2011-06-25T18:04:58Z" changeset="8545269" uid="168758" user="NUP"/>
   <node id="987070660" lat="48.3753657" lon="10.0064562" version="4" timestamp="2012-01-17T16:36:55Z" changeset="10419319" uid="168758" user="NUP"/>
   <node id="987070675" lat="48.3750048" lon="10.0066016" version="2" timestamp="2011-06-25T18:04:57Z" changeset="8545269" uid="168758" user="NUP"/>
@@ -1202,6 +1209,10 @@
   <node id="1080652282" lat="48.3845130" lon="9.9841278" version="1" timestamp="2011-01-03T16:24:40Z" changeset="6851466" uid="168758" user="NUP"/>
   <node id="1080652343" lat="48.3847040" lon="9.9843518" version="1" timestamp="2011-01-03T16:24:42Z" changeset="6851466" uid="168758" user="NUP"/>
   <node id="1080652602" lat="48.3839635" lon="9.9847714" version="1" timestamp="2011-01-03T16:24:48Z" changeset="6851466" uid="168758" user="NUP"/>
+  <node id="1080688491" lat="48.3910228" lon="10.0036543" version="4" timestamp="2013-04-08T13:23:11Z" changeset="15654556" uid="287306" user="Matthias Frank"/>
+  <node id="1080688589" lat="48.3908408" lon="10.0029452" version="4" timestamp="2013-04-28T15:02:35Z" changeset="15896831" uid="168758" user="NUP"/>
+  <node id="1080688606" lat="48.3908250" lon="10.0033772" version="4" timestamp="2013-04-08T13:23:09Z" changeset="15654556" uid="287306" user="Matthias Frank"/>
+  <node id="1080688652" lat="48.3908914" lon="10.0032696" version="4" timestamp="2013-04-08T13:23:10Z" changeset="15654556" uid="287306" user="Matthias Frank"/>
   <node id="1080818744" lat="48.3682142" lon="10.0088363" version="3" timestamp="2011-03-21T19:57:38Z" changeset="7631150" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
@@ -1871,7 +1882,7 @@
   <node id="1326627808" lat="48.3968108" lon="10.0185774" version="1" timestamp="2011-06-15T16:45:32Z" changeset="8448675" uid="168758" user="NUP"/>
   <node id="1326627823" lat="48.3967622" lon="10.0191497" version="1" timestamp="2011-06-15T16:45:32Z" changeset="8448675" uid="168758" user="NUP"/>
   <node id="1326627849" lat="48.3964927" lon="10.0190978" version="1" timestamp="2011-06-15T16:45:32Z" changeset="8448675" uid="168758" user="NUP"/>
-  <node id="1327636220" lat="48.3706757" lon="10.0080678" version="1" timestamp="2011-06-16T16:09:58Z" changeset="8457490" uid="168758" user="NUP">
+  <node id="1327636220" lat="48.3706757" lon="10.0080678" version="2" timestamp="2013-04-28T13:47:40Z" changeset="15895997" uid="473431" user="cmichi">
     <tag k="addr:city" v="Neu-Ulm/Ludwigsfeld"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="147"/>
@@ -1880,12 +1891,12 @@
     <tag k="amenity" v="driving_school"/>
     <tag k="email" v="info@fahrschule-gruber.de"/>
     <tag k="name" v="Fahrschule Gruber"/>
-    <tag k="opening_hours" v="Tu 18:00; Th 18:00"/>
+    <tag k="opening_hours" v="Tu 18:00+; Th 18:00+"/>
     <tag k="operator" v="Jürgen Gruber"/>
     <tag k="phone" v="0171 / 60 29 02 2"/>
     <tag k="website" v="http://www.fahrschule-gruber.de/"/>
   </node>
-  <node id="1327636232" lat="48.3939409" lon="10.0035857" version="1" timestamp="2011-06-16T16:09:58Z" changeset="8457490" uid="168758" user="NUP">
+  <node id="1327636232" lat="48.3939409" lon="10.0035857" version="2" timestamp="2013-04-28T14:37:43Z" changeset="15896514" uid="473431" user="cmichi">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="1"/>
@@ -1894,7 +1905,7 @@
     <tag k="amenity" v="driving_school"/>
     <tag k="email" v="info@fahrschule-gruber.de"/>
     <tag k="name" v="Fahrschule Gruber"/>
-    <tag k="opening_hours" v="Mo 18:30; We 18:30"/>
+    <tag k="opening_hours" v="Mo 18:30+; We 18:30+"/>
     <tag k="operator" v="Jürgen Gruber"/>
     <tag k="phone" v="0171 / 60 29 02 2"/>
     <tag k="website" v="http://www.fahrschule-gruber.de/"/>
@@ -2498,6 +2509,17 @@
     <tag k="phone" v="+49 731/9716066"/>
     <tag k="website" v="http://www.apotheke-bavaria.de/"/>
   </node>
+  <node id="1531654377" lat="48.3907846" lon="10.0027847" version="4" timestamp="2013-04-28T15:02:35Z" changeset="15896831" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="38"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Turmstraße"/>
+    <tag k="amenity" v="fuel"/>
+    <tag k="name" v="Freie Tankstelle"/>
+    <tag k="opening_hours" v="Mo-Fr 07:00-20:00; Sa 08:00-20:00"/>
+    <tag k="operator" v="Karl-Heinz Ott GmbH"/>
+  </node>
   <node id="1531867802" lat="48.4132745" lon="9.9955777" version="2" timestamp="2012-07-23T17:18:47Z" changeset="12453712" uid="168758" user="NUP"/>
   <node id="1531867804" lat="48.4134163" lon="9.9959140" version="2" timestamp="2012-07-23T17:18:47Z" changeset="12453712" uid="168758" user="NUP"/>
   <node id="1531867805" lat="48.4135238" lon="9.9954722" version="2" timestamp="2012-07-23T17:18:47Z" changeset="12453712" uid="168758" user="NUP"/>
@@ -2632,10 +2654,10 @@
   <node id="1659368160" lat="48.4280864" lon="10.0118112" version="1" timestamp="2012-03-04T18:34:33Z" changeset="10872177" uid="72345" user="Mondlicht"/>
   <node id="1659402528" lat="48.4252377" lon="9.9850371" version="3" timestamp="2012-04-05T16:05:30Z" changeset="11191190" uid="72345" user="Mondlicht"/>
   <node id="1659414030" lat="48.4252550" lon="9.9853275" version="2" timestamp="2012-04-05T16:05:31Z" changeset="11191190" uid="72345" user="Mondlicht"/>
-  <node id="1662315204" lat="48.3989851" lon="9.9885312" version="2" timestamp="2013-04-04T07:27:08Z" changeset="15603243" uid="290680" user="wheelmap_visitor">
+  <node id="1662315204" lat="48.3989851" lon="9.9885312" version="3" timestamp="2013-04-28T14:38:35Z" changeset="15896514" uid="473431" user="cmichi">
     <tag k="amenity" v="pub"/>
     <tag k="name" v="Altbierlokal"/>
-    <tag k="opening_hours" v="Fr 19-1, Sa 19-1"/>
+    <tag k="opening_hours" v="Fr-Sa 19:00-01:00"/>
     <tag k="smoking" v="yes"/>
     <tag k="wheelchair" v="no"/>
   </node>
@@ -2669,7 +2691,7 @@
     <tag k="phone" v="0731/709-315"/>
     <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
   </node>
-  <node id="1773800944" lat="48.3983311" lon="10.0168342" version="2" timestamp="2012-06-02T18:18:41Z" changeset="11779506" uid="168758" user="NUP">
+  <node id="1773800944" lat="48.3983311" lon="10.0168342" version="3" timestamp="2013-04-28T18:35:43Z" changeset="15899535" uid="473431" user="cmichi">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="41"/>
@@ -2679,7 +2701,7 @@
     <tag k="email" v="kings@kings-neu-ulm.de"/>
     <tag k="fax" v="+49 731 / 70535852"/>
     <tag k="name" v="Café Kings"/>
-    <tag k="opening_hours" v="Mo-Th 16:00-24:00; Fr 16:00-02:00; Sa1 4:00-02:00; Su 14:00-24:00"/>
+    <tag k="opening_hours" v="Mo-Th 16:00-24:00; Fr 16:00-02:00; Sa 14:00-02:00; Su 14:00-24:00"/>
     <tag k="operator" v="Kings GmbH"/>
     <tag k="phone" v="+49 731 / 70535851"/>
     <tag k="website" v="http://kings-neu-ulm.de/"/>
@@ -2738,19 +2760,6 @@
   </node>
   <node id="1824928086" lat="48.3938366" lon="9.9981536" version="1" timestamp="2012-07-14T00:15:51Z" changeset="12212802" uid="168758" user="NUP"/>
   <node id="1824928088" lat="48.3939145" lon="9.9982800" version="1" timestamp="2012-07-14T00:15:51Z" changeset="12212802" uid="168758" user="NUP"/>
-  <node id="1827605886" lat="48.3940307" lon="9.9985791" version="4" timestamp="2012-12-11T00:07:42Z" changeset="14229400" uid="145231" user="woodpeck_repair">
-    <tag k="artist_name" v="Günther Späth"/>
-    <tag k="artwork_type" v="door"/>
-    <tag k="building" v="entrance"/>
-    <tag k="description" v="Eingangstür der Kirche aus Bronze."/>
-    <tag k="name" v="Portalreliefs"/>
-    <tag k="start_date" v="1972"/>
-    <tag k="tourism" v="artwork"/>
-    <tag k="website" v="http://www.petruskirche.telebus.de/kirchenfuehrung.html#Eingangstuer"/>
-  </node>
-  <node id="1827605965" lat="48.3950064" lon="10.0002774" version="3" timestamp="2012-12-10T14:16:47Z" changeset="14225992" uid="145231" user="woodpeck_repair">
-    <tag k="building" v="entrance"/>
-  </node>
   <node id="1828605371" lat="48.4154721" lon="10.0710812" version="1" timestamp="2012-07-17T13:58:36Z" changeset="12266996" uid="168758" user="NUP"/>
   <node id="1828605372" lat="48.4154741" lon="10.0708736" version="1" timestamp="2012-07-17T13:58:36Z" changeset="12266996" uid="168758" user="NUP"/>
   <node id="1828605373" lat="48.4155672" lon="10.0710833" version="1" timestamp="2012-07-17T13:58:36Z" changeset="12266996" uid="168758" user="NUP"/>
@@ -2770,17 +2779,16 @@
   <node id="1831392097" lat="48.4024961" lon="9.9939838" version="4" timestamp="2013-04-22T17:05:25Z" changeset="15826940" uid="110161" user="J-B"/>
   <node id="1831392098" lat="48.4025573" lon="9.9939681" version="4" timestamp="2013-04-22T17:05:25Z" changeset="15826940" uid="110161" user="J-B"/>
   <node id="1831392099" lat="48.4025688" lon="9.9940691" version="4" timestamp="2013-04-22T17:05:25Z" changeset="15826940" uid="110161" user="J-B"/>
-  <node id="1831908522" lat="48.3962260" lon="9.9580380" version="2" timestamp="2012-09-07T07:48:00Z" changeset="13019141" uid="290680" user="wheelmap_visitor">
+  <node id="1831908522" lat="48.3962260" lon="9.9580380" version="4" timestamp="2013-04-28T14:36:33Z" changeset="15896514" uid="473431" user="cmichi">
     <tag k="addr:city" v="Ulm-Söflingen"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="2"/>
     <tag k="addr:postcode" v="89077"/>
     <tag k="addr:street" v="Ochsengasse"/>
     <tag k="amenity" v="restaurant"/>
-    <tag k="created_by" v="iLOE 1.9"/>
     <tag k="description" v="Sehr uriges Restaurant mit österreichischer Küche"/>
     <tag k="name" v="Zum Franzl"/>
-    <tag k="opening_hours" v="Di - Sa ab 18.00 Uhr Mittagstisch: Mi - Sa 11.00 bis 14.00 Uhr nach vorheriger Reservierung"/>
+    <tag k="opening_hours" v="Tu-Sa 18:00+"/>
     <tag k="phone" v="+49 (0)731 384897"/>
     <tag k="website" v="http://www.zum-franzl.de/"/>
     <tag k="wheelchair" v="no"/>
@@ -2851,7 +2859,7 @@
   </node>
   <node id="1835512333" lat="48.3855916" lon="9.9853644" version="1" timestamp="2012-07-23T16:23:22Z" changeset="12452991" uid="168758" user="NUP"/>
   <node id="1835512370" lat="48.3862471" lon="9.9857620" version="1" timestamp="2012-07-23T16:23:23Z" changeset="12452991" uid="168758" user="NUP"/>
-  <node id="1904138785" lat="48.3886239" lon="10.0233844" version="1" timestamp="2012-09-07T12:24:02Z" changeset="13022347" uid="88763" user="pinkpussy">
+  <node id="1904138785" lat="48.3886239" lon="10.0233844" version="2" timestamp="2013-04-28T18:33:13Z" changeset="15899510" uid="1398826" user="e2394105">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="26"/>
@@ -2860,7 +2868,7 @@
     <tag k="amenity" v="brothel"/>
     <tag k="brothel:saunaclub" v="yes"/>
     <tag k="name" v="FKK Safari"/>
-    <tag k="opening_hours" v="Su-Th 11:00-02:00, Fr-Sa 11:00-04:00"/>
+    <tag k="opening_hours" v="Su-Th 11:00-02:00; Fr-Sa 11:00-04:00"/>
     <tag k="phone" v="+49 731 76669"/>
     <tag k="website" v="http://www.fkk-safari.de"/>
   </node>
@@ -2913,6 +2921,23 @@
   <node id="2201614979" lat="48.3758630" lon="10.0257312" version="1" timestamp="2013-03-14T14:01:45Z" changeset="15362834" uid="557496" user="claudia10"/>
   <node id="2211255871" lat="48.4012930" lon="9.9916542" version="1" timestamp="2013-03-20T12:57:27Z" changeset="15431332" uid="346758" user="kukuk"/>
   <node id="2266339485" lat="48.4151055" lon="10.0383696" version="1" timestamp="2013-04-13T21:09:43Z" changeset="15717758" uid="168758" user="NUP"/>
+  <node id="2284371893" lat="48.3908310" lon="10.0028630" version="1" timestamp="2013-04-28T15:02:34Z" changeset="15896831" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="38"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Turmstraße"/>
+    <tag k="amenity" v="post_office"/>
+    <tag k="name" v="Hermes (Freie Tankstelle)"/>
+    <tag k="opening_hours" v="Mo-Fr 07:00-20:00; Sa 08:00-20:00"/>
+    <tag k="operator" v="Karl-Heinz Ott GmbH"/>
+    <tag k="phone" v="+49 731 / 9773663"/>
+    <tag k="website" v="https://www.hermespaketshop.de/"/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
+  <node id="2284371897" lat="48.3908750" lon="10.0028916" version="1" timestamp="2013-04-28T15:02:34Z" changeset="15896831" uid="168758" user="NUP"/>
+  <node id="2284371898" lat="48.3908892" lon="10.0030151" version="1" timestamp="2013-04-28T15:02:34Z" changeset="15896831" uid="168758" user="NUP"/>
+  <node id="2284371899" lat="48.3909233" lon="10.0029615" version="1" timestamp="2013-04-28T15:02:34Z" changeset="15896831" uid="168758" user="NUP"/>
   <way id="27098755" version="5" timestamp="2011-03-07T21:00:49Z" changeset="7488808" uid="242437" user="skleber">
     <nd ref="297323662"/>
     <nd ref="1191595173"/>
@@ -3709,29 +3734,6 @@
     <tag k="shop" v="garden_centre"/>
     <tag k="website" v="http://www.vietzen.de/"/>
   </way>
-  <way id="77416086" version="6" timestamp="2012-07-16T15:02:49Z" changeset="12246427" uid="168758" user="NUP">
-    <nd ref="911184534"/>
-    <nd ref="911184536"/>
-    <nd ref="911184537"/>
-    <nd ref="911184538"/>
-    <nd ref="1827605965"/>
-    <nd ref="911184534"/>
-    <tag k="addr:city" v="Neu-Ulm"/>
-    <tag k="addr:country" v="DE"/>
-    <tag k="addr:housenumber" v="1"/>
-    <tag k="addr:postcode" v="89231"/>
-    <tag k="addr:street" v="Johannesplatz"/>
-    <tag k="amenity" v="place_of_worship"/>
-    <tag k="building" v="yes"/>
-    <tag k="denomination" v="catholic"/>
-    <tag k="email" v="pfarrbuero@st-johann-neu-ulm.de"/>
-    <tag k="fax" v="0731/97059-25"/>
-    <tag k="name" v="St. Johann Baptist"/>
-    <tag k="opening_hours" v="Tu-We 08:00-12:00; Th 15:00-18:00"/>
-    <tag k="phone" v="0731/97059-0"/>
-    <tag k="religion" v="christian"/>
-    <tag k="website" v="http://www.st-johann-neu-ulm.de/"/>
-  </way>
   <way id="79057048" version="5" timestamp="2011-01-18T20:00:59Z" changeset="7010549" uid="70696" user="xybot">
     <nd ref="923986778"/>
     <nd ref="923986633"/>
@@ -4101,29 +4103,6 @@
     <tag k="shop" v="supermarket"/>
     <tag k="website" v="http://www.lidl.de/"/>
     <tag k="wikipedia:de" v="Lidl"/>
-  </way>
-  <way id="83824767" version="5" timestamp="2012-07-24T22:03:13Z" changeset="12477465" uid="424360" user="Nachtspazz">
-    <nd ref="975892115"/>
-    <nd ref="975892136"/>
-    <nd ref="1827605886"/>
-    <nd ref="975892144"/>
-    <nd ref="975892147"/>
-    <nd ref="975892115"/>
-    <tag k="addr:city" v="Neu-Ulm"/>
-    <tag k="addr:country" v="DE"/>
-    <tag k="addr:housenumber" v="2"/>
-    <tag k="addr:postcode" v="89231"/>
-    <tag k="addr:street" v="Petrusplatz"/>
-    <tag k="amenity" v="place_of_worship"/>
-    <tag k="building" v="yes"/>
-    <tag k="denomination" v="protestant"/>
-    <tag k="email" v="pfarramt.petrus.neu-ulm@elkb.de"/>
-    <tag k="fax" v="0731-97486-51"/>
-    <tag k="name" v="Petruskirche"/>
-    <tag k="opening_hours" v="Mo 08:30-12:00, 14:00-16:00; Tu 08:30-12:00; We-Th 08:30-12:00, 14:00-16:00; Fr 08:30-12:00"/>
-    <tag k="phone" v="0731-97486-50"/>
-    <tag k="religion" v="christian"/>
-    <tag k="website" v="http://www.petruskirche.telebus.de/"/>
   </way>
   <way id="85077604" version="4" timestamp="2013-01-25T12:02:50Z" changeset="14777636" uid="290680" user="wheelmap_visitor">
     <nd ref="987070686"/>
@@ -4624,6 +4603,25 @@
     <tag k="phone" v="0731/9458330"/>
     <tag k="sport" v="skating"/>
     <tag k="website" v="http://www.wonnemar.de/ulm/index.html"/>
+  </way>
+  <way id="93227797" version="2" timestamp="2013-04-28T15:02:34Z" changeset="15896831" uid="168758" user="NUP">
+    <nd ref="801887741"/>
+    <nd ref="1080688491"/>
+    <nd ref="1080688606"/>
+    <nd ref="1080688652"/>
+    <nd ref="801887741"/>
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="41"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Turmstraße"/>
+    <tag k="building" v="yes"/>
+    <tag k="fax" v="+49 731 / 1768362"/>
+    <tag k="name" v="A.T.M. Autoservice GmbH"/>
+    <tag k="opening_hours" v="Mo-Fr 08:30-18:00; Sa 09:00-14:30"/>
+    <tag k="operator" v="A.T.M. Autoservice GmbH"/>
+    <tag k="phone" v="+49 731 / 1768360"/>
+    <tag k="shop" v="car_repair"/>
   </way>
   <way id="93337700" version="2" timestamp="2012-01-24T14:37:04Z" changeset="10484486" uid="168758" user="NUP">
     <nd ref="1072959932"/>
@@ -7268,6 +7266,25 @@
     <tag k="name" v="Tamoil"/>
     <tag k="opening_hours" v="Mo-Fr 06:00-24:00; Sa 07:00-24:00; Su 08:00-24:00"/>
     <tag k="shop" v="kiosk"/>
+  </way>
+  <way id="219245303" version="1" timestamp="2013-04-28T15:02:34Z" changeset="15896831" uid="168758" user="NUP">
+    <nd ref="2284371897"/>
+    <nd ref="2284371899"/>
+    <nd ref="2284371898"/>
+    <nd ref="1080688589"/>
+    <nd ref="2284371897"/>
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="38"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Turmstraße"/>
+    <tag k="email" v="rezervasyon@nurtravel.de"/>
+    <tag k="fax" v="0731/9727457"/>
+    <tag k="name" v="Nur Travel"/>
+    <tag k="opening_hours" v="Mo-Fr 09:00-19:00; Sa 09:00-15:00"/>
+    <tag k="phone" v="0731/9727479"/>
+    <tag k="shop" v="travel_agency"/>
+    <tag k="website" v="http://www.nurtravel.de/"/>
   </way>
   <relation id="374356" version="6" timestamp="2012-07-19T18:53:32Z" changeset="12343862" uid="130472" user="fx99">
     <member type="way" ref="172199683" role="outer"/>
