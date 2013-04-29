@@ -33,6 +33,10 @@ A public instance of this project is hosted on
 
 # Getting started
 
+This project uses node.js as a server-side runtime environment.
+To run the project you need to install [nodejs](http://nodejs.org/) 
+and [npm](https://npmjs.org/).
+
 	$ git clone https://github.com/cmichi/ulm-opening-hours.git
 	$ cd ulm-opening-hours/
 
