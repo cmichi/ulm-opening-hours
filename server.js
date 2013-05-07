@@ -7,8 +7,22 @@ var data = xmlParser.getData();
 var parse_err_output = false;
 
 var app = express();
+app.get('/', function(req, res) {
+console.log(req.query)
+	var file = "/static/index.html";
+	if ("_escaped_fragment_" in req.query) 
+		file = "/static/ajax-snapshot.html";
+
+	try {
+		res.sendfile(__dirname + file);
+	} catch(err) {
+		res.send(404);
+	}
+});
+
 app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
+
 
 var server = require('http').createServer(app);
 
