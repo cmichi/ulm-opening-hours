@@ -6,8 +6,10 @@ var initialized = false;
 var prefs = {};
 var prefs_dropped = {};
 var now = new Date();
+var tileLayer;
 
-var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
+var cloudmadeUrl_day = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
+var cloudmadeUrl_night = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/67367/256/{z}/{x}/{y}.png';
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
 
 // how often does the client pull new opening times?
@@ -48,7 +50,7 @@ $(function() {
 		, zoom: 14
 		, layers: tile_groups
 	});
-	L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
+	tileLayer = L.tileLayer(cloudmadeUrl_day, {attribution: cloudmadeAttribution}).addTo(map);
 
 	legend = L.control();
 	legend.onAdd = function (map) {
@@ -375,7 +377,9 @@ function toggle_drop(here) {
 
 
 function dialog() {
-	$('#dialog-confirm').modal();
+	tileLayer.setUrl(cloudmadeUrl_night);
+	tileLayer.redraw();
+	//$('#dialog-confirm').modal();
 }
 
 
