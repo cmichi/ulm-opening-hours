@@ -11,20 +11,18 @@ var doc = new dom().parseFromString(xml)
 var nodes = xpath.select("//node", doc);
 var ways = xpath.select("//way", doc);
 var relations = xpath.select("//relation", doc);
-//var all = nodes.concat(way).concat(relation);
-//all = nodes;
 
 var results = [];
 
 exports.getData = function() {
+	console.log("Starting to parse data...");
+
 	for (var i in nodes) {
 	//break;
 		var new_doc = new dom().parseFromString( nodes[i].toString() );
 		var obj = getObj(new_doc);
-		//console.log(nodes[i].toString())
 
 		if (obj != undefined) {
-			//console.log(JSON.stringify(obj));
 			results.push(obj);
 		}
 	}
@@ -36,7 +34,6 @@ exports.getData = function() {
 
 		if (obj != undefined && obj.name != undefined &&
 		    obj.opening_hours != undefined) {
-			//console.log(obj.name + ":" + obj.id)
 			results.push(obj);
 		}
 
@@ -45,31 +42,24 @@ exports.getData = function() {
 	for (var i in relations) {
 		var relation_doc = new dom().parseFromString( relations[i].toString() );
 		var relation_way = xpath.select("//member[@type='way']/@ref", relation_doc);
-		//console.log(JSON.stringify(relation_doc))
 
 		for (var n = 0; n < relation_way.length; n++) {
 			var ref_nid = relation_way[n].value
-			//console.log(ref_nid)
-
 			var nd = xpath.select("//way[@id=" + ref_nid + "]", doc);
+
 			if (nd.toString() != "") {
 				var way_doc = new dom().parseFromString( nd.toString() );
 				var obj = parseWay(way_doc);
-				//console.log("obj " + JSON.stringify(obj))
 
 				if (obj != undefined && obj.name != undefined &&
 				    obj.opening_hours != undefined) {
-					//console.log(obj.name + ":" + obj.id)
 					results.push(obj);
 				}
 			}
 		}
-		//break;
-
-
 	}
-	console.log(results.length)
-	//console.log(JSON.stringify(results));
+
+	console.log("Parsed " + results.length + " facilities with opening_hours");
 	return results;
 }
 
@@ -79,7 +69,6 @@ function parseWay(way_doc) {
 	/* problem:  lat/lon is missing.
 	   solution: search the first referenced node and get it */
 	var ref_nodes = xpath.select("//nd/@ref", way_doc);
-	//console.log("foo " + way_doc)
 	if (ref_nodes == undefined || ref_nodes.length === 0) 
 		return undefined;
 
@@ -95,18 +84,15 @@ function parseWay(way_doc) {
 
 		/* attach to obj */
 		var new_way = way_doc.toString();
-		//var new_way = ways[i].toString();
 		new_way = new_way.replace("<way ", "<node " + 'lat="' + lat + '"' + ' lon="' + lon + '" ');
-		new_way = new_way.replace("</way>", "</node>")
+		new_way = new_way.replace("</way>", "</node>");
 		
 		var _new_doc = new dom().parseFromString(new_way);
 		var obj = getObj(_new_doc);
 
 		if (obj != undefined && obj.name != undefined &&
 		    obj.opening_hours != undefined) {
-			//results.push(obj);
 			return obj;
-			//console.log(obj.name + ":" + obj.id)
 			break;
 		}
 
