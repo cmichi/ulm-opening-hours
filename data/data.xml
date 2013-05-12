@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="Overpass API">
 <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
-<meta osm_base="2013-05-06T16:16:04Z"/>
+<meta osm_base="2013-05-10T16:35:04Z"/>
 
   <node id="142006030" lat="48.4143285" lon="9.9456495" version="14" timestamp="2013-04-13T14:55:52Z" changeset="15713255" uid="287306" user="Matthias Frank">
     <tag k="addr:country" v="DE"/>
@@ -88,7 +88,7 @@
     <tag k="opening_hours" v="24/7"/>
     <tag k="wheelchair" v="yes"/>
   </node>
-  <node id="308064197" lat="48.3688055" lon="10.0147238" version="6" timestamp="2011-01-05T15:36:23Z" changeset="6873004" uid="168758" user="NUP">
+  <node id="308064197" lat="48.3688055" lon="10.0147238" version="7" timestamp="2013-05-09T11:58:13Z" changeset="16046681" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm/Ludwigsfeld"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="17"/>
@@ -96,6 +96,7 @@
     <tag k="addr:street" v="Reichenberger Straße"/>
     <tag k="amenity" v="bank"/>
     <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
     <tag k="fax" v="0731/985620-559"/>
     <tag k="name" v="Sparkasse Ludwigsfeld"/>
     <tag k="opening_hours" v="Mo-We 08:30-12:15, 14:00-16:00; Th 08:30-12:15, 14:00-17:30; Fr 08:30-12:15, 14:00-16:00"/>
@@ -186,6 +187,14 @@
   <node id="391316377" lat="48.4055431" lon="10.0056288" version="6" timestamp="2011-06-21T13:05:25Z" changeset="8504504" uid="168758" user="NUP"/>
   <node id="391316378" lat="48.4057143" lon="10.0058486" version="6" timestamp="2011-06-21T13:05:25Z" changeset="8504504" uid="168758" user="NUP"/>
   <node id="391316379" lat="48.4059730" lon="10.0053915" version="8" timestamp="2011-06-21T13:05:25Z" changeset="8504504" uid="168758" user="NUP"/>
+  <node id="392464014" lat="48.3834193" lon="10.0057781" version="10" timestamp="2013-05-09T14:02:46Z" changeset="16048180" uid="473431" user="cmichi">
+    <tag k="amenity" v="restaurant"/>
+    <tag k="name" v="Peach Pit"/>
+    <tag k="opening_hours" v="Mo, Tu, We, Th, Fr, Su 11:00-01:00; Sa 11:00-02:00;"/>
+    <tag k="smoking" v="no"/>
+    <tag k="website" v="http://www.peachpit.de"/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
   <node id="438205400" lat="48.3989138" lon="10.0057567" version="8" timestamp="2012-07-19T18:42:17Z" changeset="12342561" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
@@ -553,6 +562,19 @@
     <tag k="wheelchair" v="yes"/>
   </node>
   <node id="801887741" lat="48.3910893" lon="10.0035467" version="4" timestamp="2013-04-08T13:23:06Z" changeset="15654556" uid="287306" user="Matthias Frank"/>
+  <node id="802739484" lat="48.3873093" lon="10.0023193" version="8" timestamp="2013-05-09T11:58:14Z" changeset="16046681" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="39"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Memminger Straße"/>
+    <tag k="amenity" v="atm"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
+    <tag k="name" v="Sparkasse Wiblinger Steig"/>
+    <tag k="opening_hours" v="24/7"/>
+    <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
+    <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
+  </node>
   <node id="803744296" lat="48.3947868" lon="10.0149365" version="7" timestamp="2013-04-29T16:37:40Z" changeset="15910651" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
@@ -658,11 +680,8 @@
   <node id="814815425" lat="48.3879951" lon="10.0298975" version="3" timestamp="2011-06-25T21:42:59Z" changeset="8547086" uid="168758" user="NUP"/>
   <node id="814914108" lat="48.3874306" lon="10.0342985" version="3" timestamp="2012-05-12T12:01:14Z" changeset="11575885" uid="168758" user="NUP"/>
   <node id="814914123" lat="48.3957190" lon="10.0220935" version="2" timestamp="2011-06-15T16:13:14Z" changeset="8448435" uid="168758" user="NUP"/>
-  <node id="814914131" lat="48.3929377" lon="10.0225865" version="3" timestamp="2011-06-15T14:35:23Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="814914276" lat="48.3954907" lon="10.0218696" version="2" timestamp="2011-06-15T16:12:38Z" changeset="8448435" uid="168758" user="NUP"/>
   <node id="814914389" lat="48.3955916" lon="10.0216364" version="2" timestamp="2011-06-15T16:12:56Z" changeset="8448435" uid="168758" user="NUP"/>
-  <node id="814914399" lat="48.3928737" lon="10.0225846" version="3" timestamp="2011-06-15T14:34:39Z" changeset="8447808" uid="168758" user="NUP"/>
-  <node id="814914455" lat="48.3929318" lon="10.0230627" version="2" timestamp="2011-06-15T14:34:54Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="814914558" lat="48.3958199" lon="10.0218603" version="2" timestamp="2011-06-15T16:12:36Z" changeset="8448435" uid="168758" user="NUP"/>
   <node id="817065121" lat="48.3889218" lon="10.0173195" version="5" timestamp="2011-04-10T19:00:07Z" changeset="7826288" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
@@ -1028,6 +1047,7 @@
   <node id="970177003" lat="48.3837988" lon="10.0226052" version="2" timestamp="2011-06-11T20:53:58Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="970177020" lat="48.3852975" lon="10.0186349" version="3" timestamp="2011-06-11T20:53:30Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="970177046" lat="48.3850951" lon="10.0193842" version="3" timestamp="2011-06-11T20:53:24Z" changeset="8409900" uid="168758" user="NUP"/>
+  <node id="970177110" lat="48.3854176" lon="10.0199039" version="3" timestamp="2011-06-11T20:52:54Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="970177245" lat="48.3846280" lon="10.0203364" version="2" timestamp="2011-06-11T20:53:00Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="970177252" lat="48.3839405" lon="10.0221530" version="2" timestamp="2011-06-11T20:53:48Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="970177318" lat="48.3854431" lon="10.0195656" version="3" timestamp="2011-06-11T20:53:47Z" changeset="8409900" uid="168758" user="NUP"/>
@@ -1040,6 +1060,7 @@
   <node id="970177740" lat="48.3851110" lon="10.0187203" version="3" timestamp="2011-06-11T20:53:39Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="970177746" lat="48.3853090" lon="10.0192862" version="3" timestamp="2011-06-11T20:53:37Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="970177929" lat="48.3840185" lon="10.0222684" version="2" timestamp="2011-06-11T20:53:22Z" changeset="8409900" uid="168758" user="NUP"/>
+  <node id="970178018" lat="48.3854896" lon="10.0198697" version="3" timestamp="2011-06-11T20:52:40Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="970178079" lat="48.3851688" lon="10.0190069" version="3" timestamp="2011-06-11T20:52:45Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="974743110" lat="48.3756297" lon="10.0058670" version="5" timestamp="2012-01-17T16:36:54Z" changeset="10419319" uid="168758" user="NUP"/>
   <node id="974743123" lat="48.3781836" lon="10.0058296" version="2" timestamp="2011-06-25T17:02:20Z" changeset="8544672" uid="168758" user="NUP"/>
@@ -1068,6 +1089,20 @@
   <node id="974743365" lat="48.3761298" lon="10.0062886" version="5" timestamp="2012-01-17T16:36:55Z" changeset="10419319" uid="168758" user="NUP"/>
   <node id="974743371" lat="48.3752870" lon="10.0057236" version="4" timestamp="2012-01-17T16:36:55Z" changeset="10419319" uid="168758" user="NUP"/>
   <node id="974743391" lat="48.3753715" lon="10.0065100" version="4" timestamp="2012-01-17T16:36:55Z" changeset="10419319" uid="168758" user="NUP"/>
+  <node id="975892129" lat="48.4008406" lon="10.0227220" version="6" timestamp="2013-05-09T11:58:14Z" changeset="16046681" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="1"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Heinrich-Heine-Straße"/>
+    <tag k="amenity" v="bank"/>
+    <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
+    <tag k="name" v="Sparkasse Neu-Ulm Offenhausen"/>
+    <tag k="opening_hours" v="Mo-We 08:30-12:15, 14:00-16:00; Th 08:30-12:15, 14:00-17:30; Fr 08:30-12:15, 14:00-16:00"/>
+    <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
+    <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
+  </node>
   <node id="987070656" lat="48.3749122" lon="10.0066007" version="2" timestamp="2011-06-25T18:04:58Z" changeset="8545269" uid="168758" user="NUP"/>
   <node id="987070660" lat="48.3753657" lon="10.0064562" version="4" timestamp="2012-01-17T16:36:55Z" changeset="10419319" uid="168758" user="NUP"/>
   <node id="987070675" lat="48.3750048" lon="10.0066016" version="2" timestamp="2011-06-25T18:04:57Z" changeset="8545269" uid="168758" user="NUP"/>
@@ -1303,6 +1338,12 @@
   <node id="1141039617" lat="48.3790052" lon="10.0098933" version="2" timestamp="2013-04-24T17:19:25Z" changeset="15851756" uid="287306" user="Matthias Frank"/>
   <node id="1141039718" lat="48.3792114" lon="10.0096121" version="2" timestamp="2013-04-24T17:19:25Z" changeset="15851756" uid="287306" user="Matthias Frank"/>
   <node id="1141040119" lat="48.3792921" lon="10.0092444" version="2" timestamp="2013-04-24T17:19:25Z" changeset="15851756" uid="287306" user="Matthias Frank"/>
+  <node id="1152914404" lat="48.3789574" lon="10.0069707" version="1" timestamp="2011-02-14T16:26:57Z" changeset="7287079" uid="168758" user="NUP"/>
+  <node id="1152914439" lat="48.3790112" lon="10.0074863" version="1" timestamp="2011-02-14T16:27:00Z" changeset="7287079" uid="168758" user="NUP"/>
+  <node id="1152914458" lat="48.3790011" lon="10.0073901" version="1" timestamp="2011-02-14T16:27:01Z" changeset="7287079" uid="168758" user="NUP"/>
+  <node id="1152914463" lat="48.3789767" lon="10.0071544" version="1" timestamp="2011-02-14T16:27:01Z" changeset="7287079" uid="168758" user="NUP"/>
+  <node id="1152914516" lat="48.3791486" lon="10.0074536" version="1" timestamp="2011-02-14T16:27:04Z" changeset="7287079" uid="168758" user="NUP"/>
+  <node id="1152914558" lat="48.3790946" lon="10.0069381" version="1" timestamp="2011-02-14T16:27:07Z" changeset="7287079" uid="168758" user="NUP"/>
   <node id="1159042454" lat="48.4000461" lon="9.9565838" version="2" timestamp="2013-01-28T07:50:39Z" changeset="14818411" uid="12096" user="HCX Biker"/>
   <node id="1159042638" lat="48.4002063" lon="9.9563424" version="2" timestamp="2013-01-28T07:50:39Z" changeset="14818411" uid="12096" user="HCX Biker"/>
   <node id="1159042642" lat="48.4004556" lon="9.9572006" version="2" timestamp="2013-01-28T07:50:39Z" changeset="14818411" uid="12096" user="HCX Biker"/>
@@ -1511,35 +1552,14 @@
   <node id="1226843157" lat="48.3999822" lon="10.0105861" version="1" timestamp="2011-03-31T16:54:12Z" changeset="7727711" uid="168758" user="NUP">
     <tag k="entrance" v="emergency"/>
   </node>
-  <node id="1245962491" lat="48.3916609" lon="10.0192570" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962502" lat="48.3912794" lon="10.0188578" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962533" lat="48.3911409" lon="10.0189285" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962584" lat="48.3912768" lon="10.0203229" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962673" lat="48.3911384" lon="10.0203224" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962717" lat="48.3912793" lon="10.0189291" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962738" lat="48.3916000" lon="10.0188591" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962835" lat="48.3922017" lon="10.0203292" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962846" lat="48.3915993" lon="10.0192567" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962866" lat="48.3915974" lon="10.0203461" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245962904" lat="48.3916603" lon="10.0196119" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245963004" lat="48.3912767" lon="10.0203448" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245963010" lat="48.3917121" lon="10.0196121" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245963108" lat="48.3915974" lon="10.0203267" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245963150" lat="48.3922028" lon="10.0197071" version="2" timestamp="2011-08-23T11:07:24Z" changeset="9102507" uid="168758" user="NUP"/>
-  <node id="1245963171" lat="48.3917119" lon="10.0197051" version="2" timestamp="2011-08-23T11:07:25Z" changeset="9102507" uid="168758" user="NUP"/>
   <node id="1247206734" lat="48.3953616" lon="10.0125507" version="1" timestamp="2011-04-16T16:54:43Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206735" lat="48.3958392" lon="10.0134020" version="1" timestamp="2011-04-16T16:54:43Z" changeset="7879915" uid="168758" user="NUP"/>
-  <node id="1247206740" lat="48.3955802" lon="10.0142932" version="1" timestamp="2011-04-16T16:54:44Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206743" lat="48.3952522" lon="10.0137635" version="1" timestamp="2011-04-16T16:54:45Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206750" lat="48.3953345" lon="10.0125889" version="1" timestamp="2011-04-16T16:54:45Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206753" lat="48.3952359" lon="10.0137372" version="1" timestamp="2011-04-16T16:54:46Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206787" lat="48.3953593" lon="10.0140731" version="1" timestamp="2011-04-16T16:54:48Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206838" lat="48.3957425" lon="10.0132461" version="1" timestamp="2011-04-16T16:54:52Z" changeset="7879915" uid="168758" user="NUP"/>
-  <node id="1247206843" lat="48.3959396" lon="10.0137809" version="1" timestamp="2011-04-16T16:54:53Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206879" lat="48.3950746" lon="10.0134770" version="1" timestamp="2011-04-16T16:54:54Z" changeset="7879915" uid="168758" user="NUP"/>
-  <node id="1247206883" lat="48.3960115" lon="10.0136798" version="1" timestamp="2011-04-16T16:54:54Z" changeset="7879915" uid="168758" user="NUP"/>
-  <node id="1247206890" lat="48.3954320" lon="10.0141904" version="1" timestamp="2011-04-16T16:54:55Z" changeset="7879915" uid="168758" user="NUP"/>
-  <node id="1247206918" lat="48.3954771" lon="10.0141269" version="1" timestamp="2011-04-16T16:54:55Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206925" lat="48.3953063" lon="10.0125434" version="1" timestamp="2011-04-16T16:54:56Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206948" lat="48.3957032" lon="10.0131015" version="1" timestamp="2011-04-16T16:54:56Z" changeset="7879915" uid="168758" user="NUP"/>
   <node id="1247206974" lat="48.3948698" lon="10.0131469" version="1" timestamp="2011-04-16T16:54:57Z" changeset="7879915" uid="168758" user="NUP"/>
@@ -1674,12 +1694,12 @@
   <node id="1311050902" lat="48.3626405" lon="10.0735147" version="1" timestamp="2011-06-03T21:00:03Z" changeset="8333907" uid="168758" user="NUP"/>
   <node id="1311050953" lat="48.3625476" lon="10.0735535" version="1" timestamp="2011-06-03T21:00:05Z" changeset="8333907" uid="168758" user="NUP"/>
   <node id="1311051067" lat="48.3626024" lon="10.0738502" version="1" timestamp="2011-06-03T21:00:10Z" changeset="8333907" uid="168758" user="NUP"/>
-  <node id="1311982328" lat="48.3953601" lon="9.9974821" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
-  <node id="1311982351" lat="48.3955190" lon="9.9982605" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
-  <node id="1311982450" lat="48.3956439" lon="9.9981363" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
-  <node id="1311982465" lat="48.3952948" lon="9.9977445" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
-  <node id="1311982484" lat="48.3952625" lon="9.9977779" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
-  <node id="1311982553" lat="48.3952021" lon="9.9976456" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
+  <node id="1311982328" lat="48.3953585" lon="9.9974852" version="3" timestamp="2013-05-09T11:58:15Z" changeset="16046681" uid="168758" user="NUP"/>
+  <node id="1311982351" lat="48.3955218" lon="9.9982590" version="3" timestamp="2013-05-09T11:58:15Z" changeset="16046681" uid="168758" user="NUP"/>
+  <node id="1311982450" lat="48.3956478" lon="9.9981310" version="3" timestamp="2013-05-09T11:58:15Z" changeset="16046681" uid="168758" user="NUP"/>
+  <node id="1311982465" lat="48.3952908" lon="9.9977434" version="3" timestamp="2013-05-09T11:58:15Z" changeset="16046681" uid="168758" user="NUP"/>
+  <node id="1311982484" lat="48.3952603" lon="9.9977744" version="3" timestamp="2013-05-09T11:58:15Z" changeset="16046681" uid="168758" user="NUP"/>
+  <node id="1311982553" lat="48.3952020" lon="9.9976442" version="3" timestamp="2013-05-09T11:58:15Z" changeset="16046681" uid="168758" user="NUP"/>
   <node id="1313559538" lat="48.4101319" lon="10.0714748" version="1" timestamp="2011-06-05T22:16:40Z" changeset="8355086" uid="168758" user="NUP"/>
   <node id="1313559575" lat="48.3983626" lon="10.0050361" version="3" timestamp="2011-07-18T13:32:09Z" changeset="8758492" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
@@ -1764,6 +1784,8 @@
   <node id="1320813215" lat="48.3854420" lon="10.0192194" version="1" timestamp="2011-06-11T20:51:46Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320813285" lat="48.3843273" lon="10.0254810" version="1" timestamp="2011-06-11T20:51:47Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320813321" lat="48.3842906" lon="10.0255364" version="1" timestamp="2011-06-11T20:51:48Z" changeset="8409900" uid="168758" user="NUP"/>
+  <node id="1320813640" lat="48.3854509" lon="10.0196847" version="1" timestamp="2011-06-11T20:51:55Z" changeset="8409900" uid="168758" user="NUP"/>
+  <node id="1320813681" lat="48.3854554" lon="10.0196245" version="1" timestamp="2011-06-11T20:51:55Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320813686" lat="48.3843006" lon="10.0261135" version="1" timestamp="2011-06-11T20:51:56Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320813884" lat="48.3842798" lon="10.0251901" version="1" timestamp="2011-06-11T20:52:00Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320813976" lat="48.3840751" lon="10.0256122" version="1" timestamp="2011-06-11T20:52:01Z" changeset="8409900" uid="168758" user="NUP"/>
@@ -1774,11 +1796,15 @@
   <node id="1320814515" lat="48.3841522" lon="10.0257279" version="1" timestamp="2011-06-11T20:52:07Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320814604" lat="48.3854567" lon="10.0192126" version="1" timestamp="2011-06-11T20:52:07Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320814611" lat="48.3838139" lon="10.0223470" version="1" timestamp="2011-06-11T20:52:08Z" changeset="8409900" uid="168758" user="NUP"/>
+  <node id="1320814676" lat="48.3854780" lon="10.0196137" version="1" timestamp="2011-06-11T20:52:09Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320814720" lat="48.3843097" lon="10.0256294" version="1" timestamp="2011-06-11T20:52:09Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320814820" lat="48.3843822" lon="10.0253438" version="1" timestamp="2011-06-11T20:52:10Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320814910" lat="48.3837456" lon="10.0224517" version="1" timestamp="2011-06-11T20:52:11Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320814936" lat="48.3842413" lon="10.0253612" version="1" timestamp="2011-06-11T20:52:12Z" changeset="8409900" uid="168758" user="NUP"/>
+  <node id="1320815093" lat="48.3853756" lon="10.0197030" version="1" timestamp="2011-06-11T20:52:13Z" changeset="8409900" uid="168758" user="NUP"/>
+  <node id="1320815237" lat="48.3854891" lon="10.0196666" version="1" timestamp="2011-06-11T20:52:15Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1320815322" lat="48.3842410" lon="10.0260240" version="1" timestamp="2011-06-11T20:52:16Z" changeset="8409900" uid="168758" user="NUP"/>
+  <node id="1320815344" lat="48.3853935" lon="10.0196945" version="1" timestamp="2011-06-11T20:52:17Z" changeset="8409900" uid="168758" user="NUP"/>
   <node id="1324363331" lat="48.4132147" lon="9.9537266" version="3" timestamp="2011-11-01T18:49:43Z" changeset="9709814" uid="290680" user="wheelmap_visitor">
     <tag k="amenity" v="library"/>
     <tag k="building" v="no"/>
@@ -1786,7 +1812,6 @@
     <tag k="opening_hours" v="24/7"/>
     <tag k="wheelchair" v="yes"/>
   </node>
-  <node id="1326503311" lat="48.3926345" lon="10.0230543" version="1" timestamp="2011-06-15T14:33:59Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503322" lat="48.3882757" lon="10.0231815" version="1" timestamp="2011-06-15T14:33:59Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503333" lat="48.3865682" lon="10.0199002" version="1" timestamp="2011-06-15T14:33:59Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503361" lat="48.3873393" lon="10.0204987" version="2" timestamp="2012-01-27T22:04:53Z" changeset="10516873" uid="168758" user="NUP"/>
@@ -1802,22 +1827,16 @@
   <node id="1326503503" lat="48.3881096" lon="10.0249610" version="1" timestamp="2011-06-15T14:34:03Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503545" lat="48.3915735" lon="10.0222668" version="1" timestamp="2011-06-15T14:34:05Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503567" lat="48.3907240" lon="10.0228439" version="1" timestamp="2011-06-15T14:34:05Z" changeset="8447808" uid="168758" user="NUP"/>
-  <node id="1326503593" lat="48.3926417" lon="10.0224782" version="1" timestamp="2011-06-15T14:34:06Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503597" lat="48.3879008" lon="10.0234994" version="1" timestamp="2011-06-15T14:34:06Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503620" lat="48.3907302" lon="10.0236261" version="1" timestamp="2011-06-15T14:34:06Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503644" lat="48.3892007" lon="10.0219012" version="1" timestamp="2011-06-15T14:34:07Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503673" lat="48.3887263" lon="10.0257791" version="1" timestamp="2011-06-15T14:34:07Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503699" lat="48.3877741" lon="10.0263015" version="1" timestamp="2011-06-15T14:34:08Z" changeset="8447808" uid="168758" user="NUP"/>
-  <node id="1326503718" lat="48.3926424" lon="10.0224239" version="1" timestamp="2011-06-15T14:34:08Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503741" lat="48.3884918" lon="10.0222500" version="1" timestamp="2011-06-15T14:34:09Z" changeset="8447808" uid="168758" user="NUP"/>
-  <node id="1326503743" lat="48.3926025" lon="10.0227017" version="1" timestamp="2011-06-15T14:34:09Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503788" lat="48.3886511" lon="10.0263798" version="1" timestamp="2011-06-15T14:34:11Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503805" lat="48.3902218" lon="10.0224684" version="1" timestamp="2011-06-15T14:34:11Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503865" lat="48.3883190" lon="10.0250799" version="1" timestamp="2011-06-15T14:34:13Z" changeset="8447808" uid="168758" user="NUP"/>
-  <node id="1326503905" lat="48.3925673" lon="10.0227007" version="1" timestamp="2011-06-15T14:34:14Z" changeset="8447808" uid="168758" user="NUP"/>
-  <node id="1326503919" lat="48.3928757" lon="10.0224305" version="1" timestamp="2011-06-15T14:34:14Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503924" lat="48.3909384" lon="10.0221936" version="1" timestamp="2011-06-15T14:34:14Z" changeset="8447808" uid="168758" user="NUP"/>
-  <node id="1326503950" lat="48.3926389" lon="10.0227028" version="1" timestamp="2011-06-15T14:34:15Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503973" lat="48.3910229" lon="10.0216358" version="1" timestamp="2011-06-15T14:34:15Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326503997" lat="48.3890292" lon="10.0225864" version="1" timestamp="2011-06-15T14:34:16Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326504011" lat="48.3917982" lon="10.0216424" version="1" timestamp="2011-06-15T14:34:16Z" changeset="8447808" uid="168758" user="NUP"/>
@@ -1827,7 +1846,6 @@
   <node id="1326504089" lat="48.3901302" lon="10.0241706" version="1" timestamp="2011-06-15T14:34:18Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326504091" lat="48.3872984" lon="10.0204876" version="2" timestamp="2012-01-27T22:04:53Z" changeset="10516873" uid="168758" user="NUP"/>
   <node id="1326504150" lat="48.3888742" lon="10.0217160" version="1" timestamp="2011-06-15T14:34:19Z" changeset="8447808" uid="168758" user="NUP"/>
-  <node id="1326504172" lat="48.3925701" lon="10.0224762" version="1" timestamp="2011-06-15T14:34:20Z" changeset="8447808" uid="168758" user="NUP"/>
   <node id="1326600385" lat="48.3930542" lon="10.0191682" version="1" timestamp="2011-06-15T16:12:19Z" changeset="8448435" uid="168758" user="NUP"/>
   <node id="1326600393" lat="48.3964522" lon="10.0214870" version="1" timestamp="2011-06-15T16:12:19Z" changeset="8448435" uid="168758" user="NUP"/>
   <node id="1326600396" lat="48.3963564" lon="10.0216365" version="1" timestamp="2011-06-15T16:12:20Z" changeset="8448435" uid="168758" user="NUP"/>
@@ -2246,6 +2264,16 @@
     <tag k="smoking:outside" v="yes"/>
     <tag k="website" v="http://www.bellavista-ulm.de/"/>
     <tag k="wheelchair" v="yes"/>
+  </node>
+  <node id="1430533697" lat="48.3976307" lon="9.9929832" version="2" timestamp="2013-05-10T16:34:50Z" changeset="16067329" uid="473431" user="cmichi">
+    <tag k="addr:city" v="Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="79"/>
+    <tag k="addr:postcode" v="89073"/>
+    <tag k="addr:street" v="Neue Straße"/>
+    <tag k="name" v="Service Center Neue Mitte"/>
+    <tag k="opening_hours" v="Mo-Fr 09:00-18:00; Sa 09:00-16:00"/>
+    <tag k="website" v="http://www.ulm.de/servicecenter"/>
   </node>
   <node id="1436619122" lat="48.4046652" lon="9.9757740" version="2" timestamp="2011-09-18T16:57:43Z" changeset="9334955" uid="168758" user="NUP"/>
   <node id="1436619124" lat="48.4047026" lon="9.9764591" version="2" timestamp="2011-09-18T16:57:43Z" changeset="9334955" uid="168758" user="NUP"/>
@@ -2669,7 +2697,7 @@
   <node id="1747653642" lat="48.4236313" lon="10.0643504" version="3" timestamp="2013-03-23T23:44:59Z" changeset="15472779" uid="168758" user="NUP"/>
   <node id="1747653643" lat="48.4234460" lon="10.0639146" version="3" timestamp="2013-03-23T23:44:59Z" changeset="15472779" uid="168758" user="NUP"/>
   <node id="1747653644" lat="48.4235720" lon="10.0639101" version="3" timestamp="2013-03-23T23:44:59Z" changeset="15472779" uid="168758" user="NUP"/>
-  <node id="1755264106" lat="48.3942298" lon="9.9982580" version="2" timestamp="2012-06-04T19:47:20Z" changeset="11800163" uid="168758" user="NUP">
+  <node id="1755264106" lat="48.3942298" lon="9.9982580" version="3" timestamp="2013-05-09T11:58:14Z" changeset="16046681" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
     <tag k="addr:housenumber" v="1"/>
@@ -2677,6 +2705,7 @@
     <tag k="addr:street" v="Petrusplatz"/>
     <tag k="amenity" v="bank"/>
     <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
     <tag k="name" v="Sparkasse NU-Petrusplatz"/>
     <tag k="opening_hours" v="Mo-We 08:30-16:00; Th 08:30-17:30; Fr 08:30-16:00"/>
     <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
@@ -2731,7 +2760,7 @@
     <tag k="tourism" v="hotel"/>
     <tag k="website" v="http://www.hotel-sonnenkeller.de/"/>
   </node>
-  <node id="1811510979" lat="48.3954157" lon="9.9976057" version="2" timestamp="2013-04-17T21:27:46Z" changeset="15767466" uid="451764" user="M_Vogt"/>
+  <node id="1811510979" lat="48.3954168" lon="9.9976154" version="3" timestamp="2013-05-09T11:58:16Z" changeset="16046681" uid="168758" user="NUP"/>
   <node id="1824928079" lat="48.3771793" lon="10.0124206" version="1" timestamp="2012-07-14T00:15:50Z" changeset="12212802" uid="168758" user="NUP">
     <tag k="addr:city" v="Neu-Ulm"/>
     <tag k="addr:country" v="DE"/>
@@ -2934,6 +2963,39 @@
   <node id="2270862750" lat="48.3857024" lon="10.0308369" version="2" timestamp="2013-04-29T16:46:57Z" changeset="15910751" uid="168758" user="NUP"/>
   <node id="2270862751" lat="48.3859427" lon="10.0307912" version="2" timestamp="2013-04-29T16:46:57Z" changeset="15910751" uid="168758" user="NUP"/>
   <node id="2272015581" lat="48.3859239" lon="10.0299398" version="2" timestamp="2013-04-29T16:46:57Z" changeset="15910751" uid="168758" user="NUP"/>
+  <node id="2275257278" lat="48.3956749" lon="10.0138719" version="2" timestamp="2013-05-09T11:58:13Z" changeset="16046681" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="1"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Im Starkfeld"/>
+    <tag k="amenity" v="bank"/>
+    <tag k="atm" v="yes"/>
+    <tag k="fax" v="0731/9846616"/>
+    <tag k="name" v="Sparda-Bank"/>
+    <tag k="opening_hours" v="Mo-Th 09:00-17:15; Fr 09:00-15:00"/>
+    <tag k="operator" v="Sparda-Bank Augsburg eG"/>
+    <tag k="website" v="http://www.sparda-a.de/"/>
+    <tag k="wikipedia:de" v="Sparda-Bank_Augsburg"/>
+  </node>
+  <node id="2275257304" lat="48.3927683" lon="10.0227447" version="2" timestamp="2013-05-10T15:28:58Z" changeset="16066121" uid="834127" user="kartler175">
+    <tag k="name" v="ALDI Süd"/>
+    <tag k="opening_hours" v="Mo-Sa 08:00-20:00"/>
+    <tag k="shop" v="supermarket"/>
+    <tag k="website" v="http://aldi-sued.de/"/>
+    <tag k="wikipedia:de" v="Aldi_Süd"/>
+  </node>
+  <node id="2275257393" lat="48.3914004" lon="10.0196494" version="2" timestamp="2013-05-10T15:22:54Z" changeset="16066011" uid="834127" user="kartler175">
+    <tag k="name" v="Hornbach"/>
+    <tag k="opening_hours" v="Mo-Sa 07:00-20:00"/>
+    <tag k="operator" v="Hornbach Holding AG / Hornbach-Baumarkt-AG"/>
+    <tag k="phone" v="0731/72908-0"/>
+    <tag k="shop" v="doityourself"/>
+    <tag k="website" v="http://www.hornbach.de"/>
+    <tag k="wheelchair" v="yes"/>
+    <tag k="wheelchair:description" v="Toilette für Rollstuhl vorhanden"/>
+    <tag k="wikipedia:de" v="Hornbach_(Baumarkt)"/>
+  </node>
   <node id="2283563101" lat="48.3947898" lon="10.0007892" version="2" timestamp="2013-05-02T11:21:39Z" changeset="15945164" uid="168758" user="NUP"/>
   <node id="2283563103" lat="48.3950957" lon="10.0004114" version="2" timestamp="2013-05-02T11:21:39Z" changeset="15945164" uid="168758" user="NUP"/>
   <node id="2283563104" lat="48.3948292" lon="10.0001600" version="2" timestamp="2013-05-02T11:21:39Z" changeset="15945164" uid="168758" user="NUP"/>
@@ -3008,6 +3070,79 @@
     <tag k="opening_hours" v="Mo 09:00-11:30, 13:30-15:30; We 09:00-11:30; Th 09:00-11:30"/>
     <tag k="phone" v="+49 731 5024444"/>
     <tag k="website" v="http://www.uni-ulm.de/studium/studienorganisation/ansprechpartner-im-studiensekretariat.html"/>
+  </node>
+  <node id="2296941061" lat="48.4163225" lon="10.0665919" version="1" timestamp="2013-05-09T11:58:09Z" changeset="16046681" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="83"/>
+    <tag k="addr:postcode" v="89233"/>
+    <tag k="addr:street" v="Thalfinger Straße"/>
+    <tag k="amenity" v="bank"/>
+    <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
+    <tag k="name" v="Sparkasse Burlafingen"/>
+    <tag k="opening_hours" v="Mo-We 08:30-12:15, 14:00-16:00; Th 08:30-12:15, 14:00-17:30; Fr 08:30-12:15, 14:00-16:00"/>
+    <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
+    <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
+  </node>
+  <node id="2296941062" lat="48.3459223" lon="10.0338157" version="1" timestamp="2013-05-09T11:58:09Z" changeset="16046681" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm/Gerlenhofen"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="12"/>
+    <tag k="addr:postcode" v="89233"/>
+    <tag k="addr:street" v="Gotenstraße"/>
+    <tag k="amenity" v="bank"/>
+    <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
+    <tag k="email" v="hermannkoehl@spk-nu-ill.de"/>
+    <tag k="name" v="Sparkasse Gerlenhofen"/>
+    <tag k="opening_hours" v="Tu 09:00-11:00; Th 16:30-19:00"/>
+    <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
+    <tag k="phone" v="0151/52881350"/>
+    <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
+  </node>
+  <node id="2296941063" lat="48.3669878" lon="10.0088128" version="1" timestamp="2013-05-09T11:58:09Z" changeset="16046681" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="175/2"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Memminger Straße"/>
+    <tag k="amenity" v="atm"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
+    <tag k="name" v="Sparkasse NU-Ludwigsfeld"/>
+    <tag k="opening_hours" v="24/7"/>
+    <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
+    <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
+  </node>
+  <node id="2296941064" lat="48.4095090" lon="10.0383881" version="1" timestamp="2013-05-09T11:58:10Z" changeset="16046681" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="64"/>
+    <tag k="addr:postcode" v="89233"/>
+    <tag k="addr:street" v="Hauptstraße"/>
+    <tag k="amenity" v="bank"/>
+    <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
+    <tag k="name" v="Sparkasse Pfuhl"/>
+    <tag k="opening_hours" v="Mo-We 08:30-12:15, 14:00-16:00; Th 08:30-12:15, 14:00-17:30; Fr 08:30-12:15, 14:00-16:00"/>
+    <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
+    <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
+  </node>
+  <node id="2296941065" lat="48.3628600" lon="10.0719483" version="1" timestamp="2013-05-09T11:58:10Z" changeset="16046681" uid="168758" user="NUP">
+    <tag k="addr:city" v="Neu-Ulm/Reutti"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="22"/>
+    <tag k="addr:postcode" v="89233"/>
+    <tag k="addr:street" v="Am Pfarrgarten"/>
+    <tag k="amenity" v="bank"/>
+    <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
+    <tag k="email" v="hermannkoehl@spk-nu-ill.de"/>
+    <tag k="name" v="Sparkasse Reutti"/>
+    <tag k="opening_hours" v="Mo 17:00-19:00; Th 13:00-15:00"/>
+    <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
+    <tag k="phone" v="0151/52881350"/>
+    <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
   </node>
   <way id="27098755" version="5" timestamp="2011-03-07T21:00:49Z" changeset="7488808" uid="242437" user="skleber">
     <nd ref="297323662"/>
@@ -4018,6 +4153,32 @@
     <tag k="phone" v="+49 731 - 7047939-0"/>
     <tag k="website" v="http://www.ewm-handel.de/"/>
   </way>
+  <way id="83355274" version="4" timestamp="2013-05-09T11:58:11Z" changeset="16046681" uid="168758" user="NUP">
+    <nd ref="970178018"/>
+    <nd ref="970177110"/>
+    <nd ref="1320815093"/>
+    <nd ref="1320815344"/>
+    <nd ref="970177472"/>
+    <nd ref="970177318"/>
+    <nd ref="1320813681"/>
+    <nd ref="1320814676"/>
+    <nd ref="1320815237"/>
+    <nd ref="1320813640"/>
+    <nd ref="970178018"/>
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="105"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Reuttier Straße"/>
+    <tag k="amenity" v="bank"/>
+    <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
+    <tag k="building" v="yes"/>
+    <tag k="name" v="Sparkasse Neu-Ulm Schwaighofen"/>
+    <tag k="opening_hours" v="Mo-We 08:30-12:15, 14:00-16:00; Th 08:30-12:15, 14:00-17:30; Fr 08:30-12:15, 14:00-16:00"/>
+    <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
+    <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
+  </way>
   <way id="83367735" version="1" timestamp="2010-10-30T14:23:49Z" changeset="6228571" uid="168758" user="NUP">
     <nd ref="813171483"/>
     <nd ref="813171493"/>
@@ -4806,6 +4967,27 @@
     <tag k="phone" v="0731-1762865"/>
     <tag k="website" v="http://www.moll-kfo.de"/>
   </way>
+  <way id="99725602" version="2" timestamp="2013-05-09T11:58:12Z" changeset="16046681" uid="168758" user="NUP">
+    <nd ref="1152914558"/>
+    <nd ref="1152914404"/>
+    <nd ref="1152914463"/>
+    <nd ref="1152914458"/>
+    <nd ref="1152914439"/>
+    <nd ref="1152914516"/>
+    <nd ref="1152914558"/>
+    <tag k="addr:city" v="Neu-Ulm"/>
+    <tag k="addr:country" v="DE"/>
+    <tag k="addr:housenumber" v="1"/>
+    <tag k="addr:postcode" v="89231"/>
+    <tag k="addr:street" v="Edisonallee"/>
+    <tag k="amenity" v="bank"/>
+    <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
+    <tag k="name" v="Sparkasse Wiley"/>
+    <tag k="opening_hours" v="Mo-We 08:30-12:15, 14:00-16:00; Th 08:30-12:15, 14:00-17:30; Fr 08:30-12:15"/>
+    <tag k="operator" v="Sparkasse Neu-Ulm - Illertissen"/>
+    <tag k="website" v="http://www.sparkasse-neu-ulm-illertissen.de/"/>
+  </way>
   <way id="100278582" version="2" timestamp="2011-02-18T13:49:28Z" changeset="7322425" uid="168758" user="NUP">
     <nd ref="1159042638"/>
     <nd ref="1159042649"/>
@@ -5268,40 +5450,6 @@
     <tag k="opening_hours" v="Mo-Fr 07:30-12:00; Th 14:00-18:00"/>
     <tag k="website" v="http://www.arbeitsagentur.de/"/>
   </way>
-  <way id="108644488" version="3" timestamp="2013-01-13T15:07:07Z" changeset="14635517" uid="39504" user="malenki">
-    <nd ref="1245962738"/>
-    <nd ref="1245962846"/>
-    <nd ref="1245962491"/>
-    <nd ref="1245962904"/>
-    <nd ref="1245963010"/>
-    <nd ref="1245963171"/>
-    <nd ref="1245963150"/>
-    <nd ref="1245962835"/>
-    <nd ref="1245963108"/>
-    <nd ref="1245962866"/>
-    <nd ref="1245963004"/>
-    <nd ref="1245962584"/>
-    <nd ref="1245962673"/>
-    <nd ref="1245962533"/>
-    <nd ref="1245962717"/>
-    <nd ref="1245962502"/>
-    <nd ref="1245962738"/>
-    <tag k="addr:city" v="Neu-Ulm"/>
-    <tag k="addr:country" v="DE"/>
-    <tag k="addr:housenumber" v="47"/>
-    <tag k="addr:postcode" v="89231"/>
-    <tag k="addr:street" v="Finninger Straße"/>
-    <tag k="building" v="yes"/>
-    <tag k="name" v="Hornbach"/>
-    <tag k="opening_hours" v="Mo-Sa 07:00-20:00"/>
-    <tag k="operator" v="Hornbach Holding AG / Hornbach-Baumarkt-AG"/>
-    <tag k="phone" v="0731/72908-0"/>
-    <tag k="shop" v="doityourself"/>
-    <tag k="website" v="http://www.hornbach.de"/>
-    <tag k="wheelchair" v="yes"/>
-    <tag k="wheelchair:description" v="Toilette für Rollstuhl vorhanden"/>
-    <tag k="wikipedia:de" v="Hornbach_(Baumarkt)"/>
-  </way>
   <way id="108781919" version="1" timestamp="2011-04-16T16:55:03Z" changeset="7879915" uid="168758" user="NUP">
     <nd ref="1247207016"/>
     <nd ref="1247206879"/>
@@ -5346,29 +5494,6 @@
     <tag k="shop" v="pet"/>
     <tag k="website" v="http://www.fressnapf.com/"/>
     <tag k="wikipedia:de" v="Fressnapf"/>
-  </way>
-  <way id="108781928" version="2" timestamp="2013-01-13T15:11:04Z" changeset="14635517" uid="39504" user="malenki">
-    <nd ref="1247206735"/>
-    <nd ref="1247206787"/>
-    <nd ref="1247206890"/>
-    <nd ref="1247206918"/>
-    <nd ref="1247206740"/>
-    <nd ref="1247206843"/>
-    <nd ref="1247206883"/>
-    <nd ref="1247206735"/>
-    <tag k="addr:city" v="Neu-Ulm"/>
-    <tag k="addr:country" v="DE"/>
-    <tag k="addr:housenumber" v="1"/>
-    <tag k="addr:postcode" v="89231"/>
-    <tag k="addr:street" v="Im Starkfeld"/>
-    <tag k="amenity" v="bank"/>
-    <tag k="atm" v="yes"/>
-    <tag k="fax" v="0731/9846616"/>
-    <tag k="name" v="Sparda-Bank"/>
-    <tag k="opening_hours" v="Mo-Th 09:00-17:15; Fr 09:00-15:00"/>
-    <tag k="operator" v="Sparda-Bank Augsburg eG"/>
-    <tag k="website" v="http://www.sparda-a.de/"/>
-    <tag k="wikipedia:de" v="Sparda-Bank_Augsburg"/>
   </way>
   <way id="112156320" version="1" timestamp="2011-05-07T10:22:38Z" changeset="8072169" uid="168758" user="NUP">
     <nd ref="1275683105"/>
@@ -5608,7 +5733,7 @@
     <tag k="religion" v="christian"/>
     <tag k="website" v="http://www.dekanat-nu.de/"/>
   </way>
-  <way id="116371769" version="4" timestamp="2012-07-07T06:05:06Z" changeset="12136998" uid="37354" user="bluestone712">
+  <way id="116371769" version="5" timestamp="2013-05-09T11:58:11Z" changeset="16046681" uid="168758" user="NUP">
     <nd ref="1311982450"/>
     <nd ref="1311982351"/>
     <nd ref="1311982465"/>
@@ -5624,6 +5749,7 @@
     <tag k="addr:street" v="Insel"/>
     <tag k="amenity" v="bank"/>
     <tag k="atm" v="yes"/>
+    <tag k="bic" v="BYLADEM1NUL"/>
     <tag k="building" v="yes"/>
     <tag k="name" v="Sparkasse Neu-Ulm - Illertissen"/>
     <tag k="opening_hours" v="Mo-We 08:30-16:00; Th 08:30-17:30; Fr 08:30-16:00"/>
@@ -5883,31 +6009,6 @@
     <tag k="shop" v="trade"/>
     <tag k="trade" v="wood"/>
     <tag k="website" v="http://www.woelpert.de/"/>
-  </way>
-  <way id="117827595" version="2" timestamp="2013-01-13T15:04:06Z" changeset="14635517" uid="39504" user="malenki">
-    <nd ref="1326503950"/>
-    <nd ref="1326503743"/>
-    <nd ref="1326503905"/>
-    <nd ref="1326504172"/>
-    <nd ref="1326503593"/>
-    <nd ref="1326503718"/>
-    <nd ref="1326503919"/>
-    <nd ref="814914399"/>
-    <nd ref="814914131"/>
-    <nd ref="814914455"/>
-    <nd ref="1326503311"/>
-    <nd ref="1326503950"/>
-    <tag k="addr:city" v="Neu-Ulm"/>
-    <tag k="addr:country" v="DE"/>
-    <tag k="addr:housenumber" v="28"/>
-    <tag k="addr:postcode" v="89231"/>
-    <tag k="addr:street" v="Pfaffenweg"/>
-    <tag k="building" v="yes"/>
-    <tag k="name" v="ALDI Süd"/>
-    <tag k="opening_hours" v="Mo-Sa 08:00-20:00"/>
-    <tag k="shop" v="supermarket"/>
-    <tag k="website" v="http://aldi-sued.de/"/>
-    <tag k="wikipedia:de" v="Aldi_Süd"/>
   </way>
   <way id="117827600" version="1" timestamp="2011-06-15T14:34:27Z" changeset="8447808" uid="168758" user="NUP">
     <nd ref="1326503644"/>
