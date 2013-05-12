@@ -30,9 +30,13 @@ exports.getData = function() {
 	}
 
 	for (var i in ways) {
+		console.log("newway")
 		var new_doc = new dom().parseFromString( ways[i].toString() );
+		var xml_id = xpath.select("//way/@id", new_doc);
+		//console.log(new_doc.toString())
+		console.log(xml_id[0].value)
 
-/*
+		/*
 		var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
 		if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
 			continue;
@@ -53,26 +57,38 @@ exports.getData = function() {
 
 			var ref_nid = ref_nodes[i].value;
 			//console.log("id " + ref_nid);
+			var ref_node_lat = xpath.select("//node[@id=" + ref_nid + "]/@lat", doc);
+			var ref_node_lon = xpath.select("//node[@id=" + ref_nid + "]/@lon", doc);
+
+			/*
 			var ref_node = xpath.select("//node[@id=" + ref_nid + "]", doc);
 
 			//console.log("length: " + ref_node.length)
 			if (ref_node == undefined || ref_node.length === 0) 
-				/* try next one */
+				// try next one
 				continue;
 
 			//console.log("getting node for " + ref_nid)
-			//console.log(ref_node.toString())
+			console.log(ref_node.toString())
+			//console.log(ref_node)
 
-			var new_doc = new dom().parseFromString( ref_node.toString() );
-			var lat = xpath.select("//node[@id=" + ref_nid + "]/@lat", new_doc);
-			var lon = xpath.select("//node[@id=" + ref_nid + "]/@lon", new_doc);
+			//var ref_doc = new dom().parseFromString( ref_node.toString() );
+			var lat = xpath.select("/@lat", ref_node);
+			//var lat = xpath.select("//node[@id=" + ref_nid + "]/@lat", ref_node);
+			console.log(JSON.stringify(lat))
+			return;
+			var lon = xpath.select("//node[@id=" + ref_nid + "]/@lon", ref_node);
 
 			if (lat == undefined || lat.length === 0 || 
 			    lon == undefined || lon.length === 0) 
 				continue;
+			*/
 
-			lat = lat[0].value;
-			lon = lon[0].value;
+			var lat = ref_node_lat[0].value;
+			var lon = ref_node_lon[0].value;
+
+			//console.log(lat)
+			//return;
 
 			/* attach to obj */
 			var new_way = ways[i].toString();
@@ -90,7 +106,7 @@ exports.getData = function() {
 
 			if (obj != undefined) {
 				//console.log("got it! ")
-				console.log(obj.name)
+				console.log(obj.id + " " + obj.name)
 				//console.log(JSON.stringify(obj));
 				results.push(obj);
 				break;
@@ -153,6 +169,9 @@ function getObj(new_doc) {
 	if (xml_leisure == undefined || xml_leisure.length === 0) 
 		xml_leisure = undefined;
 
+	var xml_id = xpath.select("//node/@id", new_doc);
+	if (xml_id == undefined || xml_id.length === 0) 
+		xml_id = undefined;
 
 	var xml_category = "other"; //xml_name[0].value;
 	if (xml_shop !== undefined) xml_category = xml_shop[0].value;
@@ -160,6 +179,7 @@ function getObj(new_doc) {
 	if (xml_office !== undefined) xml_category = xml_office[0].value;
 	if (xml_craft !== undefined) xml_category = xml_craft[0].value;
 	if (xml_amenity !== undefined) xml_category = xml_amenity[0].value;
+	if (xml_id !== undefined) xml_id = xml_id[0].value;
 
 
 	var obj = {
@@ -168,6 +188,7 @@ function getObj(new_doc) {
 		, name : xml_name[0].value
 		, opening_hours: xml_opening_hours[0].value
 		, category: "" + xml_category
+		, id: xml_id
 	};
 
 	return obj;
