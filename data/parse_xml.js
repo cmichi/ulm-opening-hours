@@ -29,12 +29,10 @@ exports.getData = function() {
 		}
 	}
 
+	results = []
 	for (var i in ways) {
-		//console.log("newway:")
 		var way_doc = new dom().parseFromString( ways[i].toString() );
 		var xml_id = xpath.select("//way/@id", way_doc);
-		//console.log(way_doc.toString())
-		//console.log("way-id: " + xml_id[0].value)
 
 		/* problem:  lat/lon is missing.
 		   solution: search the first referenced node and get it */
@@ -52,26 +50,22 @@ exports.getData = function() {
 			var lon = ref_node_lon[0].value;
 
 			/* attach to obj */
-			//var new_way = ways[i].toString();
 			var new_way = ways[i].toString();
 			new_way = new_way.replace("<way ", "<node " + 'lat="' + lat + '"' + ' lon="' + lon + '" ');
 			new_way = new_way.replace("</way>", "</node>")
-			//console.log(new_way)
+			
 			var _new_doc = new dom().parseFromString(new_way);
 			var obj = getObj(_new_doc);
-			//console.log(JSON.stringify(obj));
 
-			if (obj != undefined) {
-				//console.log(obj.id + " " + obj.name)
+			if (obj != undefined && obj.name != undefined &&
+			    obj.opening_hours != undefined) {
 				results.push(obj);
+				//console.log(obj.name + ":" + obj.id)
 				break;
-			} else {
-				//console.log("oh shit")
 			}
 
 			j++;
 		}
-			//console.log("")
 	}
 
 	console.log(results.length)
