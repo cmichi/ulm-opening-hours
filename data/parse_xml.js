@@ -72,7 +72,6 @@ function parseWay(way_doc) {
 	if (ref_nodes == undefined || ref_nodes.length === 0) 
 		return undefined;
 
-
 	var j = 0;
 	while (j < ref_nodes.length) {
 		var ref_nid = ref_nodes[j].value;

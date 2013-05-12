@@ -16,15 +16,6 @@ var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Ima
 // how often does the client pull new opening times?
 var updateFrequency = 1000 * 60; // each minute
 
-var dialog_opt = {
-	resizable: false
-	, width: 550
-	, modal: true
-	, autoOpen: false
-	, position: 'center'
-}
-
-
 $(function() {
 	$("#datepicker").datetimepicker({
 		dateFormat: 'dd.mm.yy'
@@ -68,8 +59,6 @@ $(function() {
 		
 		return this._div;
 	};
-
-	//$("#dialog-confirm").dialog(dialog_opt);
 
 	pullNewEntries();
 	setInterval(pullNewEntries, updateFrequency);
@@ -148,7 +137,10 @@ function buildCtrls() {
 			+ "href='javascript:toggle_all(true);'>Alle anzeigen</a>"
 			+ "&nbsp;|&nbsp;"
 			+ "<a href='javascript:toggle_all(false);'>Keine anzeigen</a>"
-			+ "<br /><a href='javascript:dialog();'>&Uuml;ber dieses Projekt</a>"
+			+ "<br /><a "
+			/* only direct calling works. */
+			+ "onclick='$.fancybox(this);return false;' "
+			+ "href='#dialog'>&Uuml;ber dieses Projekt</a>"
 			+ "</div>";
 
 		this._div.innerHTML = cnt;
