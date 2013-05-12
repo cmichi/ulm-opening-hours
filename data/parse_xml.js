@@ -21,6 +21,7 @@ exports.getData = function() {
 	break;
 		var new_doc = new dom().parseFromString( nodes[i].toString() );
 		var obj = getObj(new_doc);
+		//console.log(nodes[i].toString())
 
 		if (obj != undefined) {
 			//console.log(JSON.stringify(obj));
@@ -31,38 +32,72 @@ exports.getData = function() {
 	for (var i in ways) {
 		var new_doc = new dom().parseFromString( ways[i].toString() );
 
+		var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
+		if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
+			continue;
+		xml_opening_hours = xml_opening_hours[0].value;
+
+
 		// search the first referenced node and get it
-		var node = xpath.select("//nd/@ref", new_doc);
-		if (node == undefined || node.length === 0) 
-			/* try next node */
-			console.log("ohoh");
+		var ref_nodes = xpath.select("//nd/@ref", new_doc);
+		if (ref_nodes == undefined || ref_nodes.length === 0) 
+			continue;
 
-		var ref_nid = node[0].value;
-		var ref_node = xpath.select("//node[@id=" + ref_nid + "]/", new_doc);
-		console.log("getting node for " + ref_nid)
-		var new_doc = new dom().parseFromString( ref_node.toString() );
-		console.log(new_doc)
-		break;
-		var obj = getObj(new_doc);
+		var i = 0;
+		while (i < ref_nodes.length) {
+			console.log("i " + i);
+			//break;
 
-		if (obj != undefined) {
+			var ref_nid = ref_nodes[i].value;
+			console.log("id " + ref_nid);
+			var ref_node = xpath.select("//node[@id=" + ref_nid + "]", doc);
+
+			console.log("length: " + ref_node.length)
+			if (ref_node == undefined || ref_node.length === 0) 
+				/* try next one */
+				continue;
+
+			//console.log("getting node for " + ref_nid)
+			console.log(ref_node.toString())
+
+			var new_doc = new dom().parseFromString( ref_node.toString() );
+			console.log(new_doc.toString())
+			//break;
+
+			/* the opening hours have to be attached here! */
+			var obj = getObj(new_doc, xml_opening_hours);
+			console.log("oh " + xml_opening_hours)
+			console.log("obj " + obj)
+
+			if (obj != undefined) {
+				console.log("obj: " + JSON.stringify(obj));
+				results.push(obj);
+				break;
+			}
+
 			//console.log(JSON.stringify(obj));
-			results.push(obj);
-		}
+			//results.push(obj);
+			//break;
 
-		//console.log(JSON.stringify(obj));
-		//results.push(obj);
+			console.log("")
+			i++;
+		}
+		break;
 	}
 	return results;
 }
 
 
-function getObj(new_doc) {
+function getObj(new_doc, oh) {
 	//console.log(nodes[i].toString())
 
-	var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
-	if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
-		return undefined;
+	if (oh == undefined) {
+		var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
+		if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
+			return undefined;
+
+		oh = xml_opening_hours[0].value;
+	}
 
 	//if( xpath.select("//node/@id", new_doc)[0].value == ");
 	//if (xml_opening_hours[0].value == "Mo-Fr 08:30-18:30; Sa 09:00-13:00; So off;")
@@ -109,7 +144,7 @@ function getObj(new_doc) {
 		lat : xpath.select("//node/@lat", new_doc)[0].value
 		, lon : xpath.select("//node/@lon", new_doc)[0].value
 		, name : xml_name[0].value
-		, opening_hours: xml_opening_hours[0].value
+		, opening_hours: oh
 		, category: "" + xml_category
 	};
 
