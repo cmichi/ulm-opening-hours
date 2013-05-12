@@ -32,72 +32,94 @@ exports.getData = function() {
 	for (var i in ways) {
 		var new_doc = new dom().parseFromString( ways[i].toString() );
 
+/*
 		var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
 		if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
 			continue;
 		xml_opening_hours = xml_opening_hours[0].value;
+		*/
 
 
-		// search the first referenced node and get it
+		/* problem:  lat/lon is missing.
+		   solution: search the first referenced node and get it */
 		var ref_nodes = xpath.select("//nd/@ref", new_doc);
 		if (ref_nodes == undefined || ref_nodes.length === 0) 
 			continue;
 
 		var i = 0;
 		while (i < ref_nodes.length) {
-			console.log("i " + i);
+			//console.log(i + " try to find ref node with lat/lon");
 			//break;
 
 			var ref_nid = ref_nodes[i].value;
-			console.log("id " + ref_nid);
+			//console.log("id " + ref_nid);
 			var ref_node = xpath.select("//node[@id=" + ref_nid + "]", doc);
 
-			console.log("length: " + ref_node.length)
+			//console.log("length: " + ref_node.length)
 			if (ref_node == undefined || ref_node.length === 0) 
 				/* try next one */
 				continue;
 
 			//console.log("getting node for " + ref_nid)
-			console.log(ref_node.toString())
+			//console.log(ref_node.toString())
 
 			var new_doc = new dom().parseFromString( ref_node.toString() );
-			console.log(new_doc.toString())
+			var lat = xpath.select("//node[@id=" + ref_nid + "]/@lat", new_doc);
+			var lon = xpath.select("//node[@id=" + ref_nid + "]/@lon", new_doc);
+
+			if (lat == undefined || lat.length === 0 || 
+			    lon == undefined || lon.length === 0) 
+				continue;
+
+			lat = lat[0].value;
+			lon = lon[0].value;
+
+			/* attach to obj */
+			var new_way = ways[i].toString();
+			new_way = new_way.replace("<way ", "<node " + 'lat="' + lat + '"' + ' lon="' + lon + '" ');
+			new_way = new_way.replace("</way>", "</node>")
+			//console.log(new_way)
+			new_doc = new dom().parseFromString(new_way);
+
+			//console.log(new_doc.toString())
 			//break;
 
-			/* the opening hours have to be attached here! */
-			var obj = getObj(new_doc, xml_opening_hours);
-			console.log("oh " + xml_opening_hours)
-			console.log("obj " + obj)
+			var obj = getObj(new_doc);
+			//console.log("oh " + xml_opening_hours)
+			//console.log("obj " + obj)
 
 			if (obj != undefined) {
-				console.log("obj: " + JSON.stringify(obj));
+				//console.log("got it! ")
+				console.log(obj.name)
+				//console.log(JSON.stringify(obj));
 				results.push(obj);
 				break;
+			} else {
+				console.log("oh shit")
 			}
 
 			//console.log(JSON.stringify(obj));
 			//results.push(obj);
 			//break;
 
-			console.log("")
+			//console.log("")
 			i++;
 		}
-		break;
+		//break;
 	}
+
+	console.log(results.length)
+	//console.log(JSON.stringify(results));
 	return results;
 }
 
 
-function getObj(new_doc, oh) {
+function getObj(new_doc) {
 	//console.log(nodes[i].toString())
 
-	if (oh == undefined) {
-		var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
-		if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
-			return undefined;
-
-		oh = xml_opening_hours[0].value;
-	}
+	var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
+	if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
+		return undefined;
 
 	//if( xpath.select("//node/@id", new_doc)[0].value == ");
 	//if (xml_opening_hours[0].value == "Mo-Fr 08:30-18:30; Sa 09:00-13:00; So off;")
@@ -144,7 +166,7 @@ function getObj(new_doc, oh) {
 		lat : xpath.select("//node/@lat", new_doc)[0].value
 		, lon : xpath.select("//node/@lon", new_doc)[0].value
 		, name : xml_name[0].value
-		, opening_hours: oh
+		, opening_hours: xml_opening_hours[0].value
 		, category: "" + xml_category
 	};
 
