@@ -71,6 +71,7 @@ Then open [http://localhost:3046/](http://localhost:3046).
 # Libraries & Icons
 
  * [opening_hours.js](https://github.com/AMDmi3/opening_hours.js/)
+ * [suncalc](https://github.com/mourner/suncalc)
  * [leaflet](https://github.com/Leaflet/Leaflet)
  * express
  * jQuery and jQuery UI

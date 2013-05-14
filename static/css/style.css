@@ -208,3 +208,10 @@ html, body, #map {
 	z-index: 9999 !important;
 }
 	
+.night {
+	/*
+	background: #BBC1DD;
+	opacity: 0.9;
+	*/
+	opacity: 0.8;
+}
