@@ -48,11 +48,11 @@ $(function() {
 	legend.onAdd = function (map) {
 		this._div = L.DomUtil.create('div', 'legend leaflet-control '
 			+ 'leaflet-control-layers leaflet-control-layers-expanded');
-		this._div.innerHTML += "<img class='icon1' height='30' src='/img/marker-icon-green.png' />"
+		this._div.innerHTML += "<img class='icon1' height='30' src='/img/day/marker-icon-green.png' />"
 		this._div.innerHTML += "<div class='label1'>Ge&ouml;ffnet</div>"
 
 		this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
-		this._div.innerHTML += "<img class='icon2' height='30' src='/img/marker-icon-yellow.png' />"
+		this._div.innerHTML += "<img class='icon2' height='30' src='/img/day/marker-icon-yellow.png' />"
 		
 		L.DomEvent.disableClickPropagation(this._div);
 		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
@@ -141,6 +141,10 @@ function buildCtrls() {
 			/* only direct calling works. */
 			+ "onclick='$.fancybox(this);return false;' "
 			+ "href='#dialog'>&Uuml;ber dieses Projekt</a>"
+
+			//+ "&nbsp;|&nbsp;"
+			//+ "<a href='javascript:switch_(true);'>switch</a>"
+
 			+ "</div>";
 
 		this._div.innerHTML = cnt;
@@ -154,11 +158,11 @@ function buildCtrls() {
 
 function getIcon(entity) {
 	if (entity.closing_soon) {
-		var iconUri = "/img/marker-icon-yellow.png";
-		var iconUriRetina = "/img/marker-icon@2x-yellow.png";
+		var iconUri = "/img/day/marker-icon-yellow.png";
+		var iconUriRetina = "/img/day/marker-icon@2x-yellow.png";
 	} else {
-		var iconUri = "/img/marker-icon-green.png";
-		var iconUriRetina = "/img/marker-icon@2x-green.png";
+		var iconUri = "/img/day/marker-icon-green.png";
+		var iconUriRetina = "/img/day/marker-icon@2x-green.png";
 	}
 
 	return L.icon({
@@ -369,9 +373,12 @@ function toggle_drop(here) {
 }
 
 
+function switch_() {
+	tileLayer.setUrl(cloudmadeUrl_night);
+	tileLayer.redraw();
+}
+
 function dialog() {
-	//tileLayer.setUrl(cloudmadeUrl_night);
-	//tileLayer.redraw();
 	$('#dialog-confirm').modal();
 }
 
