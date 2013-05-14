@@ -209,9 +209,6 @@ html, body, #map {
 }
 	
 .night {
-	/*
 	background: #BBC1DD;
 	opacity: 0.9;
-	*/
-	opacity: 0.8;
 }

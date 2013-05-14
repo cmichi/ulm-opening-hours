@@ -5,51 +5,44 @@ var info, ctrls, legend;
 var initialized = false;
 var prefs = {};
 var prefs_dropped = {};
-var now = new Date();
 var tileLayer;
+var now = new Date();
 
-var cloudmadeUrl_day = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
-//var cloudmadeUrl_night = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/91953/256/{z}/{x}/{y}.png';
-var cloudmadeUrl_night = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/67367/256/{z}/{x}/{y}.png';
-var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
-var lat = 48.40783887047417;
-var lng = 9.987516403198242;
+/* how often does the client pull new opening times? */
+var updateFrequency = 1000 * 60; /* each minute */
 
-var iconOpenDay = "/img/day/marker-icon-green.png";
-var iconOpenDayRetina = "/img/day/marker-icon@2x-green.png";
-var iconSoonClosingDay = "/img/day/marker-icon-yellow.png";
-var iconSoonClosingDayRetina = "/img/day/marker-icon@2x-yellow.png";
+var cloudmade = {
+	day:		'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png',
+	night:		'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/67367/256/{z}/{x}/{y}.png',
+	//night:	'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/91953/256/{z}/{x}/{y}.png',
+	attribution:	'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade'
+};
 
-/*
-var iconOpenNight = "/img/glow/marker-icon-yellow.png";
-var iconOpenNightRetina = "/img/glow/marker-icon@2x-yellow.png";
-var iconSoonClosingNight = "/img/glow/marker-icon-green.png";
-var iconSoonClosingNightRetina = "/img/glow/marker-icon@2x-green.png";
-*/
+var ulm = {
+	lat: 48.40783887047417
+	, lng: 9.987516403198242
+};
 
-/*
-var iconOpenNight = "/img/night/marker-icon-yellow.png";
-var iconOpenNightRetina = "/img/night/marker-icon@2x-yellow.png";
-var iconSoonClosingNight = "/img/night/marker-icon-green.png";
-var iconSoonClosingNightRetina = "/img/night/marker-icon@2x-green.png";
-*/
+var icons = {
+	day: {
+		open: "/img/day/marker-icon-green.png"
+		, open_retina: "/img/day/marker-icon@2x-green.png"
+		, closing: "/img/day/marker-icon-yellow.png"
+		, closing_retina: "/img/day/marker-icon@2x-yellow.png"
+		, opacity: 1.0
+		, css: ""
+	}
+	, night: {
+		open: "/img/night/marker-icon-green.png"
+		, open_retina: "/img/night/marker-icon@2x-green.png"
+		, closing: "/img/night/marker-icon-yellow.png"
+		, closing_retina: "/img/night/marker-icon@2x-yellow.png"
+		, opacity: 0.9
+		, css: "night"
+	}
+};
+var icon = icons.day;
 
-var iconOpenNight = "/img/night/marker-icon-green.png";
-var iconOpenNightRetina = "/img/night/marker-icon@2x-green.png";
-var iconSoonClosingNight = "/img/night/marker-icon-yellow.png";
-var iconSoonClosingNightRetina = "/img/night/marker-icon@2x-yellow.png";
-
-var iconOpen = iconOpenDay;
-var iconOpenRetina = iconOpenDayRetina;
-var iconSoonClosing = iconSoonClosingDay;
-var iconSoonClosingRetina = iconSoonClosingDayRetina;
-var iconOpacity;
-var night = "night";
-
-var times = SunCalc.getTimes(now, lat, lng);
-
-// how often does the client pull new opening times?
-var updateFrequency = 1000 * 60; // each minute
 
 $(function() {
 	$("#datepicker").datetimepicker({
@@ -73,21 +66,21 @@ $(function() {
 	$(".ui-datepicker-buttonpane").css({'display': 'none'});
 	
 	map = L.map('map', {
-		center: new L.LatLng(lat, lng)
+		center: new L.LatLng(ulm.lat, ulm.lng)
 		, zoom: 14
 		, layers: tile_groups
 	});
-	tileLayer = L.tileLayer(cloudmadeUrl_day, {attribution: cloudmadeAttribution}).addTo(map);
+	tileLayer = L.tileLayer(cloudmade.day, {attribution: cloudmade.attribution}).addTo(map);
 
 	legend = L.control();
 	legend.onAdd = function (map) {
 		this._div = L.DomUtil.create('div', 'legend leaflet-control '
-			+ 'leaflet-control-layers leaflet-control-layers-expanded ' + night);
-		this._div.innerHTML += "<img class='icon1' height='30' src='" + iconOpen +"' />"
+			+ 'leaflet-control-layers leaflet-control-layers-expanded ' + icon.css);
+		this._div.innerHTML += "<img class='icon1' height='30' src='" + icon.open +"' />"
 		this._div.innerHTML += "<div class='label1'>Ge&ouml;ffnet</div>"
 
 		this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
-		this._div.innerHTML += "<img class='icon2' height='30' src='" + iconSoonClosing + "' />"
+		this._div.innerHTML += "<img class='icon2' height='30' src='" + icon.closing + "' />"
 		
 		L.DomEvent.disableClickPropagation(this._div);
 		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
@@ -105,7 +98,7 @@ function buildCtrls() {
 	ctrls = L.control();
 	ctrls.onAdd = function (map) {
 		this._div = L.DomUtil.create('div', 'ctrls leaflet-control \
-				leaflet-control-layers leaflet-control-layers-expanded ' + night); 
+				leaflet-control-layers leaflet-control-layers-expanded ' + icon.css); 
 				
 		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
 		L.DomEvent.disableClickPropagation(this._div);
@@ -193,11 +186,11 @@ function buildCtrls() {
 
 function getIcon(entity) {
 	if (entity.closing_soon) {
-		var iconUri = iconSoonClosing;
-		var iconUriRetina = iconSoonClosingRetina;
+		var iconUri = icon.closing;
+		var iconUriRetina = icon.closing_retina;
 	} else {
-		var iconUri = iconOpen;
-		var iconUriRetina = iconOpenRetina;
+		var iconUri = icon.open;
+		var iconUriRetina = icon.open_retina;
 	}
 
 	return L.icon({
@@ -286,7 +279,7 @@ function receiveNewEntries(open_entities) {
 				[entity.lat, entity.lon], 
 				{
 					icon: getIcon(entity)
-					, opacity: iconOpacity
+					, opacity: icon.opacity
 				}).bindPopup(
 					"<strong>" + entity.name + "</strong>"
 					+ "<br />Kategorie: " + category_label + "<br />"
@@ -303,7 +296,7 @@ function receiveNewEntries(open_entities) {
 	info = L.control();
 	info.onAdd = function (map) {
 		this._div = L.DomUtil.create('div', 'leaflet-control '
-			+ 'leaflet-control-layers leaflet-control-layers-expanded ' + night);
+			+ 'leaflet-control-layers leaflet-control-layers-expanded ' + icon.css);
 		this.update();
 		
 		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
@@ -412,42 +405,24 @@ function toggle_drop(here) {
 	$(here).parent().parent().find(".dropbox").toggle("blind");
 }
 
+
 function adaptIconsToTime() {
-	times = SunCalc.getTimes(now, lat, lng);
-	//console.log(times)
-	//console.log(times.sunset.getHours());
-	//console.log(times.sunrise.getHours());
+	var times = SunCalc.getTimes(now, ulm.lat, ulm.lng);
 
 	if (now.getTime() >= times.sunset.getTime() || now.getTime() <= times.sunrise.getTime()) { 
 		/* do we need to change? may cause flickering.. */
-		if (night === "night") return;
+		if (icon.css === icons.night.css) return;
 			
-		tileLayer.setUrl(cloudmadeUrl_night);
-
-		iconOpen = iconOpenNight;
-		iconOpenRetina = iconOpenNightRetina;
-		iconSoonClosing = iconSoonClosingNight;
-		iconSoonClosingRetina = iconSoonClosingNightRetina;
-		iconOpacity = 0.9;
-		night = "night";
+		icon = icons.night;
+		tileLayer.setUrl(cloudmade.night);
 	} else {
 		/* do we need to change? may cause flickering.. */
-		if (night === "") return;
+		if (icon.css === icons.day.css) return;
 
-		tileLayer.setUrl(cloudmadeUrl_day);
-
-		iconOpen = iconOpenDay;
-		iconOpenRetina = iconOpenDayRetina;
-		iconSoonClosing = iconSoonClosingDay;
-		iconSoonClosingRetina = iconSoonClosingDayRetina;
-		iconOpacity = 1.0;
-		night = "";
+		icon = icons.day;
+		tileLayer.setUrl(cloudmade.day);
 	}
 	tileLayer.redraw();
-}
-
-function dialog() {
-	$('#dialog-confirm').modal();
 }
 
 
