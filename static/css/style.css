@@ -68,33 +68,35 @@ html, body, #map {
 	z-index:99;
 }
 
-.logos img, #dialog-confirm div img {
+.logos img, #dialogdiv img {
 	border:1px solid #000;
 }
 
-.logos img:hover, #dialog-confirm div img {
+.logos img:hover, #dialog div img {
 	border:1px solid #0084b0;
 }
 
-#dialog-confirm {
+#dialog {
 	font-size: 0.8em;
 	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 	color: #222;
 	display: none;
+	width: 500px;
+	height: 300px;
 }
 
-#dialog-confirm p a {
+#dialog p a {
 	color: #0078A8;
 }
 
-#dialog-confirm .bottom-left {
+#dialog .bottom-left {
 	float:left; 
 	text-align:left;
 	position: absolute;
 	bottom: 30px;
 }
 
-#dialog-confirm .bottom-right {
+#dialog .bottom-right {
 	float:right; 
 	text-align:right;
 	position: absolute;
@@ -102,7 +104,7 @@ html, body, #map {
 	right:25px;
 }
 
-#dialog-confirm .bottom a {
+#dialog .bottom a {
 	/* font-size: 0.8em; */
 }
 

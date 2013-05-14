@@ -6,21 +6,15 @@ var initialized = false;
 var prefs = {};
 var prefs_dropped = {};
 var now = new Date();
+var tileLayer;
 
-var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
+var cloudmadeUrl_day = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png';
+var cloudmadeUrl_night = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/91953/256/{z}/{x}/{y}.png';
+//var cloudmadeUrl_night = 'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/67367/256/{z}/{x}/{y}.png';
 var cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
 
 // how often does the client pull new opening times?
 var updateFrequency = 1000 * 60; // each minute
-
-var dialog_opt = {
-	resizable: false
-	, width: 550
-	, modal: true
-	, autoOpen: false
-	, position: 'center'
-}
-
 
 $(function() {
 	$("#datepicker").datetimepicker({
@@ -48,25 +42,23 @@ $(function() {
 		, zoom: 14
 		, layers: tile_groups
 	});
-	L.tileLayer(cloudmadeUrl, {attribution: cloudmadeAttribution}).addTo(map);
+	tileLayer = L.tileLayer(cloudmadeUrl_day, {attribution: cloudmadeAttribution}).addTo(map);
 
 	legend = L.control();
 	legend.onAdd = function (map) {
 		this._div = L.DomUtil.create('div', 'legend leaflet-control '
 			+ 'leaflet-control-layers leaflet-control-layers-expanded');
-		this._div.innerHTML += "<img class='icon1' height='30' src='/img/marker-icon-green.png' />"
+		this._div.innerHTML += "<img class='icon1' height='30' src='/img/day/marker-icon-green.png' />"
 		this._div.innerHTML += "<div class='label1'>Ge&ouml;ffnet</div>"
 
 		this._div.innerHTML += "<div class='label2'>Weniger als <br />15 Min ge&ouml;ffnet</div>"
-		this._div.innerHTML += "<img class='icon2' height='30' src='/img/marker-icon-yellow.png' />"
+		this._div.innerHTML += "<img class='icon2' height='30' src='/img/day/marker-icon-yellow.png' />"
 		
 		L.DomEvent.disableClickPropagation(this._div);
 		L.DomEvent.on(this._div, 'mousewheel', L.DomEvent.stopPropagation);
 		
 		return this._div;
 	};
-
-	//$("#dialog-confirm").dialog(dialog_opt);
 
 	pullNewEntries();
 	setInterval(pullNewEntries, updateFrequency);
@@ -145,7 +137,14 @@ function buildCtrls() {
 			+ "href='javascript:toggle_all(true);'>Alle anzeigen</a>"
 			+ "&nbsp;|&nbsp;"
 			+ "<a href='javascript:toggle_all(false);'>Keine anzeigen</a>"
-			+ "<br /><a href='javascript:dialog();'>&Uuml;ber dieses Projekt</a>"
+			+ "<br /><a "
+			/* only direct calling works. */
+			+ "onclick='$.fancybox(this);return false;' "
+			+ "href='#dialog'>&Uuml;ber dieses Projekt</a>"
+
+			//+ "&nbsp;|&nbsp;"
+			//+ "<a href='javascript:switch_(true);'>switch</a>"
+
 			+ "</div>";
 
 		this._div.innerHTML = cnt;
@@ -159,11 +158,11 @@ function buildCtrls() {
 
 function getIcon(entity) {
 	if (entity.closing_soon) {
-		var iconUri = "/img/marker-icon-yellow.png";
-		var iconUriRetina = "/img/marker-icon@2x-yellow.png";
+		var iconUri = "/img/day/marker-icon-yellow.png";
+		var iconUriRetina = "/img/day/marker-icon@2x-yellow.png";
 	} else {
-		var iconUri = "/img/marker-icon-green.png";
-		var iconUriRetina = "/img/marker-icon@2x-green.png";
+		var iconUri = "/img/day/marker-icon-green.png";
+		var iconUriRetina = "/img/day/marker-icon@2x-green.png";
 	}
 
 	return L.icon({
@@ -374,6 +373,11 @@ function toggle_drop(here) {
 }
 
 
+function switch_() {
+	tileLayer.setUrl(cloudmadeUrl_night);
+	tileLayer.redraw();
+}
+
 function dialog() {
 	$('#dialog-confirm').modal();
 }
@@ -424,3 +428,8 @@ function addBtns() {
 function setNow() {
    	$("#datepicker").datetimepicker('setDate', new Date());
 }
+
+$(document).ready(function() {
+	$('.fancybox').fancybox();
+});
+

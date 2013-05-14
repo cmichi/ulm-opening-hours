@@ -8,7 +8,6 @@ var parse_err_output = false;
 
 var app = express();
 app.get('/', function(req, res) {
-console.log(req.query)
 	var file = "/static/index.html";
 	if ("_escaped_fragment_" in req.query) 
 		file = "/static/ajax-snapshot.html";

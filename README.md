@@ -9,7 +9,8 @@ people just look for the opening hours. This application offers a handy
 interface which displays opening times for many locations in your city.
 
 The data for this project is exported from the Open Street Map project on a
-regular basis. 
+regular basis. For more information on this see the key 
+[opening_hours](http://wiki.openstreetmap.org/wiki/Key:opening_hours).
 
 A public instance of this project is hosted on 
 [http://oeffnungszeiten.ulmApi.de](http://oeffnungszeiten.ulmApi.de).

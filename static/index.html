@@ -23,27 +23,22 @@
 	<script src="/js/libs/jquery-ui-1.10.2.custom.min.js"></script>
 	<script src="/js/libs/jquery-ui-sliderAccess.js"></script>
 	<script src="/js/libs/jquery-ui-timepicker-addon.js"></script>
-	<script src="/js/basic.js"></script>
-	<script src="/js/jquery.simplemodal.js"></script>
 
 	<link rel="stylesheet" href="/css/jquery-ui.css" />
-	<link rel="stylesheet" href="/css/basic_ie.css" />
-	<link rel="stylesheet" href="/css/basic.css" />
 
-	<!-- IE6 "fix" for the close png image -->
-	<!--[if lt IE 7]>
-		<link type='text/css' href='css/basic_ie.css' rel='stylesheet' media='screen' />
-	<![endif]-->	
-	
 	<script src="/js/translations.js"></script>
 	<script src="/js/show.js"></script>	
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/github-btn.css" />		
+
+	<!-- jquery fancybox -->
+	<script type="text/javascript" src="./js/fancybox/jquery.fancybox.js"></script>
+	<link rel="stylesheet" href="./js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 </head>
 <body>
 	
 	<!-- modal dialog content -->
-	<div id="dialog-confirm">
+	<div id="dialog">
 		<h3 style='margin-bottom:8px'>Über dieses Projekt</h3>
 
 		<div style='float:right;margin-left:10px;'>
@@ -103,13 +98,14 @@
 	<div style='display:none'>
 		<h1>Öffnungszeiten Ulm & Neu-Ulm</h1> 
 
-		<img src='img/basic/x.png' alt='Ulm Öffnungszeiten' /> 
+		<img src='img/edit-hover.png' alt='Ulm Öffnungszeiten'
+		     title='Geöffnete Geschäfte in Ulm/Neu-Ulm' /> 
 	</div>	
 
 	<div id="map"></div>
 	
 	<div class="logos">
-		<a href="javascript:dialog()"><img src="/img/ulmapi.png" alt="ulmapi"
+		<a class="fancybox" href="#dialog"><img src="/img/ulmapi.png" alt="ulmapi"
 			title="Informationen zu diesem Projekt" /></a>
 	</div>
 
