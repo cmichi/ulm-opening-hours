@@ -38,7 +38,7 @@ This project uses node.js as a server-side runtime environment.
 To run the project you need to install [nodejs](http://nodejs.org/) 
 and [npm](https://npmjs.org/).
 
-	$ git clone https://github.com/cmichi/ulm-opening-hours.git
+	$ git clone --recursive https://github.com/cmichi/ulm-opening-hours.git
 	$ cd ulm-opening-hours/
 
 	# install the necessary dependencies from the package.json
@@ -70,7 +70,7 @@ Then open [http://localhost:3046/](http://localhost:3046).
 
 # Libraries & Icons
 
- * [opening_hours.js](https://github.com/AMDmi3/opening_hours.js/)
+ * [opening_hours.js](https://github.com/ypid/opening_hours.js/)
  * [suncalc](https://github.com/mourner/suncalc)
  * [leaflet](https://github.com/Leaflet/Leaflet)
  * express
@@ -79,7 +79,6 @@ Then open [http://localhost:3046/](http://localhost:3046).
  * [Check Icon](http://thenounproject.com/noun/check-mark/#icon-No2784) by P.J. Onori, from The Noun Project
  * [Edit Icon](http://thenounproject.com/noun/edit/#icon-No5587) by Naomi Atkinson, from The Noun Project
  * [GitHub Buttons](https://github.com/mdo/github-buttons)
-
 
 # License
 

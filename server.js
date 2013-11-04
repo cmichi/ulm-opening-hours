@@ -4,6 +4,40 @@ var opening_hours = require('./lib/opening_hours.js/opening_hours.js');
 
 var xmlParser = require('./data/parse_xml.js')
 var data = xmlParser.getData();
+
+// Get country and state name, needed by opening_hours.js for evaluation of holidays.
+// For optimization, the nominatim object can also be predefined …
+// Works on the assumption that the state is equal for all facilities in the data set!
+// var url = 'http://nominatim.openstreetmap.org/reverse';
+var url = 'http://open.mapquestapi.com/nominatim/v1/reverse.php';
+url += '?format=json&osm_type=N&osm_id=' + data[0].id
+    + '&zoom=5&addressdetails=1&email=ypid23@aol.de';
+var url_lang_set = 'accept-language=';
+var url_lang = 'de';
+
+if (typeof nominatim == 'undefined') {
+    var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+    var xhr = new XMLHttpRequest();
+    xhr.open( "GET", url + '&' + url_lang_set + url_lang, false );      // true makes this call asynchronous
+    xhr.onreadystatechange = function () {    // need eventhandler since our call is async
+        if ( xhr.readyState == 4 && xhr.status == 200 ) {  // check for success
+            nominatim = JSON.parse( xhr.responseText );
+            console.log(JSON.stringify(nominatim, null, '\t'));
+            if (nominatim.address.country_code != url_lang) {
+                xhr.open( "GET", url + '&' + url_lang_set + nominatim.address.country_code, false );
+                xhr.onreadystatechange = function () {
+                    if ( xhr.readyState == 4 && xhr.status == 200 ) {  // check for success
+                        nominatim = JSON.parse( xhr.responseText );
+                    }
+                    url_lang = nominatim.address.country_code;
+                }
+                xhr.send(null);
+            }
+        }
+    };
+    xhr.send(null);
+}
+
 var parse_err_output = false;
 
 var app = express();
@@ -30,7 +64,7 @@ function generateOpenEntities(date) {
 	var open_entities = [];
 	for (var i in data) {
 		try {
-			var oh = new opening_hours(data[i].opening_hours);
+			var oh = new opening_hours(data[i].opening_hours, nominatim);
 		} catch (err) {
 			/* only output error messages at the first time they are thrown.
 			   otherwise our program will flood stdout on each /get_entries request */
