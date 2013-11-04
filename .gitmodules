@@ -1,0 +1,3 @@
+[submodule "lib/opening_hours.js"]
+	path = lib/opening_hours.js
+	url = https://github.com/ypid/opening_hours.js.git

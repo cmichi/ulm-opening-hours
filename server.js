@@ -1,6 +1,6 @@
 var fs = require('fs');
 var express = require('express');
-var opening_hours = require('./lib/opening_hours.js');
+var opening_hours = require('./lib/opening_hours.js/opening_hours.js');
 
 var xmlParser = require('./data/parse_xml.js')
 var data = xmlParser.getData();
@@ -9,7 +9,7 @@ var parse_err_output = false;
 var app = express();
 app.get('/', function(req, res) {
 	var file = "/static/index.html";
-	if ("_escaped_fragment_" in req.query) 
+	if ("_escaped_fragment_" in req.query)
 		file = "/static/ajax-snapshot.html";
 
 	try {
@@ -31,7 +31,7 @@ function generateOpenEntities(date) {
 	for (var i in data) {
 		try {
 			var oh = new opening_hours(data[i].opening_hours);
-		} catch (err) {			
+		} catch (err) {
 			/* only output error messages at the first time they are thrown.
 			   otherwise our program will flood stdout on each /get_entries request */
 			if (!parse_err_output) {
@@ -41,14 +41,20 @@ function generateOpenEntities(date) {
 			}
 			continue;
 		}
-		
-		var is_open = oh.getState(date);
+
+		var it = oh.getIterator(date);
+
+		var is_open = it.getState();
+		var unknown = it.getUnknown();
 
 		// still open in 15 minutes?
 		var soon = new Date(date.getTime() + 15*60000);
-		data[i].closing_soon = !oh.getState(soon);
+		data[i].closing_soon = false;
+		if (it.advance() && it.getDate().getTime() < soon.getTime() && it.getStateString(true) != 'closed')
+			data[i].closing_soon = true;
 
-		if (is_open) {
+		data[i].unknown = unknown;
+		if (is_open || unknown) {
 			open_entities.push(data[i]);
 		}
 	}
