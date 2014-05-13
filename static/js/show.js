@@ -12,10 +12,10 @@ var now = new Date();
 var updateFrequency = 1000 * 60; /* each minute */
 
 var cloudmade = {
-	day:		'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/997/256/{z}/{x}/{y}.png',
-	night:		'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/67367/256/{z}/{x}/{y}.png',
+	day:		'http://134.60.77.150/osm/{z}/{x}/{y}.png',
+	//night:	'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/67367/256/{z}/{x}/{y}.png',
 	//night:	'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/91953/256/{z}/{x}/{y}.png',
-	attribution:	'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade'
+	attribution:	'Map data &copy; 2014 OpenStreetMap contributors, Imagery &copy; 2014 OpenStreetMap contributors'
 };
 
 var ulm = {
