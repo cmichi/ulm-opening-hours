@@ -1,6 +1,6 @@
 var fs = require('fs');
 var express = require('express');
-var opening_hours = require('./lib/opening_hours.js/opening_hours.js');
+var opening_hours = require('opening_hours');
 
 var xmlParser = require('./data/parse_xml.js')
 var data = xmlParser.getData();
