@@ -43,7 +43,7 @@ and [npm](https://npmjs.org/).
 
 	# install the necessary dependencies from the package.json
 	$ npm install	
-	$ node server.js
+	$ node opening-hours.js
 
 Then open [http://localhost:3046/](http://localhost:3046).
 
@@ -58,7 +58,7 @@ Then open [http://localhost:3046/](http://localhost:3046).
  * Change the BoundingBox within `./data/export.sh` and adapt the map's
  center within the file `./static/js/show.js`.
  * Execute `$ ./data/export.sh > ./data/data.xml`.
- * Restart the server `$ node server.js` and the data should be displayed on [http://localhost:3046/](http://localhost:3046).
+ * Restart the server `$ node opening-hours.js` and the data should be displayed on [http://localhost:3046/](http://localhost:3046).
 
 
 # Known bugs
