@@ -57,7 +57,7 @@ Then open [http://localhost:3046/](http://localhost:3046).
 
  * Change the BoundingBox within `./data/export.sh` and adapt the map's
  center within the file `./static/js/show.js`.
- * Execute `$ ./data/export.sh > ./data/data.xml`.
+ * Execute `$ ./data/export.sh > ./data/data.xml`
  * Restart the server `$ node opening-hours.js` and the data should be displayed on [http://localhost:3046/](http://localhost:3046).
 
 
