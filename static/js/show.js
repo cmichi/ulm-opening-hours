@@ -11,11 +11,11 @@ var now = new Date();
 /* how often does the client pull new opening times? */
 var updateFrequency = 1000 * 60; /* each minute */
 
-var cloudmade = {
-	day:		'http://134.60.77.150/osm/{z}/{x}/{y}.png',
-	//night:	'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/67367/256/{z}/{x}/{y}.png',
-	//night:	'http://{s}.tile.cloudmade.com/1443dfdd3c784060aedbf4063cd1709b/91953/256/{z}/{x}/{y}.png',
-	attribution:	'Map data &copy; 2014 OpenStreetMap contributors, Imagery &copy; 2014 OpenStreetMap contributors'
+var token = 'pk.eyJ1IjoiY21pY2hpIiwiYSI6IjA2YjczOTNjOTEzMjQyNmI2NTQwMGJkOTJjNTk1YjRhIn0.CWm0aRE8abeIz9xnSmZ0Ew';
+var mapbox = {
+	day: 'https://{s}.tiles.mapbox.com/v4/cmichi.mkmjn570/{z}/{x}/{y}.png?access_token=' + token,
+	night: 'https://{s}.tiles.mapbox.com/v4/cmichi.mkndb820/{z}/{x}/{y}.png?access_token=' + token,
+	attribution: '&copy; OpenStreetMap &copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> (<a href="https://www.mapbox.com/map-feedback/">improve this map</a>)'
 };
 
 var ulm = {
@@ -25,18 +25,18 @@ var ulm = {
 
 var icons = {
 	day: {
-		open: "/img/day/marker-icon-green.png"
-		, open_retina: "/img/day/marker-icon@2x-green.png"
-		, closing: "/img/day/marker-icon-yellow.png"
-		, closing_retina: "/img/day/marker-icon@2x-yellow.png"
+		open: "./img/day/marker-icon-green.png"
+		, open_retina: "./img/day/marker-icon@2x-green.png"
+		, closing: "./img/day/marker-icon-yellow.png"
+		, closing_retina: "./img/day/marker-icon@2x-yellow.png"
 		, opacity: 1.0
 		, css: ""
 	}
 	, night: {
-		open: "/img/night/marker-icon-green.png"
-		, open_retina: "/img/night/marker-icon@2x-green.png"
-		, closing: "/img/night/marker-icon-yellow.png"
-		, closing_retina: "/img/night/marker-icon@2x-yellow.png"
+		open: "./img/night/marker-icon-green.png"
+		, open_retina: "./img/night/marker-icon@2x-green.png"
+		, closing: "./img/night/marker-icon-yellow.png"
+		, closing_retina: "./img/night/marker-icon@2x-yellow.png"
 		, opacity: 0.9
 		, css: "night"
 	}
@@ -70,7 +70,7 @@ $(function() {
 		, zoom: 14
 		, layers: tile_groups
 	});
-	tileLayer = L.tileLayer(cloudmade.day, {attribution: cloudmade.attribution}).addTo(map);
+	tileLayer = L.tileLayer(mapbox.day, {attribution: mapbox.attribution}).addTo(map);
 
 	legend = L.control();
 	legend.onAdd = function (map) {
@@ -151,7 +151,7 @@ function buildCtrls() {
 			+ "</a>"
 			+ "<a href='#' onclick='toggle_drop(this);'>" 
 			+ " (" + count + ")</a>"
-			+ "<img src='/img/arrow-left.png' alt='' onclick='toggle_drop(this);'"
+			+ "<img src='./img/arrow-left.png' alt='' onclick='toggle_drop(this);'"
 			+ " class='arrow' /></div>"
 			+ "<div class='dropbox' " + style + " id='drop'>" + groups_cnt[i].join('')
 			+ "</div></div>"
@@ -202,7 +202,7 @@ function getIcon(entity) {
 
 		, shadowSize: new L.Point(41, 41)
 		, shadowAnchor: [12, 41]
-		, shadowUrl : "/img/marker-shadow.png"
+		, shadowUrl : "./img/marker-shadow.png"
 	});
 }
 
@@ -234,7 +234,7 @@ function restorePreferences() {
 
 
 function pullNewEntries() {
-	$.getJSON('/get_entries', {ms: now.getTime()}, function(data) {
+	$.getJSON('./get_entries', {ms: now.getTime()}, function(data) {
 		receiveNewEntries(data)
 	});
 }
@@ -360,7 +360,7 @@ function updateTime(diff) {
 		, secs: now.getSeconds()
 	}
 
-	var edit_btn = "<img src='/img/edit.png' class='edit' "
+	var edit_btn = "<img src='./img/edit.png' class='edit' "
 		+ "alt='Bearbeiten' title='Dargestellten Zeitpunkt ändern' "
 		+ "onclick='javascript:toggle_picker();' "
 		+ "onmouseout='picker_mouse(false)' "
@@ -394,11 +394,11 @@ function toggle(el) {
 function toggle_drop(here) {
 	if ($(here).parent().parent().find(".dropbox").css('display') === "none") {
 		prefs_dropped[here.innerHTML] = true;
-		$(here).parent().parent().find("img").attr("src", "/img/arrow-down.png");
+		$(here).parent().parent().find("img").attr("src", "./img/arrow-down.png");
 		$(here).parent().parent().find(".plus").text("-");
 	} else {
 		prefs_dropped[here.innerHTML] = false;
-		$(here).parent().parent().find("img").attr("src", "/img/arrow-left.png");
+		$(here).parent().parent().find("img").attr("src", "./img/arrow-left.png");
 		$(here).parent().parent().find(".plus").text("+");
 	}
 
@@ -414,13 +414,13 @@ function adaptIconsToTime() {
 		if (icon.css === icons.night.css) return;
 			
 		icon = icons.night;
-		tileLayer.setUrl(cloudmade.night);
+		tileLayer.setUrl(mapbox.night);
 	} else {
 		/* do we need to change? may cause flickering.. */
 		if (icon.css === icons.day.css) return;
 
 		icon = icons.day;
-		tileLayer.setUrl(cloudmade.day);
+		tileLayer.setUrl(mapbox.day);
 	}
 	tileLayer.redraw();
 }
