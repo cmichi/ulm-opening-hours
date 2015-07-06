@@ -11,18 +11,33 @@ interface which displays opening times for many locations in your city.
 The data for this project is exported from the Open Street Map project on a
 regular basis. For more information on this see the key 
 [opening_hours](http://wiki.openstreetmap.org/wiki/Key:opening_hours).
+When I created this project (in early 2013) this was a reasonable approach, 
+but in the meantime better methods have surfaced. Some of them do not 
+require a regular export, but instead fetch the date straight from OSM on 
+each request (see e.g. [this application](https://github.com/ypid/opening_hours_map)).
 
 A public instance of this project is hosted on 
-[http://oeffnungszeiten.ulmApi.de](http://oeffnungszeiten.ulmApi.de).
+[http://ulm-oeffnungszeiten.creal.de/](http://ulm-oeffnungszeiten.creal.de).
 
 
-# ToDo Code
+## How it looks
+
+### During Day
+
+![Day](https://github.com/cmichi/ulm-opening-hours/raw/master/screenshots/0.jpg)
+
+### During Night
+
+![Night](https://github.com/cmichi/ulm-opening-hours/raw/master/screenshots/1.jpg)
+
+
+## ToDo Code
 
  * Marker Popup: better formatting of opening_hours
  * Change "We off" in some popups to a better readable label
 
 
-# ToDo OSM database
+## ToDo OSM database
 
  * Add data for: 
   * Hostels, bakeries, local post station, clubs
@@ -32,7 +47,7 @@ A public instance of this project is hosted on
  * Add lecture-free-time opening hours for uni related stuff (cafe, bistro, etc.)
 
 
-# Getting started
+## Getting started
 
 This project uses node.js as a server-side runtime environment.
 To run the project you need to install [nodejs](http://nodejs.org/) 
@@ -48,12 +63,12 @@ and [npm](https://npmjs.org/).
 Then open [http://localhost:3046/](http://localhost:3046).
 
 
-# Exporting fresh data from OSM
+## Exporting fresh data from OSM
 
 	$ ./data/export.sh > ./data/data.xml
 
 
-# Adapting to a different city
+## Adapting to a different city
 
  * Change the BoundingBox within `./data/export.sh` and adapt the map's
  center within the file `./static/js/show.js`.
@@ -61,14 +76,14 @@ Then open [http://localhost:3046/](http://localhost:3046).
  * Restart the server `$ node opening-hours.js` and the data should be displayed on [http://localhost:3046/](http://localhost:3046).
 
 
-# Known bugs
+## Known bugs
 
  * Once new content is fetched (~each minute), each popup is closed. This
  is due to each marker being recreated on a new fetch. Also the scrollbars
  within the category selection are set to the beginning.
 
 
-# Libraries & Icons
+## Libraries & Icons
 
  * [opening_hours.js](https://github.com/AMDmi3/opening_hours.js/)
  * [suncalc](https://github.com/mourner/suncalc)
@@ -81,7 +96,7 @@ Then open [http://localhost:3046/](http://localhost:3046).
  * [GitHub Buttons](https://github.com/mdo/github-buttons)
 
 
-# License
+## License
 
 The database file `./data/data.xml` is exported from the Open Street Map
 databse. It is made available under the Open Database License:
