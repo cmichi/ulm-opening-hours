@@ -13,22 +13,22 @@ regular basis. For more information on this see the key
 [opening_hours](http://wiki.openstreetmap.org/wiki/Key:opening_hours).
 When I created this project (in early 2013) this was a reasonable approach, 
 but in the meantime better methods have surfaced. Some of them do not 
-require a regular export, but instead fetch the date straight from OSM on 
-each request (see e.g. [this application](https://github.com/ypid/opening_hours_map)).
+require a regular export from OSM, but instead fetch the date straight from 
+OSM on each request (see e.g. [this application](https://github.com/ypid/opening_hours_map)).
 
 A public instance of this project is hosted on 
-[http://ulm-oeffnungszeiten.creal.de/](http://ulm-oeffnungszeiten.creal.de).
+[http://ulm-oeffnungszeiten.creal.de](http://ulm-oeffnungszeiten.creal.de).
 
 
 ## How it looks
 
 ### During Day
 
-![Day](https://github.com/cmichi/ulm-opening-hours/raw/master/screenshots/0.jpg)
+![Day](https://github.com/cmichi/ulm-opening-hours/raw/master/screenshots/0.png)
 
 ### During Night
 
-![Night](https://github.com/cmichi/ulm-opening-hours/raw/master/screenshots/1.jpg)
+![Night](https://github.com/cmichi/ulm-opening-hours/raw/master/screenshots/1.png)
 
 
 ## ToDo Code
