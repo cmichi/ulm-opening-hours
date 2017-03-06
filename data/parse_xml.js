@@ -7,7 +7,7 @@ var xpath = require('xpath')
 
 var xml = fs.readFileSync('./data/data.xml', 'utf-8');
 
-var doc = new dom().parseFromString(xml)    
+var doc = new dom().parseFromString(xml)
 var nodes = xpath.select("//node", doc);
 var ways = xpath.select("//way", doc);
 var relations = xpath.select("//relation", doc);
@@ -69,7 +69,7 @@ function parseWay(way_doc) {
 	/* problem:  lat/lon is missing.
 	   solution: search the first referenced node and get it */
 	var ref_nodes = xpath.select("//nd/@ref", way_doc);
-	if (ref_nodes == undefined || ref_nodes.length === 0) 
+	if (ref_nodes == undefined || ref_nodes.length === 0)
 		return undefined;
 
 	var j = 0;
@@ -85,7 +85,7 @@ function parseWay(way_doc) {
 		var new_way = way_doc.toString();
 		new_way = new_way.replace("<way ", "<node " + 'lat="' + lat + '"' + ' lon="' + lon + '" ');
 		new_way = new_way.replace("</way>", "</node>");
-		
+
 		var _new_doc = new dom().parseFromString(new_way);
 		var obj = getObj(_new_doc);
 
@@ -102,39 +102,39 @@ function parseWay(way_doc) {
 
 function getObj(new_doc) {
 	var xml_opening_hours = xpath.select("//tag[@k='opening_hours']/@v", new_doc);
-	if (xml_opening_hours == undefined || xml_opening_hours.length === 0) 
+	if (xml_opening_hours == undefined || xml_opening_hours.length === 0)
 		return undefined;
 
 	var xml_name = xpath.select("//tag[@k='name']/@v", new_doc);
-	if (xml_name == undefined || xml_name.length === 0) 
+	if (xml_name == undefined || xml_name.length === 0)
 		xml_name = xpath.select("//node/@id", new_doc);
 
 	var xml_amenity = xpath.select("//tag[@k='amenity']/@v", new_doc);
-	if (xml_amenity == undefined || xml_amenity.length === 0) 
+	if (xml_amenity == undefined || xml_amenity.length === 0)
 		xml_amenity = undefined;
 
 	var xml_shop = xpath.select("//tag[@k='shop']/@v", new_doc);
-	if (xml_shop == undefined || xml_shop.length === 0) 
+	if (xml_shop == undefined || xml_shop.length === 0)
 		xml_shop = undefined;
 
 	var xml_tourism = xpath.select("//tag[@k='tourism']/@v", new_doc);
-	if (xml_tourism == undefined || xml_tourism.length === 0) 
+	if (xml_tourism == undefined || xml_tourism.length === 0)
 		xml_tourism = undefined;
 
 	var xml_office = xpath.select("//tag[@k='office']/@v", new_doc);
-	if (xml_office == undefined || xml_office.length === 0) 
+	if (xml_office == undefined || xml_office.length === 0)
 		xml_office = undefined;
 
 	var xml_craft = xpath.select("//tag[@k='craft']/@v", new_doc);
-	if (xml_craft == undefined || xml_craft.length === 0) 
+	if (xml_craft == undefined || xml_craft.length === 0)
 		xml_craft = undefined;
 
 	var xml_leisure = xpath.select("//tag[@k='leisure']/@v", new_doc);
-	if (xml_leisure == undefined || xml_leisure.length === 0) 
+	if (xml_leisure == undefined || xml_leisure.length === 0)
 		xml_leisure = undefined;
 
 	var xml_id = xpath.select("//node/@id", new_doc);
-	if (xml_id == undefined || xml_id.length === 0) 
+	if (xml_id == undefined || xml_id.length === 0)
 		xml_id = undefined;
 
 	var xml_category = "other"; //xml_name[0].value;
@@ -156,4 +156,3 @@ function getObj(new_doc) {
 
 	return obj;
 }
-

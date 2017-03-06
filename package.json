@@ -5,9 +5,11 @@
   "private": true,
   "version": "0.0.1",
   "dependencies": {
+    "opening_hours": ">=2.1.6",
     "express": "3.0.x",
     "xpath": "0.0.x",
     "xmldom": "0.1.x",
-    "suncalc": "1.2.x"
+    "suncalc": "1.2.x",
+    "xmlhttprequest": ">=1.6.0"
   }
 }
