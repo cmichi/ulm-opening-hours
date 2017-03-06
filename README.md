@@ -96,6 +96,10 @@ Then open [http://localhost:3046/](http://localhost:3046).
  * [GitHub Buttons](https://github.com/mdo/github-buttons)
 
 
+## Contributors
+
+ * [Robin Schneider](https://github.com/cmichi/ulm-opening-hours/pull/4)
+
 ## License
 
 The database file `./data/data.xml` is exported from the Open Street Map
