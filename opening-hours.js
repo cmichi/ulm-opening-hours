@@ -22,9 +22,7 @@ app.get('/', function(req, res) {
 app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
 
-
 var server = require('http').createServer(app);
-
 
 function generateOpenEntities(date) {
 	var open_entities = [];
@@ -44,7 +42,7 @@ function generateOpenEntities(date) {
 		
 		var is_open = oh.getState(date);
 
-		// still open in 15 minutes?
+		/* still open in 15 minutes? */
 		var soon = new Date(date.getTime() + 15*60000);
 		data[i].closing_soon = !oh.getState(soon);
 
