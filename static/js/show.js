@@ -13,8 +13,8 @@ var updateFrequency = 1000 * 60; /* each minute */
 
 var token = 'pk.eyJ1IjoiY21pY2hpIiwiYSI6IjA2YjczOTNjOTEzMjQyNmI2NTQwMGJkOTJjNTk1YjRhIn0.CWm0aRE8abeIz9xnSmZ0Ew';
 var mapbox = {
-	day: 'https://{s}.tiles.mapbox.com/v4/cmichi.mkmjn570/{z}/{x}/{y}.png?access_token=' + token,
-	night: 'https://{s}.tiles.mapbox.com/v4/cmichi.mkndb820/{z}/{x}/{y}.png?access_token=' + token,
+	day: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=' + token,
+	night: 'https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token=' + token,
 	attribution: '&copy; OpenStreetMap &copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> (<a href="https://www.mapbox.com/map-feedback/">improve this map</a>)'
 };
 
